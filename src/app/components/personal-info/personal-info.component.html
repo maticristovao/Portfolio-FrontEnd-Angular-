@@ -1,18 +1,18 @@
 <section>
     <article class="about container-fluid" id="about">
         <div class="row">
-            <div class="photo col-3 col-lg-2">
+            <div class="photo col-3 col-lg-2 d-none d-md-block">
                 <img src="https://media.licdn.com/dms/image/C4E03AQF6eR6tIn7AJg/profile-displayphoto-shrink_200_200/0/1645728411396?e=1678320000&v=beta&t=5eu3aH59nmKS_Y9JrbCh0cVlV4f_0wvHC0RQLBYzmUA" alt="Personal picture">
             </div>
-            <div class="col-9 col-lg-10" >
+            <div class="col-12 col-md-9 col-lg-10" >
                 <div class="row head-info">
                     <div class="name-title col-12 col-sm-9 col-lg-10 col-xxl-8 mt-4">
                         <h1>Matías Cristovao</h1>
                         <h2><div class="d-inline-block">Full Stack Developer Jr </div><span class="d-none d-lg-inline-block"> - </span><div class="d-inline-block">Economics Student</div></h2>
                     </div>
-                    <div class="place col-sm-3 col-lg-2 col-xxl-4 mt-4 d-none d-sm-inline-block">
+                    <div class="place col-sm-2 col-lg-2 col-xxl-4 mt-4 d-none d-sm-inline-block">
                         <img class="img-fluid ub" src="https://ub.edu.ar/sites/default/files/inline-images/iso2022.jpg" alt="Universidad de Belgrano">
-                        <div class="d-none d-xxl-inline-block ms-2 text-center">Universidad de Belgrano</div>
+                        <div class="d-none d-xxl-inline-block ms-3 text-center">Universidad de Belgrano</div>
                     </div>
                 </div>
                 <div class="row other-info">
@@ -21,13 +21,13 @@
                     </div>
                     <div class="place col-sm-3 col-lg-2 col-xxl-4 d-none d-sm-inline-block">
                         <img class="img-fluid pwc " src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Logo-pwc.png" alt="Universidad de Belgrano">
-                        <div class="d-none d-xxl-inline-block ms-3 text-center">Price Waterhouse & Coopers</div>
+                        <div class="d-none d-xxl-inline-block ms-4 text-center">Price Waterhouse & Coopers</div>
                     </div>
                 </div>
                 <div class="row gap-3 mt-2 mt-sm-4 mt-md-4 mt-lg-2">
                     <button class="btn profile-btn btn-primary col-12 col-sm-3 col-md-3 col-lg-2 col-xl-2 col-xxl-2">Open to</button>
                     <button class="btn btn-outline-primary profile-btn col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3">Add profile article</button>
-                    <button class="btn btn-outline-light profile-btn col-md-1 col-lg-1 col-xl-1 col-xxl-1 d-none d-md-block" id="more">More</button>
+                    <button #asMore class="btn btn-outline-light profile-btn col-md-1 col-lg-1 col-xl-1 col-xxl-1 d-none d-md-block" id="more">{{moreContent}}</button>
                 </div>
             </div>
         </div>

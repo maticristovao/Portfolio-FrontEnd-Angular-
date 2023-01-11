@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,7 +7,7 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener, Afte
 })
 // AfterViewInit
 
-export class NavigationBarComponent implements OnInit, AfterViewInit {
+export class NavigationBarComponent implements OnInit {
   navLinks = document.getElementsByClassName('nav-link');
   outsideClick:boolean = false;
   // mediaMenu = document.getElementById('media-menu');
@@ -57,10 +57,6 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
     this.giveDataContent(this.navLinks);
     $('.fab').on('mouseenter', this.bounce);
     $('.fab').on('mouseleave', this.notBounce);
-  }
-
-  ngAfterViewInit(): void {
-    
   }
 }
 
