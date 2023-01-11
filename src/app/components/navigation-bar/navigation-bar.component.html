@@ -1,0 +1,67 @@
+<nav #asNav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-0">
+    <div><i class="fa-solid fa-terminal ms-2"></i></div><a class="navbar-brand mx-3 my-0 py-0" href="#">#YoProgramo</a>
+    <button #asNavToggler class="navbar-toggler me-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="blur()">
+            <svg fill="var(--button-color)" class="hamburger" viewBox="0 0 100 100" width="30">
+                <rect class="line top" 
+                    width="80" height="10"
+                    x='10'
+                    y="25"
+                    rx="5">
+                </rect>
+
+                <rect class="line middle" 
+                    width="80" height="10"
+                    x='10'
+                    y="45"
+                    rx="5">
+                </rect>
+
+                <rect class="line bottom" 
+                    width="80" height="10"
+                    x='10'
+                    y="65"
+                    rx="5">
+                </rect>
+            </svg>
+    </button> 
+  
+    <div #asNavMenu class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mt-4 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Projects</a>
+            </li>
+            <li class="nav-item">
+                <a #asMediaCollapse class="nav-link dropdown-toggle" href="#media-menu" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="media-menu" data-bs-toggle="true">
+                  Find me
+                </a>
+                <div #asMediaMenu class="collapse container" id="media-menu">
+                    <div class="card-icon mt-lg-3 mx-1">
+                        <a href="https://www.linkedin.com/in/mat%C3%ADas-cristovao-5b2265216/" target="_blank" rel="noreferrer noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <div class="card-icon mt-lg-3 mx-1">
+                        <a href="https://github.com/maticristovao" target="_blank" rel="noreferrer noopener">
+                            <i class="fab fa-github"></i>
+                        </a> 
+                    </div>
+                    <div class="card-icon mt-lg-2 mb-lg-1 mx-1">
+                        <a href="https://codepen.io/maticristovao" target="_blank" rel="noreferrer noopener">
+                            <i class="fab fa-codepen"></i>
+                        </a> 
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <button class="btn btn-outline-success my-2 my-sm-3 mx-3 px-4 py-1" id="login-btn">Log in</button>
+    </div>
+</nav>
