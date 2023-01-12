@@ -1,0 +1,12 @@
+{
+  "user":{
+      "name": "Matías Cristovao",
+      "title": ["Full Stack Developer Jr", "Economics Student"],
+      "location": "Buenos Aires (Argentina)",
+      "phone": {
+        "number":1139458436,
+        "type":"Mobile"
+      },
+      "mail":"maticristovao@hotmail.com"
+    }
+}

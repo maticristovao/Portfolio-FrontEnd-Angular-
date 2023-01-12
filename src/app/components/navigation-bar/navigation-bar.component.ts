@@ -9,8 +9,6 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener } fro
 
 export class NavigationBarComponent implements OnInit {
   navLinks = document.getElementsByClassName('nav-link');
-  outsideClick:boolean = false;
-  // mediaMenu = document.getElementById('media-menu');
 
   @ViewChild('asNav') nav!:ElementRef;
   @ViewChild('asNavMenu') navMenu!:ElementRef;
@@ -55,8 +53,8 @@ export class NavigationBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.giveDataContent(this.navLinks);
-    $('.fab').on('mouseenter', this.bounce);
-    $('.fab').on('mouseleave', this.notBounce);
+    $('.card-icon .fab').on('mouseenter', this.bounce);
+    $('.card-icon .fab').on('mouseleave', this.notBounce);
   }
 }
 

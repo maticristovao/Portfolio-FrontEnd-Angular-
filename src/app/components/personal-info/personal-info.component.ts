@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Person } from 'src/app/Person';
+import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -8,13 +10,14 @@ import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular
 export class PersonalInfoComponent implements OnInit{
   @ViewChild('asMore') more!:ElementRef;
   moreContent!:string;
+  personalInfo!:any;
 
   @HostListener('window:resize')
   onResize() {
     this.defineContent();
   }
 
-  constructor(){
+  constructor(private personalData:PersonalInfoService){
     this.defineContent();
   }
 
@@ -27,6 +30,8 @@ export class PersonalInfoComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    
+    this.personalData.getData().subscribe(data => {
+      this.personalInfo = data;
+    });
   }
 }

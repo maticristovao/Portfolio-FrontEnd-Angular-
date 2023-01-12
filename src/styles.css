@@ -138,15 +138,48 @@ div.card-icon i{
     text-indent: -999px;
     background-color: rgba(255,255,255,.5);
     border-radius: 400px;
+    position: relative;
 }
 
 .carousel-indicators li:not(.active):hover {
     background-color: rgba(255, 255, 255, 0.664);
     cursor: pointer;
 }
-.carousel-indicators li.active{
-    background-color: #fff;
+
+li.indicator::before{
+    content:'';
+    background-color:#23b3e4;
+    position: absolute;
+    height:inherit;
+    width:0%;
+    z-index:564654;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    border-radius: inherit;
 }
+
+@keyframes fillBar{
+    0%{
+        width:0%;
+    }
+    100%{
+        width:100%;
+    }
+}
+.carousel-indicators li.active::before{
+    animation: fillBar linear 7.8s .2s;
+}
+
+.carousel-item {
+    transition: transform .4s ease-in-out;
+  }
+  
+  .carousel-fade .active.carousel-item-start,
+  .carousel-fade .active.carousel-item-end {
+    transition: opacity .1s .4s;
+  }
 a span.carousel-ctrl-icon{
     font-size: 4vw;
     opacity: .2;
@@ -550,4 +583,68 @@ article{
         height: 55px !important;
         padding-bottom: 20px !important;
     }
+}
+
+.modal-backdrop{
+    opacity:0.75 !important;
+}
+
+.modal-content{
+    background-color: #212529;
+    color:white;
+    border-radius: 10px;
+    padding: 10px;
+    /* min-width:600px; */
+}
+@media screen and (width>576px) {
+    .modal-content{
+        min-width: 650px;
+    }
+}
+.modal-header .modal-title{
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.719);
+}
+
+.modal-header .close{
+    font-size: 25px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.719);
+    width: 40px;
+    height: 40px;
+    border:3px solid transparent;
+    transition: color ease-in-out .3s,
+                border ease-in-out .3s;
+}
+.modal-header .close:hover, .modal-header .close:focus{
+    border:3px solid #23b3e4;
+    color:#23b3e4;
+    outline: none;
+}
+
+.modal-body{
+    font-size: 20px;
+}
+
+.modal-body .body-head{
+    font-size: 25px;
+}
+
+.modal-body p.label{
+    font-weight: bolder;
+    color: #23b3e4;
+    font-size: 22.5px;
+}
+.modal-body p i{
+    color: #23b3e4;
+}
+
+.modal-body p a{
+    text-decoration: none;
+    color: white;
+    transition: color linear .2s;
+}
+.modal-body p a:hover, .modal-body p a:focus{
+    color: #0d6efd;
+    outline: none;
 }

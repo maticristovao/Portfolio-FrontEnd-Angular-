@@ -6,17 +6,20 @@ import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ContactModalComponent } from './components/contact-modal/contact-modal.component'
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
     HeaderComponent,
-    PersonalInfoComponent
+    PersonalInfoComponent,
+    ContactModalComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

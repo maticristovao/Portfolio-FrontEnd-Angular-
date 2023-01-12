@@ -7,8 +7,8 @@
             <div class="col-12 col-md-9 col-lg-10" >
                 <div class="row head-info">
                     <div class="name-title col-12 col-sm-9 col-lg-10 col-xxl-8 mt-4">
-                        <h1>Matías Cristovao</h1>
-                        <h2><div class="d-inline-block">Full Stack Developer Jr </div><span class="d-none d-lg-inline-block"> - </span><div class="d-inline-block">Economics Student</div></h2>
+                        <h1>{{personalInfo.name}}</h1>
+                        <h2><div class="d-inline-block">{{personalInfo.title[0]}} </div><span class="d-none d-lg-inline-block"> - </span><div class="d-inline-block">{{personalInfo.title[1]}}</div></h2>
                     </div>
                     <div class="place col-sm-2 col-lg-2 col-xxl-4 mt-4 d-none d-sm-inline-block">
                         <img class="img-fluid ub" src="https://ub.edu.ar/sites/default/files/inline-images/iso2022.jpg" alt="Universidad de Belgrano">
@@ -17,7 +17,8 @@
                 </div>
                 <div class="row other-info">
                     <div class="info col-12 col-sm-9 col-lg-10 col-xxl-8 align-self-end">
-                        <p><i class="fa-solid fa-location-dot me-2"></i> Buenos Aires (Argentina) <span><a href="#">Contact info</a></span></p>
+                        <p><i class="fa-solid fa-location-dot me-2"></i> {{personalInfo.location}} <span><a type="button" data-toggle="modal" data-target="#exampleModalLong">Contact info</a></span></p>
+                        <app-contact-modal name="{{personalInfo.name}}" phoneNum="{{personalInfo.phone.number}}" phoneType="{{personalInfo.phone.type}}" mail="{{personalInfo.mail}}" ></app-contact-modal>
                     </div>
                     <div class="place col-sm-3 col-lg-2 col-xxl-4 d-none d-sm-inline-block">
                         <img class="img-fluid pwc " src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Logo-pwc.png" alt="Universidad de Belgrano">
