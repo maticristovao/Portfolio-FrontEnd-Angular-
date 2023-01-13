@@ -7,14 +7,22 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { HeaderComponent } from './components/header/header.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ContactModalComponent } from './components/contact-modal/contact-modal.component'
+import { ContactModalComponent } from './components/contact-modal/contact-modal.component';
+import { AboutComponent } from './components/about/about.component';
+import { EducationComponent } from './components/education/education.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { SkillsComponent } from './components/skills/skills.component'
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
     HeaderComponent,
     PersonalInfoComponent,
-    ContactModalComponent
+    ContactModalComponent,
+    AboutComponent,
+    EducationComponent,
+    ExperienceComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,

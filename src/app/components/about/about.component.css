@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@700&display=swap');
+
+
+.card {
+	width: 1200px;
+	background:transparent;
+    border:none;
+	height:256px;
+}
+
+.card_content {
+    color:grey;
+	text-align: center;
+	position: relative;
+	padding: 5em;
+	transition: transform 4s;
+	transform-style: preserve-3d;
+}
+
+.card:hover .card_content {
+	transform: rotateY(0.5turn);
+}
+
+.card_front,
+.card_back {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 8em 4em;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+	display:grid;
+	align-content:center;
+	border-radius:10px;
+    background:#212529;
+}
+.card_back{
+    padding: 8em 0em;
+    transform: rotateY(0.5turn);
+}
+
+@keyframes borderAnimate{
+	0%{
+		width:0%;
+	}
+	33%{
+		width:30%;
+	}
+	50%{
+		width:30%;
+	}
+	83%{
+		width:0%
+	}
+	100%{
+		width:0%;
+	}
+}
+.card_front::after {
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 3em; 
+	border-top: 4px solid #23b3e4;
+	transform:translateZ(2rem);
+	animation: borderAnimate 5s infinite;
+}
+
+.card_front::before {
+	position: absolute;
+	content: "";
+	top: 50%;
+	right: 3em;
+	border-top: 4px solid #23b3e4;
+	transform:translateZ(2rem);
+	animation: borderAnimate 5s infinite;
+}
+
+.card:hover .card_front::after, .card:hover .card_front::before{
+	animation-play-state:paused;
+}
+
+.card_title {
+	font-size: 3rem;
+	transform: translateZ(2rem);
+    color:#23b3e4;
+    text-transform: uppercase;
+    font-family: 'Averia Serif Libre', cursive;
+}
+.card_subtitle {
+	transform: translateZ(2rem);
+    font-weight: 500;
+}
+.card_body {
+	transform: translateZ(2rem);
+	text-align:center;
+	font-size:1.5em;
+    color:rgba(255, 255, 255, 0.705);
+    border:2px solid #23b3e4;
+    padding:2em;
+    margin: 0 1.2em;
+}

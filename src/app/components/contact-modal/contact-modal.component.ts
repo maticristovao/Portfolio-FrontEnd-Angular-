@@ -10,5 +10,4 @@ export class ContactModalComponent {
 @Input() mail!:string;
 @Input() phoneNum!:string;
 @Input() phoneType!:string;
-
 }
