@@ -1,0 +1,206 @@
+.photo-title{
+    text-transform:uppercase;
+    font-size: 2vw;
+    font-family: 'Averia Serif Libre', cursive;
+    padding: 0;
+}
+.photo-btn{
+    font-size: 1.1vw;
+    padding:.4vw .8vw;
+    margin:0;
+    /* background-color: rgb(226, 226, 226); */
+    font-weight: bold;
+    border: .15vw solid;
+    border-radius: 500px;
+    text-transform: uppercase;
+}
+.photo-btn:not(:hover){
+    background-color: rgb(226, 226, 226);
+}
+
+.carousel-img{
+    filter: grayscale(100%);
+    opacity: 80%;
+    height:55vw;
+}
+.carousel{
+    display: block;
+    position:relative;
+}
+.carousel-indicators{
+    position: absolute;
+    right: 0;
+    bottom: 3%;
+    left: 0;
+    z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 0;
+    margin: 0% 15%;
+    list-style: none;
+}
+.carousel-indicators li {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 4vw;
+    height: .3vw;
+    margin:0 .3vw;
+    text-indent: -999px;
+    background-color: rgba(255,255,255,.5);
+    border-radius: 400px;
+    position: relative;
+}
+
+.carousel-indicators li:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.664);
+    cursor: pointer;
+}
+
+li.indicator::before{
+    content:'';
+    background-color:#23b3e4;
+    position: absolute;
+    height:inherit;
+    width:0%;
+    z-index:564654;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    border-radius: inherit;
+}
+
+@keyframes fillBar{
+    0%{
+        width:0%;
+    }
+    100%{
+        width:100%;
+    }
+}
+.carousel-indicators li.active::before{
+    animation: fillBar linear 7.8s .2s;
+}
+
+.carousel-item {
+    transition: transform .4s ease-in-out;
+  }
+  
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+    transition: opacity .1s .4s;
+  }
+a span.carousel-ctrl-icon{
+    font-size: 4vw;
+    opacity: .2;
+    transition: opacity ease-in-out .5s;
+}
+.carousel-ctrl:hover .carousel-ctrl-icon{
+    opacity: 100%;
+}
+a.carousel-ctrl{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    text-decoration: none;
+}
+a.carousel-ctrl:not(:hover):focus .carousel-ctrl-icon{
+    color: #afafaf;
+}
+.carousel-caption{
+    margin:0 !important;
+}
+.carousel-caption .row{
+    width:67vw;
+    margin: 0.4% 0.4% 5vw 0.4% !important;
+}
+.name-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 90%;
+}
+.logo{
+    z-index:2;
+    font-family: 'Poppins', sans-serif;
+    font-size:5vw;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    --fa-animation-duration: 4s; 
+    font-weight: 600;
+    backdrop-filter: contrast(30%);
+    padding:.5vw 1vw .5vw 0vw;
+    border-radius: 5px;
+    margin-right: 0 ;
+    transform: rotate('90deg');
+    transition: border-radius ease-in-out .3s .01s;
+
+}
+.logo span{
+    content:"Matias";
+    color:#3dbde7;
+    letter-spacing: 0px;
+    padding:.5vw 0 .5vw 1vw ;
+    margin-right:2px ;
+    
+}
+.logo::after{
+    position:absolute;
+    width: 100%;
+    height: 122%;
+    content:'';
+    z-index:2;
+    top: -11%;
+    bottom: 0;
+    right: auto;
+    left: 0;
+    border-left:4px solid #23b3e4;
+    border-right:4px solid #23b3e4;
+    border-radius: 5px;
+    transition: width ease-in-out .3s,
+                left ease-in-out .3s;
+    
+    
+}
+.logo::before{
+    position:absolute;
+    width: 104%;
+    height: 100%;
+    content:'';
+    z-index:2;
+    top: 0%;
+    bottom: 0;
+    right: auto;
+    left: -2%;
+    border-top:4px  solid #23b3e4;
+    border-bottom:4px  solid #23b3e4;
+    border-radius: 5px;
+    transition: height ease-in-out .3s,
+                top ease-in-out .3s;
+}
+
+.logo:hover{
+    border-radius: 2.3vw;
+}
+
+.logo:hover::after{
+    width:98%;
+    left:1%;
+}
+.logo:hover::before{
+    height:90%;
+    top:5%;
+}
+
+.carousel-item{
+    transition: transform 1s ease-in-out;
+}

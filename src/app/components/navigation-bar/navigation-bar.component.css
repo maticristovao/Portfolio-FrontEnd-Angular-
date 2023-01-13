@@ -1,0 +1,214 @@
+div.card-icon{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+div.card-icon a{
+    overflow: visible;
+    border-radius: 50%;
+    text-decoration: none;
+    height:fit-content;
+    width:fit-content;
+}
+div.card-icon i{
+    color: #23b3e4;
+    width: 45px;
+    height: 45px;
+    font-size: 23px;
+    padding:.5rem;
+    border: #23b3e4 solid 2px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-btn{
+    color:#23b3e4;
+    border-color: #23b3e4;
+    border-width: 2px;
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 7px;
+    padding:6px 27.5px !important;
+    font-family: 'Poppins', sans-serif;
+}
+#login-btn:hover{
+    color:white;
+    background-color: #23b3e4;
+    border-color: white
+}
+#login-btn:focus{
+    box-shadow: rgb(35 179 228 / 50%) 0px 0px 0px 0.25rem;
+}
+#login-btn:active:focus{
+    color:white !important;
+    box-shadow: rgb(35 179 228 / 50%) 0px 0px 0px 0.25rem;
+}
+.nav-item{
+    margin: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    font-size: 20px;
+}
+.nav-link{
+    transition: color ease-in-out .3s;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.nav-link::before{
+    position:absolute;
+    content: attr(data-content);
+    top:40;
+    left:1;
+    color:#23b3e4 !important;
+    overflow: hidden;
+    transition: width 0.45s linear;
+    transition-delay: 0.1s;
+    width:0;
+    white-space: nowrap;
+    text-decoration: underline #23b3e4;
+}
+a.nav-link:hover, a.nav-link:focus{
+    color: rgba(255,255,255,.55) !important;
+}
+a.nav-link:hover::before,a.nav-link:focus::before{
+    width:100%;
+}
+a.nav-link:hover::after,a.nav-link:focus::after{
+    border-color:#23b3e4 transparent transparent transparent;
+}
+li.nav-item.active a.nav-link{
+    color:#23b3e4;
+    font-weight: 600;
+}
+.dropdown-item{
+    text-align: center;
+}
+
+.navbar-brand{
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #23b3e4 !important;
+    position: relative;
+    font-weight: 600;
+}
+i.fa-terminal{
+    color:#23b3e4;
+    background-color: rgba(0, 0, 0, 0.342);
+    padding:.4rem .8rem;
+    border-radius: 10%;
+    font-size:1.3rem
+}
+.navbar-toggler{
+    border:none;
+    --button-color:#23b3e4;
+    transition: transform .2s linear;
+}
+.navbar-toggler:focus:not(:focus-visible), .navbar-toggler:focus-visible{
+    box-shadow: none;
+}
+.navbar-toggler:hover, .navbar-toggler:focus{
+    transform: translateY(-5%);
+    --button-color:#40caf8;
+}
+
+.navbar-toggler .line{
+    transform-origin: center;
+    transition: y .2s ease-in .2s,
+                rotate .2s ease-in,
+                opacity 0s ease-in .2s;
+}
+
+.navbar-toggler[aria-expanded='true'] .line{
+    transition: y .2s ease-in,
+                rotate .2s ease-in .2s,
+                opacity 0s ease-in .2s;
+}
+
+
+.navbar-toggler[aria-expanded='true'] :is(.top, .bottom){
+    y:45;
+}
+
+.navbar-toggler[aria-expanded='true'] .top{
+    rotate:45deg;
+}
+
+.navbar-toggler[aria-expanded='true'] .bottom{
+    rotate:-45deg;
+}
+
+.navbar-toggler[aria-expanded='true'] .middle{
+    opacity:0;
+}
+#media-menu{
+    position:absolute;
+    top: 80%;
+    left:auto;
+    right: 150px;
+    width:140px;
+    backdrop-filter: blur(100px);
+}
+
+@media screen and (width<992px){
+    #media-menu{
+        position:fixed;
+        top:250px;
+        left:110px;
+        right: auto;
+    }
+    #media-menu.show, #media-menu.collapsing{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: fit-content;
+    }
+    div.card-icon i{
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+    .dropdown-toggle::after{
+        transition: vertical-align ease-in-out 0.3s,
+                transform ease-in-out 0.3s,
+                color ease-in-out 0.3s,
+                border-color linear .1s .45s;
+                transform-origin: center;
+                        
+    }
+    .dropdown-toggle[aria-expanded='true']:after{
+        vertical-align: 0.2em;
+        transform: rotate(-90deg);
+        color: #23b3e4;
+    }
+}
+
+@media screen and (width>=992px){
+    #media-menu.show, #media-menu.collapsing{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-wrap: wrap;
+        border-radius: 400px;
+    }
+    .dropdown-toggle::after{
+        transition: vertical-align ease-in-out 0.3s 0.2s,
+                transform ease-in-out 0.3s 0.2s,
+                color ease-in-out 0.3s,
+                border-color linear .1s .45s;
+                transform-origin: center;
+                        
+    }
+    .dropdown-toggle[aria-expanded='true']:after{
+        transform: rotateX(180deg);
+        color: #23b3e4;
+        vertical-align: 0.525em;
+    }
+}

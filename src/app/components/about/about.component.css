@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@700&display=swap');
-
-
 .card {
-	width: 1200px;
 	background:transparent;
     border:none;
-	height:256px;
+	height:288px;
 }
 
 .card_content {
@@ -13,7 +9,7 @@
 	text-align: center;
 	position: relative;
 	padding: 5em;
-	transition: transform 4s;
+	transition: transform 3.5s ease-in-out;
 	transform-style: preserve-3d;
 }
 
@@ -28,7 +24,7 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	padding: 8em 4em;
+	padding: 9em 4em;
 	backface-visibility: hidden;
 	transform-style: preserve-3d;
 	display:grid;
@@ -37,19 +33,36 @@
     background:#212529;
 }
 .card_back{
-    padding: 8em 0em;
+    padding: 9em 0em;
     transform: rotateY(0.5turn);
 }
 
-@keyframes borderAnimate{
+@keyframes borderAnimateLarge{
 	0%{
 		width:0%;
 	}
 	33%{
-		width:30%;
+		width:21vw;
 	}
 	50%{
-		width:30%;
+		width:21vw;
+	}
+	83%{
+		width:0%
+	}
+	100%{
+		width:0%;
+	}
+}
+@keyframes borderAnimateSmall{
+	0%{
+		width:0%;
+	}
+	33%{
+		width:18vw;
+	}
+	50%{
+		width:18vw;
 	}
 	83%{
 		width:0%
@@ -65,7 +78,7 @@
 	left: 3em; 
 	border-top: 4px solid #23b3e4;
 	transform:translateZ(2rem);
-	animation: borderAnimate 5s infinite;
+	animation: borderAnimateLarge 5s infinite;
 }
 
 .card_front::before {
@@ -75,7 +88,7 @@
 	right: 3em;
 	border-top: 4px solid #23b3e4;
 	transform:translateZ(2rem);
-	animation: borderAnimate 5s infinite;
+	animation: borderAnimateLarge 5s infinite;
 }
 
 .card:hover .card_front::after, .card:hover .card_front::before{
@@ -83,7 +96,7 @@
 }
 
 .card_title {
-	font-size: 3rem;
+	font-size: 3.5rem;
 	transform: translateZ(2rem);
     color:#23b3e4;
     text-transform: uppercase;
@@ -99,6 +112,49 @@
 	font-size:1.5em;
     color:rgba(255, 255, 255, 0.705);
     border:2px solid #23b3e4;
-    padding:2em;
-    margin: 0 1.2em;
+    padding:.5em;
+    margin: 1.2em;
+	height: 100% !important;
+}
+
+@media screen and (width<=832px) {
+	.card_back, .card_front{
+		padding-top: 10em;
+		padding-bottom: 10em;
+	}
+	.card_front::after {
+		left: 2em; 
+	}
+	
+	.card_front::before {
+		right: 2em;
+	}
+	.card_front::after, .card_front::before{
+		animation: borderAnimateSmall 5s infinite;
+	}
+}
+@media screen and (width<=744px) {
+	.card_body{
+		border:none;
+		padding: 0;
+	}
+	
+}
+@media screen and (width<=630px) {
+	.card_front::after, .card_front::before{
+		width:12vw;
+		animation:none;
+	}
+	
+}
+.small-version h3 {
+	font-size: 2rem;
+    color:#23b3e4;
+    text-transform: uppercase;
+    font-family: 'Averia Serif Libre', cursive;
+}
+
+.small-version p{
+	font-size:1em;
+    color:rgba(255, 255, 255, 0.705);
 }
