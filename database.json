@@ -12,6 +12,23 @@
         "type":"Phone"
       },
       "mail":"maticristovao@hotmail.com",
-      "about":"I am a proactive, responsible and detailed-oriented person. I like continuous improvement; always looking for ways to change and develop current systems, methods, and results. In addition, I enjoy lifelong learning and feel grateful for every opportunity to acquire knowledge and skills in order to enhance my future career."
+      "about":"I am a proactive, responsible and detailed-oriented person. I like continuous improvement; always looking for ways to change and develop current systems, methods, and results. In addition, I enjoy lifelong learning and feel grateful for every opportunity to acquire knowledge and skills in order to enhance my future career.",
+      "education":{
+        "economics":{
+          "title":"Bachelor's degree in economics",
+          "institution":"University of Belgrano",
+          "period":"2022-2025"
+        },
+        "programming":{
+          "title":"Yo programo",
+          "institution":"Argentina Programa",
+          "period":"2022-2023"
+        },
+        "school":{
+          "title":"Senior School",
+          "institution":"Jesus and Mary School",
+          "period":"2015-2021"
+        }
+      }
     }
 }

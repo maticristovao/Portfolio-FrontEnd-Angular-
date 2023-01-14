@@ -8,6 +8,8 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
 })
 export class AboutComponent implements OnInit{
   about!:string;
+  existence:boolean=true;
+
   constructor(private personalData:PersonalInfoService){}
 
   ngOnInit(): void {

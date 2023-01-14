@@ -1,0 +1,78 @@
+/* body{
+    overflow: hidden;
+} */
+section.education{
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.education .cards{
+    display: flex;
+    align-items: center;
+    /* max-width: 800px;
+    width:calc(100%-100px);
+    height: 400px; */
+    width:60vw;
+    height: 90%;
+    /* background-color: red; */
+    
+}
+
+.education-card{
+    position: relative; 
+    /* min-width: 60px; */
+    /* background:red; */
+    /* overflow: hidden; */
+    margin:5px;
+    background-size: cover;
+    background-position: center;
+    cursor:pointer;
+    border-radius: 30px;
+    /* background-image: url(https://www.bbva.com/wp-content/uploads/2017/08/coins-431535_1920-e1503055617244.jpg);*/
+        background-color: rgb(10, 10, 10);
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg); 
+    background-repeat: no-repeat;
+    flex:0.5;
+    transition: flex 0.5s ease-in;
+    height:100%
+}
+
+.label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50px;
+    height:50px !important;
+    color:#23b3e4;
+    font-size:50px;
+    border-radius: 50%;
+    /* background-color: black; */
+    font-family: 'Averia Serif Libre';
+    font-weight: 600;
+    position:absolute;
+    right: 0;
+    height:40px;
+    opacity: 0.5;
+    transition: all ease-in-out .5s;
+}
+
+.education-card.active .label{
+    bottom:20px;
+    left:50px;
+    height:300px !important;
+    border-radius: 20px;
+    font-size: 250px;
+    width:70px;
+    opacity: 1;
+}
+
+.education-card.active{
+    flex:5;
+}
+
+.education-card:not(.active) .label{
+    bottom:10px;
+    left:10px;
+}
