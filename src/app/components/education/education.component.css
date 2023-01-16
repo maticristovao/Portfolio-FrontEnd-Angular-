@@ -1,78 +1,200 @@
 /* body{
     overflow: hidden;
 } */
-section.education{
+section.education {
     height: 600px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.education .cards{
+  }
+  .education .cards {
     display: flex;
     align-items: center;
-    /* max-width: 800px;
-    width:calc(100%-100px);
-    height: 400px; */
-    width:60vw;
+    width: 80vw;
     height: 90%;
-    /* background-color: red; */
-    
-}
-
-.education-card{
-    position: relative; 
-    /* min-width: 60px; */
-    /* background:red; */
-    /* overflow: hidden; */
-    margin:5px;
+  }
+  
+  .education-card {
+    position: relative;
+    margin: 5px;
     background-size: cover;
     background-position: center;
-    cursor:pointer;
+    cursor: pointer;
     border-radius: 30px;
-    /* background-image: url(https://www.bbva.com/wp-content/uploads/2017/08/coins-431535_1920-e1503055617244.jpg);*/
-        background-color: rgb(10, 10, 10);
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg); 
+    background-color: rgb(10, 10, 10);
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg);
     background-repeat: no-repeat;
-    flex:0.5;
+    flex: 0.5;
     transition: flex 0.5s ease-in;
-    height:100%
-}
-
-.label{
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .label {
     display: flex;
     justify-content: center;
     align-items: center;
-    width:50px;
-    height:50px !important;
-    color:#23b3e4;
-    font-size:50px;
+    width: 50px;
+    height: 50px !important;
+    color: #23b3e4;
+    font-size: 50px;
     border-radius: 50%;
-    /* background-color: black; */
-    font-family: 'Averia Serif Libre';
+    font-family: "Averia Serif Libre";
     font-weight: 600;
-    position:absolute;
+    position: absolute;
     right: 0;
-    height:40px;
     opacity: 0.5;
-    transition: all ease-in-out .5s;
-}
-
-.education-card.active .label{
-    bottom:20px;
-    left:50px;
-    height:300px !important;
+    transition: all ease-in-out 0.5s;
+  }
+  
+  .education-card.active .label {
+    bottom: 20px;
+    left: 50px;
+    height: 300px !important;
     border-radius: 20px;
     font-size: 250px;
-    width:70px;
+    width: 70px;
     opacity: 1;
-}
+  }
+  
+  .education-card.active {
+    flex: 5;
+  }
+  
+  .education-card:not(.active) .label {
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .info {
+    color: white;
+    background: #23b3e4;
+    float: right;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(calc(100% - 42.3vw) 0, 100% 0, 100% 100%, calc(100% - 13vw) 100%);
+    shape-outside: polygon(calc(100% - 42.3vw) 0, 100% 0, 100% 100%, calc(100% - 13vw) 100%);
+    text-align: right;
+    padding-right: 4vw;
+    padding-top:20px;
+    transition: opacity 0.5s ease-in-out .3s;
+  }
+  
+  .active .info {
+    opacity: 1;
+  }
+  
+  .education-card:not(.active) .info {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  h1 {
+    font-size: 50px;
+    color: black;
+    text-transform: capitalize;
+    font-weight: 900;
+    font-family: "Averia Serif Libre" !important;
+  }
+  
+  h3 {
+    font-size: 25px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  h5 {
+    font-size: 20px;
+    font-family: "Helvetica", sans-serif;
+  }
+  
+  .icon {
+    background: white;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border-radius: 50%;
+    color: #23b3e4;
+    opacity: 0.5;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .education-card.active .icon {
+    opacity: 1;
+    top: -50px;
+    left: -10px;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 180px;
+    font-size: 60px;
+    border-top-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+  }
+  
+  
+  .education-card .icon fa-icon {
+    transition: padding-top ease-in-out 0.5s;
+  }
 
-.education-card.active{
-    flex:5;
-}
-
-.education-card:not(.active) .label{
-    bottom:10px;
-    left:10px;
-}
+  .education-card.active .icon fa-icon {
+    padding-top: 40px;
+  }
+  
+  
+  @media screen and (width<1020px){
+    .education .cards{
+      width:95vw;
+    }
+  }
+  @media screen and (width<=868px) {
+    .education-card + .education-card {
+      display: none;
+    }
+    
+    .info{
+      clip-path: polygon(calc(100% - 62.3vw) 0, 100% 0, 100% 100%, calc(100% - 15vw) 100%);
+    }
+  }
+  
+  @media screen and (width<=650px){
+    .info{
+      clip-path:none;
+      background:none;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      flex-direction:column;
+      justify-content:flex-start !important;
+      padding-top:105px;
+    }
+    h1{
+      color:#23b3e4;
+      font-size:40px;
+    }
+    .education-card.active .icon{
+      width:100px;
+      height:100px;
+      top:0;
+      left:0;
+      border-top-left-radius:0;
+      font-size:50px;
+    }
+    .education-card.active .icon fa-icon{
+      padding:0;
+    }
+    .education-card.active .label{
+      font-size:150px;
+      bottom:-20px;
+      left:20px;
+    }
+    
+  }
