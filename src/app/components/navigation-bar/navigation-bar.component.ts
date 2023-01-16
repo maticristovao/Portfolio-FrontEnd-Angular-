@@ -5,7 +5,6 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener } fro
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.css']
 })
-// AfterViewInit
 
 export class NavigationBarComponent implements OnInit {
   navLinks = document.getElementsByClassName('nav-link');
@@ -25,7 +24,6 @@ export class NavigationBarComponent implements OnInit {
   constructor(private renderer:Renderer2){}
 
 
-  // ESTO SE PODRÍA HACER CON DATA BINDING, SOLO HAY QUE GUARDAR EN UNA VARIABLE EL TEXTO DEL LINK
   giveDataContent(links:HTMLCollectionOf<Element>){
     for(let link of links){
         link.setAttribute('data-content', link.textContent!);
@@ -57,27 +55,3 @@ export class NavigationBarComponent implements OnInit {
     $('.card-icon .fab').on('mouseleave', this.notBounce);
   }
 }
-
-
-
-// INTEGRAR TODO ESTO AL COMPONENTE
-// PENSAR O PREGUNTAR SI CONVIENE TENER ESTAS VARIABLES COMO PROPIEDADES O DEJARLAS AFUERA DE LA CLASE
-
-// let nav = document.querySelector('nav');
-// let navMenu = document.querySelector('#navbarSupportedContent');
-// let navToggler = document.querySelector('.navbar-toggler');
-// let mediaCollapse = document.querySelector('.dropdown-toggle');
-// let mediaMenu = document.querySelector('#media-menu');
-
-
-// function closeCollapse(e: JQuery.ClickEvent<Document, null, Document, Document>){
-//     if (!mediaMenu!.contains(e.target) && !$(e.target).is(mediaCollapse!) && mediaCollapse!.getAttribute('aria-expanded') === 'true' && mediaMenu!.classList.contains('show')){
-//         (<any>$(mediaMenu!)).collapse('hide');
-//         mediaCollapse!.setAttribute('aria-expanded', 'false');
-//     }
-//     if(!nav!.contains(e.target) && navToggler!.getAttribute('aria-expanded') === 'true' && navMenu!.classList.contains('show')){
-//         (<any>$(navMenu!)).collapse('hide');
-//         navToggler!.setAttribute('aria-expanded', 'false');
-//     }
-// }
-

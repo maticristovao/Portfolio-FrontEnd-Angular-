@@ -1,3 +1,7 @@
+.about{
+	height:100vh;
+	display: grid;
+}
 .card {
 	background:transparent;
     border:none;
@@ -144,6 +148,13 @@
 	.card_front::after, .card_front::before{
 		width:12vw;
 		animation:none;
+	}
+	
+}
+
+@media screen and (width<576px) {
+	.about{
+		place-items: center;
 	}
 	
 }

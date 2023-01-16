@@ -212,3 +212,7 @@ i.fa-terminal{
         vertical-align: 0.525em;
     }
 }
+
+.navbar.change{
+    background-color: red !important;
+}

@@ -18,19 +18,22 @@
           "title":"Bachelor of economics",
           "institution":"University of Belgrano",
           "period":"2022 - 2025",
-          "type":"Economics"
+          "area":"Economics",
+          "logo":"https://media.licdn.com/dms/image/C4D0BAQGpKBYNiEzYYw/company-logo_100_100/0/1661171292091?e=1681948800&v=beta&t=SQ_kSjmeRtWn7Av9laBuPkM04W8WgfZBpDPkpt9nK7Y"
         },
         {
           "title":"Yo programo",
           "institution":"Argentina programa",
           "period":"2022 - 2023",
-          "type":"Programming"
+          "area":"Programming",
+          "logo":"https://eggcooperation.com/wp-content/uploads/2022/11/ar-prog_logo.png"
         },
         {
           "title":"Senior school",
           "institution":"Jesus and Mary School",
           "period":"2015 - 2021",
-          "type":"School"
+          "area":"School",
+          "logo":"https://static.wixstatic.com/media/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png/v1/fill/w_188,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png"
         }
       ]
     }

@@ -25,8 +25,8 @@ export class EducationComponent implements OnInit, AfterViewInit{
     
   }
 
-  determineIcon(type:string){
-    switch (type){
+  determineIcon(area:string){
+    switch (area){
       case "Economics":
         return faCoins;
 

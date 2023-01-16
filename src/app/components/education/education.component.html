@@ -42,13 +42,14 @@
         <div class="education-card" *ngFor="let card of personalInfo.education; let i = index;" [class.active]="i === 0">
             <div class="label">{{i+1}}</div>
             <div class="icon">
-              <fa-icon [icon]="determineIcon(card.type)"></fa-icon>
+              <fa-icon [icon]="determineIcon(card.area)"></fa-icon>
             </div>
             <div class="info row justify-content-end">
-                <div class="col-12 col-md-5 col-lg-7">
+                <div class="col-12 col-sm-6 col-lg-7 px-0">
                     <h1>{{card.title}}</h1>
-                    <h3>{{card.institution}}</h3>
-                    <h5>{{card.period}}</h5>
+                    <h3 class="mt-lg-3 my-xl-5">{{card.institution}}</h3>
+                    <h5 class="mt-lg-3 mt-xl-5">{{card.period}}</h5>
+                    <img [src]="card.logo" alt="{{card.insitution}} logo" class="mt-lg-3 mt-xl-5">
                 </div>
               
             </div>
