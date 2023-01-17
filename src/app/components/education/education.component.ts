@@ -1,6 +1,4 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { faPlaystation } from '@fortawesome/free-brands-svg-icons';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faCoins, faUserGraduate, faLaptopCode, faBook } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
@@ -26,14 +24,14 @@ export class EducationComponent implements OnInit, AfterViewInit{
   }
 
   determineIcon(area:string){
-    switch (area){
-      case "Economics":
+    switch (area.toLowerCase().trim()){
+      case "economics":
         return faCoins;
 
-      case "Programming":
+      case "programming":
         return faLaptopCode;
 
-      case "School":
+      case "school":
         return faUserGraduate;
 
       default:

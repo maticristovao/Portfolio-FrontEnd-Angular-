@@ -50,8 +50,15 @@
     color: #23b3e4;
     font-size: 22.5px;
 }
-.modal-body p i{
+.modal-body i{
     color: #23b3e4;
+}
+.modal-body fa-icon{
+    color: #23b3e4;
+}
+
+.modal-body p span{
+    text-transform: capitalize;
 }
 
 .modal-body p a{

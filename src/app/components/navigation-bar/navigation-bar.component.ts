@@ -1,4 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener, AfterViewInit } from '@angular/core';
+import { faCodepen, faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faHashtag, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import { PersonalInfoService } from 'src/app/services/personal-info.service';
+
+export interface Media{
+  media:string,
+  url:URL
+}
 
 @Component({
   selector: 'app-navigation-bar',
@@ -6,7 +14,7 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener } fro
   styleUrls: ['./navigation-bar.component.css']
 })
 
-export class NavigationBarComponent implements OnInit {
+export class NavigationBarComponent implements OnInit, AfterViewInit {
   navLinks = document.getElementsByClassName('nav-link');
 
   @ViewChild('asNav') nav!:ElementRef;
@@ -15,13 +23,35 @@ export class NavigationBarComponent implements OnInit {
   @ViewChild('asMediaCollapse') mediaCollapse!:ElementRef;
   @ViewChild('asMediaMenu') mediaMenu!:ElementRef;
 
+  personalMedia!:Media[];
+  faTerminal = faTerminal;
+
+  determineIcon(media:string){
+    switch (media.toLowerCase().trim()){
+      case "linkedin":
+        return faLinkedin;
+
+      case "github":
+        return faGithub;
+
+      case "codepen":
+        return faCodepen;
+
+      case "instagram":
+        return faInstagram;
+
+      default:
+        return faHashtag;
+    }
+  }
+
   @HostListener('document:click', ['$event'])
   handleClick(event:JQuery.ClickEvent<Document, null, Document, Document>){
     this.closeCollapse(event);
   }
   
   
-  constructor(private renderer:Renderer2){}
+  constructor(private renderer:Renderer2, private personalData:PersonalInfoService){}
 
 
   giveDataContent(links:HTMLCollectionOf<Element>){
@@ -51,7 +81,14 @@ export class NavigationBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.giveDataContent(this.navLinks);
-    $('.card-icon .fab').on('mouseenter', this.bounce);
-    $('.card-icon .fab').on('mouseleave', this.notBounce);
+
+    this.personalData.getData().subscribe(data => {
+      this.personalMedia = data.social;
+    })
+  }
+
+  ngAfterViewInit(): void {
+    $('.card-icon fa-icon').on('mouseenter', this.bounce);
+    $('.card-icon fa-icon').on('mouseleave', this.notBounce);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { faEnvelope, faMobile, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-contact-modal',
@@ -10,4 +11,8 @@ export class ContactModalComponent {
 @Input() mail!:string;
 @Input() phoneNum!:string;
 @Input() phoneType!:string;
+
+faPhone = faPhone;
+faMobile = faMobile;
+faEnvelope = faEnvelope;
 }

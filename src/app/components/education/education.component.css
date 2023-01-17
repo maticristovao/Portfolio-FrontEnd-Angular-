@@ -1,6 +1,3 @@
-/* body{
-    overflow: hidden;
-} */
 section.education {
     height: 100vh;
     overflow: hidden;
@@ -11,7 +8,7 @@ section.education {
   .education .cards {
     display: flex;
     align-items: center;
-    width: 80vw;
+    width: 70vw;
     height: 60%;
   }
   
@@ -29,6 +26,7 @@ section.education {
     transition: flex 0.5s ease-in;
     height: 100%;
     overflow: hidden;
+    z-index:76876;
   }
   
   .label {
@@ -184,6 +182,10 @@ section.education {
     .education-card:not(.active) .label{
       left:8px;
     }
+    .info img{
+      width:85px;  
+    }
+
   }
   
 
@@ -222,6 +224,11 @@ section.education {
       bottom:-20px;
       left:20px;
     }
+
+    .info img{
+      width:75px;  
+    }
+
     .education-card:last-child .info img{
       filter:invert(100%);
     }
@@ -234,5 +241,14 @@ section.education {
       font-size:35px;
       width:20px;
       left:2px;
+    }
+  }
+
+  @media screen and (width<=400px){
+    .education-card.active .label{
+      font-size: 75px;
+      height:60px !important;
+      bottom: 25px;
+      left:0;
     }
   }

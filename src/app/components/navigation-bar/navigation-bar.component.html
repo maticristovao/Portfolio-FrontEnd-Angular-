@@ -1,5 +1,5 @@
 <nav #asNav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-0">
-    <div><i class="fa-solid fa-terminal ms-2"></i></div><a class="navbar-brand mx-3 my-0 py-0" href="#">#YoProgramo</a>
+    <a class="navbar-brand mx-3 my-0 py-0" href="#"><fa-icon class ="mx-2" [icon]="faTerminal"></fa-icon> #YoProgramo</a>
     <button #asNavToggler class="navbar-toggler me-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="blur()">
             <svg fill="var(--button-color)" class="hamburger" viewBox="0 0 100 100" width="30">
                 <rect class="line top" 
@@ -44,20 +44,25 @@
                   Find me
                 </a>
                 <div #asMediaMenu class="collapse container" id="media-menu">
-                    <div class="card-icon mt-lg-3 mx-1">
+                    <!-- <div class="card-icon mt-lg-3 mx-1">
                         <a href="https://www.linkedin.com/in/mat%C3%ADas-cristovao-5b2265216/" target="_blank" rel="noreferrer noopener">
-                            <i class="fab fa-linkedin"></i>
+                            <fa-icon [icon]="faLinkedin"></fa-icon>
                         </a>
                     </div>
                     <div class="card-icon mt-lg-3 mx-1">
                         <a href="https://github.com/maticristovao" target="_blank" rel="noreferrer noopener">
-                            <i class="fab fa-github"></i>
+                            <fa-icon [icon]="faGithub"></fa-icon>
                         </a> 
                     </div>
                     <div class="card-icon mt-lg-2 mb-lg-1 mx-1">
                         <a href="https://codepen.io/maticristovao" target="_blank" rel="noreferrer noopener">
-                            <i class="fab fa-codepen"></i>
+                            <fa-icon [icon]="faCodepen"></fa-icon>
                         </a> 
+                    </div> -->
+                    <div class="card-icon mt-lg-3 mb-lg-1 mx-1" *ngFor="let item of personalMedia">
+                        <a [href]="item.url" target="_blank" rel="noreferrer noopener">
+                            <fa-icon [icon]="determineIcon(item.media)"></fa-icon>
+                        </a>
                     </div>
                 </div>
             </li>

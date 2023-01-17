@@ -1,4 +1,4 @@
-<article class="personal-info container-fluid" id="about">
+<article class="personal-info container-fluid">
     <div class="row">
         <div class="photo col-3 col-lg-2 d-none d-md-block">
             <img [src]="personalInfo.photo" alt="Personal picture">
@@ -16,7 +16,7 @@
             </div>
             <div class="row other-info">
                 <div class="info col-12 col-sm-9 col-lg-10 col-xxl-8 align-self-end">
-                    <p><i class="fa-solid fa-location-dot me-2"></i> {{personalInfo.location.province}} ({{personalInfo.location.country}}) <span><a type="button" data-toggle="modal" data-target="#exampleModalLong">Contact info</a></span></p>
+                    <p><fa-icon class="me-2" [icon]="faLocationDot"></fa-icon> {{personalInfo.location.province}} ({{personalInfo.location.country}}) <span><a type="button" data-toggle="modal" data-target="#exampleModalLong">Contact info</a></span></p>
                     <app-contact-modal name="{{personalInfo.name}}" phoneNum="{{personalInfo.phone.number}}" phoneType="{{personalInfo.phone.type}}" mail="{{personalInfo.mail}}" ></app-contact-modal>
                 </div>
                 <div class="place col-sm-3 col-lg-2 col-xxl-4 d-none d-sm-inline-block">
