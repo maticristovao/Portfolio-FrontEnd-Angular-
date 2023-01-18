@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener, AfterViewInit } from '@angular/core';
 import { faCodepen, faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faHashtag, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import { faHashtag, faHome, faTerminal } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
 export interface Media{
@@ -16,6 +16,8 @@ export interface Media{
 
 export class NavigationBarComponent implements OnInit, AfterViewInit {
   navLinks = document.getElementsByClassName('nav-link');
+  inverseElements = document.getElementsByClassName('inverse');
+  inverted = document.querySelectorAll('.inverse');
 
   @ViewChild('asNav') nav!:ElementRef;
   @ViewChild('asNavMenu') navMenu!:ElementRef;
@@ -25,6 +27,7 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
 
   personalMedia!:Media[];
   faTerminal = faTerminal;
+  faHome = faHome;
 
   determineIcon(media:string){
     switch (media.toLowerCase().trim()){
@@ -50,6 +53,31 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
     this.closeCollapse(event);
   }
   
+  @HostListener('window:scroll', ['$event'])
+  handleScroll(){
+    let change = false;
+    for(let inverse of this.inverseElements){
+      if( window.pageYOffset >= ((inverse as HTMLElement).offsetTop) - this.nav.nativeElement.clientHeight && window.pageYOffset <= (inverse as HTMLElement).offsetTop + (inverse as HTMLElement).clientHeight - this.nav.nativeElement.clientHeight){
+        change = true;
+      }
+
+      if(change){
+        this.renderer.addClass(this.nav.nativeElement, 'change');
+      }else{
+        this.renderer.removeClass(this.nav.nativeElement, 'change');
+      }
+    }
+
+      // if(window.pageYOffset >= ($('.inverse').offset()?.top!) - this.nav.nativeElement.clientHeight && window.pageYOffset <= $('.inverse').offset()?.top! + $('.inverse').height()! - this.nav.nativeElement.clientHeight) {
+      //   this.renderer.addClass(this.nav.nativeElement, 'change');
+        
+      // } else {
+      //   this.renderer.removeClass(this.nav.nativeElement, 'change');
+      //   console.log($('.inverse'));
+      // }
+}
+
+
   
   constructor(private renderer:Renderer2, private personalData:PersonalInfoService){}
 
@@ -85,10 +113,23 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
     this.personalData.getData().subscribe(data => {
       this.personalMedia = data.social;
     })
+    
   }
 
   ngAfterViewInit(): void {
     $('.card-icon fa-icon').on('mouseenter', this.bounce);
     $('.card-icon fa-icon').on('mouseleave', this.notBounce);
+    
   }
 }
+
+// document.onscroll = function() {
+//   const specs = document.querySelector('#about');
+//   const nav = document.querySelector('nav');
+  
+//   if(specs!.getBoundingClientRect().top <= 0) { // if the distance of the 'specs' section to the browser top is smaller than 0
+//     nav!.classList.add('change'); // add change font color
+//   } else {
+//     nav!.classList.remove('change'); // remove dark  font color
+//   }
+// }

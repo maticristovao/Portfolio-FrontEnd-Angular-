@@ -26,7 +26,6 @@ section.education {
     transition: flex 0.5s ease-in;
     height: 100%;
     overflow: hidden;
-    z-index:76876;
   }
   
   .label {

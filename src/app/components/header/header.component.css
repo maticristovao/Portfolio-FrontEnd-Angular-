@@ -8,7 +8,6 @@
     font-size: 1.1vw;
     padding:.4vw .8vw;
     margin:0;
-    /* background-color: rgb(226, 226, 226); */
     font-weight: bold;
     border: .15vw solid;
     border-radius: 500px;
@@ -95,9 +94,9 @@ li.indicator::before{
 .carousel-fade .active.carousel-item-end {
     transition: opacity .1s .4s;
   }
-a span.carousel-ctrl-icon{
+a .carousel-ctrl-icon{
     font-size: 4vw;
-    opacity: .2;
+    opacity: .3;
     transition: opacity ease-in-out .5s;
 }
 .carousel-ctrl:hover .carousel-ctrl-icon{

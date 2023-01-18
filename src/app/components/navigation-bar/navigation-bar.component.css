@@ -97,9 +97,9 @@ li.nav-item.active a.nav-link{
     position: relative;
     font-weight: 600;
 }
-.navbar-brand fa-icon{
+nav > fa-icon{
     color:#23b3e4;
-    background-color: rgba(0, 0, 0, 0.342);
+    background-color: #1a1c1f;
     padding:.4rem 1rem;
     border-radius: 10px;
     font-size:1.5rem;
@@ -187,6 +187,11 @@ li.nav-item.active a.nav-link{
         transform: rotate(-90deg);
         color: #23b3e4;
     }
+    nav > fa-icon{
+        padding:.1rem .7rem;
+        border-radius: 5px;
+        font-size:1.2rem;
+    }
 }
 
 @media screen and (width>=992px){
@@ -213,6 +218,6 @@ li.nav-item.active a.nav-link{
     }
 }
 
-.navbar.change{
-    background-color: red !important;
+nav.navbar-dark.change{
+    background-color: black !important;
 }
