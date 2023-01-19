@@ -228,7 +228,7 @@ section.education {
       width:75px;  
     }
 
-    .education-card:last-child .info img{
+    .education-card .info img[src='https://static.wixstatic.com/media/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png/v1/fill/w_188,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png']{
       filter:invert(100%);
     }
 
@@ -243,11 +243,14 @@ section.education {
     }
   }
 
-  @media screen and (width<=400px){
+  @media screen and (width<=450px){
     .education-card.active .label{
       font-size: 75px;
       height:60px !important;
       bottom: 25px;
       left:0;
+    }
+    .info img{
+      display: none;
     }
   }

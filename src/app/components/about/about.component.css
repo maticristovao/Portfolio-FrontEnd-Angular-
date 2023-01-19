@@ -155,6 +155,7 @@
 @media screen and (width<576px) {
 	.about{
 		place-items: center;
+		height:40vh;
 	}
 	
 }

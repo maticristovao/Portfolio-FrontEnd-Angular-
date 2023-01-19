@@ -25,7 +25,7 @@ export class PersonalInfoComponent implements OnInit{
   }
 
   defineContent(){
-    if(window.innerWidth>=1200){
+    if(window.innerWidth>1200){
       this.moreContent = 'More';
     }else{
       this.moreContent = '...';

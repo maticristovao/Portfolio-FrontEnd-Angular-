@@ -72,21 +72,26 @@ div.card-icon fa-icon{
     white-space: nowrap;
     text-decoration: underline #23b3e4;
 }
-a.nav-link:hover, a.nav-link:focus{
+a.nav-link fa-icon{
+    transition: color .3s ease-in;
+}
+a.nav-link:hover fa-icon, a.nav-link:focus fa-icon{
+    color: #23b3e4 !important;
+}
+a.nav-link:hover span, a.nav-link:focus span{
     color: rgba(255,255,255,.55) !important;
 }
-a.nav-link:hover::before,a.nav-link:focus::before{
-    width:100%;
+a.nav-link:focus-visible{
+    outline: none;
 }
-a.nav-link:hover::after,a.nav-link:focus::after{
-    border-color:#23b3e4 transparent transparent transparent;
-}
+
 li.nav-item.active a.nav-link{
     color:#23b3e4;
     font-weight: 600;
 }
-.dropdown-item{
-    text-align: center;
+
+.dropdown-toggle:hover::after, .dropdown-toggle:focus::after{
+    color:#23b3e4;
 }
 
 .navbar-brand{
@@ -158,7 +163,7 @@ nav > fa-icon{
 @media screen and (width<992px){
     #media-menu{
         position:fixed;
-        top:250px;
+        top:345px;
         left:110px;
         right: auto;
     }
@@ -177,20 +182,27 @@ nav > fa-icon{
     .dropdown-toggle::after{
         transition: vertical-align ease-in-out 0.3s,
                 transform ease-in-out 0.3s,
-                color ease-in-out 0.3s,
+                color ease-in-out 0.2s,
                 border-color linear .1s .45s;
                 transform-origin: center;
-                        
     }
+    
+    .dropdown-toggle:hover::after, .dropdown-toggle:focus::after{
+        transition: color ease-in-out 0.3s  0.5s;
+    }
+
     .dropdown-toggle[aria-expanded='true']:after{
         vertical-align: 0.2em;
         transform: rotate(-90deg);
-        color: #23b3e4;
+        /* color: #23b3e4; */
     }
     nav > fa-icon{
         padding:.1rem .7rem;
         border-radius: 5px;
         font-size:1.2rem;
+    }
+    a.nav-link:hover::before,a.nav-link:focus::before{
+        width:100%;
     }
 }
 
@@ -216,6 +228,7 @@ nav > fa-icon{
         color: #23b3e4;
         vertical-align: 0.525em;
     }
+    
 }
 
 nav.navbar-dark.change{
