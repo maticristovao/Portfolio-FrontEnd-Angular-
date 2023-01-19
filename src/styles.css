@@ -14,8 +14,8 @@
 }
 html{
     color-scheme: dark light;
-    scroll-behavior:smooth;
     min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 body{

@@ -85,10 +85,6 @@ li.indicator::before{
 .carousel-indicators li.active::before{
     animation: fillBar linear 7.8s .2s;
 }
-
-.carousel-item {
-    transition: transform .4s ease-in-out;
-  }
   
 .carousel-fade .active.carousel-item-start,
 .carousel-fade .active.carousel-item-end {
@@ -198,8 +194,4 @@ a.carousel-ctrl:not(:hover):focus .carousel-ctrl-icon{
 .logo:hover::before{
     height:90%;
     top:5%;
-}
-
-.carousel-item{
-    transition: transform 1s ease-in-out;
 }

@@ -72,10 +72,11 @@ div.card-icon fa-icon{
     white-space: nowrap;
     text-decoration: underline #23b3e4;
 }
-a.nav-link fa-icon{
-    transition: color .3s ease-in;
+a.nav-link{
+    transition: color .3s ease-in-out;
+    transition-delay: 0s !important;
 }
-a.nav-link:hover fa-icon, a.nav-link:focus fa-icon{
+a.nav-link:hover, a.nav-link:focus{
     color: #23b3e4 !important;
 }
 a.nav-link:hover span, a.nav-link:focus span{
@@ -85,9 +86,10 @@ a.nav-link:focus-visible{
     outline: none;
 }
 
-li.nav-item.active a.nav-link{
-    color:#23b3e4;
+li.nav-item a.nav-link.active{
+    color:#177fa1;
     font-weight: 600;
+    transition:color ease-in-out .2s 0s;
 }
 
 .dropdown-toggle:hover::after, .dropdown-toggle:focus::after{
@@ -194,7 +196,7 @@ nav > fa-icon{
     .dropdown-toggle[aria-expanded='true']:after{
         vertical-align: 0.2em;
         transform: rotate(-90deg);
-        /* color: #23b3e4; */
+        color: #23b3e4;
     }
     nav > fa-icon{
         padding:.1rem .7rem;
