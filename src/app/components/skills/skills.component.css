@@ -1,0 +1,10 @@
+section{
+    height: 100vh;
+    align-items: center;
+}
+.title{
+    color:#23b3e4;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}

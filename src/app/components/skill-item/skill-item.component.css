@@ -1,0 +1,36 @@
+.skill-name{
+    color:white;
+    text-transform: uppercase;
+    font-size: 20px !important;
+}
+.progress-bar{
+    background-color: white;
+    border-radius: 40000px;
+    height:25px;
+    padding: 0 5px;
+}
+
+.progress{
+    background-color: #23b3e4;
+    border-radius: 40000px;
+    transition: width 2s ease-out;
+}
+
+.progress.intersecting{
+    width:auto;
+}
+
+.percentage{
+    color:#23b3e4;
+    background-color: black;
+    border-radius: 50%;
+    padding:15px 12px;
+    font-weight:bold;
+}
+
+.percentage::after{
+    content: '%';
+    font-size: smaller;
+    font-weight: lighter;
+    margin-left:2.5px;
+}

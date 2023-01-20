@@ -1,1 +1,13 @@
-<p>skills works!</p>
+<section class="container-fluid d-grid" id="skills">
+    <div class="row">
+        <article class="col-12 col-lg-8">
+            <h1 class="title ms-1 ms-md-5">Skills</h1>
+            <div class="container mt-4 ms-1 ms-md-5 me-1" *ngFor="let skill of personalSkills">
+                <app-skill-item [skill]="skill" ></app-skill-item>
+            </div>
+        </article>
+        <article class="col-12 col-lg-4">
+            <h1 class="title ms-1 ms-md-5">Languages</h1>
+        </article>
+    </div>
+</section>

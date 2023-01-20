@@ -50,6 +50,37 @@
           "area":"School",
           "logo":"https://static.wixstatic.com/media/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png/v1/fill/w_188,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png"
         }
+      ],
+
+      "skills":[
+        {
+          "name":"html",
+          "progress":"90"
+        },
+        {
+          "name":"css",
+          "progress":"80"
+        },
+        {
+          "name":"javascript / typescript",
+          "progress":"65"
+        },
+        {
+          "name":"angular",
+          "progress":"70"
+        },
+        {
+          "name":"mysql",
+          "progress":"85"
+        },
+        {
+          "name":"bootstrap",
+          "progress":"95"
+        },
+        {
+          "name":"git / github",
+          "progress":"80"
+        }
       ]
     }
 }

@@ -1,0 +1,13 @@
+<div class="row mb-1">
+    <h1 class="skill-name">{{skill.name}}</h1>
+</div>
+<div class="row">
+    <div class="col-11 progress-bar" elementObserve [threshold]="0" (visible)="isIntersecting(); setPercentage()">
+        <span class="progress"  [ngStyle]="intersecting?{'width': skill.progress+'%'}:{'width':'0%'}"></span>
+    </div>
+    <div class="col-1">
+        <div class="progress-percentage">
+            <span class="percentage">{{percentage}}</span>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,8 @@ import { EducationComponent } from './components/education/education.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ElementObserverDirective } from './components/element-observer.directive';
+import { SkillItemComponent } from './components/skill-item/skill-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AboutComponent,
     EducationComponent,
     ExperienceComponent,
-    SkillsComponent
+    SkillsComponent,
+    ElementObserverDirective,
+    SkillItemComponent
   ],
   imports: [
     BrowserModule,

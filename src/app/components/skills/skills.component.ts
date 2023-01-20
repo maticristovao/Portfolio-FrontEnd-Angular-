@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css']
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit{
+  personalSkills:any;
 
+  constructor(private personalData:PersonalInfoService){}
+
+  ngOnInit(): void {
+    this.personalData.getData().subscribe(data => {
+      this.personalSkills = data.skills;
+    });
+  }
 }
