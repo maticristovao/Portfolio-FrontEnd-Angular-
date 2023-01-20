@@ -13,7 +13,6 @@ import { EducationComponent } from './components/education/education.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component'
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { TagCloudComponent } from './components/tag-cloud/tag-cloud.component'
     AboutComponent,
     EducationComponent,
     ExperienceComponent,
-    SkillsComponent,
-    TagCloudComponent
+    SkillsComponent
   ],
   imports: [
     BrowserModule,

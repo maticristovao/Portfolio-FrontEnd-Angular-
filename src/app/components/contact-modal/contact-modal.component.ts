@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { faEnvelope, faMobile, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faMobile, faPhone, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-contact-modal',
@@ -15,4 +15,5 @@ export class ContactModalComponent {
 faPhone = faPhone;
 faMobile = faMobile;
 faEnvelope = faEnvelope;
+faExit = faXmark;
 }
