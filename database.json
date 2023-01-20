@@ -1,7 +1,8 @@
 {
   "user":{
       "photo":"https://media.licdn.com/dms/image/D4D03AQGvC1cOyWVkgw/profile-displayphoto-shrink_200_200/0/1673571910638?e=1678924800&v=beta&t=JuoqdhESe1Iq_9Ele9kjI15ojxlbA02jHl55Tg1631s",
-      "name": "Matías Cristovao",
+      "name": "Matías",
+      "surname":"Cristovao",
       "title": ["Full Stack Developer Jr", "Economics Student"],
       "location": {
         "country":"Argentina",

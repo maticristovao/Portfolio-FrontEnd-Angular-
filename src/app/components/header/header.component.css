@@ -1,3 +1,15 @@
+.carousel-caption{
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    display: flex;
+    margin-bottom:5vw;
+    z-index:2;
+    margin: 0 20% 5vw 20%;
+    justify-content: center;
+}
+
 .photo-title{
     text-transform:uppercase;
     font-size: 2vw;
@@ -6,15 +18,43 @@
 }
 .photo-btn{
     font-size: 1.1vw;
-    padding:.4vw .8vw;
-    margin:0;
+    padding:.6vw .6vw;
     font-weight: bold;
     border: .15vw solid;
     border-radius: 500px;
     text-transform: uppercase;
+    position:relative;
+    overflow: hidden;
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+
 }
 .photo-btn:not(:hover){
     background-color: rgb(226, 226, 226);
+}
+
+.photo-btn span{
+    opacity:1;
+    transition: opacity ease-in-out .3s;
+}
+
+.photo-btn fa-icon{
+    position: absolute;
+    transform: translateY(-120%);
+    font-size:40px;
+    transition: transform ease-in-out .3s;
+}
+
+
+.photo-btn:hover span, .photo-btn:focus span{
+    opacity:0;
+}
+
+.photo-btn:hover fa-icon, .photo-btn:focus fa-icon{
+    transform: translateY(-2%);
 }
 
 .carousel-img{
@@ -27,29 +67,12 @@
     position:relative;
 }
 .carousel-indicators{
-    position: absolute;
-    right: 0;
-    bottom: 3%;
-    left: 0;
-    z-index: 2;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding-left: 0;
-    margin: 0% 15%;
-    list-style: none;
+    margin-bottom: 2vw;
 }
 .carousel-indicators li {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
     width: 4vw;
     height: .3vw;
-    margin:0 .3vw;
-    text-indent: -999px;
+    margin:0 .4vw;
     background-color: rgba(255,255,255,.5);
     border-radius: 400px;
     position: relative;
@@ -89,32 +112,8 @@ li.indicator::before{
 .carousel-fade .active.carousel-item-start,
 .carousel-fade .active.carousel-item-end {
     transition: opacity .1s .4s;
-  }
-a .carousel-ctrl-icon{
-    font-size: 4vw;
-    opacity: .3;
-    transition: opacity ease-in-out .5s;
 }
-.carousel-ctrl:hover .carousel-ctrl-icon{
-    opacity: 100%;
-}
-a.carousel-ctrl{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    height:100%;
-    text-decoration: none;
-}
-a.carousel-ctrl:not(:hover):focus .carousel-ctrl-icon{
-    color: #afafaf;
-}
-.carousel-caption{
-    margin:0 !important;
-}
-.carousel-caption .row{
-    width:67vw;
-    margin: 0.4% 0.4% 5vw 0.4% !important;
-}
+
 .name-logo{
     display: flex;
     align-items: center;

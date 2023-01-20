@@ -79,8 +79,8 @@ a.nav-link{
 a.nav-link:hover, a.nav-link:focus{
     color: #23b3e4 !important;
 }
-a.nav-link:hover span, a.nav-link:focus span{
-    color: rgba(255,255,255,.55) !important;
+a.nav-link:not(.active) span, a.nav-link:not(.active):focus span{
+    color: rgba(255,255,255,.55);
 }
 a.nav-link:focus-visible{
     outline: none;
@@ -157,7 +157,7 @@ nav > fa-icon{
     position:absolute;
     top: 80%;
     left:auto;
-    right: 150px;
+    right: 123px;
     width:140px;
     backdrop-filter: blur(100px);
 }

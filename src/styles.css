@@ -20,7 +20,7 @@ html{
 
 body{
         min-height: 100vh;
-        background-color: #212529;
+        background:#1a1c1f;
 }
 nav{
     z-index:3;
@@ -30,12 +30,9 @@ header{
     background-color:rgba(0, 0, 0, 0.74);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.74);
 }
-article{
-    background-color: #212529 !important;
-}
 
-article.about{
-    background:#1a1c1f !important;
+.inverse{
+    background-color: #212529 !important;
 }
 
 .text-left{
