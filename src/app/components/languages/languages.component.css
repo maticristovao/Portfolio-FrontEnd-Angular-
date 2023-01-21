@@ -1,0 +1,32 @@
+h1.language-name{
+    color:white;
+    text-transform: capitalize;
+    display: inline;
+}
+
+.row:not(:has(h1)) fa-icon{
+    color:#f4f4f4;
+    border-right: 2px solid #f4f4f4;
+}
+
+.level{
+    color: #23b3e4;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.oral fa-icon{
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+.written fa-icon{
+    margin-right: 10px;
+    padding-right: 14px;
+}
+
+.row:has(h1) fa-icon{
+    color:#23b3e4;
+    font-size:35px;
+}

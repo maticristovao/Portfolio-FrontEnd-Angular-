@@ -7,13 +7,13 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit{
-  personalSkills:any;
+  personalInfo:any;
 
   constructor(private personalData:PersonalInfoService){}
 
   ngOnInit(): void {
     this.personalData.getData().subscribe(data => {
-      this.personalSkills = data.skills;
+      this.personalInfo = data;
     });
   }
 }

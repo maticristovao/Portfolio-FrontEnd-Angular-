@@ -2,12 +2,18 @@
     <div class="row">
         <article class="col-12 col-lg-8">
             <h1 class="title ms-1 ms-md-5">Skills</h1>
-            <div class="container mt-4 ms-1 ms-md-5 me-1" *ngFor="let skill of personalSkills">
+            <div class="container mt-4 ms-1 ms-md-5 me-1" *ngFor="let skill of personalInfo.skills">
                 <app-skill-item [skill]="skill" ></app-skill-item>
             </div>
         </article>
-        <article class="col-12 col-lg-4">
-            <h1 class="title ms-1 ms-md-5">Languages</h1>
+        <article class="col-12 col-lg-4" id="languages">
+            <h1 class="title ms-1 ms-md-5 mb-5 text-center">Languages</h1>
+            <div class="container my-5 ms-2 ms-md-5 me-1" *ngFor="let language of personalInfo.languages">
+                <app-languages [language]="language" ></app-languages>
+            </div>
         </article>
     </div>
 </section>
+
+
+<!-- (visible)="isIntersecting(); setPercentage()" -->

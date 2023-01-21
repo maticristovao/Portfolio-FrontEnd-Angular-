@@ -15,6 +15,7 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ElementObserverDirective } from './components/element-observer.directive';
 import { SkillItemComponent } from './components/skill-item/skill-item.component';
+import { LanguagesComponent } from './components/languages/languages.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SkillItemComponent } from './components/skill-item/skill-item.component
     ExperienceComponent,
     SkillsComponent,
     ElementObserverDirective,
-    SkillItemComponent
+    SkillItemComponent,
+    LanguagesComponent
   ],
   imports: [
     BrowserModule,

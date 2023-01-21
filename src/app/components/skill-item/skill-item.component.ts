@@ -25,7 +25,7 @@ export class SkillItemComponent{
   async setPercentage(){
     while(this.percentage<this.skill.progress){
       this.percentage++;
-      await this.timer(20);
+      await this.timer(1600/this.skill.progress);
     }
   }
 }

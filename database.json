@@ -81,6 +81,18 @@
           "name":"git / github",
           "progress":"80"
         }
+      ],
+      "languages":[
+        {
+          "name":"english",
+          "oral":"advanced",
+          "written":"advanced"
+        },
+        {
+          "name":"french",
+          "oral":"medium",
+          "written":"medium"
+        }
       ]
     }
 }

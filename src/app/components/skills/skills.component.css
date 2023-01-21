@@ -2,6 +2,13 @@ section{
     height: 100vh;
     align-items: center;
 }
+
+#languages{
+    /* display: grid; */
+    /* align-items: center !important; */
+    /* background: green !important; */
+    /* border: 2px solid red; */
+}
 .title{
     color:#23b3e4;
     font-weight: bold;
