@@ -243,6 +243,23 @@ section.education {
     }
   }
 
+  @media screen and (width<=576px){
+    section.education{
+      height:auto;
+    }
+    .education .cards{
+      display: block;
+    }
+    .education-card{
+      cursor: default;
+    }
+    .education-card.active{
+      display: block !important;
+      height:520px;
+    }
+  }
+
+
   @media screen and (width<=450px){
     .education-card.active .label{
       font-size: 75px;
@@ -250,7 +267,29 @@ section.education {
       bottom: 25px;
       left:0;
     }
-    .info img{
-      display: none;
+  }
+
+  @media screen and (height<=600px) {
+    section.education{
+      height:auto;
+    }
+    .education .cards{
+      height: auto;
+      width:80vw;
+      margin: 20px 0;
+    }
+  }
+
+  @media screen and (height<400px){
+    section.education{
+      height:auto;
+    }
+    .education .cards{
+      display: block;
+      height: auto;
+    }
+    .education-card.active{
+      display: block !important;
+      height:520px;
     }
   }

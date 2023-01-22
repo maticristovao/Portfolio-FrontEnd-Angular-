@@ -1,19 +1,16 @@
 <section class="container-fluid d-grid" id="skills">
     <div class="row">
         <article class="col-12 col-lg-8">
-            <h1 class="title ms-1 ms-md-5">Skills</h1>
-            <div class="container mt-4 ms-1 ms-md-5 me-1" *ngFor="let skill of personalInfo.skills">
+            <h1 class="title d-flex ms-1 ms-md-5 mt-5 mt-lg-0 mb-5 justify-content-center justify-content-md-start">Skills</h1>
+            <div class="container mt-4 ms-1 ps-md-5 me-1" *ngFor="let skill of personalInfo.skills">
                 <app-skill-item [skill]="skill" ></app-skill-item>
             </div>
         </article>
         <article class="col-12 col-lg-4" id="languages">
-            <h1 class="title ms-1 ms-md-5 mb-5 text-center">Languages</h1>
-            <div class="container my-5 ms-2 ms-md-5 me-1" *ngFor="let language of personalInfo.languages">
+            <h1 class="title ms-1 ms-md-5 mt-5 mt-lg-0 text-center">Languages</h1>
+            <div class="container my-5 ms-1 ps-md-5 me-1" *ngFor="let language of personalInfo.languages">
                 <app-languages [language]="language" ></app-languages>
             </div>
         </article>
     </div>
 </section>
-
-
-<!-- (visible)="isIntersecting(); setPercentage()" -->

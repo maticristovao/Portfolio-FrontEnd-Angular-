@@ -45,7 +45,9 @@
     position: absolute;
     transform: translateY(-120%);
     font-size:40px;
-    transition: transform ease-in-out .3s;
+    transition: transform ease-in-out .3s,
+                opacity ease-in-out .3s;
+    opacity: 0;
 }
 
 
@@ -55,6 +57,7 @@
 
 .photo-btn:hover fa-icon, .photo-btn:focus fa-icon{
     transform: translateY(-2%);
+    opacity: 1;
 }
 
 .carousel-img{

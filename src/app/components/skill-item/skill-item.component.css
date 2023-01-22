@@ -6,8 +6,8 @@
 .progress-bar{
     background-color: rgba(255, 255, 255, 0.651);
     border-radius: 40000px;
-    height:25px;
-    padding: 0 5px;
+    padding: 5px;
+    height: 85%;
 }
 
 .progress{
@@ -22,10 +22,13 @@
 
 .percentage{
     color:#23b3e4;
-    background-color: black;
     border-radius: 50%;
-    padding:15px 12px;
+    height:45px;
+    width: 45px;
     font-weight:bold;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .percentage::after{
@@ -33,4 +36,15 @@
     font-size: smaller;
     font-weight: lighter;
     margin-left:2.5px;
+}
+
+.progress-percentage{
+    background-color: black;
+    border-radius: 50%;
+    width: fit-content;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

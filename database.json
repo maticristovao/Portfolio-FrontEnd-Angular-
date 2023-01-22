@@ -82,6 +82,7 @@
           "progress":"80"
         }
       ],
+      
       "languages":[
         {
           "name":"english",
@@ -90,7 +91,7 @@
         },
         {
           "name":"french",
-          "oral":"medium",
+          "oral":"basic",
           "written":"medium"
         }
       ]
