@@ -1,7 +1,7 @@
 <nav #asNav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-0" [class.change]="change" id="nav">
-    <fa-icon class ="mx-2" [icon]="faTerminal"></fa-icon>
-    <a class="navbar-brand mx-3 my-0 py-0" href="#"> #YoProgramo</a>
-    <button #asNavToggler class="navbar-toggler me-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="blur()">
+    <fa-icon class ="mx-0 mx-sm-2" [icon]="faTerminal"></fa-icon>
+    <a class="navbar-brand mx-0 mx-lg-3 my-0 py-0" href="#"> #YoProgramo</a>
+    <button #asNavToggler class="navbar-toggler me-0 px-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="blur()">
             <svg fill="var(--button-color)" class="hamburger" viewBox="0 0 100 100" width="30">
                 <rect class="line top" 
                     width="80" height="10"
@@ -24,8 +24,7 @@
                     rx="5">
                 </rect>
             </svg>
-    </button> 
-    
+    </button>
   
     <div #asNavMenu class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mt-4 mt-lg-0">
@@ -43,9 +42,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#skills" (click)="collapseNav()"><fa-icon [icon]="faSkills" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Skills</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#languages" (click)="collapseNav()"><span class="d-lg-none">Languages</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" (click)="collapseNav()"><fa-icon [icon]="faProjects" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Projects</span></a>

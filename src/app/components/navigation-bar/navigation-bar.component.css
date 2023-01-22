@@ -76,7 +76,7 @@ a.nav-link{
     transition: color .3s ease-in-out;
     transition-delay: 0s !important;
 }
-a.nav-link:hover, a.nav-link:focus{
+a.nav-link:not(.active):hover, a.nav-link:focus{
     color: #23b3e4 !important;
 }
 a.nav-link:not(.active) span, a.nav-link:not(.active):focus span{

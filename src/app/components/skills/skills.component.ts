@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
 @Component({
@@ -8,6 +8,12 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
 })
 export class SkillsComponent implements OnInit{
   personalInfo:any;
+  windowWidth:number = window.innerWidth;
+
+  @HostListener('window:resize')
+  onResize() {
+    this.windowWidth = window.innerWidth;
+  }
 
   constructor(private personalData:PersonalInfoService){}
 

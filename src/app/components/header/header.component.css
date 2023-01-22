@@ -4,23 +4,22 @@
     left:0;
     right:0;
     display: flex;
-    margin-bottom:5vw;
     z-index:2;
-    margin: 0 20% 5vw 20%;
+    margin: 0 20% 10.5vh 20%;
     justify-content: center;
 }
 
 .photo-title{
     text-transform:uppercase;
-    font-size: 2vw;
+    font-size: 38.4px;
     font-family: 'Averia Serif Libre', cursive;
     padding: 0;
 }
 .photo-btn{
-    font-size: 1.1vw;
-    padding:.6vw .6vw;
+    font-size: 21.2px;
+    padding:11.5px;
     font-weight: bold;
-    border: .15vw solid;
+    border: 2.5px solid;
     border-radius: 500px;
     text-transform: uppercase;
     position:relative;
@@ -62,20 +61,23 @@
 
 .carousel-img{
     filter: grayscale(100%);
-    opacity: 80%;
-    height:55vw;
+    opacity: .8;
+    height:100vh;
+    width:100%;
+    object-fit: cover;
+    object-position: center center;
 }
 .carousel{
     display: block;
     position:relative;
 }
 .carousel-indicators{
-    margin-bottom: 2vw;
+    margin-bottom: 4vh;
 }
 .carousel-indicators li {
-    width: 4vw;
-    height: .3vw;
-    margin:0 .4vw;
+    width: 77px;
+    height: 6px;
+    margin:0 8px;
     background-color: rgba(255,255,255,.5);
     border-radius: 400px;
     position: relative;
@@ -127,7 +129,7 @@ li.indicator::before{
 .logo{
     z-index:2;
     font-family: 'Poppins', sans-serif;
-    font-size:5vw;
+    font-size:95px;
     font-weight: bold;
     color: white;
     text-transform: uppercase;
@@ -135,20 +137,18 @@ li.indicator::before{
     --fa-animation-duration: 4s; 
     font-weight: 600;
     backdrop-filter: contrast(30%);
-    padding:.5vw 1vw .5vw 0vw;
+    padding:15px 25px 15px 0;
     border-radius: 5px;
     margin-right: 0 ;
     transform: rotate('90deg');
     transition: border-radius ease-in-out .3s .01s;
-
 }
 .logo span{
     content:"Matias";
     color:#3dbde7;
     letter-spacing: 0px;
-    padding:.5vw 0 .5vw 1vw ;
+    padding:15px 0 15px 25px ;
     margin-right:2px ;
-    
 }
 .logo::after{
     position:absolute;
@@ -165,8 +165,6 @@ li.indicator::before{
     border-radius: 5px;
     transition: width ease-in-out .3s,
                 left ease-in-out .3s;
-    
-    
 }
 .logo::before{
     position:absolute;
@@ -178,15 +176,15 @@ li.indicator::before{
     bottom: 0;
     right: auto;
     left: -2%;
-    border-top:4px  solid #23b3e4;
-    border-bottom:4px  solid #23b3e4;
+    border-top:4px solid #23b3e4;
+    border-bottom:4px solid #23b3e4;
     border-radius: 5px;
     transition: height ease-in-out .3s,
                 top ease-in-out .3s;
 }
 
 .logo:hover{
-    border-radius: 2.3vw;
+    border-radius: 37.5px;
 }
 
 .logo:hover::after{
@@ -196,4 +194,61 @@ li.indicator::before{
 .logo:hover::before{
     height:90%;
     top:5%;
+}
+
+.carousel-inner{
+    height: 100vh;
+}
+
+@media screen and (width<730px) {
+    .logo::before{
+        width:115%;
+        left: -7.5%;
+    }
+    .logo:hover{
+        border-radius: 25px;
+    }
+}
+
+@media screen and (height<540px) {
+    .name-logo{
+        align-items: start;
+        padding-top: 70px;
+    }
+    .logo{
+        font-size: 60px;
+    }
+
+    .carousel-indicators{
+        display: none;
+    }
+
+    .carousel-caption{
+        margin: 0;
+    }
+
+    .photo-title{
+        font-size: 30px;
+    }
+
+    .photo-btn{
+        font-size: 15px;
+    }
+}
+
+@media screen and (height<300px) {
+    .name-logo{
+        justify-content: start;
+        align-items: center;
+        padding-left: 70px;
+    }
+
+    .carousel-caption{
+        top:90px;
+        justify-content: end;
+    }
+
+    .carousel-caption .row{
+        padding-right: 50px;
+    }
 }

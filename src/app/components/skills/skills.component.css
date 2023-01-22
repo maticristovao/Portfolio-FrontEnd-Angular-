@@ -11,7 +11,8 @@ section{
 }
 
 @media screen and (width<992px){
-    #languages{
-        border-top:5px solid black
+    .languages{
+        border-top:5px solid black;
+        display:block;
     }
 }
