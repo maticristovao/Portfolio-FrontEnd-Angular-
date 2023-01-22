@@ -3,15 +3,15 @@ section{
     align-items: center;
 }
 
-#languages{
-    /* display: grid; */
-    /* align-items: center !important; */
-    /* background: green !important; */
-    /* border: 2px solid red; */
-}
 .title{
     color:#23b3e4;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
+}
+
+@media screen and (width<992px){
+    #languages{
+        border-top:5px solid black
+    }
 }
