@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
@@ -21,5 +22,9 @@ export class SkillsComponent implements OnInit{
     this.personalData.getData().subscribe(data => {
       this.personalInfo = data;
     });
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.personalInfo.skills, event.previousIndex, event.currentIndex);
   }
 }

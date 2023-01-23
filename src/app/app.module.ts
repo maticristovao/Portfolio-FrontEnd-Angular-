@@ -16,6 +16,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ElementObserverDirective } from './components/element-observer.directive';
 import { SkillItemComponent } from './components/skill-item/skill-item.component';
 import { LanguagesComponent } from './components/languages/languages.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { LanguagesComponent } from './components/languages/languages.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
