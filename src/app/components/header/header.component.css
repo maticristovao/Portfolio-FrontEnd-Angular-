@@ -8,6 +8,9 @@
     margin: 0 20% 10.5vh 20%;
     justify-content: center;
 }
+.carousel-inner{
+    position: relative;
+}
 
 .photo-title{
     text-transform:uppercase;
@@ -240,15 +243,16 @@ li.indicator::before{
     .name-logo{
         justify-content: start;
         align-items: center;
-        padding-left: 70px;
+        padding-left: 5vw;
     }
 
     .carousel-caption{
-        top:90px;
+        top:35%;
         justify-content: end;
+        bottom: auto;
     }
 
     .carousel-caption .row{
-        padding-right: 50px;
+        padding-right: 4.5vw;
     }
 }

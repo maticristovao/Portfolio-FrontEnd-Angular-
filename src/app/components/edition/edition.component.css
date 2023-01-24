@@ -1,0 +1,76 @@
+.edit {
+  display: inline-flex;
+}
+
+.icon-wrapper {
+  background: #23b3e4;
+  margin-inline: 10px;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 4px solid white;
+  transition: background-color ease-in-out 0.4s,
+    border ease-in-out 0.4s;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+}
+.icon-wrapper fa-icon {
+  color: white;
+  font-size: 25px;
+  transition: color ease-in-out 0.3s;
+}
+
+.discard {
+  opacity: 0;
+  backface-visibility: hidden;
+  transform: translateX(-136%);
+  transition: opacity ease-in 0.3s 0.1s, transform ease-in 0.3s;
+  z-index: -1;
+  transform-style: preserve-3d;
+}
+.discard.editing {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 0;
+}
+.discard fa-icon {
+  font-size: 30px;
+}
+
+fa-icon.check {
+  opacity: 0;
+  position: absolute;
+  font-size: 35px;
+  transform: translateY(-110%);
+  rotate: 5deg;
+  transition: opacity ease-in 0.3s, transform ease-in 0.3s 0.1s;
+}
+
+.icon-wrapper:is(:hover, :focus) {
+  background: white;
+  border: 4px solid #23b3e4;
+  outline: none;
+}
+
+.icon-wrapper:is(:hover, :focus) fa-icon {
+  color: #23b3e4;
+}
+fa-icon.edit-toggle {
+  opacity: 1;
+  transition: opacity ease-in 0.3s 0.1s;
+}
+
+.editing .edit-toggle {
+  opacity: 0.3;
+  transition: opacity ease-in 0.3s;
+}
+
+.editing .check {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity ease-in 0.3s 0.1s, transform ease-in 0.3s;
+}
+  

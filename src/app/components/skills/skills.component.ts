@@ -10,6 +10,7 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
 export class SkillsComponent implements OnInit{
   personalInfo:any;
   windowWidth:number = window.innerWidth;
+  editMode:boolean = false;
 
   @HostListener('window:resize')
   onResize() {

@@ -17,6 +17,8 @@ import { ElementObserverDirective } from './components/element-observer.directiv
 import { SkillItemComponent } from './components/skill-item/skill-item.component';
 import { LanguagesComponent } from './components/languages/languages.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { EditionComponent } from './components/edition/edition.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     SkillsComponent,
     ElementObserverDirective,
     SkillItemComponent,
-    LanguagesComponent
+    LanguagesComponent,
+    ProjectsComponent,
+    EditionComponent
   ],
   imports: [
     BrowserModule,

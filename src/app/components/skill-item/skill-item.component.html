@@ -3,7 +3,7 @@
 </div>
 <div class="row align-items-center">
     <div class="col-11 progress-bar" elementObserve [threshold]="0" (visible)="isIntersecting(); setPercentage()">
-        <span class="progress"  [ngStyle]="intersecting?{'width': skill.progress+'%'}:{'width':'0%'}"></span>
+        <span class="progress" [ngStyle]="intersecting?{'width': skill.progress+'%'}:{'width':'0%'}"></span>
     </div>
     <div class="col-1">
         <div class="progress-percentage">
