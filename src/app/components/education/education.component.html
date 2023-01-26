@@ -1,4 +1,7 @@
 <section class="education inverse" id="education">
+    <div class="row edition text-end mt-5 pe-1 pe-xl-5 mb-4 mb-xl-0">
+        <app-edition [horizontal]="windowWidth<1020"></app-edition>
+    </div>
     <div class="cards mx-3">
         <div class="education-card my-3" *ngFor="let card of personalInfo.education; let i = index;" [class.active]="windowWidth<=576? true: i===0">
             <div class="label">{{i+1}}</div>

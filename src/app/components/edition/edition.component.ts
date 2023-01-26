@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { faCheck, faPencil, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,10 +7,14 @@ import { faCheck, faPencil, faXmark } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./edition.component.css']
 })
 export class EditionComponent {
+  @Input() horizontal:boolean = false;
+  editing:boolean = false;
+  
+
   faPencil = faPencil;
   faCheck = faCheck;
   faClose = faXmark;
-  editing:boolean = false;
+  
 
   editMode(){
     this.editing = !this.editing;

@@ -2,7 +2,7 @@ section.education {
     height: 100vh;
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
   }
   .education .cards {
@@ -10,6 +10,11 @@ section.education {
     align-items: center;
     width: 70vw;
     height: 60%;
+    justify-content: center;
+  }
+
+  .row.edition{
+    width:100%;
   }
   
   .education-card {
@@ -131,8 +136,6 @@ section.education {
     opacity: 1;
     top: -50px;
     left: -10px;
-    bottom: 0;
-    right: 0;
     width: 150px;
     height: 180px;
     font-size: 60px;

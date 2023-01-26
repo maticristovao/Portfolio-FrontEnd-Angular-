@@ -1,12 +1,9 @@
-<div class="edit">
+<div class="edit" [class.horizontal]="horizontal">
     <button class="icon-wrapper" tabindex=0 (click)="editMode()" onclick="blur()" [class.editing]="editing">
-      <!-- <i class="fas fa-pencil edit-toggle"></i> -->
       <fa-icon [icon]="faPencil" class="edit-toggle"></fa-icon>
-      <!-- <i class="fas fa-check check"></i> -->
       <fa-icon [icon]="faCheck" class="check"></fa-icon>
     </button>
     <button class="icon-wrapper discard" tabindex=0 [class.editing]="editing">
-      <!-- <i class="fas fa-times"></i> -->
       <fa-icon [icon]="faClose"></fa-icon>
     </button>
   </div>

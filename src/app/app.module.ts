@@ -19,6 +19,7 @@ import { LanguagesComponent } from './components/languages/languages.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { EditionComponent } from './components/edition/edition.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { EditionComponent } from './components/edition/edition.component';
     SkillItemComponent,
     LanguagesComponent,
     ProjectsComponent,
-    EditionComponent
+    EditionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

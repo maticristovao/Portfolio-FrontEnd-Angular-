@@ -10,11 +10,6 @@ section{
     text-transform: uppercase;
     font-size: 40px;
 }
-app-edition{
-  position: absolute;
-  right:.1vw;
-  top:0;
-}
 .skills{
   position: relative;
   align-items: center;
@@ -45,7 +40,6 @@ app-edition{
   }
 
 @media screen and (width<992px){
-
     .languages{
         border-top:5px solid black;
         display:block;
