@@ -1,1 +1,22 @@
-<p>experience works!</p>
+<section class="experience py-5 px-2" id="experience">
+    <h1 class="my-4 text-center">Experience</h1>
+    <div class="timeline m-auto">
+        <div class="item mb-5" *ngFor="let experience of personalExperience">
+            <!-- <div class="date mb-2 text-light px-3"><h5>{{experience.startDate}} - {{experience.endDate}}</h5></div> -->
+            <div class="content p-3 bg-dark">
+                <h3 class="text-light">
+                    {{experience.name}}
+                </h3>
+                <h5 class="date mb-2 text-light">
+                    {{experience.startDate}} - {{experience.endDate}}
+                </h5>
+                <p class="pt-2 text-secondary">
+                    {{experience.description}}
+                </p>
+            </div>
+            <h5 class="type p-2 mt-4 text-center">
+                {{experience.employType}}
+            </h5>
+        </div>
+    </div>
+</section>

@@ -10,6 +10,7 @@ export class AboutComponent implements OnInit{
   about!:string;
   existence:boolean=true;
   windowWidth:number = window.innerWidth;
+  editing:boolean = false;
 
   @HostListener('window:resize')
   onResize() {
@@ -22,6 +23,10 @@ export class AboutComponent implements OnInit{
     this.personalData.getData().subscribe(data =>{
       this.about = data.about;
     })
+  }
+
+  editMode(){
+    this.editing = !this.editing;
   }
   
 }

@@ -46,5 +46,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
+@media screen and (width<378px){
+    .progress-bar{
+        height:75%;
+    }
+
+    .progress-percentage{
+        margin-top:8px;
+        justify-content: start;
+        margin-left:0;
+        padding-left: 0;
+    }
 }

@@ -284,9 +284,9 @@ section.education {
   }
 
   @media screen and (height<400px){
-    section.education{
+    /* section.education{
       height:auto;
-    }
+    } */
     .education .cards{
       display: block;
       height: auto;

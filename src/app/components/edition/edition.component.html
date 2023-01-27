@@ -3,7 +3,7 @@
       <fa-icon [icon]="faPencil" class="edit-toggle"></fa-icon>
       <fa-icon [icon]="faCheck" class="check"></fa-icon>
     </button>
-    <button class="icon-wrapper discard" tabindex=0 [class.editing]="editing">
+    <button class="icon-wrapper discard" tabindex=0 (click)="discard()" [class.editing]="editing">
       <fa-icon [icon]="faClose"></fa-icon>
     </button>
   </div>

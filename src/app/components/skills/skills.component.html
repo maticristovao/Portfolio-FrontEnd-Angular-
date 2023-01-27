@@ -1,17 +1,17 @@
-<section class="container-fluid my-3 d-grid" id="skills">
+<section class="container-fluid my-3 inverse" id="skills">
     <div class="row mb-0 mb-lg-2 mb-xl-0 text-end">
         <app-edition></app-edition>
     </div>
     <div class="row">
         <article class="col-12 col-lg-8 mb-5 mb-lg-0 skills" cdkDropList (cdkDropListDropped)="drop($event)">
             <h1 class="title ms-1 ms-lg-5  mb-5 text-center text-lg-start">Skills</h1>
-            <div class="container-fluid mt-4 ms-1 ps-lg-5 me-1 pe-5 pe-sm-4 pe-lg-2 mb-4" *ngFor="let skill of personalInfo.skills">
+            <div class="container-fluid mt-4 ps-1 ps-lg-5 me-1 pe-5 pe-sm-4 pe-lg-2 mb-4" *ngFor="let skill of personalInfo.skills">
                 <app-skill-item [skill]="skill"></app-skill-item>
             </div>
         </article>
         <article class="col-12 col-lg-4 pt-3 pt-lg-0 languages">
             <h1 class="title ms-1 ms-lg-5 mt-5 mt-lg-0 text-center">Languages</h1>
-            <div class="container-fluid my-5 ms-1 ps-lg-5" *ngFor="let language of personalInfo.languages">
+            <div class="container-fluid my-5 ps-1 ps-lg-5" *ngFor="let language of personalInfo.languages">
                 <app-languages [language]="language" ></app-languages>
             </div>
         </article>

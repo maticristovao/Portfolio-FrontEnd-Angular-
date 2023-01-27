@@ -8,30 +8,29 @@
 }
 
 .icon-wrapper {
-  background: #23b3e4;
+  background: #9b9d9e;
   height: 55px;
   width: 55px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  border: 3px solid rgba(255, 255, 255, 0.864);
+  border: 3px solid black;
   transition: background-color ease-in-out 0.4s,
     border ease-in-out 0.4s;
-  z-index: 1;
+  z-index: 2;
   overflow: hidden;
   position: relative;
 }
 .icon-wrapper fa-icon {
-  color: rgba(255, 255, 255, 0.864);
+  color: black;
   font-size: 25px;
   transition: color ease-in-out 0.3s;
 }
 
-.discard{
+.edit .discard{
   opacity: 0;
-  transition: opacity ease-in 0.3s 0.1s, transform ease-in 0.3s, background-color ease-in-out .4s, border ease-in-out .4s;
-  z-index: -1;
-  transform-style: preserve-3d;
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in 0.1s, background-color .4s ease-in-out, border-color .4s ease-in-out;
+  z-index: 1;
 }
 
 :not(.horizontal) .discard{
@@ -47,7 +46,6 @@
 :is(.horizontal, :not(.horizontal)) .discard.editing {
   opacity: 1;
   transform: translateY(0) translateX(0);
-  z-index: 0;
 }
 .discard fa-icon {
   font-size: 30px;
@@ -63,13 +61,13 @@ fa-icon.check {
 }
 
 .icon-wrapper:is(:hover, :focus) {
-  background: rgba(255, 255, 255, 0.864);
-  border: 3px solid #23b3e4;
+  background: black;
+  border-color: #9b9d9e;
   outline: none;
 }
 
 .icon-wrapper:is(:hover, :focus) fa-icon {
-  color: #23b3e4;
+  color: #9b9d9e;
 }
 fa-icon.edit-toggle {
   opacity: 1;
@@ -87,3 +85,24 @@ fa-icon.edit-toggle {
   transition: opacity ease-in 0.3s 0.1s, transform ease-in 0.3s;
 }
   
+@media screen and (width<800px){
+  .icon-wrapper{
+    height: 40px;
+    width: 40px;
+    border-width: 2px;
+  }
+
+  .icon-wrapper fa-icon{
+    font-size: 19px;
+  }
+
+  :not(.horizontal) .discard{
+    transform: translateY(-47px);
+    margin-top: 7px;
+  }
+  
+  .horizontal .discard{
+    transform: translateX(-47px);
+    margin-left: 7px;
+  }
+}

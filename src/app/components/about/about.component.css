@@ -3,14 +3,14 @@
 	display: grid;
 	position: relative;
 }
-.card {
-	background:transparent !important;
+.card{
+	background:transparent;
     border:none;
 	height:288px;
 }
 .edition{
 	position: absolute;
-	right:100px;
+	right:6vw;
 	top:180px;
 }
 
@@ -23,7 +23,7 @@
 	transform-style: preserve-3d;
 }
 
-.card:hover .card_content {
+.card:is(:hover,.editing) .card_content {
 	transform: rotateY(0.5turn);
 }
 
@@ -143,28 +143,33 @@
 		animation: borderAnimateSmall 5s infinite;
 	}
 }
+
 @media screen and (width<=744px) {
 	.card_body{
 		border:none;
 		padding: 0;
 	}
-	
 }
+
 @media screen and (width<=630px) {
 	.card_front::after, .card_front::before{
 		width:12vw;
 		animation:none;
 	}
-	
 }
 
 @media screen and (width<576px) {
 	.about{
 		place-items: center;
-		height:40vh;
+		height:auto;
 	}
-	
+
+	.edition{
+		top:10px;
+		right:1.5vw;
+	}
 }
+
 .small-version h3 {
 	font-size: 2rem;
     color:#23b3e4;
@@ -175,4 +180,5 @@
 .small-version p{
 	font-size:1em;
     color:rgba(255, 255, 255, 0.705);
+	text-align: justify;
 }

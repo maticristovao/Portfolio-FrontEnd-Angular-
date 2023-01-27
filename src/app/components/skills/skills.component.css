@@ -45,3 +45,9 @@ section{
         display:block;
     }
 }
+
+@media screen and (width<378px){
+  .skills .container-fluid{
+    padding-right:35px !important;
+  }
+}

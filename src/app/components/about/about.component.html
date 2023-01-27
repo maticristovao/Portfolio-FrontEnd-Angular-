@@ -1,8 +1,8 @@
-<article class="about container-fluid" *ngIf="existence" id="about">
-    <app-edition class="edition" [horizontal]="windowWidth<1200"></app-edition>
-    <div class="row justify-content-center d-none d-sm-flex card-wrapper">
+<article class="about container-fluid py-5 px-3 py-sm-0 px-sm-0" *ngIf="existence" id="about">
+    <app-edition class="edition" [horizontal]="windowWidth<1200" (edition)="editMode()"></app-edition>
+    <div class="row justify-content-center d-none d-sm-flex mx-0">
         <div class="col-12 col-xl-9 align-self-center px-3 px-xl-0">
-            <div class="card inverse">
+            <div class="card" [class.editing]="editing">
                 <div class="card_content">
                     <div class="card_front" >
                         <h3 class="card_title mb-0">

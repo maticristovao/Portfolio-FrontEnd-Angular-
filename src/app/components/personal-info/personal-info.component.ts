@@ -12,11 +12,13 @@ export class PersonalInfoComponent implements OnInit{
   @ViewChild('asMore') more!:ElementRef;
   moreContent!:string;
   personalInfo!:any;
+  windowWidth:number = window.innerWidth;
 
   faLocationDot = faLocationDot;
 
   @HostListener('window:resize')
   onResize() {
+    this.windowWidth = window.innerWidth;
     this.defineContent();
   }
 
@@ -25,7 +27,7 @@ export class PersonalInfoComponent implements OnInit{
   }
 
   defineContent(){
-    if(window.innerWidth>1200){
+    if(this.windowWidth>1200){
       this.moreContent = 'More';
     }else{
       this.moreContent = '...';

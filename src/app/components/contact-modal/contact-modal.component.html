@@ -3,30 +3,40 @@
       <div class="modal-content">
         <div class="modal-header pb-4">
             <h5 class="modal-title" id="exampleModalLongTitle">{{name}}</h5>
-            <span aria-hidden="true" type="button" class="close me-2 d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0">
+            <span aria-hidden="true" type="button" class="close me-0 me-sm-2 d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0">
                 <fa-icon [icon]="faExit"></fa-icon>
             </span>
         </div>
         <div class="modal-body container-fluid">
             <div class="row">
-                <p class="body-head ms-3">Contact Info</p>
+                <p class="body-head ms-0 ms-sm-3">Contact Info</p>
             </div>
-            <div class="row d-flex mt-4" *ngIf="mail">
+            <div class="row mt-4" *ngIf="mail">
                 <div class="col-2 d-flex justify-content-center">
                     <fa-icon [icon]="faEnvelope"></fa-icon>
                 </div>
                 <div class="col-10">
                     <p class="label">Email</p>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-10 data">
                     <p><a href="mailto:{{mail}}">{{mail}}</a></p>
                 </div>
             </div>
 
-            <div class="row d-flex mt-5 mb-4" *ngIf="phoneNum">
+
+            <div class="row mt-5" *ngIf="phoneNum">
                 <div class="col-2 d-flex justify-content-center">
                     <fa-icon [icon]="phoneType.toLowerCase().trim() === 'mobile'? faMobile : faPhone"></fa-icon>
                 </div>
                 <div class="col-10">
                     <p class="label">Phone</p>
+                    
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-10 data">
                     <p>{{phoneNum}} <span>({{phoneType}})</span></p>
                 </div>
             </div>

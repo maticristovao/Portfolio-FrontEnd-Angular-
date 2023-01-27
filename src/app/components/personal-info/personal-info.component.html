@@ -3,7 +3,7 @@
         <div class="photo col-3 col-lg-2 d-none d-md-block">
             <img [src]="personalInfo.photo" alt="Personal picture">
         </div>
-        <div class="col-12 col-md-9 col-lg-10" >
+        <div class="col-12 col-md-9 col-lg-10 data">
             <div class="row head-info">
                 <div class="name-title col-12 col-sm-9 col-lg-10 col-xxl-8 mt-4">
                     <h1>{{personalInfo.name}} {{personalInfo.surname}}</h1>
@@ -24,11 +24,12 @@
                     <div class="d-none d-xxl-inline-block ms-4 text-center">Price Waterhouse & Coopers</div>
                 </div>
             </div>
-            <div class="row gap-3 mt-2 mt-sm-4 mt-md-4 mt-lg-2 mb-5">
+            <div class="row gap-2 mt-2 mt-sm-4 mt-md-4 mt-lg-4 mb-5 align-items-center">
                 <button class="btn profile-btn btn-primary col-12 col-sm-3 col-md-3 col-lg-2 col-xl-2 col-xxl-2">Open to</button>
                 <button class="btn btn-outline-primary profile-btn col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3">Add profile article</button>
                 <button #asMore class="btn btn-outline-light profile-btn col-md-1 col-lg-1 col-xl-1 col-xxl-1 d-none d-md-block" id="more">{{moreContent}}</button>
             </div>
+            <app-edition [horizontal]="windowWidth>=576" class="edition mb-sm-2 me-3 me-sm-1 mt-3 mt-sm-0"></app-edition>
         </div>
     </div>
 </article>

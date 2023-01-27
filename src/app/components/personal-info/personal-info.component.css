@@ -103,3 +103,20 @@
         padding-bottom: 20px !important;
     }
 }
+
+div.data{ 
+    position: relative;
+}
+
+.edition{
+    position: absolute;
+    right:0;
+    bottom:0;
+    width: fit-content;
+}
+
+@media screen and (width<576px) {
+    .edition{
+        top:0;
+    }
+}
