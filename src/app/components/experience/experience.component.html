@@ -1,9 +1,9 @@
 <section class="experience py-5" id="experience">
     <h1 class="my-4 text-center">Experience</h1>
     <app-edition class="edition my-2 my-sm-5 me-1 me-sm-5"></app-edition>
-    <div class="timeline m-auto">
-        <div class="item mb-5" *ngFor="let experience of personalExperience">
-            <div class="content p-3 bg-dark">
+    <div class="timeline m-auto" elementObserver [threshold]="windowWidth>1150? 0.45:0.25" [wait]="0" (visible)="isIntersecting()">
+        <div class="item fade-in mb-5" *ngFor="let experience of personalExperience" [class.visible]="intersecting">
+            <div class="content p-3" >
                 <h3 class="text-light">
                     {{experience.name}}
                 </h3>

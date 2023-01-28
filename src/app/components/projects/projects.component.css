@@ -1,0 +1,11 @@
+section{
+    min-height: 100vh;
+}
+
+h1{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    color:#23b3e4;
+    font-weight: bold;
+    letter-spacing: 1px;
+}

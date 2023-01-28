@@ -23,6 +23,7 @@ h1{
     display: flex;
     flex-wrap: wrap;
     position:relative;
+    overflow-x: hidden;
 }
 
 .timeline::before{
@@ -38,6 +39,7 @@ h1{
     width: 100%;
     position: relative;
     overflow-x: hidden;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
 .item:nth-child(odd){
@@ -55,7 +57,7 @@ h1{
 
 .content{
     border-radius: 10px;
-    background-color: black !important;
+    background-color: black;
     border: 2px solid #23b3e4;
     position: relative;
 }
@@ -123,7 +125,19 @@ h1{
     transform: translateX(0) !important;
 }
 
-@media screen and (width<768px) {
+.fade-in:not(.visible){
+    opacity: 0;
+}
+
+.fade-in:not(.visible).item:nth-child(odd) {
+    transform:translateX(30%);
+}
+
+.fade-in:not(.visible).item:nth-child(even) {
+    transform:translateX(-30%);
+}
+
+@media screen and (width<900px) {
     .timeline::before{
         left:23px;
     }
@@ -155,7 +169,7 @@ h1{
     }
 }
 
-@media screen and (width<450px){
+@media screen and (width<470px){
     .timeline::before{
         left:15px;
     }
@@ -175,5 +189,17 @@ h1{
 
     .content::before{
         left:-45px !important;
+    }
+
+    .item .type{
+        padding-right: 5px !important;
+        padding-left: 10px !important;
+        font-size: 18px;
+    }
+}
+
+@media screen and (width<=350px){
+    .type{
+        display: none;
     }
 }

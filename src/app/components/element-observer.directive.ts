@@ -2,12 +2,15 @@ import { Directive, Input, OnInit, ElementRef, EventEmitter, Output } from '@ang
 import { Subject } from 'rxjs';
 
 @Directive({
-  selector: '[elementObserve]',
+  selector: '[elementObserver]',
   exportAs: 'intersection'
 })
 export class ElementObserverDirective implements OnInit{
   @Input() threshold: number = 0;
+  @Input() wait:number = 0;
   @Output() visible = new EventEmitter<HTMLElement>();
+
+  timer = (ms: number | undefined) => new Promise(res => setTimeout(res, ms));
 
   private observer?:IntersectionObserver;
 
@@ -37,8 +40,9 @@ export class ElementObserverDirective implements OnInit{
       entry.isIntersecting;
 
     this.observer = new IntersectionObserver((entries, observer) =>{
-      entries.forEach(entry => {
+      entries.forEach(async entry => {
         if (isIntersecting(entry)) {
+          await this.timer(this.wait);
           this.subject$.next({ entry, observer });
         }
       });

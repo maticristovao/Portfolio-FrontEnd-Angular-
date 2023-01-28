@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener, AfterViewInit } from '@angular/core';
 import { faCodepen, faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faBuildingColumns, faGlobe, faHashtag, faHome, faPersonDigging, faScrewdriverWrench, faSuitcase, faTerminal, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBuildingColumns, faGlobe, faHashtag, faHome, faPersonDigging, faScrewdriverWrench, faShoePrints, faSuitcase, faTerminal, faUser } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
 export interface Media{
@@ -31,7 +31,7 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
   faGlobe = faGlobe;
   faUser = faUser;
   faEducation = faBuildingColumns;
-  faWork = faPersonDigging;
+  faWork = faShoePrints;
   faSkills = faScrewdriverWrench;
   faProjects = faSuitcase;
   faHashtag = faHashtag;

@@ -5,14 +5,14 @@
 }
 .progress-bar{
     background-color: rgba(255, 255, 255, 0.651);
-    border-radius: 40000px;
-    padding: 5px;
-    height: 85%;
+    border-radius: 400px;
+    padding: 3px;
+    height: 20%;
 }
 
 .progress{
     background-color: #23b3e4;
-    border-radius: 40000px;
+    border-radius: 400px;
     transition: width 2s ease-out;
 }
 
