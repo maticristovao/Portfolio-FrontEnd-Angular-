@@ -20,6 +20,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { EditionComponent } from './components/edition/edition.component';
 import { LoginComponent } from './components/login/login.component';
+import { MainComponent } from './components/main/main.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { LoginComponent } from './components/login/login.component';
     LanguagesComponent,
     ProjectsComponent,
     EditionComponent,
-    LoginComponent
+    LoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
