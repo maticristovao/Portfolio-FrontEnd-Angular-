@@ -1,8 +1,8 @@
-<section class="experience py-5 px-2" id="experience">
+<section class="experience py-5" id="experience">
     <h1 class="my-4 text-center">Experience</h1>
+    <app-edition class="edition my-2 my-sm-5 me-1 me-sm-5"></app-edition>
     <div class="timeline m-auto">
         <div class="item mb-5" *ngFor="let experience of personalExperience">
-            <!-- <div class="date mb-2 text-light px-3"><h5>{{experience.startDate}} - {{experience.endDate}}</h5></div> -->
             <div class="content p-3 bg-dark">
                 <h3 class="text-light">
                     {{experience.name}}
