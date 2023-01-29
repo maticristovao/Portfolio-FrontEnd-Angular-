@@ -25,6 +25,8 @@ h1{
     text-transform: uppercase;
     font-weight: bold;
     font-size: 50px;
+    cursor: pointer;
+    height: fit-content !important;
 }
 
 button{
@@ -35,13 +37,12 @@ button{
     transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 
-.row:has(.wrapper){
-    height:65%;
-}
-
 .wrapper{
-    height: 100%;
+    height: auto;
     border-radius: 40px;
+    position: relative;
+    width:550px;
+    margin-left: 7vw;
 }
 
 .input-group-text, .show{
@@ -54,6 +55,23 @@ button{
 .show{
     display: flex;
     align-items: center;
+}
+
+.show-icon{
+    transform-origin: center;
+    transition: transform .3s ease-in-out, color .5s ease-in-out;   
+}
+
+.show-icon:is(:hover, :focus){
+    transform:scale(1.15);
+}
+
+.show-icon:focus-visible{
+    outline: none;
+}
+
+.show-icon.visible{
+    color:grey;
 }
 
 .form-control{
@@ -91,8 +109,8 @@ button{
 .remember input{
     appearance: none;
     background:black !important;
-    height:80%;
-    width: 60%;
+    height: 25px;
+    width: 25px;
     border-radius: 6px;
     display: grid;
     place-content: center;
@@ -119,6 +137,31 @@ button{
 
 input.btn{
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 600;
     font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    color:#23b3e4;
+    border: 1px solid #23b3e4;
+    letter-spacing: 1px;
+}
+
+input.btn:hover{
+    background:#23b3e4 !important;
+    color:#212529;
+}
+
+.wrapper::after{
+    content:'';
+    border:2px solid #23b3e4;
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    transform: scale(.96);
+}
+
+.wrapper *{
+    z-index: 1;
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { faArrowLeft, faAt, faEye, faHome, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faAt, faEye, faEyeSlash, faHome, faKey } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +10,13 @@ import { faArrowLeft, faAt, faEye, faHome, faKey } from '@fortawesome/free-solid
 export class LoginComponent {
   // form!:FormGroup;
   show:boolean = false;
+  remember:boolean = false;
 
   faBack = faArrowLeft;
   faAt = faAt;
   faKey = faKey;
   faEye = faEye;
+  faEyeSlash = faEyeSlash;
 
   toggleVisibility(){
     this.show = !this.show;
