@@ -67,7 +67,7 @@ button.back{
     left: 100%;
     right: 0;
     background-color: black;
-    transition: left .5s ease-in-out;
+    transition: left .5s ease-in-out;   
 }
 .wrapper.sign::before{
     left: 0px;
@@ -196,3 +196,20 @@ input.btn:hover{
     -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 } */
+
+app-login-form, app-signup-form{
+    animation: fade 1s;
+
+}
+
+@keyframes fade {
+    0%{
+        opacity:0;
+    }
+    20%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

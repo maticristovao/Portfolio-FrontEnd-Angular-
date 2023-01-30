@@ -57,11 +57,11 @@ export class SignupFormComponent {
   }
 
   get Name(){
-    return this.form.get('mail');
+    return this.form.get('name');
   }
   
   get Surname(){
-    return this.form.get('mail');
+    return this.form.get('surname');
   }
 
   get Mail(){

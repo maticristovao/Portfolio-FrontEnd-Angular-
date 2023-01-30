@@ -1,6 +1,6 @@
 <form class="signup-form container px-0" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row justify-content-center mt-5 px-1">
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
             <div class="input-group px-0">
                 <div class="col-2 px-0">
                     <div class="input-group-prepend text-center px-0">
@@ -8,13 +8,13 @@
                     </div>
                 </div>
                 <div class="col-10 px-0">
-                    <input type="text" class="form-control" id="name" formControlName="name" placeholder="Your name" maxlength="12" autofocus/>
+                    <input type="text" class="form-control" id="name" formControlName="name" placeholder="Your name" maxlength="12"/>
                 </div>    
             </div>
-            <p class="error" *ngIf="Name?.hasError('required') && Name?.touched">Name required</p>
+            <p class="error ps-2"><span *ngIf="Name?.hasError('required') && Name?.touched">Name required</span></p>
         </div>
-        <div class="col-6">
-            <div class="input-group px-0">
+        <div class="col-12 col-sm-6">
+            <div class="input-group px-0 mt-2 mt-sm-0">
                 <div class="col-2 px-0">
                     <div class="input-group-prepend text-center px-0">
                         <label for="surname"><div class="input-group-text"><fa-icon [icon]="faCircleUser"></fa-icon></div></label>
@@ -24,10 +24,10 @@
                     <input type="text" class="form-control" id="surname" formControlName="surname" placeholder="Your surname" maxlength="20"/>
                 </div>
             </div>
-            <p class="error" *ngIf="Surname?.hasError('required') && Surname?.touched">Surname required</p>
+            <p class="error ps-2"><span *ngIf="Surname?.hasError('required') && Surname?.touched">Surname required</span></p>
         </div>
     </div>
-    <div class="row justify-content-center my-4 px-3">
+    <div class="row justify-content-center my-2 px-3">
         <div class="input-group px-0">
             <div class="col-1 px-0">
                 <div class="input-group-prepend text-center px-0">
@@ -38,9 +38,9 @@
                 <input type="email" class="form-control" id="mail" formControlName="mail" placeholder="Your email" maxlength="40"/>
             </div>
         </div>
-        <p class="error" *ngIf="Mail?.errors && Mail?.touched">Enter a valid email.</p>
+        <p class="error"><span *ngIf="Mail?.errors && Mail?.touched">Enter a valid email.</span></p>
     </div>
-    <div class="row justify-content-center my-4 px-3">
+    <div class="row justify-content-center my-2 px-3">
         <div class="input-group px-0">
             <div class="col-1 px-0">
                 <div class="input-group-prepend text-center px-0">
@@ -55,13 +55,12 @@
             </div>
         </div>
         <div *ngIf="Password?.errors">
-            <p class="error" *ngIf="Password?.hasError('required') && Password?.touched">Please add a password.</p>
-            <p class="error" *ngIf="Password?.hasError('pattern')&& Password?.touched">Your password should contain special characters, uppercase, lowercase and numbers.</p>
+            <p class="error" *ngIf="Password?.hasError('required')"><span *ngIf="Password?.touched">Please add a password.</span></p>
+            <p class="error password" *ngIf="Password?.hasError('pattern')&& Password?.touched">Your password should contain special characters, uppercase, lowercase and numbers.</p>
             <p class="error" *ngIf="Password?.hasError('minlength')">Your password should contain at least 8 characters.</p>
-            <!-- <p class="error" *ngIf="Password?.hasError('maxlength')">Your password should contain no more than 20 characters.</p> -->
         </div>
     </div>
-    <div class="row justify-content-center my-4 px-3">
+    <div class="row justify-content-center my-2 px-3">
         <div class="input-group px-0">
             <div class="col-1 px-0">
                 <div class="input-group-prepend text-center px-0">
@@ -76,7 +75,7 @@
             </div>
         </div>
         <div>
-            <p class="error" *ngIf="Confirm?.hasError('required') && Confirm?.touched">Please confirm password.</p>
+            <p class="error" *ngIf="Confirm?.hasError('required') && Confirm?.touched && Password?.dirty">Please confirm password.</p>
             <p class="error" *ngIf="Confirm?.hasError('confirmValidator') && Confirm?.touched">Password doesn't match.</p>
         </div>
     </div>

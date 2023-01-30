@@ -21,6 +21,8 @@ html{
 body{
         min-height: 100vh;
         background:#1a1c1f;
+        position: relative;
+        overflow-anchor: none;
 }
 nav{
     z-index:3;

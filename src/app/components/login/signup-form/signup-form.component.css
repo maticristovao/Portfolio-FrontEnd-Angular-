@@ -111,4 +111,11 @@ p.error{
     user-select: none;
     padding-top: 2px;
     font-size: 14px;
+    margin-bottom: 0;
+    height: 23px;
 }
+
+p.error.password{
+    height:auto;
+}
+
