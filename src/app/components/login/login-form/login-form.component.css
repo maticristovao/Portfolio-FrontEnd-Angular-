@@ -1,84 +1,8 @@
-section{
-    min-height: 100vh;
-    position: relative;
-}
-section::after{
-    content: '';
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: url(https://www.informaticsint.com/wp-content/uploads/2019/06/informatics-home-banner-bg.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: grayscale(15%);
-    z-index: -1;
-}
-
-h1{
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 50px;
-    width: fit-content;
-    transition: color .5s ease-in-out, scale .5s ease-in-out;
-    scale: .9;
-}
-
-h1.active{
-    color:#23b3e4 !important;
-    scale: 1;
-}
-
-button.back{
-    width:60px;
-    height: 60px;
-    border-radius: 50%;
-    font-size: 30px;
-    transition: background-color .3s ease-in-out, color .3s ease-in-out;
-}
-
-.wrapper{
-    height: auto;
-    border-radius: 40px;
-    position: relative;
-    max-width:515px;
-    overflow-x: hidden;
-}
-
-.wrapper::after{
-    content:'';
-    border:2px solid #23b3e4;
-    position: absolute;
-    top:0;
-    left:0;
-    right: 0;
-    bottom: 0;
-    border-radius: 30px;
-    transform: scale(.96);
-}
-.wrapper::before{
-    position: absolute;
-    content: '';
-    top: 0;
-    bottom: 0;
-    left: 100%;
-    right: 0;
-    background-color: black;
-    transition: left .5s ease-in-out;
-}
-.wrapper.sign::before{
-    left: 0px;
-}
-
-
-.wrapper *{
+*{
     z-index: 1;
 }
 
-/* .input-group-text, .show{
+.input-group-text, .show{
     background-color: transparent;
     border:none;
     color:#23b3e4;
@@ -96,7 +20,7 @@ button.back{
 }
 
 .show-icon:is(:hover, :focus){
-    transform:scale(1.15);
+    transform:scale(1.2);
 }
 
 .show-icon:focus-visible{
@@ -181,18 +105,46 @@ input.btn{
 }
 
 input.btn:hover{
-    background:#23b3e4 !important;
+    background:#23b3e4;
     color:#212529;
 }
 
-.form-group input:is(:-ms-input-placeholder, ::-moz-placeholder, :-moz-placeholder, ::-webkit-input-placeholder)  {
+form input:-ms-input-placeholder{
     opacity: 0.7;
     -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
 
-.form-group input:focus::-webkit-input-placeholder  {
+form input::-moz-placeholder{
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+form input:-moz-placeholder{
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+form input::-webkit-input-placeholder{
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+form input:focus::-webkit-input-placeholder  {
     opacity: 0;
     -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
-} */
+}
+
+input.form-control:autofill{
+    box-shadow:0 0 0 50px black inset;
+    color: #23b3e4;  
+}
+
+input.form-control:-webkit-autofill{
+    -webkit-box-shadow:0 0 0 50px black inset;
+    -webkit-text-fill-color: #23b3e4;  
+}

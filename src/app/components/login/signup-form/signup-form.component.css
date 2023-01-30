@@ -1,0 +1,114 @@
+*{
+    z-index: 1;
+}
+
+.input-group-text, .show{
+    background-color: transparent;
+    border:none;
+    color:#23b3e4;
+    font-size: 18px;
+    cursor: pointer;
+}
+.show{
+    display: flex;
+    align-items: center;
+}
+
+.show-icon{
+    transform-origin: center;
+    transition: transform .3s ease-in-out, color .5s ease-in-out;   
+}
+
+.show-icon:is(:hover, :focus){
+    transform:scale(1.2);
+}
+
+.show-icon:focus-visible{
+    outline: none;
+}
+
+.show-icon.visible{
+    color:grey;
+}
+
+.form-control{
+    background-color: transparent !important;
+    border: none;
+    height: 100%;
+    color:#23b3e4;
+    font-weight: 700;
+}
+
+.form-control:focus{
+    box-shadow: none;
+}
+
+.input-group{
+    background-color: #212529;
+    border-radius: 10px;
+    padding: 3px 0;
+}
+
+input.btn{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    color:#23b3e4;
+    border: 1px solid #23b3e4;
+    letter-spacing: 1px;
+}
+
+input.btn:hover{
+    background:#23b3e4;
+    color:black;
+}
+
+form input:-ms-input-placeholder{
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+form input::-moz-placeholder{
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+form input:-moz-placeholder{
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+form input::-webkit-input-placeholder{
+    opacity: 0.7;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+form input:focus::-webkit-input-placeholder  {
+    opacity: 0;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+input.form-control:autofill{
+    box-shadow:0 0 0 50px black inset;
+    color: #23b3e4;  
+}
+
+input.form-control:-webkit-autofill{
+    -webkit-box-shadow:0 0 0 50px black inset;
+    -webkit-text-fill-color: #23b3e4;  
+}
+
+p.error{
+    color:red;
+    display: block;
+    font-weight: bold;
+    user-select: none;
+    padding-top: 2px;
+    font-size: 14px;
+}

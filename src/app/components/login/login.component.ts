@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { faArrowLeft, faAt, faEye, faEyeSlash, faHome, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faAt, faCircleUser, faEye, faEyeSlash, faHome, faKey, faLock } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -8,25 +8,16 @@ import { faArrowLeft, faAt, faEye, faEyeSlash, faHome, faKey } from '@fortawesom
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  // form!:FormGroup;
-  show:boolean = false;
   remember:boolean = false;
+  signMode:boolean = false;
 
   faBack = faArrowLeft;
-  faAt = faAt;
-  faKey = faKey;
-  faEye = faEye;
-  faEyeSlash = faEyeSlash;
 
-  toggleVisibility(){
-    this.show = !this.show;
+  logMode(){
+    this.signMode = false;
   }
 
-  // constructor(private formBuilder:FormBuilder){
-    // this.form = this.formBuilder.group({
-
-    // })
-  // }
-
-
+  signUpMode(){
+    this.signMode = true;
+  }
 }

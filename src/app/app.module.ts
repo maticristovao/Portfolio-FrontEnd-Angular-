@@ -21,6 +21,9 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { EditionComponent } from './components/edition/edition.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
+import { LoginFormComponent } from './components/login/login-form/login-form.component';
+import { SignupFormComponent } from './components/login/signup-form/signup-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -40,14 +43,18 @@ import { MainComponent } from './components/main/main.component';
     ProjectsComponent,
     EditionComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    LoginFormComponent,
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    DragDropModule
+    DragDropModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

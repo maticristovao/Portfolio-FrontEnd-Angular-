@@ -1,57 +1,15 @@
-<section class="p-4 container-fluid">
+<section class="p-sm-5 container-fluid">
     <div class="row">
-        <button routerLink="/" class="btn btn-outline-secondary m-3">
+        <button routerLink="/" class="btn btn-outline-secondary back m-3 m-sm-0">
             <fa-icon [icon]="faBack"></fa-icon>
         </button>
     </div>
-    <div class="wrapper container bg-dark px-5 mt-5">
-        <div class="row">
-            <h1 class="text-center mt-5 mb-4 col-6">Log In</h1>
-            <h1 class="text-center mt-5 mb-4 col-6 text-muted">Sign up</h1>
-        </div>  
-        <div class="row justify-content-center">
-            <form class="login-form container">
-                <div class="row justify-content-center mt-5 px-3">
-                    <div class="input-group px-0">
-                        <div class="col-1 px-0">
-                            <div class="input-group-prepend text-center px-0">
-                                <label for="mail"><div class="input-group-text"><fa-icon [icon]="faAt"></fa-icon></div></label>
-                            </div>
-                        </div>
-                        <div class="col-11 px-0">
-                            <input type="mail" class="form-control col-8" id="mail" placeholder="Your email" autofocus/>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center my-4 px-3">
-                    <div class="input-group px-0">
-                        <div class="col-1 px-0">
-                            <div class="input-group-prepend text-center px-0">
-                                <label for="password"><div class="input-group-text"><fa-icon [icon]="faKey"></fa-icon></div></label>
-                            </div>
-                        </div>
-                        <div class="col-10 px-0">
-                            <input [type]="show?'text':'password'" class="form-control col-8" id="password" placeholder="Your password"/>
-                        </div>
-                        <div class="col-1 show text-center">
-                            <fa-icon [icon]="!show? faEye:faEyeSlash" (click)="toggleVisibility()" (keyup.enter)="toggleVisibility()" class="show-icon" [class.visible]="show" tabindex="0" onclick="blur()"></fa-icon>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center my-5 px-3">
-                    <div class="input-group px-0 remember">
-                        <div class="col-5 px-0">
-                            <label for="remember">Remember me</label>
-                        </div>
-                        <div class="col-1 ms-2">
-                            <input type="checkbox" class="col-8" id="remember" placeholder="Your password"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center my-5 pt-5">
-                    <input class="btn btn-lg btn-block col-5" type="submit" value="Submit"/>
-                </div>
-            </form>
+    <div class="wrapper container bg-dark px-5 mt-5 ms-md-5" [class.sign]="signMode">
+        <div class="row justify-content-between pt-5 mb-4 px-2">
+            <h1 class="text-start me-0 me-sm-1 me-md-2 text-muted" [class.active]="!signMode" (click)="logMode()" (keyup.enter)="logMode()" [ngStyle]="signMode?{'cursor':'pointer'}:{'cursor':'default'}" [attr.tabindex]="signMode? 0:-1">Log In</h1>
+            <h1 class="text-end ms-0 ms-sm-1 ms-md-2 text-muted" [class.active]="signMode" (click)="signUpMode()" (keyup.enter)="signUpMode()" [ngStyle]="!signMode?{'cursor':'pointer'}:{'cursor':'default'}" [attr.tabindex]="!signMode? 0:-1">Sign up</h1>
         </div>
+        <app-login-form *ngIf="!signMode"></app-login-form>
+        <app-signup-form *ngIf="signMode"></app-signup-form>
     </div>
 </section>
