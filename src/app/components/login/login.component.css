@@ -199,7 +199,6 @@ input.btn:hover{
 
 app-login-form, app-signup-form{
     animation: fade 1s;
-
 }
 
 @keyframes fade {
@@ -212,4 +211,8 @@ app-login-form, app-signup-form{
     100%{
         opacity: 1;
     }
+}
+
+@keyframes fade-in {
+    
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener, Afte
 import { faCodepen, faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBuildingColumns, faGlobe, faHashtag, faHome, faPersonDigging, faScrewdriverWrench, faShoePrints, faSuitcase, faTerminal, faUser } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { Router } from '@angular/router';
 
 export interface Media{
   media:string,
@@ -55,7 +56,7 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
 
 
   
-  constructor(private renderer:Renderer2, private personalData:PersonalInfoService){}
+  constructor(private renderer:Renderer2, private personalData:PersonalInfoService, private router:Router){}
 
   determineIcon(media:string){
     switch (media.toLowerCase().trim()){
@@ -109,18 +110,20 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
     this.renderer.setAttribute(this.navToggler.nativeElement,'aria-expanded', 'false');
   }
 
+  hasRoute(route:string):boolean{
+    return this.router.url === route;
+  }
+
   ngOnInit(): void {
     this.giveDataContent(this.navLinks);
 
     this.personalData.getData().subscribe(data => {
       this.personalMedia = data.social;
     })
-    
   }
 
   ngAfterViewInit(): void {
     $('.card-icon fa-icon').on('mouseenter', this.bounce);
     $('.card-icon fa-icon').on('mouseleave', this.notBounce);
-    
   }
 }

@@ -8,7 +8,8 @@
     margin: 0 20% 10.5vh 20%;
     justify-content: center;
 }
-.carousel-inner{
+
+header{
     position: relative;
 }
 
@@ -70,28 +71,29 @@
     object-fit: cover;
     object-position: center center;
 }
-.carousel{
+#carousel{
     display: block;
     position:relative;
 }
 .carousel-indicators{
     margin-bottom: 4vh;
-}
-.carousel-indicators li {
-    width: 77px;
-    height: 6px;
-    margin:0 8px;
-    background-color: rgba(255,255,255,.5);
-    border-radius: 400px;
-    position: relative;
+    height:fit-content;
 }
 
-.carousel-indicators li:not(.active):hover {
+.carousel-indicators [data-bs-target]:not(.active):hover {
     background-color: rgba(255, 255, 255, 0.664);
     cursor: pointer;
 }
+.carousel-indicators [data-bs-target] {
+    width: 77px;
+    height: 6px !important;
+    margin:0 8px;
+    background-color: rgba(255,255,255,.5);
+    border-radius: 11px !important;
+    position: relative;
+}
 
-li.indicator::before{
+[data-bs-target]::before{
     content:'';
     background-color:#23b3e4;
     position: absolute;
@@ -113,13 +115,13 @@ li.indicator::before{
         width:100%;
     }
 }
-.carousel-indicators li.active::before{
-    animation: fillBar linear 7.8s .2s;
+.carousel-indicators [data-bs-target].active::before{
+    animation: fillBar linear 5.8s .2s;
 }
   
 .carousel-fade .active.carousel-item-start,
 .carousel-fade .active.carousel-item-end {
-    transition: opacity .1s .4s;
+    transition: opacity .1s;
 }
 
 .name-logo{
@@ -255,4 +257,17 @@ li.indicator::before{
     .carousel-caption .row{
         padding-right: 4.5vw;
     }
+}
+
+  .carousel-item {
+    display: block;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out, visibility 1s;
+}
+.carousel-item.active {
+    opacity: 1;
+}
+
+.carousel-item img{
+    filter:grayscale(100%);
 }

@@ -1,10 +1,13 @@
-<app-navigation-bar></app-navigation-bar>
-<app-header></app-header>
-<section>
-    <app-personal-info></app-personal-info>
-    <app-about></app-about>
-</section>
-<app-education></app-education>
-<app-experience></app-experience>
-<app-skills></app-skills>
-<app-projects></app-projects>
+<div data-bs-spy="scroll" data-bs-target="#nav" tabindex="0" data-bs-root-margin="0px" [attr.data-bs-threshold]="defineThreshold()" id="scroll">
+    <app-navigation-bar></app-navigation-bar>
+    <app-header></app-header>
+    <section>
+        <app-personal-info></app-personal-info>
+        <app-about></app-about>
+    </section>
+    <app-education></app-education>
+    <app-experience></app-experience>
+    <app-skills></app-skills>
+    <app-projects></app-projects>
+</div>
+

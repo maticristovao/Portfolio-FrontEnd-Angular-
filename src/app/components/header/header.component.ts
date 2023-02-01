@@ -1,17 +1,17 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
+import { NgbCarousel, NgbCarouselConfig, NgbSlide, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
-import { Carousel } from 'bootstrap';
-import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers:[NgbCarouselConfig],
+  encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy{
-  // @ViewChild('asCarousel')carousel!:ElementRef;
-  carousel!:HTMLElement | null;
+export class HeaderComponent implements OnInit{
+  @ViewChild('asCarousel')carousel!:NgbCarousel;
   faDownload = faArrowCircleDown;
   personalInfo:any;
   images:string[]=[
@@ -21,13 +21,18 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy{
   ]
 
   @HostListener('window:resize')
-  @HostListener('window:resize')
   onResize() {
     this.defineName();
     this.defineSurname();
   }
 
-  constructor(private personalData:PersonalInfoService, private renderer:Renderer2){
+  constructor(private personalData:PersonalInfoService, private config:NgbCarouselConfig){
+    config.interval=6000;
+    config.pauseOnHover=false;
+    config.keyboard=false;
+    config.showNavigationArrows=false;
+    config.animation=false
+    config.pauseOnFocus=false;    
   }
 
   removeAccents(str:string):string{
@@ -58,12 +63,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy{
     this.defineSurname();
   }
 
-  ngAfterViewInit(){
-    // new bootstrap.Carousel(<any>$("#exampleSelector")).cycle()
-    this.carousel = document.getElementById('carousel')
-  }
-
-  ngOnDestroy(){
-    this.carousel?.remove();
+  resetTimer(e:NgbSlideEvent){
+    if(e.source !== 'timer'){
+      this.carousel.pause();
+      this.carousel.cycle();
+    }
   }
 }

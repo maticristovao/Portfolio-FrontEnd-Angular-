@@ -24,6 +24,7 @@ import { MainComponent } from './components/main/main.component';
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
 import { SignupFormComponent } from './components/login/signup-form/signup-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     DragDropModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
