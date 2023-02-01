@@ -5,7 +5,7 @@ declare var bootstrap: any;
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent{
+export class MainComponent implements AfterViewInit{
   windowWidth:number = window.innerWidth;
   windowHeight:number = window.innerHeight;
 
@@ -26,15 +26,10 @@ export class MainComponent{
     }
   }
 
-  // ngAfterViewChecked(): void {
-  //   const dataSpyList = document.querySelectorAll('[data-bs-spy="scroll"]')
-  //   dataSpyList.forEach(dataSpyEl => {
-  //   bootstrap.ScrollSpy.getInstance(dataSpyEl).dispose()
-  //   });
-
-  //   const wrapper = document.querySelector('#scroll');
-  //   const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-  //     target: '#nav'
-  //   })
-  // }
+  ngAfterViewInit(): void {
+    const wrapper = document.querySelector('#scroll');
+    const scrollSpy = new bootstrap.ScrollSpy(wrapper, {
+      target: '#nav'
+    })
+  }
 }
