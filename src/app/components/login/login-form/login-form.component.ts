@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { faArrowLeft, faAt, faEye, faEyeSlash, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faAt, faEye, faEyeSlash, faKey, faUserPlus, faUserShield } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login-form',
@@ -14,14 +14,14 @@ export class LoginFormComponent {
   
 
   faBack = faArrowLeft;
-  faAt = faAt;
+  faUsername = faUserShield;
   faKey = faKey;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
 
   constructor(private formBuilder:FormBuilder){
     this.form = this.formBuilder.group({
-      mail:['', [Validators.required]],
+      username:['', [Validators.required]],
       password:['', [Validators.required]],
       remember:[false, []]
     })
@@ -31,8 +31,8 @@ export class LoginFormComponent {
     this.show = !this.show;
   }
 
-  get Mail(){
-    return this.form.get('mail');
+  get Username(){
+    return this.form.get('username');
   }
   get Password(){
     return this.form.get('password');

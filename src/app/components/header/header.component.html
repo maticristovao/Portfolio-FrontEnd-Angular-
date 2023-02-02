@@ -1,6 +1,6 @@
 <header id="header">
     <div class="container-fluid name-logo">
-        <div class="logo"><span>{{defineName()}}</span>{{defineSurname()}}</div>
+        <div class="logo" elementObserver (visible)="isIntersecting()" [class.fade-in]="intersecting"><div><span>{{defineName()}}</span>{{defineSurname()}}</div></div>
      </div>
     <ngb-carousel id="carousel" #asCarousel (slid)="resetTimer($event)">
         <ng-template class="carousel-item" ngbSlide *ngFor="let image of images">

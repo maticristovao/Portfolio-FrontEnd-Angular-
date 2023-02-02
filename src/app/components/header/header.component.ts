@@ -12,6 +12,7 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
 })
 export class HeaderComponent implements OnInit{
   @ViewChild('asCarousel')carousel!:NgbCarousel;
+  intersecting = false;
   faDownload = faArrowCircleDown;
   personalInfo:any;
   images:string[]=[
@@ -55,18 +56,22 @@ export class HeaderComponent implements OnInit{
     }
   }
 
+  resetTimer(e:NgbSlideEvent){
+    if(e.source !== 'timer'){
+      this.carousel.pause();
+      this.carousel.cycle();
+    }
+  }
+
+  isIntersecting(){
+    this.intersecting = true;
+  }
+
   ngOnInit(): void {
     this.personalData.getData().subscribe(data =>{
       this.personalInfo = data;
     })
     this.defineName();
     this.defineSurname();
-  }
-
-  resetTimer(e:NgbSlideEvent){
-    if(e.source !== 'timer'){
-      this.carousel.pause();
-      this.carousel.cycle();
-    }
   }
 }

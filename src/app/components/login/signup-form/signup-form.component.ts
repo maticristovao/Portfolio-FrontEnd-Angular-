@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { faAt, faCircleUser, faEye, faEyeSlash, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faAt, faCircleUser, faEye, faEyeSlash, faLock, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-signup-form',
@@ -18,13 +18,14 @@ export class SignupFormComponent {
   faEyeSlash = faEyeSlash;
   faCircleUser = faCircleUser;
   faLock = faLock;
+  faUsername = faUserPlus;
   
 
   constructor(private formBuilder:FormBuilder){
     this.form = this.formBuilder.group({
       name:['', [Validators.required]],
       surname:['', [Validators.required]],
-      mail:['', [Validators.required, Validators.email]],
+      username:['', [Validators.required, Validators.minLength(8)]],
       password:['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#"¡¿=)({}[/+?!@$%^&*-]).*$')]],
       confirm:['', [Validators.required]]
     },
@@ -64,12 +65,14 @@ export class SignupFormComponent {
     return this.form.get('surname');
   }
 
-  get Mail(){
-    return this.form.get('mail');
+  get Username(){
+    return this.form.get('username');
   }
+
   get Password(){
     return this.form.get('password');
   }
+
   get Confirm(){
     return this.form.get('confirm');
   }
