@@ -19,20 +19,9 @@ export class PersonalInfoComponent implements OnInit{
   @HostListener('window:resize')
   onResize() {
     this.windowWidth = window.innerWidth;
-    this.defineContent();
   }
 
-  constructor(private personalData:PersonalInfoService){
-    this.defineContent();
-  }
-
-  defineContent(){
-    if(this.windowWidth>1200){
-      this.moreContent = 'More';
-    }else{
-      this.moreContent = '...';
-    }
-  }
+  constructor(private personalData:PersonalInfoService){}
 
   ngOnInit(): void {
     this.personalData.getData().subscribe(data => {

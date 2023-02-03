@@ -1,4 +1,4 @@
-<div class="item p-3 p-sm-5 p-md-5 px-md-4 p-xl-0 p-xl-5" [ngStyle]="{'--project-image':'url('+project.image+')'}" elementObserver (visible)="toggleVisibility()" [threshold]="0.25" [class.visible]="visible" [class.odd]="!even">
+<div class="item p-3 p-sm-5 p-md-5 px-md-4 p-xl-0 p-xl-5" [ngStyle]="{'--project-image':'url('+project.image+')'}" elementObserver (visible)="toggleVisibility()" [threshold]="0.10" [class.visible]="visible" [class.odd]="!even">
     <h2 class="title">{{project.name}}</h2>
     <div class="links d-flex gap-3">
         <a [href]="project.repo"><fa-icon [icon]="faCode" class="resources"></fa-icon></a>

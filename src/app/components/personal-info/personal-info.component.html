@@ -25,9 +25,9 @@
                 </div>
             </div>
             <div class="row gap-2 mt-2 mt-sm-4 mt-md-4 mt-lg-4 mb-5 align-items-center">
-                <button class="btn profile-btn btn-primary col-12 col-sm-3 col-md-3 col-lg-2 col-xl-2 col-xxl-2">Open to</button>
-                <button class="btn btn-outline-primary profile-btn col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-3">Add profile article</button>
-                <button #asMore class="btn btn-outline-light profile-btn col-md-1 col-lg-1 col-xl-1 col-xxl-1 d-none d-md-block" id="more">{{moreContent}}</button>
+                <button class="btn profile-btn btn-primary col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 col-xxl-2">Tengo interés en</button>
+                <button class="btn btn-outline-primary profile-btn col-12 col-sm-4 col-md-4 col-lg-4 col-xl-3 col-xxl-3">Añadir sección</button>
+                <button #asMore class="btn btn-outline-light profile-btn col-md-1 col-lg-1 col-xl-1 col-xxl-1 d-none d-md-block" id="more">{{windowWidth>1200? 'Más' : '...'}}</button>
             </div>
             <app-edition [horizontal]="windowWidth>=576" class="edition mb-sm-2 me-3 me-sm-1 mt-3 mt-sm-0"></app-edition>
         </div>

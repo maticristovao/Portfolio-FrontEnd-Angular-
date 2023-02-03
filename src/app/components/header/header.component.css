@@ -5,7 +5,7 @@
     right:0;
     display: flex;
     z-index:2;
-    margin: 0 20% 10.5vh 20%;
+    margin: 10.5vh auto;
     justify-content: center;
 }
 
@@ -21,7 +21,7 @@ header{
 }
 .photo-btn{
     font-size: 21.2px;
-    padding:11.5px;
+    padding:11.5px 40px;
     font-weight: bold;
     border: 2.5px solid;
     border-radius: 500px;

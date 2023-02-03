@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="col-11 px-0 position-relative">
-                <input type="text" class="form-control col-8" id="username" name="username" formControlName="username" placeholder="Your username"/>
+                <input type="text" class="form-control col-8" id="username" name="username" formControlName="username" placeholder="Tu usuario"/>
             </div>
         </div>
         <p class="error"><span *ngIf="Username?.hasError('required') && Username?.touched">Username required</span></p>
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-10 px-0">
-                <input [type]="show?'text':'password'" class="form-control col-8" id="password" name="password" formControlName="password" placeholder="Your password" (paste)="false"/>
+                <input [type]="show?'text':'password'" class="form-control col-8" id="password" name="password" formControlName="password" placeholder="Tu contraseña" (paste)="false"/>
             </div>
             <div class="col-1 show text-center">
                 <fa-icon [icon]="!show? faEye:faEyeSlash" (click)="toggleVisibility()" (keyup.enter)="toggleVisibility()" class="show-icon" [class.visible]="show" tabindex="0" onclick="blur()"></fa-icon>
@@ -31,7 +31,7 @@
     <div class="row justify-content-center my-5 px-3">
         <div class="input-group px-0 remember">
             <div class="col-11 col-sm-7 col-md-5 px-0">
-                <label for="remember">Remember me</label>
+                <label for="remember">Recordarme</label>
             </div>
             <div class="col-1">
                 <input type="checkbox" class="col-8" id="remember" name="remember" formControlName="remember" placeholder="Your password"/>
@@ -39,6 +39,6 @@
         </div>
     </div>
     <div class="row justify-content-center mb-5 pt-5">
-        <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Submit" [class.btn-outline-secondary]="!form.valid" onclick="blur()"/>
+        <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Enviar" [class.btn-outline-secondary]="!form.valid" onclick="blur()"/>
     </div>
 </form>
