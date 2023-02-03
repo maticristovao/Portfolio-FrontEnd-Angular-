@@ -67,7 +67,7 @@
 }
 .remember input{
     appearance: none;
-    background:black !important;
+    background:black;
     height: 25px;
     width: 25px;
     border-radius: 6px;
@@ -160,27 +160,9 @@ p.error{
     margin-bottom: 0;
     height: 23px;
 }
-
-p.error-tooltip{
-    color:white;
-    position: absolute;
-    top:100%;
-    left: 0;
-    background-color: red;
-    padding: 2px 15px;
-    border-radius: 6px;
-    /* scale: 0; */
-    max-height: 0px;
-    overflow: hidden;
-    transition: height ease-in-out .1s 3s;
-    transform-origin: top;
-    display: none;
-    opacity: .8;
-
+.input-group:not(.remember), .remember input{
+    transition: background-color .5s ease-in-out;
 }
-
-p.error-tooltip.invalid{
-    display: block;
-    /* scale: 1; */
-    max-height: 50px;
+.login-form:focus-within :is(.input-group:not(.remember), .remember input){
+    background-color: #212529;
 }

@@ -41,6 +41,10 @@ header{
 
 .photo-btn span{
     opacity:1;
+    transition: opacity ease-in-out .3s .1s;
+}
+
+.photo-btn:hover span{
     transition: opacity ease-in-out .3s;
 }
 

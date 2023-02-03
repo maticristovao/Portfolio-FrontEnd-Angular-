@@ -22,7 +22,6 @@ import { EditionComponent } from './components/edition/edition.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
-import { SignupFormComponent } from './components/login/signup-form/signup-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
@@ -47,7 +46,6 @@ import { ProjectItemComponent } from './components/projects/project-item/project
     LoginComponent,
     MainComponent,
     LoginFormComponent,
-    SignupFormComponent,
     ProjectItemComponent
   ],
   imports: [

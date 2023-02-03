@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { faArrowLeft, faAt, faCircleUser, faEye, faEyeSlash, faHome, faKey, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',

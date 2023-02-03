@@ -5,11 +5,11 @@
         </button>
     </div>
     <div class="wrapper container bg-dark px-5 mt-5 ms-md-5" [class.sign]="signMode">
-        <div class="row justify-content-between pt-5 mb-4 px-2">
-            <h1 class="text-start me-0 me-sm-1 me-md-2 text-muted" [class.active]="!signMode" (click)="toggleMode(false)" (keyup.enter)="toggleMode(false)" [ngStyle]="signMode?{'cursor':'pointer'}:{'cursor':'default'}" [attr.tabindex]="signMode? 0:-1">Log In</h1>
-            <h1 class="text-end ms-0 ms-sm-1 ms-md-2 text-muted" [class.active]="signMode" (click)="toggleMode(true)" (keyup.enter)="toggleMode(true)" [ngStyle]="!signMode?{'cursor':'pointer'}:{'cursor':'default'}" [attr.tabindex]="!signMode? 0:-1">Sign up</h1>
+        <div class="row justify-content-center pt-5 mb-4 px-2">
+            <h1 class="me-0 me-sm-1 me-md-2">Log In</h1>
+            <!-- <h1 class="text-end ms-0 ms-sm-1 ms-md-2 text-muted" [class.active]="signMode" (click)="toggleMode(true)" (keyup.enter)="toggleMode(true)" [ngStyle]="!signMode?{'cursor':'pointer'}:{'cursor':'default'}" [attr.tabindex]="!signMode? 0:-1">Sign up</h1> -->
         </div>
-        <app-login-form *ngIf="!signMode"></app-login-form>
-        <app-signup-form *ngIf="signMode"></app-signup-form>
+        <app-login-form></app-login-form>
+        <!-- <app-signup-form *ngIf="signMode"></app-signup-form> -->
     </div>
 </section>
