@@ -13,11 +13,7 @@ export class LoginComponent {
 
   faBack = faArrowLeft;
 
-  logMode(){
-    this.signMode = false;
-  }
-
-  signUpMode(){
-    this.signMode = true;
+  toggleMode(boolean:boolean){
+    this.signMode = boolean;
   }
 }

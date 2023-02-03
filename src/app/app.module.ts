@@ -25,6 +25,7 @@ import { LoginFormComponent } from './components/login/login-form/login-form.com
 import { SignupFormComponent } from './components/login/signup-form/signup-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     MainComponent,
     LoginFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    ProjectItemComponent
   ],
   imports: [
     BrowserModule,

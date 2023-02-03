@@ -54,8 +54,6 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
     }
   }
 
-
-  
   constructor(private renderer:Renderer2, private personalData:PersonalInfoService, private router:Router){}
 
   determineIcon(media:string){

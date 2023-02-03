@@ -1,6 +1,6 @@
 <header id="header">
     <div class="container-fluid name-logo">
-        <div class="logo" elementObserver (visible)="isIntersecting()" [class.fade-in]="intersecting"><div><span>{{defineName()}}</span>{{defineSurname()}}</div></div>
+        <div class="logo" elementObserver (visible)="isIntersecting()" [wait]="250" [class.fade-in]="intersecting"><div><span>{{defineName()}}</span>{{defineSurname()}}</div></div>
      </div>
     <ngb-carousel id="carousel" #asCarousel (slid)="resetTimer($event)">
         <ng-template class="carousel-item" ngbSlide *ngFor="let image of images">
@@ -21,30 +21,3 @@
         </div>
     </div>
 </header>
-
-      <!-- <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false" data-interval="8000">
-        <ol class="carousel-indicators">
-            <li data-target="#carousel" class="indicator" *ngFor="let image of images, let i = index" [class.active]="i === 0" [attr.data-slide-to]="i"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="container-fluid name-logo">
-               <div class="logo"><span>{{defineName()}}</span>{{defineSurname()}}</div>
-            </div>
-
-            <div class="carousel-item" *ngFor="let image of images, let i = index" [class.active]="i === 0">
-                <img [src]="image" class="d-block carousel-img">
-            </div>
-            
-            <div class="carousel-caption container-fluid mx-0 px-0">
-                <div class="row mx-0">
-                    <div class="col mx-0">
-                        <h5 class="photo-title">My resume</h5>
-                        <button class="btn btn-outline-primary photo-btn mt-1" href="#">
-                            <fa-icon [icon]="faDownload"></fa-icon>
-                            <span>Download</span> 
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
