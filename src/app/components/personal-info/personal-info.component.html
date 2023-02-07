@@ -1,7 +1,7 @@
 <article class="personal-info container-fluid inverse">
     <div class="row">
         <div class="photo col-3 col-lg-2 d-none d-md-block">
-            <img [src]="personalInfo.photo? personalInfo.photo:'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'" alt="Personal picture">
+            <img src="{{personalInfo.photo? personalInfo.photo:'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'}}" alt="Personal picture">
         </div>
         <div class="col-12 col-md-9 col-lg-10 data">
             <div class="row head-info">
@@ -16,8 +16,8 @@
             </div>
             <div class="row other-info">
                 <div class="info col-12 col-sm-9 col-lg-10 col-xxl-8 align-self-end">
-                    <p><fa-icon class="me-2" [icon]="faLocationDot"></fa-icon> {{personalInfo.location.province}} ({{personalInfo.location.country}}) <span><a type="button" data-toggle="modal" data-target="#exampleModalLong">Contact info</a></span></p>
-                    <app-contact-modal name="{{personalInfo.name}} {{personalInfo.surname}}" phoneNum="{{personalInfo.phone.number}}" phoneType="{{personalInfo.phone.type}}" mail="{{personalInfo.mail}}" ></app-contact-modal>
+                    <p><fa-icon class="me-2" [icon]="faLocationDot"></fa-icon> {{personalInfo.location.province}} ({{personalInfo.location.country}}) <span><a type="button" data-toggle="modal" data-target="#contactModal">Contact info</a></span></p>
+                    <app-contact-modal name="{{personalInfo.name}} {{personalInfo.surname}}" phoneNum="{{phone.number}}" phoneType="{{phone.type}}" mail="{{personalInfo.mail}}"></app-contact-modal>
                 </div>
                 <div class="place col-sm-3 col-lg-2 col-xxl-4 d-none d-sm-inline-block">
                     <img class="img-fluid pwc " src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Logo-pwc.png" alt="Universidad de Belgrano">

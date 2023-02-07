@@ -1,0 +1,8 @@
+<div class="edit-item me-4 mb-3 gap-2" [class.horizontal]="horizontal" [class.active]="editMode">
+    <button class="item-wrapper" [ngStyle]="!white? {'color':'black'}:{'color':'white'}">
+      <fa-icon [icon]="faPencil" class="edit-toggle"></fa-icon>
+    </button>
+    <button class="item-wrapper delete" (click)="delete()" [ngStyle]="!white? {'color':'black'}:{'color':'white'}">
+      <fa-icon [icon]="faDelete"></fa-icon>
+    </button>
+</div>

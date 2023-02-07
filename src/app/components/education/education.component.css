@@ -4,6 +4,7 @@ section.education {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
   .education .cards {
     display: flex;
@@ -16,13 +17,20 @@ section.education {
   .row.edition{
     width:100%;
   }
+
+  h1.heading{
+      color:#23b3e4;
+      text-transform: uppercase;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+  }
   
   .education-card {
     position: relative;
     margin: 5px;
     background-size: cover;
     background-position: center;
-    cursor: pointer;
     border-radius: 30px;
     background-color: rgb(10, 10, 10);
     background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg);
@@ -31,6 +39,10 @@ section.education {
     transition: flex 0.5s ease-in;
     height: 100%;
     overflow: hidden;
+  }
+
+  .education-card:not(.active) {
+    cursor: pointer;
   }
   
   .label {
@@ -50,7 +62,7 @@ section.education {
     transition: all ease-in-out 0.5s;
   }
   
-  .education-card.active .label {
+  .education-card:is(.active, .smallactive) .label {
     bottom: 20px;
     left: 50px;
     height: 300px !important;
@@ -60,11 +72,11 @@ section.education {
     opacity: 1;
   }
   
-  .education-card.active {
+  .education-card:is(.active, .smallactive) {
     flex: 5;
   }
   
-  .education-card:not(.active) .label {
+  .education-card:not(:is(.active, .smallactive)) .label {
     bottom: 10px;
     left: 10px;
   }
@@ -83,11 +95,11 @@ section.education {
     transition: opacity 0.5s ease-in-out .3s;
   }
   
-  .active .info {
+  :is(.active, .smallactive) .info {
     opacity: 1;
   }
   
-  .education-card:not(.active) .info {
+  .education-card:not(:is(.active, .smallactive)) .info {
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
   }
@@ -132,7 +144,7 @@ section.education {
     z-index:1;
   }
   
-  .education-card.active .icon {
+  .education-card:is(.active, .smallactive) .icon {
     opacity: 1;
     top: -50px;
     left: -10px;
@@ -148,7 +160,7 @@ section.education {
     transition: padding-top ease-in-out 0.5s;
   }
 
-  .education-card.active .icon fa-icon {
+  .education-card:is(.active, .smallactive) .icon fa-icon {
     padding-top: 40px;
   }
 
@@ -157,7 +169,7 @@ section.education {
     width:100px;
     opacity: 0;
   }
-  .education-card.active .info img{
+  .education-card:is(.active, .smallactive) .info img{
     opacity:1;
     
   }
@@ -175,13 +187,13 @@ section.education {
     .info{
       clip-path: polygon(calc(100% - 55vw) 0, 100% 0, 100% 100%, calc(100% - 15vw) 100%);
     }
-    .education-card:not(.active) .icon{
+    .education-card:not(:is(.active, .smallactive)) .icon{
       left:8px;
       width:40px;
       height:40px;
       font-size: 20px;
     }
-    .education-card:not(.active) .label{
+    .education-card:not(:is(.active, .smallactive)) .label{
       left:8px;
     }
     .info img{
@@ -210,7 +222,7 @@ section.education {
       color:#23b3e4;
       font-size:40px;
     }
-    .education-card.active .icon{
+    .education-card:is(.active, .smallactive) .icon{
       width:100px;
       height:100px;
       top:0;
@@ -218,10 +230,10 @@ section.education {
       border-top-left-radius:0;
       font-size:50px;
     }
-    .education-card.active .icon fa-icon{
+    .education-card:is(.active, .smallactive) .icon fa-icon{
       padding:0;
     }
-    .education-card.active .label{
+    .education-card:is(.active, .smallactive) .label{
       font-size:150px;
       bottom:-20px;
       left:20px;
@@ -235,11 +247,11 @@ section.education {
       filter:invert(100%);
     }
 
-    .education-card:not(.active) .icon{
+    .education-card:not(:is(.active, .smallactive)) .icon{
       left:2px;
     }
 
-    .education-card:not(.active) .label{
+    .education-card:not(:is(.active, .smallactive)) .label{
       font-size:35px;
       width:20px;
       left:2px;
@@ -256,7 +268,7 @@ section.education {
     .education-card{
       cursor: default;
     }
-    .education-card.active{
+    .education-card:is(.active, .smallactive){
       display: block !important;
       height:520px;
     }
@@ -264,7 +276,7 @@ section.education {
 
 
   @media screen and (width<=450px){
-    .education-card.active .label{
+    .education-card:is(.active, .smallactive) .label{
       font-size: 75px;
       height:60px !important;
       bottom: 25px;
@@ -284,15 +296,30 @@ section.education {
   }
 
   @media screen and (height<400px){
-    /* section.education{
-      height:auto;
-    } */
     .education .cards{
       display: block;
       height: auto;
     }
-    .education-card.active{
+    .education-card:is(.active, .smallactive){
       display: block !important;
       height:520px;
     }
+  }
+
+  .edit-item{
+    position: absolute;
+    bottom:0;
+    right:0;
+    opacity:1;
+    transition: opacity ease-in-out .5s .3s;
+  }
+
+  .education-card:not(:is(.active, .smallactive)) .edit-item{
+    opacity:0;
+    transition: opacity ease-in-out .4s;
+  }
+
+  .edit-item:not(.enabled){
+    z-index: -1;
+    
   }

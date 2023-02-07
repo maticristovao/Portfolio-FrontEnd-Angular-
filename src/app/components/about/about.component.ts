@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit{
   constructor(private personalData:PersonalInfoService){}
 
   ngOnInit(): void {
-    this.personalData.getData().subscribe(data =>{
+    this.personalData.getData('user').subscribe(data =>{
       this.about = data.about;
     })
   }

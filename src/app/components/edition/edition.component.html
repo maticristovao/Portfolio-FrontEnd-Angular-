@@ -1,9 +1,12 @@
 <div class="edit" [class.horizontal]="horizontal">
-    <button class="icon-wrapper" tabindex=0 (click)="editMode()" onclick="blur()" [class.editing]="editing">
-      <fa-icon [icon]="faPencil" class="edit-toggle"></fa-icon>
-      <fa-icon [icon]="faCheck" class="check"></fa-icon>
-    </button>
-    <button class="icon-wrapper discard" tabindex=0 (click)="discard()" [class.editing]="editing">
-      <fa-icon [icon]="faClose"></fa-icon>
-    </button>
-  </div>
+  <button class="icon-wrapper" (click)="editMode()" onclick="blur()" [class.editing]="editing">
+    <fa-icon [icon]="faPencil" class="edit-toggle"></fa-icon>
+    <fa-icon [icon]="faCheck" class="check"></fa-icon>
+  </button>
+  <button class="icon-wrapper add" [class.editing]="editing" (click)="addItem()" onclick="blur()" *ngIf="showAdding" data-toggle="modal" data-target="#editForm">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </button>
+  <button class="icon-wrapper discard" (click)="deleteSection()" onclick="blur()" [class.editing]="editing" [ngStyle]="{'--translation':defineTranslation()}">
+    <fa-icon [icon]="faClose"></fa-icon>
+  </button>
+</div>

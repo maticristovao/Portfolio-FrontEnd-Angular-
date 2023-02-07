@@ -14,40 +14,58 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  border: 3px solid black;
+  border: 3px solid white;
   transition: background-color ease-in-out 0.4s,
     border ease-in-out 0.4s;
-  z-index: 2;
+  z-index: 4;
   overflow: hidden;
   position: relative;
 }
 .icon-wrapper fa-icon {
-  color: black;
+  color: white;
   font-size: 25px;
   transition: color ease-in-out 0.3s;
+  display: grid;
+  place-items: center;
+}
+.discard{
+  background-color: red;
+  z-index: 2;
+}
+.add{
+  background-color: #23b3e4;
+  z-index: 3;
 }
 
-.edit .discard{
+.edit :is(.discard, .add){
   opacity: 0;
   transition: transform 0.3s ease-in, opacity 0.3s ease-in 0.1s, background-color .4s ease-in-out, border-color .4s ease-in-out;
-  z-index: 1;
+  
 }
 
 :not(.horizontal) .discard{
-  transform: translateY(-119%);
+  transform: translateY(var(--translation));
   margin-top: 10px;
 }
-
+:not(.horizontal) .add{
+  transform:translateY(-65px);
+  margin-top: 10px;
+}
 .horizontal .discard{
+  transform: translateX(var(--translation));
+  margin-left: 10px;
+}
+
+.horizontal .add{
   transform: translateX(-65px);
   margin-left: 10px;
 }
 
-:is(.horizontal, :not(.horizontal)) .discard.editing {
+:is(.horizontal, :not(.horizontal)) :is(.discard, .add).editing {
   opacity: 1;
   transform: translateY(0) translateX(0);
 }
-.discard fa-icon {
+:is(.discard, .add) fa-icon {
   font-size: 30px;
 }
 
@@ -96,12 +114,26 @@ fa-icon.edit-toggle {
     font-size: 19px;
   }
 
+  :is(.discard, .add) fa-icon {
+    font-size: 24px;
+  }
+
   :not(.horizontal) .discard{
+    transform: translateY(var(--translation));
+    margin-top: 7px;
+  }
+
+  :not(.horizontal) .add{
     transform: translateY(-47px);
     margin-top: 7px;
   }
   
   .horizontal .discard{
+    transform: translateX(var(--translation));
+    margin-left: 7px;
+  }
+
+  .horizontal .add{
     transform: translateX(-47px);
     margin-left: 7px;
   }

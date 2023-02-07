@@ -22,8 +22,8 @@ export class ProjectsComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.personalData.getData().subscribe(data =>{
-      this.projects = data.projects;
+    this.personalData.getData('projects').subscribe(data =>{
+      this.projects = data;
     })
   }
 }

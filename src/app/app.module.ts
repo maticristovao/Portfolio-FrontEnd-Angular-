@@ -25,6 +25,9 @@ import { LoginFormComponent } from './components/login/login-form/login-form.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
+import { AddItemComponent } from './components/add-item/add-item.component';
+import { DatePipe } from '@angular/common';
+import { EditItemComponent } from './components/edit-item/edit-item.component';
 
 
 @NgModule({
@@ -46,7 +49,9 @@ import { ProjectItemComponent } from './components/projects/project-item/project
     LoginComponent,
     MainComponent,
     LoginFormComponent,
-    ProjectItemComponent
+    ProjectItemComponent,
+    AddItemComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,7 @@ import { ProjectItemComponent } from './components/projects/project-item/project
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

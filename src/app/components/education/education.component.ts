@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { faCoins, faUserGraduate, faLaptopCode, faBook } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
@@ -7,16 +7,14 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.css']
 })
-export class EducationComponent implements OnInit, AfterViewInit{
-  personalInfo!:any;
+export class EducationComponent implements OnInit, AfterViewChecked{
+  personalEducation!:any;
   windowWidth = window.innerWidth;
-  firstCard!:Element | null;
+  editMode:boolean = false;
 
   @HostListener('window:resize')
   onResize() {
     this.windowWidth = window.innerWidth;
-    this.setActive();
-    this.firstCard!.classList.add('active');
   }
 
   
@@ -47,16 +45,40 @@ export class EducationComponent implements OnInit, AfterViewInit{
     }
   }
 
+  addItem(item:Education){
+      this.personalData.addItem(item, 'education').subscribe((item)=>{
+      this.personalEducation.push(item);
+    })
+  }
+
+  deleteItem(item:any){
+    this.personalData.deleteItem(item, 'education').subscribe(()=>{
+      this.personalEducation = this.personalEducation.filter((i: { id: any; }) => i.id !== item.id);
+    })
+    let first = document.querySelector('.education-card');
+    first?.classList.add('active');
+  }
+
+  edit(){
+    this.editMode = !this.editMode;
+  }
 
   ngOnInit(): void {
-    this.personalData.getData().subscribe(data => {
-      this.personalInfo = data;
+    this.personalData.getData('education').subscribe(data => {
+      this.personalEducation = data;
     });
   }
 
-  ngAfterViewInit(): void {
-    this.firstCard = document.querySelector('.education-card');
-    this.firstCard!.classList.add('active');
+  ngAfterViewChecked():void{
     $('.education-card').on('click', this.setActive);
   }
+}
+
+interface Education{
+  institution:string,
+  title:string,
+  startDate:string | number,
+  endDate?:string | number,
+  area:string,
+  logo?:string
 }

@@ -1,9 +1,14 @@
 <section class="education inverse" id="education">
-    <div class="row edition text-end mt-5 pe-1 pe-xl-5 mb-4 mb-xl-0">
-        <app-edition [horizontal]="windowWidth<1020"></app-edition>
+    <div class="row edition justify-content-end mt-5 mb-4 mb-xl-0">
+        <div class="col-7 col-sm-6 text-center">
+            <h1 class="heading">Estudios</h1>
+        </div>
+        <div class="col-4 col-sm-3 pe-5 text-end">
+            <app-edition [horizontal]="windowWidth<1020" [showAdding]="true" (edition)="edit()"></app-edition>
+        </div>
     </div>
     <div class="cards mx-3">
-        <div class="education-card my-3" *ngFor="let card of personalInfo.education; let i = index;" [class.active]="windowWidth<=576? true: i===0">
+        <div class="education-card my-3" *ngFor="let card of personalEducation; let i = index;" [ngClass]="{smallactive: windowWidth<=576, active:i==0}">
             <div class="label">{{i+1}}</div>
             <div class="icon">
               <fa-icon [icon]="determineIcon(card.area)"></fa-icon>
@@ -12,10 +17,13 @@
                 <div class="col-12 col-sm-6 col-lg-7 px-0">
                     <h1>{{card.title}}</h1>
                     <h3 class="mt-lg-3 my-xl-5">{{card.institution}}</h3>
-                    <h5 class="mt-lg-3 mt-xl-5">{{card.period}}</h5>
+                    <h5 class="mt-lg-3 mt-xl-5">{{card.startDate | date: 'MMM Y'}} - {{card.endDate | date: 'MMM Y'}}</h5>
                     <img [src]="card.logo" alt="{{card.institution}} logo" class="mt-1 mt-lg-3 mt-xl-5">
                 </div>
             </div>
+            <app-edit-item class="edit-item" [editMode]="editMode" [class.enabled]="editMode" [white]="true" (deleteItem)="deleteItem(card)" ></app-edit-item>
         </div>
     </div>
 </section>
+<app-add-item (onAddItem)="addItem($event)"></app-add-item>
+

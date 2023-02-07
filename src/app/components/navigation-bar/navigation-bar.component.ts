@@ -115,8 +115,8 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.giveDataContent(this.navLinks);
 
-    this.personalData.getData().subscribe(data => {
-      this.personalMedia = data.social;
+    this.personalData.getData('social').subscribe(data => {
+      this.personalMedia = data;
     })
   }
 

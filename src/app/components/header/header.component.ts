@@ -10,11 +10,13 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
   providers:[NgbCarouselConfig],
   encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit, AfterViewInit{
   @ViewChild('asCarousel')carousel!:NgbCarousel;
   intersecting = false;
   faDownload = faArrowCircleDown;
-  personalInfo:any;
+  personalInfo!:any;
+  name!:string;
+  surname!:string;
   images:string[]=[
     'https://elceo.com/wp-content/uploads/2021/10/mexico-economia-av.jpg',
     'https://www.fundacionaquae.org/wp-content/uploads/2020/04/Nuevas-formas-de-trabajo3-1-002.jpg',
@@ -41,18 +43,18 @@ export class HeaderComponent implements OnInit{
   }
 
   defineName(){
-    if(window.innerWidth>1000){
-      return this.removeAccents(this.personalInfo.name)
+    if(window.innerWidth>1025){
+      this.name = this.removeAccents(this.personalInfo.name)
     }else{
-      return this.removeAccents(this.personalInfo.name)[0];
+      this.name = this.removeAccents(this.personalInfo.name)[0];
     }
   }
 
   defineSurname(){
-    if(window.innerWidth>=730){
-      return this.removeAccents(this.personalInfo.surname)
+    if(window.innerWidth>737){
+      this.surname = this.removeAccents(this.personalInfo.surname)
     }else{
-      return this.removeAccents(this.personalInfo.surname)[0];
+      this.surname = this.removeAccents(this.personalInfo.surname)[0];
     }
   }
 
@@ -68,10 +70,14 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.personalData.getData().subscribe(data =>{
+    this.personalData.getData('user').subscribe(data =>{
       this.personalInfo = data;
     })
+    
+  }
+  ngAfterViewInit(): void {
     this.defineName();
     this.defineSurname();
   }
+
 }

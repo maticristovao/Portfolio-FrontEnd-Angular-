@@ -8,7 +8,8 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit{
-  personalInfo:any;
+  skills:any;
+  languages:any;
   windowWidth:number = window.innerWidth;
   editMode:boolean = false;
 
@@ -20,12 +21,15 @@ export class SkillsComponent implements OnInit{
   constructor(private personalData:PersonalInfoService){}
 
   ngOnInit(): void {
-    this.personalData.getData().subscribe(data => {
-      this.personalInfo = data;
+    this.personalData.getData('skills').subscribe(data => {
+      this.skills = data;
+    });
+    this.personalData.getData('languages').subscribe(data => {
+      this.languages = data;
     });
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.personalInfo.skills, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
   }
 }

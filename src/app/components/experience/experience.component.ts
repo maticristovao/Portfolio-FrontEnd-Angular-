@@ -23,8 +23,8 @@ export class ExperienceComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.personalData.getData().subscribe(data => {
-      this.personalExperience = data.experience;
+    this.personalData.getData('experience').subscribe(data => {
+      this.personalExperience = data;
     })
   }
 }
