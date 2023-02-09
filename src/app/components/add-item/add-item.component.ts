@@ -1,14 +1,16 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faEye, faKey, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { bootstrapApplication } from '@angular/platform-browser';
-declare var $:any;
+import { Education } from '../education/education.component';
+import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import Modal from 'bootstrap/js/dist/modal';
 declare var bootstrap:any;
 @Component({
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.css']
+  styleUrls: ['./add-item.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class AddItemComponent {
@@ -16,22 +18,22 @@ export class AddItemComponent {
   faUsername = faUser;
   faKey = faKey;
   faEye = faEye;
-  form:FormGroup;
   currentDate: string | null;
-
+  form:FormGroup = this.formBuilder.group({
+    id:null,
+    title:['', [Validators.required, Validators.minLength(10)]],
+    institution:['', []],
+    area:['', []],
+    startDate:['', []],
+    endDate:['', []],
+    logo:['', []]
+  });
   
-
+  @ViewChild('content') myModal!:ElementRef;
   @Output() onAddItem:EventEmitter<any> = new EventEmitter();
+  @Output() onUpdateItem:EventEmitter<any> = new EventEmitter();
 
-  constructor(private formBuilder:FormBuilder, private datepipe:DatePipe){
-    this.form = this.formBuilder.group({
-      title:['', [Validators.required, Validators.minLength(10)]],
-      institution:['', []],
-      area:['', []],
-      startDate:['', []],
-      endDate:['', []]
-    })
-
+  constructor(private formBuilder:FormBuilder, private datepipe:DatePipe, private modalService:NgbModal){
     let date:Date = new Date();
     this.currentDate = this.datepipe.transform(date, 'YYYY-MM-ddTHH:MM');
   }
@@ -45,31 +47,59 @@ export class AddItemComponent {
   get Area(){
     return this.form.get('area');
   }
-  get startDate(){
+  get StartDate(){
     return this.form.get('startDate');
   }
-  get endDate(){
+  get EndDate(){
     return this.form.get('endDate');
   }
   
+  loadEditData(card:Education){
+    this.form.setValue({
+      id: card.id,
+      title: card.title,
+      institution: card.institution,
+      area: card.area,
+      startDate: card.startDate,
+      endDate: card.endDate,
+      logo: card.logo
+    })
+  }
+
+  reset(){
+    this.form.reset()
+  }
+
   onSubmit(){
+    // console.log(this.modal.nativeElement);
+    // this.modal.nativeElement.classList.remove('show');
     if(this.form.valid && (this.form.value.startDate < this.currentDate!  ||  !this.form.value.startDate)){
       const newItem = {
+        id: this.form.value.id,
         title: this.form.value.title,
         institution: this.form.value.institution,
         area: this.form.value.area,
         startDate: this.form.value.startDate,
-        endDate: this.form.value.endDate
+        endDate: this.form.value.endDate,
+        logo: this.form.value.logo
       }
-      this.onAddItem.emit(newItem);
-      this.form.reset();
-      // console.log(this.modal.nativeElement);
-      // (<any>$(this.modal.nativeElement)).modal('hide');
-      // const modal:any = document.querySelector('#editForm');
-      // console.log(modal);
-      // modal.modal('hide');
+      if(newItem.id === null){
+        this.onAddItem.emit(newItem);
+      }else{
+        this.onUpdateItem.emit(newItem);
+      }
+      this.close();
+      this.reset();
     }else{
       this.form.markAllAsTouched();
     }
+  }
+
+  open(content?:any){
+    this.modalService.open(content);
+  }
+
+  close(){
+    this.modalService.dismissAll();
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 
 const httpOptions = {
@@ -18,17 +18,27 @@ export class PersonalInfoService {
 
   constructor(private http:HttpClient) { }
 
-  getData(field?:string):Observable<any>{
-    return this.http.get(`${this.apiUrl}/${field}`);
+  getData(field:string):Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/${field}`);
   }
 
-  addItem(item:any, field?:string):Observable<any>{
-    console.log(item);
+  getItemById(field:string, id:number):Observable<any>{
+    const url = `${this.apiUrl}/${field}/${id}`;
+    return this.http.get<any>(url);
+  }
+
+  addItem(item:any, field:string):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/${field}`, item, httpOptions);
   }
 
-  deleteItem(item:any, field?:string): Observable<any>{
+  deleteItem(item:any, field:string): Observable<any>{
+    console.log(item.id);
     const url = `${this.apiUrl}/${field}/${item.id}`;
     return this.http.delete<any>(url);
+  }
+
+  updateItem(item:any, field:string): Observable<any>{
+    const url = `${this.apiUrl}/${field}/${item.id}`;
+    return this.http.put<any>(url, item, httpOptions);
   }
 }

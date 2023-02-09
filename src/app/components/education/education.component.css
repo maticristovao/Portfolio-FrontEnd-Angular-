@@ -316,10 +316,10 @@ section.education {
 
   .education-card:not(:is(.active, .smallactive)) .edit-item{
     opacity:0;
+    z-index: -1;
     transition: opacity ease-in-out .4s;
   }
 
   .edit-item:not(.enabled){
     z-index: -1;
-    
   }

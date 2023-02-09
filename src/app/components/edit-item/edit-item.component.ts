@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { faDeleteLeft, faPencil } from '@fortawesome/free-solid-svg-icons';
+import { faDeleteLeft, faEraser, faPencil } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-edit-item',
@@ -11,12 +11,17 @@ export class EditItemComponent {
   @Input() horizontal:boolean = false;
   @Input() editMode:boolean = false;
 
-  @Output() deleteItem = new EventEmitter()
+  @Output() deleteItem = new EventEmitter();
+  @Output() updateItem = new EventEmitter();
 
   faPencil = faPencil;
-  faDelete = faDeleteLeft;
+  faDelete = faEraser;
 
   delete(){
     this.deleteItem.emit();
+  }
+
+  update(){
+    this.updateItem.emit();
   }
 }
