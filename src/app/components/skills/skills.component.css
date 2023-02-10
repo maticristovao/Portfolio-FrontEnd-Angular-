@@ -1,5 +1,16 @@
 section{
     min-height: 100vh;
+    position: relative;
+}
+app-edition{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+@media screen and (992px<width<1230px) {
+  app-edition{
+    margin:0px !important;
+  }
 }
 
 .title{

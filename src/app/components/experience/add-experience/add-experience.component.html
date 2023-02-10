@@ -47,12 +47,12 @@
                     <p class="error"><span *ngIf="EndDate?.hasError('required') && EndDate?.touched">Fecha de fin requerida</span></p>
                 </div>
             </div>
-            <div class="row justify-content-center mt-4 px-3">
+            <div class="row justify-content-center mt-3 px-3">
                 <label for="description"><h4>Descripción</h4></label>
-                <textarea type="text-area" class="form-control" id="description" name="description" formControlName="description" placeholder="Campo de estudio"></textarea>
+                <textarea class="form-control" id="description" name="description" formControlName="description" placeholder="Descripción de tu posición laboral"></textarea>
                 <p class="error"><span *ngIf="Description?.hasError('required') && Description?.touched">Descripción requerida</span></p>
             </div>
-            <div class="row justify-content-center mb-5 pt-5">
+            <div class="row justify-content-center mb-4 pt-4">
                 <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
             </div>
         </form>

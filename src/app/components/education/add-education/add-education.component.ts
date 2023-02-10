@@ -16,7 +16,7 @@ export class AddEducationComponent {
   currentDate: string | null;
   form:FormGroup = this.formBuilder.group({
     id:undefined,
-    title:['', [Validators.required, Validators.minLength(10)]],
+    title:['', [Validators.required, Validators.minLength(6)]],
     institution:['', [Validators.required]],
     area:['', [Validators.required]],
     startDate:['', [Validators.required]],
@@ -75,7 +75,7 @@ export class AddEducationComponent {
 
   onSubmit(){
     if(this.form.valid && (this.form.value.startDate < this.currentDate!  ||  !this.form.value.startDate)){
-      const newItem = this.form.getRawValue();
+      const newItem = this.form.value;
       if(!newItem.id){
         this.onAddItem.emit(newItem);
       }else{

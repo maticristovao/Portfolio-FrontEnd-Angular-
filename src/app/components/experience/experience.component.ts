@@ -24,6 +24,7 @@ export class ExperienceComponent implements OnInit{
   constructor(private personalData:PersonalInfoService){}
 
   addItem(item:Experience){
+    console.log('done');
     this.personalData.addItem(item, this.field).subscribe((card)=>{
       this.personalExperience.push(card);
     });
@@ -58,7 +59,7 @@ export class ExperienceComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.personalData.getData('experience').subscribe(data => {
+    this.personalData.getData(`${this.field}?_sort=startDate&_order=desc`).subscribe(data => {
       this.personalExperience = data;
     })
   }

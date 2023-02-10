@@ -5,10 +5,10 @@
         <div class="item fade-in mb-5" *ngFor="let experience of personalExperience" [class.visible]="intersecting">
             <div class="content p-3" >
                 <h3 class="text-light">
-                    {{experience.name}}
+                    {{experience.company}}
                 </h3>
                 <h5 class="date mb-2 text-light">
-                    {{experience.startDate}} - {{experience.endDate}}
+                    {{experience.startDate | date:'MMM Y'}} - {{!experience.current? (experience.endDate | date:'MMM Y'):'Presente'}}
                 </h5>
                 <p class="pt-2 text-secondary">
                     {{experience.description}}
@@ -20,4 +20,4 @@
         </div>
     </div>
 </section>
-<app-add-experience></app-add-experience>
+<app-add-experience (onAddItem)="addItem($event)" (onUpdateItem)="save($event)"></app-add-experience>

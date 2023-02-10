@@ -167,12 +167,18 @@ p.error{
     height: 23px;
 }
 
-input.form-control{
+:is(input, textarea).form-control{
     background-color: black !important;
     padding: 12px 20px;
     border-radius: 10px;
     accent-color: var(--primary-color);
 }
+
+textarea.form-control{
+    resize: none;
+    height: 150px;
+}
+
 h4{
     color:var(--primary-color);
 }

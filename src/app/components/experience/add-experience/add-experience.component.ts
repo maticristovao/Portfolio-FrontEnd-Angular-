@@ -15,7 +15,7 @@ export class AddExperienceComponent {
   currentDate: string | null;
   form:FormGroup = this.formBuilder.group({
     id:undefined,
-    company:['', [Validators.required, Validators.minLength(10)]],
+    company:['', [Validators.required, Validators.minLength(2)]],
     employType:['', [Validators.required]],
     startDate:['', [Validators.required]],
     endDate:[{value:'', disabled:false}, []],
@@ -93,7 +93,7 @@ export class AddExperienceComponent {
 
   onSubmit(){
     if(this.form.valid && (this.form.value.startDate < this.currentDate!  ||  !this.form.value.startDate)){
-      const newItem = this.form.getRawValue();
+      const newItem = this.form.value;
       if(!newItem.id){
         this.onAddItem.emit(newItem);
       }else{

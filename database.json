@@ -122,32 +122,22 @@
   ],
   "experience": [
     {
-      "name": "Company name",
-      "employType": "Full time",
-      "startDate": "2022",
-      "endDate": "2026",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-    },
-    {
-      "name": "PwC",
+      "id": 1,
+      "company": "PwC",
       "employType": "Part time",
-      "startDate": "2023",
-      "endDate": "2028",
+      "startDate": "2022-02",
+      "endDate": "2022-11",
+      "current":false,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
     },
     {
-      "name": "Company name",
-      "employType": "Full time",
-      "startDate": "2022",
-      "endDate": "2026",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-    },
-    {
-      "name": "Company name",
-      "employType": "Full time",
-      "startDate": "2022",
-      "endDate": "2026",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      "id": 2,
+      "company": "JP Morgan",
+      "employType": "Full Time",
+      "startDate": "2023-02-01",
+      "endDate": "2023-02-23",
+      "current": null,
+      "description": null
     }
   ],
   "projects": [
