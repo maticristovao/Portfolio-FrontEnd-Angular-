@@ -2,7 +2,7 @@
     <h1 class="skill-name ps-lg-1">{{skill.name}}</h1>
 </div>
 <div class="row align-items-center">
-    <div class="col-11 progress-bar" elementObserver [threshold]="1" [wait]="100" (visible)="isIntersecting(); setPercentage()">
+    <div class="col-11 progress-bar" elementObserver [threshold]="1" [wait]="100" (visible)="intersecting=true; setPercentage()">
         <span class="progress" [ngStyle]="intersecting?{'width': skill.progress+'%'}:{'width':'0%'}"></span>
     </div>
     <div class="col-1">

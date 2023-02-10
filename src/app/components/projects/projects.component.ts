@@ -15,12 +15,6 @@ export class ProjectsComponent implements OnInit{
 
   constructor(private personalData:PersonalInfoService){}
 
-  toggleVisibility(){
-    console.log('messi');
-    $(this).addClass('visible');
-    console.log($(this));
-  }
-
   ngOnInit(): void {
     this.personalData.getData('projects').subscribe(data =>{
       this.projects = data;

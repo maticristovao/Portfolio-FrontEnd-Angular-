@@ -25,9 +25,10 @@ import { LoginFormComponent } from './components/login/login-form/login-form.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
-import { AddItemComponent } from './components/add-item/add-item.component';
+import { AddEducationComponent } from './components/education/add-education/add-education.component';
 import { DatePipe } from '@angular/common';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
+import { AddExperienceComponent } from './components/experience/add-experience/add-experience.component';
 
 
 @NgModule({
@@ -50,8 +51,9 @@ import { EditItemComponent } from './components/edit-item/edit-item.component';
     MainComponent,
     LoginFormComponent,
     ProjectItemComponent,
-    AddItemComponent,
-    EditItemComponent
+    AddEducationComponent,
+    EditItemComponent,
+    AddExperienceComponent
   ],
   imports: [
     BrowserModule,

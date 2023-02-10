@@ -15,12 +15,7 @@ export class SkillItemComponent{
   @Input() skill!:Skill;
   percentage:number= 0;
   intersecting:boolean = false;
-  timer = (ms: number | undefined) => new Promise(res => setTimeout(res, ms));
-
-  isIntersecting(){
-    this.intersecting = true;
-  }
-  
+  timer = (ms: number) => new Promise(res => setTimeout(res, ms));  
   
   async setPercentage(){
     while(this.percentage<this.skill.progress){

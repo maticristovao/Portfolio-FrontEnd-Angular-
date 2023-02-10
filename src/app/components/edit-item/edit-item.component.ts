@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { faDeleteLeft, faEraser, faPencil } from '@fortawesome/free-solid-svg-icons';
+import { faEraser, faPencil } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-edit-item',

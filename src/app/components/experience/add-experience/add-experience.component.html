@@ -1,0 +1,60 @@
+<ng-template #content let-modal class="fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editFormTitle" aria-hidden="true">
+    <div class="modal-body container-fluid">
+        <div class="row">
+            <div class="col-10">
+                <p class="body-head ms-0 ms-sm-3">Agregar experiencia</p>
+            </div>
+            <div class="col-2">
+                <button aria-hidden="true" type="button" class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
+                    <fa-icon [icon]="faExit"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+            <div class="row justify-content-center mt-5 px-3">
+                <label for="company"><h4>Empresa</h4></label>
+                <input type="text" class="form-control" id="company" name="company" formControlName="company" placeholder="Tu título"/>
+                <p class="error"><span *ngIf="Company?.hasError('required') && Company?.touched">Empresa requerida</span></p>
+            </div>
+            <div class="row justify-content-center mt-4 px-3">
+                <label for="employType"><h4>Tipo de empleo</h4></label>
+                <input type="text" class="form-control" id="employType" name="employType" formControlName="employType" placeholder="Tu institución educativa"/>
+                <p class="error"><span *ngIf="EmployType?.hasError('required') && EmployType?.touched">Tipo de empleo requerido</span></p>
+            </div>
+            <div class="row justify-content-between mt-4 px-3 gap-1">
+                <div class="col-5">
+                    <div class="row">
+                        <label for="startDate"><h4>Inicio</h4></label>
+                        <input type="date" class="form-control" id="startDate" name="startDate" formControlName="startDate"/>
+                    </div>
+                    <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p>
+                </div>
+                <div class="col-5">
+                    <div class="row">
+                        <label for="endDate"><h4>Fin</h4></label>
+                        <input type="date" class="form-control" id="endDate" name="endDate" formControlName="endDate"/>
+                    </div>
+                    <div class="row justify-content-between mt-3">
+                        <div class="input-group px-0 current">
+                            <div class="col-2">
+                                <input type="checkbox" id="current" name="current" formControlName="current"/>
+                            </div>
+                            <div class="col-8 px-0">
+                                <label for="current">En curso</label>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="error"><span *ngIf="EndDate?.hasError('required') && EndDate?.touched">Fecha de fin requerida</span></p>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-4 px-3">
+                <label for="description"><h4>Descripción</h4></label>
+                <textarea type="text-area" class="form-control" id="description" name="description" formControlName="description" placeholder="Campo de estudio"></textarea>
+                <p class="error"><span *ngIf="Description?.hasError('required') && Description?.touched">Descripción requerida</span></p>
+            </div>
+            <div class="row justify-content-center mb-5 pt-5">
+                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
+            </div>
+        </form>
+    </div>
+</ng-template>

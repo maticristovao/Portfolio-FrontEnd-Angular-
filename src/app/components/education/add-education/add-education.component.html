@@ -69,36 +69,36 @@
                 <div class="row justify-content-center mt-5 px-3">
                     <label for="title"><h4>Título</h4></label>
                     <input type="text" class="form-control" id="title" name="title" formControlName="title" placeholder="Tu título"/>
-                    <!-- <p class="error"><span *ngIf="Username?.hasError('required') && Username?.touched">Username required</span></p> -->
+                    <p class="error"><span *ngIf="Title?.hasError('required') && Title?.touched">Título requerido</span></p>
                 </div>
-                <div class="row justify-content-center mt-5 px-3">
-                    <label for="area"><h4>Área</h4></label>
-                    <input type="text" class="form-control" id="area" name="area" formControlName="area" placeholder="Campo de estudio"/>
-                    <!-- <p class="error"><span *ngIf="Username?.hasError('required') && Username?.touched">Username required</span></p> -->
-                </div>
-                <div class="row justify-content-center mt-5 px-3">
+                <div class="row justify-content-center mt-4 px-3">
                     <label for="institution"><h4>Institución</h4></label>
                     <input type="text" class="form-control" id="institution" name="institution" formControlName="institution" placeholder="Tu institución educativa"/>
-                    <!-- <p class="error"><span *ngIf="Username?.hasError('required') && Username?.touched">Username required</span></p> -->
+                    <p class="error"><span *ngIf="Institution?.hasError('required') && Institution?.touched">Institución requerida</span></p>
                 </div>
-                <div class="row justify-content-between mt-5 px-3 gap-1">
+                <div class="row justify-content-center mt-4 px-3">
+                    <label for="area"><h4>Área</h4></label>
+                    <input type="text" class="form-control" id="area" name="area" formControlName="area" placeholder="Campo de estudio"/>
+                    <p class="error"><span *ngIf="Area?.hasError('required') && Area?.touched">Área requerida</span></p>
+                </div>
+                <div class="row justify-content-between mt-4 px-3 gap-1">
                     <div class="col-5">
                         <div class="row">
                             <label for="startDate"><h4>Inicio</h4></label>
                             <input type="date" class="form-control" id="startDate" name="startDate" formControlName="startDate"/>
                         </div>
-                        <!-- <p class="error"><span *ngIf="Username?.hasError('required') && Username?.touched">Username required</span></p> -->
+                        <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p>
                     </div>
                     <div class="col-5">
                         <div class="row">
                             <label for="endDate"><h4>Fin</h4></label>
                             <input type="date" class="form-control" id="endDate" name="endDate" formControlName="endDate"/>
-                            <!-- <p class="error"><span *ngIf="Username?.hasError('required') && Username?.touched">Username required</span></p> -->
                         </div>
+                        <p class="error"><span *ngIf="EndDate?.hasError('required') && EndDate?.touched">Fecha de fin requerida</span></p>
                     </div>
                 </div>
                 <div class="row justify-content-center mb-5 pt-5">
-                    <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid"/>
+                    <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
                 </div>
             </form>
         </div>

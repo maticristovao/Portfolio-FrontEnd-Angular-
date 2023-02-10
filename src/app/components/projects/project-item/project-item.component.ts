@@ -14,8 +14,4 @@ export class ProjectItemComponent {
 
   faCode = faCode;
   faCodePen = faCodepen;
-
-  toggleVisibility(){
-    this.visible = true;
-  }
 }

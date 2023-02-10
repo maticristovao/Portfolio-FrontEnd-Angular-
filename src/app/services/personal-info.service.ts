@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 const httpOptions = {
@@ -32,7 +32,6 @@ export class PersonalInfoService {
   }
 
   deleteItem(item:any, field:string): Observable<any>{
-    console.log(item.id);
     const url = `${this.apiUrl}/${field}/${item.id}`;
     return this.http.delete<any>(url);
   }

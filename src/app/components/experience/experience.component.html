@@ -1,7 +1,7 @@
 <section class="experience py-5" id="experience">
     <h1 class="my-4 text-center">Experiencia</h1>
-    <app-edition class="edition my-2 my-sm-5 me-1 me-sm-5"></app-edition>
-    <div class="timeline m-auto" elementObserver [threshold]="windowWidth>1150? 0.4:0.25" [wait]="0" (visible)="isIntersecting()">
+    <app-edition class="edition my-2 my-sm-5 me-1 me-sm-5" [showAdding]="true" (adding)="toggleModal()" (edition)="editMode = !editMode"></app-edition>
+    <div class="timeline m-auto" elementObserver [threshold]="windowWidth>1150? 0.4:0.25" [wait]="0" (visible)="intersecting=true">
         <div class="item fade-in mb-5" *ngFor="let experience of personalExperience" [class.visible]="intersecting">
             <div class="content p-3" >
                 <h3 class="text-light">
@@ -20,3 +20,4 @@
         </div>
     </div>
 </section>
+<app-add-experience></app-add-experience>

@@ -1,31 +1,26 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { faEye, faKey, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { Education } from '../education/education.component';
-import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import Modal from 'bootstrap/js/dist/modal';
-declare var bootstrap:any;
+import { Education } from '../education.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
-  selector: 'app-add-item',
-  templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.css'],
+  selector: 'app-add-education',
+  templateUrl: './add-education.component.html',
+  styleUrls: ['./add-education.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 
-export class AddItemComponent {
+export class AddEducationComponent {
   faExit = faTimes;
-  faUsername = faUser;
-  faKey = faKey;
-  faEye = faEye;
   currentDate: string | null;
   form:FormGroup = this.formBuilder.group({
-    id:null,
+    id:undefined,
     title:['', [Validators.required, Validators.minLength(10)]],
-    institution:['', []],
-    area:['', []],
-    startDate:['', []],
-    endDate:['', []],
+    institution:['', [Validators.required]],
+    area:['', [Validators.required]],
+    startDate:['', [Validators.required]],
+    endDate:['', [Validators.required]],
     logo:['', []]
   });
   
@@ -36,6 +31,14 @@ export class AddItemComponent {
   constructor(private formBuilder:FormBuilder, private datepipe:DatePipe, private modalService:NgbModal){
     let date:Date = new Date();
     this.currentDate = this.datepipe.transform(date, 'YYYY-MM-ddTHH:MM');
+  }
+
+  open(content?:any){
+    this.modalService.open(content, {centered:true, backdropClass: 'custom-backdrop'});
+  }
+
+  close(){
+    this.modalService.dismissAll();
   }
 
   get Title(){
@@ -55,7 +58,7 @@ export class AddItemComponent {
   }
   
   loadEditData(card:Education){
-    this.form.setValue({
+    this.form.patchValue({
       id: card.id,
       title: card.title,
       institution: card.institution,
@@ -67,23 +70,13 @@ export class AddItemComponent {
   }
 
   reset(){
-    this.form.reset()
+    this.form.reset();
   }
 
   onSubmit(){
-    // console.log(this.modal.nativeElement);
-    // this.modal.nativeElement.classList.remove('show');
     if(this.form.valid && (this.form.value.startDate < this.currentDate!  ||  !this.form.value.startDate)){
-      const newItem = {
-        id: this.form.value.id,
-        title: this.form.value.title,
-        institution: this.form.value.institution,
-        area: this.form.value.area,
-        startDate: this.form.value.startDate,
-        endDate: this.form.value.endDate,
-        logo: this.form.value.logo
-      }
-      if(newItem.id === null){
+      const newItem = this.form.getRawValue();
+      if(!newItem.id){
         this.onAddItem.emit(newItem);
       }else{
         this.onUpdateItem.emit(newItem);
@@ -93,13 +86,5 @@ export class AddItemComponent {
     }else{
       this.form.markAllAsTouched();
     }
-  }
-
-  open(content?:any){
-    this.modalService.open(content);
-  }
-
-  close(){
-    this.modalService.dismissAll();
   }
 }

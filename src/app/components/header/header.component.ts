@@ -65,10 +65,6 @@ export class HeaderComponent implements OnInit, AfterViewInit{
     }
   }
 
-  isIntersecting(){
-    this.intersecting = true;
-  }
-
   ngOnInit(): void {
     this.personalData.getData('user').subscribe(data =>{
       this.personalInfo = data;
