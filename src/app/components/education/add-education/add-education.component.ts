@@ -1,9 +1,9 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Education, Institution } from '../education.component';
-import { NgbCalendar, NgbDate, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-add-education',
   templateUrl: './add-education.component.html',
@@ -28,7 +28,7 @@ export class AddEducationComponent {
   @Output() onAddItem:EventEmitter<any> = new EventEmitter();
   @Output() onUpdateItem:EventEmitter<any> = new EventEmitter();
 
-  constructor(private formBuilder:FormBuilder, private datepipe:DatePipe, private modalService:NgbModal, private calendar:NgbCalendar){
+  constructor(private formBuilder:FormBuilder, private datepipe:DatePipe, private modalService:NgbModal){
     let currentDate = new Date();
     this.today = this.datepipe.transform(currentDate, 'YYYY-MM-dd')!;
   }
