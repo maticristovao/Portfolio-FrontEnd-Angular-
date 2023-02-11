@@ -57,7 +57,7 @@
         <div class="modal-body container-fluid">
             <div class="row">
                 <div class="col-10">
-                    <p class="body-head ms-0 ms-sm-3">Agregar estudio</p>
+                    <p class="body-head ms-0 ms-sm-3">{{add?'Agregar estudio':'Editar estudio'}}</p>
                 </div>
                 <div class="col-2">
                     <button aria-hidden="true" type="button" class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
@@ -67,40 +67,50 @@
             </div>
             <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
                 <div class="row justify-content-center mt-5 px-3">
-                    <label for="title"><h4>Título</h4></label>
+                    <label for="title" autocapitalize="letters"><h4>Título</h4></label>
                     <input type="text" class="form-control" id="title" name="title" formControlName="title" placeholder="Tu título"/>
                     <p class="error"><span *ngIf="Title?.hasError('required') && Title?.touched">Título requerido</span></p>
                 </div>
                 <div class="row justify-content-center mt-4 px-3">
-                    <label for="institution"><h4>Institución</h4></label>
-                    <!-- <input type="text" class="form-control" id="institution" name="institution" formControlName="institution" placeholder="Tu institución educativa"/> -->
+                    <label for="institutionId"><h4>Institución</h4></label>
                     <div class="custom-select px-0">
-                        <select class="form-control" name="institution" formControlName="institutionId" id="institution">
-                            <option [ngValue]="null" selected [disabled]="true">Seleccione una institución...</option>
+                        <select class="form-control" name="institutionId" formControlName="institutionId" id="institutionId">
+                            <!-- <option [ngValue]="null" selected [disabled]="true">Seleccione una institución...</option> -->
                             <option *ngFor="let item of institutions" [ngValue]="item.id">{{item.name}}</option>
                         </select>
                     </div>
                     <p class="error"><span *ngIf="InstitutionId?.hasError('required') && InstitutionId?.touched">Institución requerida</span></p>
                 </div>
                 <div class="row justify-content-center mt-4 px-3">
-                    <label for="area"><h4>Área</h4></label>
-                    <input type="text" class="form-control" id="area" name="area" formControlName="area" placeholder="Campo de estudio"/>
-                    <p class="error"><span *ngIf="Area?.hasError('required') && Area?.touched">Área requerida</span></p>
+                    <label for="areaId"><h4>Área</h4></label>
+                    <div class="custom-select px-0">
+                        <select class="form-control" name="areaId" formControlName="areaId" id="areaId">
+                            <!-- <option [ngValue]="null" selected [disabled]="true" *ngIf="AreaId?.untouched">Seleccione un campo de estudio...</option> -->
+                            <option *ngFor="let item of areas" [ngValue]="item.id">{{item.name}}</option>
+                            <option [ngValue]="">Otra</option>
+                        </select>
+                    </div>
+                    <!-- <input type="text" class="form-control" id="area" name="area" formControlName="area" placeholder="Campo de estudio"/> -->
+                    <p class="error"><span *ngIf="AreaId?.hasError('required') && AreaId?.touched">Área requerida</span></p>
                 </div>
                 <div class="row justify-content-between mt-4 px-3 gap-1">
                     <div class="col-5">
                         <div class="row">
                             <label for="startDate"><h4>Inicio</h4></label>
-                            <input type="date" class="form-control" id="startDate" name="startDate" formControlName="startDate" [max]="today"/>
+                            <input type="month" class="form-control" id="startDate" name="startDate" formControlName="startDate" [max]="today" placeholder="foo"/>
                         </div>
                         <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p>
                     </div>
-                    <div class="col-5">
+                    <div class="col-6">
                         <div class="row">
                             <label for="endDate"><h4>Fin</h4></label>
-                            <input type="date" class="form-control" id="endDate" name="endDate" formControlName="endDate"/>
+                            <input type="month" class="form-control" id="endDate" name="endDate" formControlName="endDate"/>
+                            <!-- <input matInput [matDatepicker]="picker">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker> -->
                         </div>
-                        <p class="error"><span *ngIf="EndDate?.hasError('required') && EndDate?.touched">Fecha de fin requerida</span></p>
+                        <!-- <p class="error"><span *ngIf="EndDate?.hasError('required') && EndDate?.touched">Fecha de fin requerida</span></p> -->
                     </div>
                 </div>
                 <div class="row justify-content-center mb-5 pt-5">

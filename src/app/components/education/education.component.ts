@@ -1,5 +1,5 @@
 import { AfterViewChecked, Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { faCoins, faUserGraduate, faLaptopCode, faBook } from '@fortawesome/free-solid-svg-icons';
+import { faUserGraduate, faLaptopCode, faBook, faRadio, faFlask, faDumbbell, faGears, faLandmarkDome, faHeartPulse, faChurch, faSackDollar, faCircleDollarToSlot, faCommentDollar, faCommentsDollar } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { AddEducationComponent } from './add-education/add-education.component';
 
@@ -16,11 +16,12 @@ export class EducationComponent implements OnInit, AfterViewChecked{
   visible:boolean = false;
   field:string = 'education';
   institutions:Institution[] = [];
+  areas:Area[] = [];
 
   @ViewChild(AddEducationComponent) editModal!:AddEducationComponent;
 
   @HostListener('window:resize')
-  onResize() {
+  onResize():void{
     this.windowWidth = window.innerWidth;
   }
 
@@ -34,42 +35,43 @@ export class EducationComponent implements OnInit, AfterViewChecked{
     $(this).addClass('active');
   }
 
-  determineIcon(area:string | undefined){
-    if(!area){return faBook};
-    switch (area.toLowerCase().trim()){
-      case "economics":
-        return faCoins;
-
-      case "programming":
-        return faLaptopCode;
-
-      case "school":
-        return faUserGraduate;
-
-      default:
-        return faBook;
-    }
+  determineIcon(id:number){
+    const map:any = {
+      1:faCommentsDollar,
+      2:faLaptopCode,
+      3:faUserGraduate,
+      4:faRadio,
+      5:faFlask,
+      6:faDumbbell,
+      7:faGears,
+      8:faLandmarkDome,
+      9:faHeartPulse,
+      10:faChurch
+    };
+    return map[id] ?? faBook;
   }
 
   addItem(item:Education){
     this.personalData.addItem(item, this.field).subscribe((card)=>{
-      this.appendInstitution(card)
+      this.appendRelations(card)
       this.personalEducation.push(card);
       this.setActive();
       setTimeout(()=>this.getCards().item(this.getCardPosition(card))!.className += ' active', 10);
     });
   }
 
-  appendInstitution(item:Education){
+  appendRelations(item:Education){
     let inst = this.institutions.find((i:Institution) => i.id === item.institutionId);
-      item.institution = inst;
+    item.institution = inst;
+    let area = this.institutions.find((a:Area) => a.id === item.areaId);
+    item.area = area;
   }
 
   save(item:Education){
     this.personalData.updateItem(item, this.field).subscribe(()=>{
       this.getCards().item(this.getCardPosition(item))!.className += ' active';
     });
-    this.appendInstitution(item);
+    this.appendRelations(item);
     this.personalEducation[this.getCardPosition(item)] = item;
   }
 
@@ -102,11 +104,14 @@ export class EducationComponent implements OnInit, AfterViewChecked{
   }
 
   ngOnInit(): void {
-    this.personalData.getData(`${this.field}?_expand=institution`).subscribe(data =>{
+    this.personalData.getData(`${this.field}?_expand=institution&_expand=area`).subscribe(data =>{
       this.personalEducation = data;
     })
-    this.personalData.getData('institutions').subscribe(data =>{
+    this.personalData.getData('institutions?_sort=name&_order=asc').subscribe(data =>{
       this.institutions = data;
+    });
+    this.personalData.getData('areas?_sort=name&_order=asc').subscribe(data =>{
+      this.areas = data;
     });
     
   }
@@ -117,17 +122,23 @@ export class EducationComponent implements OnInit, AfterViewChecked{
 }
 
 export interface Education{
-  institution?:Institution,
-  institutionId:number,
+  id?:number
   title:string,
+  institutionId:number,
+  institution?:Institution,
+  areaId:number,
+  area?:Area,
   startDate:string | Date,
   endDate?:string | Date,
-  area:string,
-  id?:number
 }
 
 export interface Institution{
   id:number,
   name:string
   logo:string
+}
+
+export interface Area{
+  id:number,
+  name:string
 }

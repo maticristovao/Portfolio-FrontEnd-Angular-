@@ -123,6 +123,10 @@ section.education {
     font-size: 20px;
     font-family: "Helvetica", sans-serif;
   }
+
+  #date{
+    text-transform: capitalize;
+  }
   
   .icon {
     background: white;
@@ -167,11 +171,6 @@ section.education {
   .info img{
     border-radius: 10px;
     width:100px;
-    opacity: 0;
-  }
-  .education-card:is(.active, .smallactive) .info img{
-    opacity:1;
-    
   }
   
   @media screen and (width<1020px){

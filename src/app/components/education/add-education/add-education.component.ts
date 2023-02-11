@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEnca
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { Education, Institution } from '../education.component';
+import { Area, Education, Institution } from '../education.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-add-education',
@@ -14,23 +14,25 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class AddEducationComponent {
   faExit = faTimes;
   today: string;
+  add:boolean = true;
   form:FormGroup = this.formBuilder.group({
     id:undefined,
     title:['', [Validators.required, Validators.minLength(6)]],
     institutionId:['', [Validators.required]],
-    area:['', [Validators.required]],
+    areaId:['', [Validators.required]],
     startDate:['', [Validators.required]],
-    endDate:['', [Validators.required]]
+    // endDate:['', [Validators.required]]
   });
   
   @ViewChild('content') myModal!:ElementRef;
   @Input()institutions:Institution[]=[];
+  @Input()areas:Area[]=[];
   @Output() onAddItem:EventEmitter<any> = new EventEmitter();
   @Output() onUpdateItem:EventEmitter<any> = new EventEmitter();
 
   constructor(private formBuilder:FormBuilder, private datepipe:DatePipe, private modalService:NgbModal){
     let currentDate = new Date();
-    this.today = this.datepipe.transform(currentDate, 'YYYY-MM-dd')!;
+    this.today = this.datepipe.transform(currentDate, 'YYYY-MM')!;
   }
 
   open(content?:any){
@@ -47,29 +49,31 @@ export class AddEducationComponent {
   get InstitutionId(){
     return this.form.get('institutionId');
   }
-  get Area(){
-    return this.form.get('area');
+  get AreaId(){
+    return this.form.get('areaId');
   }
   get StartDate(){
     return this.form.get('startDate');
   }
-  get EndDate(){
-    return this.form.get('endDate');
-  }
+  // get EndDate(){
+  //   return this.form.get('endDate');
+  // }
   
   loadEditData(card:Education){
     this.form.setValue({
       id: card.id,
       title: card.title,
       institutionId: card.institutionId,
-      area: card.area,
+      areaId: card.areaId,
       startDate: card.startDate,
-      endDate: card.endDate
+      // endDate: card.endDate
     })
+    this.add = false;
   }
 
   reset(){
     this.form.reset();
+    this.add = true;
   }
 
   onSubmit(){

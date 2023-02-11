@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ElementObserverDirective } from './components/element-observer.directive';
 import { SkillItemComponent } from './components/skill-item/skill-item.component';
 import { LanguagesComponent } from './components/languages/languages.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { EditionComponent } from './components/edition/edition.component';
 import { LoginComponent } from './components/login/login.component';
@@ -26,9 +25,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
 import { AddEducationComponent } from './components/education/add-education/add-education.component';
-import { DatePipe } from '@angular/common';
+import { DatePipe, registerLocaleData } from '@angular/common';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
 import { AddExperienceComponent } from './components/experience/add-experience/add-experience.component';
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs, 'es');
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 
 
 @NgModule({
@@ -53,19 +62,24 @@ import { AddExperienceComponent } from './components/experience/add-experience/a
     ProjectItemComponent,
     AddEducationComponent,
     EditItemComponent,
-    AddExperienceComponent
+    AddExperienceComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    DragDropModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, {provide:LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,16 +8,16 @@
         </div>
     </div>
     <div class="cards mx-3" elementObserver (visible)="visible=true" [threshold]="0.2" [wait]="200">
-        <div class="education-card my-3" *ngFor="let card of personalEducation; let i = index;" [ngClass]="{smallactive: windowWidth<=576, active:i==0 && visible}">
+        <div class="education-card my-3" *ngFor="let card of personalEducation; let i = index;" [ngClass]="{smallactive: windowWidth<=576, active:i==0 && visible}" tabindex="0">
             <div class="label">{{i+1}}</div>
             <div class="icon">
-              <fa-icon [icon]="determineIcon(card.area)"></fa-icon>
+              <fa-icon [icon]="determineIcon(card.areaId)"></fa-icon>
             </div>
             <div class="info row justify-content-end">
                 <div class="col-12 col-sm-6 col-lg-7 px-0">
                     <h1>{{card.title}}</h1>
                     <h3 class="mt-lg-3 my-xl-5">{{card.institution!.name}}</h3>
-                    <h5 class="mt-lg-3 mt-xl-5">{{card.startDate | date: 'MMM Y'}} - {{card.endDate | date: 'MMM Y'}}</h5>
+                    <h5 class="mt-lg-3 mt-xl-5" id="date">{{card.startDate | date: 'MMM Y'}} - {{card.endDate | date: 'MMM Y'}}</h5>
                     <img [src]="card.institution!.logo" alt="{{card.institution!.name}} logo" class="mt-1 mt-lg-3 mt-xl-5">
                 </div>
             </div>
@@ -25,5 +25,5 @@
         </div>
     </div>
 </section>
-<app-add-education (onAddItem)="addItem($event)" (onUpdateItem)="save($event)" [institutions]="institutions"></app-add-education>
+<app-add-education (onAddItem)="addItem($event)" (onUpdateItem)="save($event)" [institutions]="institutions" [areas]="areas"></app-add-education>
 

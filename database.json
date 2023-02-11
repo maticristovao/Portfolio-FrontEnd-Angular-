@@ -37,25 +37,67 @@
       "id": 1,
       "title": "Licenciatura en Economía",
       "institutionId": 1,
-      "area": "Economics",
-      "startDate": "2022-03-14",
-      "endDate": "2025-12-01"
+      "areaId": 1,
+      "startDate": "2022-03",
+      "endDate": "2025-12"
     },
     {
       "id": 2,
       "title": "Full Stack Developer Jr",
       "institutionId": 2,
-      "area": "Programming",
-      "startDate": "2022-10-17",
-      "endDate": "2023-05-15"
+      "areaId": 2,
+      "startDate": "2022-10",
+      "endDate": "2023-05"
     },
     {
       "id": 3,
       "title": "Educación Secundaria",
       "institutionId": 3,
-      "area": "School",
-      "startDate": "2015-03-01",
-      "endDate": "2021-12-01"
+      "areaId": 3,
+      "startDate": "2015-03",
+      "endDate": "2021-12"
+    }
+  ],
+  "areas": [
+    {
+      "id": 1,
+      "name": "Economics, finance and accounting"
+    },
+    {
+      "id": 2,
+      "name": "Computing and programming"
+    },
+    {
+      "id": 3,
+      "name": "School"
+    },
+    {
+      "id": 4,
+      "name": "Communications"
+    },
+    {
+      "id": 5,
+      "name": "Science"
+    },
+    {
+      "id": 6,
+      "name": "Sports"
+    },
+    {
+      "id": 7,
+      "name": "Engineering"
+    },
+    {
+      "id": 8,
+      "name": "Architecture"
+    },
+    {
+      "id": 9,
+      "name": "Medicine and health"
+    },
+    {
+      "id": 10,
+      "name": "Religion"
     }
   ],
   "institutions": [
@@ -146,7 +188,8 @@
     {
       "name": "Personal portfolio page",
       "description": "Sabiendo que word-wrap es el único soportado por todos los navegadores y que hyphens nos aporta una mejora en cuanto a las reglas y el modo de partir las palabras, a menos que debamos enfrentarnos a un texto multi-idioma.",
-      "repo": "link",
+      "repo": "https://github.com/maticristovao/Portfolio-FrontEnd-Angular-",
+      "collection": "https://codepen.io/collection/NqyQam",
       "image": "https://bootstrapmade.com/content/templatefiles/iPortfolio/iPortfolio-bootstrap-website-template.png"
     },
     {

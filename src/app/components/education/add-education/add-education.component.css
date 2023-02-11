@@ -81,13 +81,6 @@
 }
 
 
-.input-group-text, form .show{
-    background-color: transparent;
-    border:none;
-    color:var(--primary-color);
-    font-size: 18px;
-    cursor: pointer;
-}
 .form-control{
     background-color: transparent !important;
     border: none;
@@ -171,13 +164,26 @@ p.error{
     background-color: black !important;
     padding: 12px 20px;
     border-radius: 10px;
-    accent-color: var(--primary-color) !important;
+    /* accent-color: var(--primary-color) !important; */
+}
+select.form-control{
+    appearance: none !important;
+    border: none !important;
+    outline: none !important;
+    /* accent-color:grey !important; */
+    /* color:grey !important; */
+}
+option:not(:checked){
+    /* background-color: red; */
+    font-weight: 400;
+    padding: 10px 0px;
+    border-bottom: 2px solid grey;
+
 }
 
 .custom-select{
     position: relative;
     height: fit-content;
-    /* width: fit-content; */
 }
 
 .custom-select::after{
