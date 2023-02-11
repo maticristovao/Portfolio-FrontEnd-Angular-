@@ -16,14 +16,14 @@
             <div class="info row justify-content-end">
                 <div class="col-12 col-sm-6 col-lg-7 px-0">
                     <h1>{{card.title}}</h1>
-                    <h3 class="mt-lg-3 my-xl-5">{{card.institution}}</h3>
+                    <h3 class="mt-lg-3 my-xl-5">{{card.institution!.name}}</h3>
                     <h5 class="mt-lg-3 mt-xl-5">{{card.startDate | date: 'MMM Y'}} - {{card.endDate | date: 'MMM Y'}}</h5>
-                    <img [src]="card.logo" alt="{{card.institution}} logo" class="mt-1 mt-lg-3 mt-xl-5">
+                    <img [src]="card.institution!.logo" alt="{{card.institution!.name}} logo" class="mt-1 mt-lg-3 mt-xl-5">
                 </div>
             </div>
             <app-edit-item class="edit-item" [editMode]="editMode" [class.enabled]="editMode" [white]="true" (deleteItem)="deleteItem(card)" (updateItem)="passData(card)"></app-edit-item>
         </div>
     </div>
 </section>
-<app-add-education (onAddItem)="addItem($event)" (onUpdateItem)="save($event)"></app-add-education>
+<app-add-education (onAddItem)="addItem($event)" (onUpdateItem)="save($event)" [institutions]="institutions"></app-add-education>
 

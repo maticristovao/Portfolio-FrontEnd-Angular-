@@ -15,6 +15,7 @@ export class EducationComponent implements OnInit, AfterViewChecked{
   update:boolean = false;
   visible:boolean = false;
   field:string = 'education';
+  institutions:Institution[] = [];
 
   @ViewChild(AddEducationComponent) editModal!:AddEducationComponent;
 
@@ -52,17 +53,24 @@ export class EducationComponent implements OnInit, AfterViewChecked{
 
   addItem(item:Education){
     this.personalData.addItem(item, this.field).subscribe((card)=>{
+      this.appendInstitution(card)
       this.personalEducation.push(card);
       this.setActive();
       setTimeout(()=>this.getCards().item(this.getCardPosition(card))!.className += ' active', 10);
     });
   }
 
+  appendInstitution(item:Education){
+    let inst = this.institutions.find((i:Institution) => i.id === item.institutionId);
+      item.institution = inst;
+  }
+
   save(item:Education){
-    this.personalEducation[this.getCardPosition(item)] = item;
     this.personalData.updateItem(item, this.field).subscribe(()=>{
       this.getCards().item(this.getCardPosition(item))!.className += ' active';
     });
+    this.appendInstitution(item);
+    this.personalEducation[this.getCardPosition(item)] = item;
   }
 
   deleteItem(item:Education){
@@ -94,9 +102,13 @@ export class EducationComponent implements OnInit, AfterViewChecked{
   }
 
   ngOnInit(): void {
-    this.personalData.getData(this.field).subscribe(data =>{
+    this.personalData.getData(`${this.field}?_expand=institution`).subscribe(data =>{
       this.personalEducation = data;
     })
+    this.personalData.getData('institutions').subscribe(data =>{
+      this.institutions = data;
+    });
+    
   }
 
   ngAfterViewChecked():void{
@@ -105,11 +117,17 @@ export class EducationComponent implements OnInit, AfterViewChecked{
 }
 
 export interface Education{
-  institution:string,
+  institution?:Institution,
+  institutionId:number,
   title:string,
   startDate:string | Date,
   endDate?:string | Date,
   area:string,
-  logo?:string,
   id?:number
+}
+
+export interface Institution{
+  id:number,
+  name:string
+  logo:string
 }

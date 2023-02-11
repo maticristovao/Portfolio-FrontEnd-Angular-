@@ -167,11 +167,30 @@ p.error{
     height: 23px;
 }
 
-:is(input, textarea).form-control{
+:is(input, textarea, select).form-control{
     background-color: black !important;
     padding: 12px 20px;
     border-radius: 10px;
-    accent-color: var(--primary-color);
+    accent-color: var(--primary-color) !important;
+}
+
+.custom-select{
+    position: relative;
+    height: fit-content;
+    /* width: fit-content; */
+}
+
+.custom-select::after{
+    position: absolute;
+    content:'';
+    width: 0;
+    height: 0;
+    top:calc(50% - 4px);
+    right: 30px;
+    border-top: 7px solid var(--primary-color);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 0;
 }
 
 textarea.form-control{

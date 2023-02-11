@@ -1,9 +1,9 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { Education } from '../education.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Education, Institution } from '../education.component';
+import { NgbCalendar, NgbDate, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-add-education',
   templateUrl: './add-education.component.html',
@@ -13,24 +13,24 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class AddEducationComponent {
   faExit = faTimes;
-  currentDate: string | null;
+  today: string;
   form:FormGroup = this.formBuilder.group({
     id:undefined,
     title:['', [Validators.required, Validators.minLength(6)]],
-    institution:['', [Validators.required]],
+    institutionId:['', [Validators.required]],
     area:['', [Validators.required]],
     startDate:['', [Validators.required]],
-    endDate:['', [Validators.required]],
-    logo:['', []]
+    endDate:['', [Validators.required]]
   });
   
   @ViewChild('content') myModal!:ElementRef;
+  @Input()institutions:Institution[]=[];
   @Output() onAddItem:EventEmitter<any> = new EventEmitter();
   @Output() onUpdateItem:EventEmitter<any> = new EventEmitter();
 
-  constructor(private formBuilder:FormBuilder, private datepipe:DatePipe, private modalService:NgbModal){
-    let date:Date = new Date();
-    this.currentDate = this.datepipe.transform(date, 'YYYY-MM-ddTHH:MM');
+  constructor(private formBuilder:FormBuilder, private datepipe:DatePipe, private modalService:NgbModal, private calendar:NgbCalendar){
+    let currentDate = new Date();
+    this.today = this.datepipe.transform(currentDate, 'YYYY-MM-dd')!;
   }
 
   open(content?:any){
@@ -44,8 +44,8 @@ export class AddEducationComponent {
   get Title(){
     return this.form.get('title');
   }
-  get Institution(){
-    return this.form.get('institution');
+  get InstitutionId(){
+    return this.form.get('institutionId');
   }
   get Area(){
     return this.form.get('area');
@@ -58,14 +58,13 @@ export class AddEducationComponent {
   }
   
   loadEditData(card:Education){
-    this.form.patchValue({
+    this.form.setValue({
       id: card.id,
       title: card.title,
-      institution: card.institution,
+      institutionId: card.institutionId,
       area: card.area,
       startDate: card.startDate,
-      endDate: card.endDate,
-      logo: card.logo
+      endDate: card.endDate
     })
   }
 
@@ -74,7 +73,7 @@ export class AddEducationComponent {
   }
 
   onSubmit(){
-    if(this.form.valid && (this.form.value.startDate < this.currentDate!  ||  !this.form.value.startDate)){
+    if(this.form.valid && this.form.value.startDate<this.today){
       const newItem = this.form.value;
       if(!newItem.id){
         this.onAddItem.emit(newItem);

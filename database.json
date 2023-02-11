@@ -36,29 +36,26 @@
     {
       "id": 1,
       "title": "Licenciatura en Economía",
-      "institution": "Universidad de Belgrano",
+      "institutionId": 1,
       "area": "Economics",
       "startDate": "2022-03-14",
-      "endDate": "2025-12-01",
-      "logo": "https://media.licdn.com/dms/image/C4D0BAQGpKBYNiEzYYw/company-logo_100_100/0/1661171292091?e=1681948800&v=beta&t=SQ_kSjmeRtWn7Av9laBuPkM04W8WgfZBpDPkpt9nK7Y"
+      "endDate": "2025-12-01"
     },
     {
       "id": 2,
       "title": "Full Stack Developer Jr",
-      "institution": "Argentina programa",
+      "institutionId": 2,
       "area": "Programming",
       "startDate": "2022-10-17",
-      "endDate": "2023-05-15",
-      "logo": "https://eggcooperation.com/wp-content/uploads/2022/11/ar-prog_logo.png"
+      "endDate": "2023-05-15"
     },
     {
       "id": 3,
       "title": "Educación Secundaria",
-      "institution": "Colegio Jesús María",
+      "institutionId": 3,
       "area": "School",
       "startDate": "2015-03-01",
-      "endDate": "2021-12-01",
-      "logo": "https://static.wixstatic.com/media/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png/v1/fill/w_188,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png"
+      "endDate": "2021-12-01"
     }
   ],
   "institutions": [
@@ -76,6 +73,11 @@
       "id": 3,
       "name": "Colegio Jesús María",
       "logo": "https://static.wixstatic.com/media/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png/v1/fill/w_188,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png"
+    },
+    {
+      "id": 4,
+      "name": "Universidad de Buenos Aires",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a3/UBA.png"
     }
   ],
   "skills": [
@@ -127,7 +129,7 @@
       "employType": "Part time",
       "startDate": "2022-02",
       "endDate": "2022-11",
-      "current":false,
+      "current": false,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
     },
     {

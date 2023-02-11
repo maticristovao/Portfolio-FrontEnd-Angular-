@@ -73,8 +73,14 @@
                 </div>
                 <div class="row justify-content-center mt-4 px-3">
                     <label for="institution"><h4>Institución</h4></label>
-                    <input type="text" class="form-control" id="institution" name="institution" formControlName="institution" placeholder="Tu institución educativa"/>
-                    <p class="error"><span *ngIf="Institution?.hasError('required') && Institution?.touched">Institución requerida</span></p>
+                    <!-- <input type="text" class="form-control" id="institution" name="institution" formControlName="institution" placeholder="Tu institución educativa"/> -->
+                    <div class="custom-select px-0">
+                        <select class="form-control" name="institution" formControlName="institutionId" id="institution">
+                            <option [ngValue]="null" selected [disabled]="true">Seleccione una institución...</option>
+                            <option *ngFor="let item of institutions" [ngValue]="item.id">{{item.name}}</option>
+                        </select>
+                    </div>
+                    <p class="error"><span *ngIf="InstitutionId?.hasError('required') && InstitutionId?.touched">Institución requerida</span></p>
                 </div>
                 <div class="row justify-content-center mt-4 px-3">
                     <label for="area"><h4>Área</h4></label>
@@ -85,7 +91,7 @@
                     <div class="col-5">
                         <div class="row">
                             <label for="startDate"><h4>Inicio</h4></label>
-                            <input type="date" class="form-control" id="startDate" name="startDate" formControlName="startDate"/>
+                            <input type="date" class="form-control" id="startDate" name="startDate" formControlName="startDate" [max]="today"/>
                         </div>
                         <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p>
                     </div>
