@@ -59,13 +59,10 @@ export class AddEducationComponent {
       title:['', [Validators.required, Validators.minLength(6)]],
       institutionId:['', [Validators.required]],
       areaId:['', [Validators.required]],
-      startDate:[moment(), [Validators.required]],
-      endDate:[moment(), [Validators.required]]
+      startDate:['', [Validators.required]],
+      endDate:['', [Validators.required]]
     });
     this.initialValue = this.form.value;
-
-    let currentDate = new Date();
-    // this.today = this.formatDate(currentDate);
     this.today = new Date();
   }
 
@@ -130,7 +127,8 @@ export class AddEducationComponent {
     }
   }
   setMonthAndYear(normalizedMonthAndYear: Moment, control:AbstractControl, datepicker: MatDatepicker<Moment>) {
-    const ctrlValue = control.value!;
+    control.setValue(moment());
+    const ctrlValue = control.value;
     ctrlValue.month(normalizedMonthAndYear.month());
     ctrlValue.year(normalizedMonthAndYear.year());
     let formatValue = this.formatDate(ctrlValue);
