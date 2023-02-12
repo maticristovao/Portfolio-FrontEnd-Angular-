@@ -63,6 +63,9 @@ export class AddEducationComponent {
       endDate:[moment(), [Validators.required]]
     });
     this.initialValue = this.form.value;
+
+    let currentDate = new Date();
+    // this.today = this.formatDate(currentDate);
     this.today = new Date();
   }
 
@@ -106,16 +109,8 @@ export class AddEducationComponent {
     this.add = false;
   }
 
-  setMonthAndYear(normalizedMonthAndYear: Moment, control:AbstractControl, datepicker: MatDatepicker<Moment>) {
-    const ctrlValue = control.value!;
-    ctrlValue.month(normalizedMonthAndYear.month());
-    ctrlValue.year(normalizedMonthAndYear.year());
-    let formatValue = this.formatDate(ctrlValue);
-    control.setValue(formatValue);
-    datepicker.close();
-  }
-
   reset(){
+    console.log(this.initialValue);
     this.form.reset(this.initialValue);
     this.add = true;
   }
@@ -133,5 +128,13 @@ export class AddEducationComponent {
     }else{
       this.form.markAllAsTouched();
     }
+  }
+  setMonthAndYear(normalizedMonthAndYear: Moment, control:AbstractControl, datepicker: MatDatepicker<Moment>) {
+    const ctrlValue = control.value!;
+    ctrlValue.month(normalizedMonthAndYear.month());
+    ctrlValue.year(normalizedMonthAndYear.year());
+    let formatValue = this.formatDate(ctrlValue);
+    control.setValue(formatValue);
+    datepicker.close();
   }
 }
