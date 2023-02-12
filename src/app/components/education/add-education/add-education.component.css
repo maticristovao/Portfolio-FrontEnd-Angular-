@@ -2,7 +2,6 @@
     background-color: var(--primary-color);
 }
 .modal-dialog{
-    /* width: fit-content; */
     max-width: fit-content;
 }
 
@@ -259,3 +258,46 @@ h4{
     background-color: rgba(0, 0, 0, 0.445) !important;
     transition: color .2s ease-in-out, background-color .2s ease-in-out;
 }
+
+.cdk-overlay-container{
+    z-index: 1061;
+}
+
+.mat-mdc-text-field-wrapper{
+    background-color: black !important;
+}
+
+/* .mat-form-field :is(.mat-input-element, .mat-form-field-label, .mat-form-field-underline, .mat-form-field-ripple, .mat-form-field-required-marker){
+    color: slategray;
+}
+
+.mat-form-field.mat-focused :is(.mat-form-field-label, .mat-form-field-ripple, .mat-form-field-required-marker, .mat-input-element){
+    color: #ff884d;
+}
+
+.mat-form-field.mat-form-field-invalid :is(.mat-input-element, .mat-form-field-label, .mat-form-field-ripple, .mat-form-field-required-marker){
+    color:green
+} */
+
+mat-label :not(.mdc-text-field--invalid), .mdc-text-field:not(.mdc-text-field--invalid, .mdc-text-field--disabled) .mdc-floating-label{
+    color:var(--primary-color);
+}
+input.date{
+    color: var(--primary-color) !important;
+}
+
+.mat-mdc-icon-button, .mat-datepicker-toggle {
+    --mat-mdc-button-persistent-ripple-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* .datepicker{
+    background-color: black;
+}
+.mat-calendar-body-cell-content, .mat-date-range-input-separator {
+    color: rgba(255, 255, 255, 0.87);
+    border-color: rgba(0, 0, 0, 0);
+}
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    border-color: rgba(255, 255, 255, 0.38);
+} */
