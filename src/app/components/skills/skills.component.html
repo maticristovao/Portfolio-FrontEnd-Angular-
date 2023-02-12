@@ -3,7 +3,7 @@
         <app-edition [showAdding]="true" class="m-1 m-sm-4 m-md-0 m-lg-4"></app-edition>
     <!-- </div> -->
     <div class="row pb-lg-5 mt-2">
-        <article class="col-12 col-lg-8 mb-5 mb-lg-0 skills" >
+        <article class="col-12 col-lg-8 mb-5 mb-lg-0 skills" cdkDropList (cdkDropListDropped)="drop($event)">
             <h1 class="title ms-sm-1 ms-lg-5  mb-5 text-sm-center text-lg-start">Habilidades</h1>
             <div class="container-fluid mt-4 ps-1 ps-lg-5 me-1 pe-5 pe-sm-4 pe-lg-2 mb-4" *ngFor="let skill of skills">
                 <app-skill-item [skill]="skill"></app-skill-item>
@@ -20,4 +20,3 @@
 
 <!-- cdkDrag -->
 <!-- ESO VA EN LA LINEA DEL NGFOR -->
-<!-- cdkDropList (cdkDropListDropped)="drop($event)" -->

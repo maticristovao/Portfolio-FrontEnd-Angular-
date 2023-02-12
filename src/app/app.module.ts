@@ -7,14 +7,14 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { HeaderComponent } from './components/header/header.component';
 import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ContactModalComponent } from './components/contact-modal/contact-modal.component';
+import { ContactModalComponent } from './components/personal-info/contact-modal/contact-modal.component';
 import { AboutComponent } from './components/about/about.component';
 import { EducationComponent } from './components/education/education.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ElementObserverDirective } from './components/element-observer.directive';
-import { SkillItemComponent } from './components/skill-item/skill-item.component';
+import { SkillItemComponent } from './components/skills/skill-item/skill-item.component';
 import { LanguagesComponent } from './components/languages/languages.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { EditionComponent } from './components/edition/edition.component';
@@ -35,7 +35,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { DatePickerComponent } from './date-picker/date-picker.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
@@ -62,8 +61,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ProjectItemComponent,
     AddEducationComponent,
     EditItemComponent,
-    AddExperienceComponent,
-    DatePickerComponent
+    AddExperienceComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +75,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    DragDropModule
   ],
   providers: [DatePipe, {provide:LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
