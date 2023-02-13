@@ -1,5 +1,5 @@
 import { AfterViewChecked, Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { faUserGraduate, faLaptopCode, faBook, faRadio, faFlask, faDumbbell, faGears, faLandmarkDome, faHeartPulse, faChurch, faSackDollar, faCircleDollarToSlot, faCommentDollar, faCommentsDollar } from '@fortawesome/free-solid-svg-icons';
+import { faUserGraduate, faLaptopCode, faBook, faRadio, faFlask, faDumbbell, faGears, faLandmarkDome, faHeartPulse, faChurch, faSackDollar, faCircleDollarToSlot, faCommentDollar, faCommentsDollar, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { AddEducationComponent } from './add-education/add-education.component';
 
@@ -46,7 +46,8 @@ export class EducationComponent implements OnInit, AfterViewChecked{
       7:faGears,
       8:faLandmarkDome,
       9:faHeartPulse,
-      10:faChurch
+      10: faScaleBalanced,
+      11:faChurch
     };
     return map[id] ?? faBook;
   }

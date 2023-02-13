@@ -35,6 +35,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
@@ -76,6 +77,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
     DragDropModule
   ],
   providers: [DatePipe, {provide:LOCALE_ID, useValue: 'es'}],

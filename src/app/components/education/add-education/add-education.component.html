@@ -13,39 +13,46 @@
             <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
                 <div class="row justify-content-center mt-5 px-3">
                     <label for="title" autocapitalize="letters"><h4>Título</h4></label>
-                    <input type="text" class="form-control" id="title" name="title" formControlName="title" placeholder="Tu título"/>
-                    <p class="error"><span *ngIf="Title?.hasError('required') && Title?.touched">Título requerido</span></p>
+                    <!-- <input type="text" class="form-control" id="title" name="title" formControlName="title" placeholder="Tu título"/> -->
+                    <mat-form-field appearance="fill">
+                        <mat-label>Introduzca su título</mat-label>
+                        <input matInput placeholder="Ej. Medicina" formControlName="title">
+                    </mat-form-field>
+                    <!-- <p class="error"><span *ngIf="Title?.hasError('required') && Title?.touched">Título requerido</span></p> -->
                 </div>
                 <div class="row justify-content-center mt-4 px-3">
-                    <label for="institutionId"><h4>Institución</h4></label>
-                    <div class="custom-select px-0">
-                        <select class="form-control" name="institutionId" formControlName="institutionId" id="institutionId">
-                            <!-- <option [ngValue]="null" selected [disabled]="true">Seleccione una institución...</option> -->
-                            <option *ngFor="let item of institutions" [ngValue]="item.id">{{item.name}}</option>
-                        </select>
-                    </div>
-                    <p class="error"><span *ngIf="InstitutionId?.hasError('required') && InstitutionId?.touched">Institución requerida</span></p>
+                    <h4>Institución</h4>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Seleccione una institución...</mat-label>
+                        <mat-select formControlName="institutionId" id="institutionId">
+                            <mat-option>--</mat-option>
+                            <mat-option *ngFor="let item of institutions" [value]="item.id">
+                              {{item.name}}
+                            </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    <!-- <p class="error"><span *ngIf="InstitutionId?.hasError('required') && InstitutionId?.touched">Institución requerida</span></p> -->
                 </div>
                 <div class="row justify-content-center mt-4 px-3">
-                    <label for="areaId"><h4>Área</h4></label>
-                    <div class="custom-select px-0">
-                        <select class="form-control" name="areaId" formControlName="areaId" id="areaId">
-                            <!-- <option [ngValue]="null" selected [disabled]="true" *ngIf="AreaId?.untouched">Seleccione un campo de estudio...</option> -->
-                            <option *ngFor="let item of areas" [ngValue]="item.id">{{item.name}}</option>
-                            <option [ngValue]="">Otra</option>
-                        </select>
-                    </div>
-                    <!-- <input type="text" class="form-control" id="area" name="area" formControlName="area" placeholder="Campo de estudio"/> -->
-                    <p class="error"><span *ngIf="AreaId?.hasError('required') && AreaId?.touched">Área requerida</span></p>
+                    <h4>Área</h4>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Seleccione un campo de estudio...</mat-label>
+                        <mat-select formControlName="areaId" id="areaId">
+                            <mat-option>--</mat-option>
+                            <mat-option *ngFor="let item of areas" [value]="item.id">
+                              {{item.name}}
+                            </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    <!-- <p class="error"><span *ngIf="AreaId?.hasError('required') && AreaId?.touched">Área requerida</span></p> -->
                 </div>
                 <div class="row justify-content-between mt-4 px-3 gap-1">
                     <div class="col-5">
                         <div class="row">
                             <label for="startDate"><h4>Inicio</h4></label>
-                            <!-- <input type="month" class="form-control" id="startDate" name="startDate" formControlName="startDate" [max]="today"/> -->
                             <mat-form-field appearance="fill">
-                                <mat-label>Choose a date</mat-label>
-                                <input matInput [matDatepicker]="startPicker" class="date" id="startDate" formControlName="startDate" [max]="today" placeholder="Start date"/>
+                                <mat-label>Seleccione una fecha</mat-label>
+                                <input matInput [matDatepicker]="startPicker" class="date" id="startDate" formControlName="startDate" [max]="today" placeholder="Fecha de inicio"/>
                                 <mat-hint>MM/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
                                 <mat-datepicker #startPicker
@@ -54,15 +61,14 @@
                                 panelClass="datepicker"></mat-datepicker>
                             </mat-form-field>
                         </div>
-                        <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p>
+                        <!-- <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p> -->
                     </div>
                     <div class="col-6">
                         <div class="row">
-                            <label for="endDate"><h4>Fin</h4></label>
-                            <!-- <input type="month" class="form-control" id="endDate" name="endDate" formControlName="endDate"/> -->
+                            <label for="endDate"><h4>Fin (o esperado)</h4></label>
                             <mat-form-field appearance="fill">
-                                <mat-label>Choose a date</mat-label>
-                                <input matInput [matDatepicker]="endPicker" class="date" id="endDate" formControlName="endDate" placeholder="End date"/>
+                                <mat-label>Seleccione una fecha</mat-label>
+                                <input matInput [matDatepicker]="endPicker" class="date" id="endDate" formControlName="endDate" placeholder="Fecha de fin"/>
                                 <mat-hint>MM/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
                                 <mat-datepicker #endPicker

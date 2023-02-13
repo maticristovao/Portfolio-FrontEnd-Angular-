@@ -54,8 +54,8 @@
       "title": "Educación Secundaria",
       "institutionId": 3,
       "areaId": 3,
-      "startDate": "2015-03",
-      "endDate": "2021-12"
+      "startDate": "2015-03-01T03:00:00.000Z",
+      "endDate": "2021-12-01T03:00:00.000Z"
     }
   ],
   "areas": [
@@ -97,6 +97,10 @@
     },
     {
       "id": 10,
+      "name": "Law"
+    },
+    {
+      "id": 11,
       "name": "Religion"
     }
   ],
