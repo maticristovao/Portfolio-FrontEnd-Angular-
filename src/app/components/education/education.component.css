@@ -10,7 +10,7 @@ section.education {
     display: flex;
     align-items: center;
     width: 70vw;
-    height: 60%;
+    height: 75%;
     justify-content: center;
   }
 
@@ -19,7 +19,7 @@ section.education {
   }
 
   h1.heading{
-      color:#23b3e4;
+      color:var(--primary-color);
       text-transform: uppercase;
       font-family: 'Poppins', sans-serif;
       font-weight: bold;
@@ -32,7 +32,7 @@ section.education {
     background-size: cover;
     background-position: center;
     border-radius: 30px;
-    background-color: rgb(10, 10, 10);
+    background-color: var(--cards-background);
     background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg);
     background-repeat: no-repeat;
     flex: 0.5;
@@ -50,8 +50,8 @@ section.education {
     justify-content: center;
     align-items: center;
     width: 50px;
-    height: 50px !important;
-    color: #23b3e4;
+    height: 50px;
+    color: var(--primary-color);
     font-size: 50px;
     border-radius: 50%;
     font-family: "Averia Serif Libre";
@@ -65,7 +65,7 @@ section.education {
   .education-card:is(.active, .smallactive) .label {
     bottom: 20px;
     left: 50px;
-    height: 300px !important;
+    height: 300px;
     border-radius: 20px;
     font-size: 250px;
     width: 70px;
@@ -82,21 +82,30 @@ section.education {
   }
   
   .info {
-    color: white;
-    background: #23b3e4;
+    color: var(--oposite-color);
+    background: var(--primary-color);
     float: right;
     width: 100%;
     height: 100%;
     clip-path: polygon(calc(100% - 42.3vw) 0, 100% 0, 100% 100%, calc(100% - 13vw) 100%);
     shape-outside: polygon(calc(100% - 42.3vw) 0, 100% 0, 100% 100%, calc(100% - 13vw) 100%);
     text-align: right;
-    padding-right: 4vw;
+    padding-right: 25px;
     padding-top:20px;
     transition: opacity 0.5s ease-in-out .3s;
+  }
+  .info *{
+    opacity: 0;
+    transition: opacity .1s linear;
   }
   
   :is(.active, .smallactive) .info {
     opacity: 1;
+  }
+
+  :is(.active, .smallactive) .info * {
+    opacity:1;
+    transition: opacity .4s ease-in-out .3s;
   }
   
   .education-card:not(:is(.active, .smallactive)) .info {
@@ -106,7 +115,7 @@ section.education {
   
   h1 {
     font-size: 50px;
-    color: black;
+    color: var(--plain-color);
     font-weight: 900;
     font-family: "Averia Serif Libre" !important;
   }
@@ -129,7 +138,7 @@ section.education {
   }
   
   .icon {
-    background: white;
+    background: var(--oposite-color);
     position: absolute;
     top: 15px;
     left: 10px;
@@ -142,7 +151,7 @@ section.education {
     justify-content: center;
     font-size: 25px;
     border-radius: 50%;
-    color: #23b3e4;
+    color: var(--primary-color);
     opacity: 0.5;
     transition: all 0.5s ease-in-out;
     z-index:1;
@@ -207,18 +216,18 @@ section.education {
       width:102.9%;
     }
     .info{
-      clip-path:none !important;
+      clip-path:none;
       background:transparent;
       display:flex;
       flex-direction:column;
-      align-items:flex-end;
+      align-items:center;
       flex-direction:column;
       justify-content:flex-start !important;
       padding: 105px 17px 0 3px;
       text-align: center;
     }
     h1{
-      color:#23b3e4;
+      color:var(--primary-color);
       font-size:40px;
     }
     .education-card:is(.active, .smallactive) .icon{
@@ -242,7 +251,8 @@ section.education {
       width:75px;  
     }
 
-    .education-card .info img[src='https://static.wixstatic.com/media/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png/v1/fill/w_188,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png']{
+    .education-card .info 
+    img:is([src='https://static.wixstatic.com/media/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png/v1/fill/w_188,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png'], [src='https://upload.wikimedia.org/wikipedia/commons/a/a3/UBA.png']){
       filter:invert(100%);
     }
 
@@ -284,9 +294,6 @@ section.education {
   }
 
   @media screen and (height<=600px) {
-    section.education{
-      height:auto;
-    }
     .education .cards{
       height: auto;
       width:80vw;

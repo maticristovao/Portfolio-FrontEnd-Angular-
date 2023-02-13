@@ -10,6 +10,14 @@
     --rgb-color: 35, 179, 228;
     --background-color:#1a1c1f;
     --secondary-color:#212529;
+    --tertiary-color:#0d6efd;
+    --plain-color:black;
+    --cards-background:rgb(5,5,5);
+    --oposite-color:white;
+    --modal-color:#878a8c;
+    --datepicker-effect: 45, 165, 230;
+    --datepicker-exit:#238ae4;
+    --bright-filter:100%;
 }
 
 *, *::before, *::after{

@@ -40,7 +40,7 @@
 	display:grid;
 	align-content:center;
 	border-radius:10px;
-    background:#212529;
+    background:var(--secondary-color);
 }
 .card_back{
     padding: 9em 0em;
@@ -86,7 +86,7 @@
 	content: "";
 	top: 50%;
 	left: 3em; 
-	border-top: 4px solid #23b3e4;
+	border-top: 4px solid var(--primary-color);
 	transform:translateZ(2rem);
 	animation: borderAnimateLarge 5s infinite;
 }
@@ -96,7 +96,7 @@
 	content: "";
 	top: 50%;
 	right: 3em;
-	border-top: 4px solid #23b3e4;
+	border-top: 4px solid var(--primary-color);
 	transform:translateZ(2rem);
 	animation: borderAnimateLarge 5s infinite;
 }
@@ -108,7 +108,7 @@
 .card_title {
 	font-size: 3.5rem;
 	transform: translateZ(2rem);
-    color:#23b3e4;
+    color:var(--primary-color);
     text-transform: uppercase;
     font-family: 'Averia Serif Libre', cursive;
 }
@@ -121,7 +121,7 @@
 	text-align:center;
 	font-size:1.5em;
     color:rgba(255, 255, 255, 0.705);
-    border:2px solid #23b3e4;
+    border:2px solid var(--primary-color);
     padding:.5em;
     margin: 1.2em;
 	height: 100% !important;
@@ -172,7 +172,7 @@
 
 .small-version h3 {
 	font-size: 2rem;
-    color:#23b3e4;
+    color:var(--primary-color);
     text-transform: uppercase;
     font-family: 'Averia Serif Libre', cursive;
 }

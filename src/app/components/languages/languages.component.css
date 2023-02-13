@@ -10,7 +10,7 @@ h1.language-name{
 }
 
 .level{
-    color: #23b3e4;
+    color: var(--primary-color);
     font-weight: bold;
     text-transform: capitalize;
     font-size: 18px;
@@ -27,6 +27,6 @@ h1.language-name{
 }
 
 .row:has(h1) fa-icon{
-    color:#23b3e4;
+    color:var(--primary-color);
     font-size:35px;
 }

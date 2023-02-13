@@ -11,12 +11,12 @@
             </div>
         </div>
         <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
-            <div class="row justify-content-center mt-5 px-3">
+            <div class="row mt-5 px-3">
                 <label for="company"><h4>Empresa</h4></label>
                 <input type="text" class="form-control" id="company" name="company" formControlName="company" placeholder="Tu título"/>
                 <p class="error"><span *ngIf="Company?.hasError('required') && Company?.touched">Empresa requerida</span></p>
             </div>
-            <div class="row justify-content-center mt-4 px-3">
+            <div class="row mt-4 px-3">
                 <label for="employType"><h4>Tipo de empleo</h4></label>
                 <input type="text" class="form-control" id="employType" name="employType" formControlName="employType" placeholder="Tu institución educativa"/>
                 <p class="error"><span *ngIf="EmployType?.hasError('required') && EmployType?.touched">Tipo de empleo requerido</span></p>
@@ -47,9 +47,13 @@
                     <p class="error"><span *ngIf="EndDate?.hasError('required') && EndDate?.touched">Fecha de fin requerida</span></p>
                 </div>
             </div>
-            <div class="row justify-content-center mt-3 px-3">
+            <div class="row mt-3 px-3">
                 <label for="description"><h4>Descripción</h4></label>
-                <textarea class="form-control" id="description" name="description" formControlName="description" placeholder="Descripción de tu posición laboral"></textarea>
+                <!-- <textarea class="form-control" id="description" name="description" formControlName="description" placeholder="Descripción de tu posición laboral"></textarea> -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>Leave a description</mat-label>
+                    <textarea matInput cdkTextareaAutosize placeholder="Ex. It makes me feel..." name="description" id="description" formControlName="description"></textarea>
+                </mat-form-field>
                 <p class="error"><span *ngIf="Description?.hasError('required') && Description?.touched">Descripción requerida</span></p>
             </div>
             <div class="row justify-content-center mb-4 pt-4">

@@ -1,5 +1,5 @@
 .skill-name{
-    color:white;
+    color:var(--oposite-color);
     text-transform: uppercase;
     font-size: 20px;
 }
@@ -11,7 +11,7 @@
 }
 
 .progress{
-    background-color: #23b3e4;
+    background-color: var(--primary-color);
     border-radius: 400px;
     transition: width 2s ease-out;
 }
@@ -21,7 +21,7 @@
 }
 
 .percentage{
-    color:#23b3e4;
+    color:var(--primary-color);
     border-radius: 50%;
     height:45px;
     width: 45px;
@@ -39,7 +39,7 @@
 }
 
 .progress-percentage{
-    background-color: black;
+    background-color: var(--plain-color);
     border-radius: 50%;
     width: fit-content;
     overflow: hidden;

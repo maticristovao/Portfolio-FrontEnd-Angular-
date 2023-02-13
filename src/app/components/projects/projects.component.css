@@ -5,7 +5,7 @@ section{
 h1{
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    color:#23b3e4;
+    color:var(--primary-color);
     font-weight: bold;
     letter-spacing: 1px;
 }

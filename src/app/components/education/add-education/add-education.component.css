@@ -7,7 +7,6 @@
 
 .modal-content{
     background-color: var(--secondary-color);
-    color:white;
     border-radius: 10px;
     padding: 10px;
 }
@@ -40,13 +39,13 @@
 
 .modal-body{
     font-size: 20px;
-    color:#e6e6e7c5;
+    color:var(--modal-color);
 }
 
 .modal-body .body-head{
     font-size: 25px;
     font-weight: 500;
-    color:#878a8c;
+    color:var(--modal-color);
 }
 
 @media screen and (width<380px) {
@@ -143,13 +142,13 @@ form input:focus::-webkit-input-placeholder  {
 }
 
 input.form-control:autofill{
-    box-shadow:0 0 0 50px black inset;
+    box-shadow:0 0 0 50px var(--plain-color) inset;
     color: var(--primary-color);  
 }
 
 input.form-control:-webkit-autofill{
-    -webkit-box-shadow:0 0 0 50px black inset;
-    -webkit-text-fill-color: var(--primary-color);  
+    -webkit-box-shadow:0 0 0 50px var(--plain-color) inset;
+    -webkit-text-fill-color: var(--primary-color);
 }
 
 p.error{
@@ -164,24 +163,15 @@ p.error{
 }
 
 :is(input, textarea, select).form-control{
-    background-color: black !important;
+    background-color: var(--plain-color) !important;
     padding: 12px 20px;
     border-radius: 10px;
-    /* accent-color: var(--primary-color) !important; */
 }
-select.form-control{
-    appearance: none !important;
-    border: none !important;
-    outline: none !important;
-    /* accent-color:grey !important; */
-    /* color:grey !important; */
-}
+
 option:not(:checked){
-    /* background-color: red; */
     font-weight: 400;
     padding: 10px 0px;
     border-bottom: 2px solid grey;
-
 }
 
 .custom-select{
@@ -202,13 +192,9 @@ option:not(:checked){
     border-bottom: 0;
 }
 
-textarea.form-control{
-    resize: none;
-    height: 150px;
-}
-
-h4{
+h4, label{
     color:var(--primary-color);
+    width: fit-content !important;
 }
 ::-webkit-calendar-picker-indicator {
     filter: invert(1);
@@ -216,7 +202,7 @@ h4{
 }
 
 .current label{
-    color:#23b3e4;
+    color:var(--primary-color);
     font-weight: 700;
     font-size: 15px;
     cursor: pointer;
@@ -230,7 +216,7 @@ h4{
 }
 .current input{
     appearance: none;
-    background:black;
+    background:var(--plain-color);
     height: 20px;
     width: 20px;
     border-radius: 5px;
@@ -242,7 +228,7 @@ h4{
 
 .current input::after{
     content:'';
-    background-color: #23b3e4;
+    background-color: var(--primary-color);
     top:0;
     bottom: 0;
     left: 0;
@@ -267,8 +253,9 @@ h4{
     z-index: 1061;
 }
 
-.mat-mdc-text-field-wrapper{
-    background-color: black !important;
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: var(--plain-color);
+    border-radius: 10px;
 }
 
 mat-label :not(.mdc-text-field--invalid), .mdc-text-field:not(.mdc-text-field--invalid, .mdc-text-field--disabled) .mdc-floating-label{
@@ -279,34 +266,36 @@ mat-label :not(.mdc-text-field--invalid), .mdc-text-field:not(.mdc-text-field--i
     color:var(--primary-color)
 }
 
-.mat-mdc-icon-button, .mat-datepicker-toggle {
+.mat-mdc-icon-button, .mat-datepicker-toggle{
     --mat-mdc-button-persistent-ripple-color: var(--primary-color);
     color: var(--primary-color);
-    opacity:.9;
+    opacity:.85;
     transition:color .15s ease-out;
 }
-.mdc-text-field--invalid .mat-datepicker-toggle{
+.mdc-text-field--invalid .mat-mdc-icon-button{
     color:red;
+    --mat-mdc-button-persistent-ripple-color: red;
 }
 
 .mat-mdc-raised-button.mat-primary {
-    --mdc-protected-button-container-color: #238ae4;
+    --mdc-protected-button-container-color: var(--datepicker-exit);
 }
+
 .mdc-text-field--invalid .mdc-text-field__input {
-    caret-color: red !important;
+    caret-color: red;
 }
 
 .mdc-text-field--filled .mdc-line-ripple::after{
-    border-bottom-color: blue;
+    border-bottom-color: var(--tertiary-color);
 }
 
 .mat-calendar-body-selected,
 .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical),
 .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
-    background-color: rgba(45, 165, 230, 0.5) !important;
+    background-color: rgba(var(--datepicker-effect), 0.5);
 }
 .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
-    background-color: rgba(45, 165, 230, 0.3);
+    background-color: rgba(var(--datepicker-effect), 0.3);
 }
 .mat-primary .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
     color: var(--primary-color);

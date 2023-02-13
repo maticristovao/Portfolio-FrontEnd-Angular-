@@ -11,7 +11,7 @@
                 </div>
             </div>
             <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
-                <div class="row justify-content-center mt-5 px-3">
+                <div class="row mt-5 px-3">
                     <label for="title" autocapitalize="letters"><h4>Título</h4></label>
                     <!-- <input type="text" class="form-control" id="title" name="title" formControlName="title" placeholder="Tu título"/> -->
                     <mat-form-field appearance="fill">
@@ -20,7 +20,7 @@
                     </mat-form-field>
                     <!-- <p class="error"><span *ngIf="Title?.hasError('required') && Title?.touched">Título requerido</span></p> -->
                 </div>
-                <div class="row justify-content-center mt-4 px-3">
+                <div class="row mt-4 px-3">
                     <h4>Institución</h4>
                     <mat-form-field appearance="fill">
                         <mat-label>Seleccione una institución...</mat-label>
@@ -33,7 +33,7 @@
                       </mat-form-field>
                     <!-- <p class="error"><span *ngIf="InstitutionId?.hasError('required') && InstitutionId?.touched">Institución requerida</span></p> -->
                 </div>
-                <div class="row justify-content-center mt-4 px-3">
+                <div class="row mt-4 px-3">
                     <h4>Área</h4>
                     <mat-form-field appearance="fill">
                         <mat-label>Seleccione un campo de estudio...</mat-label>
@@ -63,7 +63,7 @@
                         </div>
                         <!-- <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p> -->
                     </div>
-                    <div class="col-6">
+                    <div class="col-5">
                         <div class="row">
                             <label for="endDate"><h4>Fin (o esperado)</h4></label>
                             <mat-form-field appearance="fill">
