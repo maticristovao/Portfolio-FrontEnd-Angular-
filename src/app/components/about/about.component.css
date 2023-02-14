@@ -4,7 +4,7 @@
 	position: relative;
 }
 .card{
-	background:transparent;
+	background:transparent !important;
     border:none;
 	height:288px;
 }

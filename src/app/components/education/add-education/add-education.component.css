@@ -2,7 +2,7 @@
     background-color: var(--primary-color);
 }
 .modal-dialog{
-    max-width: fit-content;
+    max-width: 700px;
 }
 
 .modal-content{
@@ -27,7 +27,7 @@
     transition: color ease-in-out .3s,
                 border ease-in-out .3s;
 }
-.close:hover, .close:focus{
+.close:is(:hover, :focus){
     border:3px solid var(--primary-color);
     color:var(--primary-color);
     outline: none;
@@ -307,4 +307,13 @@ mat-label :not(.mdc-text-field--invalid), .mdc-text-field:not(.mdc-text-field--i
 
 .mat-mdc-select-value {
     color: var(--primary-color);
+}
+
+.close.clear{
+    border: none;
+    transition: background-color .2s ease-in-out;
+}
+
+.close.clear:is(:hover, :focus){
+    background-color: rgba(128, 128, 128, 0.343);
 }

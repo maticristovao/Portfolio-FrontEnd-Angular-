@@ -81,6 +81,6 @@
 
 @media screen and (width>576px) {
     .modal-content{
-        min-width: 650px;
+        width: 650px;
     }
 }
