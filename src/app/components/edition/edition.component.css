@@ -20,27 +20,24 @@
   z-index: 4;
   overflow: hidden;
   position: relative;
+  color: white;
 }
 .icon-wrapper fa-icon {
-  color: white;
   font-size: 25px;
   transition: color ease-in-out 0.3s;
   display: grid;
   place-items: center;
 }
 .discard{
-  background-color: red;
   z-index: 2;
 }
 .add{
-  background-color: #23b3e4;
   z-index: 3;
 }
 
 .edit :is(.discard, .add){
   opacity: 0;
   transition: transform 0.3s ease-in, opacity 0.3s ease-in 0.1s, background-color .4s ease-in-out, border-color .4s ease-in-out;
-  
 }
 
 :not(.horizontal) .discard{
@@ -61,32 +58,45 @@
   margin-left: 10px;
 }
 
-:is(.horizontal, :not(.horizontal)) :is(.discard, .add).editing {
+.editing:is(.horizontal, :not(.horizontal)) :is(.discard, .add) {
   opacity: 1;
   transform: translateY(0) translateX(0);
 }
-:is(.discard, .add) fa-icon {
+.add fa-icon {
   font-size: 30px;
 }
 
 fa-icon.check {
   opacity: 0;
   position: absolute;
-  font-size: 40px;
+  font-size: 50px;
   transform: translateY(-110%);
   rotate: 5deg;
   transition: opacity ease-in 0.3s, transform ease-in 0.3s 0.1s;
 }
 
-.icon-wrapper:is(:hover, :focus) {
+:not(.editing) .icon-wrapper:is(:hover, :focus), .editing .icon-wrapper{
   background: black;
   border-color: #9b9d9e;
-  outline: none;
-}
-
-.icon-wrapper:is(:hover, :focus) fa-icon {
+  outline: transparent;
   color: #9b9d9e;
 }
+.editing .icon-wrapper:is(:hover, :focus){
+  color: var(--oposite-color);
+  border-color: var(--oposite-color);
+}
+.editing .icon-wrapper.discard:is(:hover, :focus){
+  background-color: red;
+}
+
+.editing .icon-wrapper.add:is(:hover, :focus){
+  background-color: var(--primary-color);
+}
+
+.editing .icon-wrapper:has(.check):is(:hover, :focus){
+  background-color: rgba(0, 163, 0, 0.758);
+}
+
 fa-icon.edit-toggle {
   opacity: 1;
   transition: opacity ease-in 0.3s 0.1s;
@@ -95,10 +105,6 @@ fa-icon.edit-toggle {
 .editing .edit-toggle {
   opacity: 0.3;
   transition: opacity ease-in 0.3s;
-}
-
-.editing:has(.check){
-  background-color: rgb(0, 163, 0);
 }
 
 .editing .check {
@@ -118,7 +124,7 @@ fa-icon.edit-toggle {
     font-size: 19px;
   }
 
-  :is(.discard, .add) fa-icon {
+  .add fa-icon {
     font-size: 24px;
   }
 

@@ -136,7 +136,7 @@ export interface Education{
 export interface Institution{
   id:number,
   name:string
-  logo:string
+  logo?:string
 }
 
 export interface Area{

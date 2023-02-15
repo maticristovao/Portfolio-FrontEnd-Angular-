@@ -12,49 +12,70 @@
         </div>
         <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
             <div class="row mt-5 px-3">
-                <label for="company"><h4>Empresa</h4></label>
-                <input type="text" class="form-control" id="company" name="company" formControlName="company" placeholder="Tu título"/>
-                <p class="error"><span *ngIf="Company?.hasError('required') && Company?.touched">Empresa requerida</span></p>
+                <!-- <label for="company"><h4 [ngStyle]="{'color':(Company?.errors && Company?.touched)?'red':'var(--primary-color)'}">Empresa</h4></label> -->
+                <!-- <input type="text" class="form-control" id="company" name="company" formControlName="company" placeholder="Tu título"/> -->
+                <mat-form-field appearance="outline">
+                    <mat-label>Company</mat-label>
+                    <input matInput  id="title" name="title" formControlName="company">
+                    <button *ngIf="Company?.value" class="close clear me-3" matSuffix aria-label="Clear" (click)="Company?.setValue('')">
+                        <fa-icon [icon]="faExit"></fa-icon>
+                    </button>
+                    <mat-error *ngIf="Company?.hasError('minlength') && Company?.touched">El nombre de la empresa debe tener al menos 2 caracteres</mat-error>
+                </mat-form-field>
+                <!-- <p class="error"><span *ngIf="Company?.hasError('required') && Company?.touched">Empresa requerida</span></p> -->
             </div>
             <div class="row mt-4 px-3">
-                <label for="employType"><h4>Tipo de empleo</h4></label>
+                <label for="employType"><h4 [ngStyle]="{'color':(EmployType?.errors && EmployType?.touched)?'red':'var(--primary-color)'}">Tipo de empleo</h4></label>
                 <input type="text" class="form-control" id="employType" name="employType" formControlName="employType" placeholder="Tu institución educativa"/>
-                <p class="error"><span *ngIf="EmployType?.hasError('required') && EmployType?.touched">Tipo de empleo requerido</span></p>
+                <!-- <p class="error"><span *ngIf="EmployType?.hasError('required') && EmployType?.touched">Tipo de empleo requerido</span></p> -->
             </div>
             <div class="row justify-content-between mt-4 px-3 gap-1">
                 <div class="col-5">
                     <div class="row">
-                        <label for="startDate"><h4>Inicio</h4></label>
-                        <input type="date" class="form-control" id="startDate" name="startDate" formControlName="startDate"/>
+                        <label for="startDate"><h4 [ngStyle]="{'color':(StartDate?.errors && StartDate?.touched)?'red':'var(--primary-color)'}">Inicio</h4></label>
+                        <mat-form-field appearance="fill">
+                            <input matInput [matDatepicker]="startPicker" class="date" id="startDate" formControlName="startDate" [max]="today" placeholder="Fecha"/>
+                            <mat-hint>MM/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+                            <mat-datepicker #startPicker
+                            startView="multi-year"
+                            (monthSelected)="setMonthAndYear($event, StartDate!, startPicker)"
+                            panelClass="datepicker"></mat-datepicker>
+                        </mat-form-field>
                     </div>
-                    <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p>
+                    <!-- <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p> -->
                 </div>
                 <div class="col-5">
                     <div class="row">
-                        <label for="endDate"><h4>Fin</h4></label>
-                        <input type="date" class="form-control" id="endDate" name="endDate" formControlName="endDate"/>
+                        <label for="endDate"><h4 [ngStyle]="{'color':(EndDate?.errors && EndDate?.touched)?'red':'var(--primary-color)'}">Fin</h4></label>
+                        <mat-form-field appearance="fill">
+                            <input matInput [matDatepicker]="endPicker" class="date" id="endDate" formControlName="endDate" placeholder="Fecha"/>
+                            <mat-hint>MM/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+                            <mat-datepicker #endPicker
+                            startView="multi-year"
+                            (monthSelected)="setMonthAndYear($event, EndDate!, endPicker)"
+                            panelClass="datepicker"></mat-datepicker>
+                        </mat-form-field>
                     </div>
-                    <div class="row justify-content-between mt-3">
+                    <div class="row ps-3 mt-3">
                         <div class="input-group px-0 current">
                             <div class="col-2">
                                 <input type="checkbox" id="current" name="current" formControlName="current"/>
                             </div>
                             <div class="col-8 px-0">
-                                <label for="current">En curso</label>
+                                <label for="current" [ngStyle]="{'color':(EndDate?.errors && EndDate?.touched)?'red':'var(--primary-color)'}">En curso</label>
                             </div>
                         </div>
                     </div>
-                    <p class="error"><span *ngIf="EndDate?.hasError('required') && EndDate?.touched">Fecha de fin requerida</span></p>
+                    <!-- <p class="error"><span *ngIf="EndDate?.hasError('required') && EndDate?.touched">Fecha de fin requerida</span></p> -->
                 </div>
             </div>
             <div class="row mt-3 px-3">
-                <label for="description"><h4>Descripción</h4></label>
-                <!-- <textarea class="form-control" id="description" name="description" formControlName="description" placeholder="Descripción de tu posición laboral"></textarea> -->
-                <mat-form-field class="example-full-width">
-                    <mat-label>Leave a description</mat-label>
+                <label for="description"><h4 [ngStyle]="{'color':(Description?.errors && Description?.touched)?'red':'var(--primary-color)'}">Descripción</h4></label>
+                <mat-form-field>
                     <textarea matInput cdkTextareaAutosize placeholder="Ex. It makes me feel..." name="description" id="description" formControlName="description"></textarea>
                 </mat-form-field>
-                <p class="error"><span *ngIf="Description?.hasError('required') && Description?.touched">Descripción requerida</span></p>
             </div>
             <div class="row justify-content-center mb-4 pt-4">
                 <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>

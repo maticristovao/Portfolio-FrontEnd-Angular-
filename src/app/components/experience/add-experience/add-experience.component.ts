@@ -1,36 +1,45 @@
 import { DatePipe } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Experience } from '../experience.component';
+import moment from 'moment';
+import { AddItemComponent, MY_FORMATS } from '../../add-item/add-item.component';
+import { Company, Experience } from '../experience.component';
 
 @Component({
   selector: 'app-add-experience',
   templateUrl: './add-experience.component.html',
-  styleUrls: ['./add-experience.component.css']
+  styleUrls: ['./add-experience.component.css'],
+  providers:[
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    {
+      provide: MAT_DATE_FORMATS, useValue: MY_FORMATS
+    }],
 })
-export class AddExperienceComponent {
-  faExit = faTimes;
-  currentDate: string | null;
-  form:FormGroup = this.formBuilder.group({
-    id:undefined,
-    company:['', [Validators.required, Validators.minLength(2)]],
-    employType:['', [Validators.required]],
-    startDate:['', [Validators.required]],
-    endDate:[{value:'', disabled:false}, []],
-    current:[false||undefined, []],
-    description:['', []]
-  },
-  {validator:this.finishedOrCurrent('endDate', 'current')});
-  
-  @ViewChild('content') myModal!:ElementRef;
-  @Output() onAddItem:EventEmitter<any> = new EventEmitter();
-  @Output() onUpdateItem:EventEmitter<any> = new EventEmitter();
 
-  constructor(private formBuilder:FormBuilder, private datepipe:DatePipe, private modalService:NgbModal){
-    let date:Date = new Date();
-    this.currentDate = this.datepipe.transform(date, 'YYYY-MM-ddTHH:MM');
+export class AddExperienceComponent extends AddItemComponent{
+  @Input() companies:Company[] = [];
+
+  constructor(override formBuilder:FormBuilder, override modalService:NgbModal, override datepipe:DatePipe){
+    super(formBuilder, modalService, datepipe);
+    this.form = this.formBuilder.group({
+      id:undefined,
+      company:['', [Validators.required, Validators.minLength(2)]],
+      employType:['', [Validators.required]],
+      startDate:['', [Validators.required]],
+      endDate:[{value:'', disabled:false}, []],
+      current:[false||undefined, []],
+      description:['', []]
+    },
+    {validator:this.finishedOrCurrent('endDate', 'current')});
+
+    this.initialValue = this.form.value;
   }
 
   finishedOrCurrent(affectedControl: string, toggleRequire: string) {
@@ -46,14 +55,6 @@ export class AddExperienceComponent {
         control.setErrors(null);
       }
     }
-  }
-
-  open(content?:any){
-    this.modalService.open(content, {centered:true, backdropClass: 'custom-backdrop'});
-  }
-
-  close(){
-    this.modalService.dismissAll();
   }
 
   get Company(){
@@ -80,40 +81,19 @@ export class AddExperienceComponent {
       id: item.id,
       company: item.company,
       employType: item.employType,
-      startDate: item.startDate,
-      endDate: item.endDate,
+      startDate: moment(item.startDate),
+      endDate: moment(item.endDate),
       current: item.current,
       description: item.description
     })
   }
 
-  reset(){
-    this.form.reset();
-  }
-
-  onSubmit(){
-    if(this.form.valid && (this.form.value.startDate < this.currentDate!  ||  !this.form.value.startDate)){
-      const newItem = this.form.value;
-      if(!newItem.id){
-        this.onAddItem.emit(newItem);
-      }else{
-        this.onUpdateItem.emit(newItem);
-      }
-      this.close();
-      this.reset();
-    }else{
-      this.form.markAllAsTouched();
-    }
-  }
-
   ngOnInit(): void {
-    this.form.get('current')!.valueChanges.subscribe(value => {
+    this.Current!.valueChanges.subscribe(value => {
        if (value) {
-          // disable the input when new value is true
-          this.form.get('endDate')!.disable();
+          this.EndDate!.disable();
        } else {
-          // (re-)enable the input when new value is false
-          this.form.get('endDate')!.enable();
+          this.EndDate!.enable();
        }
     }) 
   }

@@ -112,11 +112,11 @@ section.education {
     transition: opacity 0.2s ease-in-out;
   }
   
-  h1 {
-    font-size: 50px;
+  .info h1 {
+    font-size: 45px;
     color: var(--plain-color);
     font-weight: 900;
-    font-family: "Averia Serif Libre" !important;
+    font-family: "Averia Serif Libre";
   }
   h1::first-letter{
     text-transform: uppercase;

@@ -1,28 +1,14 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Area, Education, Institution } from '../education.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { MatDatepicker } from '@angular/material/datepicker';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import _moment from 'moment';
-import {default as _rollupMoment, Moment} from 'moment';
-
-const moment = _rollupMoment || _moment;
-
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'MM/YYYY',
-  },
-  display: {
-    dateInput: 'MM/YYYY',
-    monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-};
+import {default as _rollupMoment} from 'moment';
+import { AddItemComponent, MY_FORMATS } from '../../add-item/add-item.component';
+import moment from 'moment';
 
 @Component({
   selector: 'app-add-education',
@@ -37,23 +23,15 @@ export const MY_FORMATS = {
     {
       provide: MAT_DATE_FORMATS, useValue: MY_FORMATS
     }],
-    encapsulation: ViewEncapsulation.None,
+    encapsulation: ViewEncapsulation.None
 })
 
-export class AddEducationComponent {
-  faExit = faTimes;
-  today: Date;
-  add:boolean = true;
-  form:FormGroup;
-  initialValue:any;
-  
-  @ViewChild('content') myModal!:ElementRef;
-  @Input()institutions:Institution[]=[];
-  @Input()areas:Area[]=[];
-  @Output() onAddItem:EventEmitter<any> = new EventEmitter();
-  @Output() onUpdateItem:EventEmitter<any> = new EventEmitter();
+export class AddEducationComponent extends AddItemComponent {
+  @Input()institutions:Institution[] = [];
+  @Input()areas:Area[] = [];
 
-  constructor(private formBuilder:FormBuilder, private datepipe:DatePipe, private modalService:NgbModal){
+  constructor(override formBuilder:FormBuilder,  override modalService:NgbModal, override datepipe:DatePipe){
+    super(formBuilder, modalService, datepipe);
     this.form = this.formBuilder.group({
       id:undefined,
       title:['', [Validators.required, Validators.minLength(6)]],
@@ -63,19 +41,6 @@ export class AddEducationComponent {
       endDate:['', [Validators.required]]
     });
     this.initialValue = this.form.value;
-    this.today = new Date();
-  }
-
-  formatDate(date:string | number | Date): string{
-    return this.datepipe.transform(date, 'YYYY-MM')!;
-  }
-
-  open(content:any){
-    this.modalService.open(content, {centered:true, backdropClass: 'custom-backdrop'});
-  }
-
-  close(){
-    this.modalService.dismissAll();
   }
 
   get Title(){
@@ -104,35 +69,5 @@ export class AddEducationComponent {
       endDate: moment(card.endDate) 
     })
     this.add = false;
-  }
-
-  reset(){
-    console.log(this.initialValue);
-    this.form.reset(this.initialValue);
-    this.add = true;
-  }
-
-  onSubmit(){
-    if(this.form.valid){
-      const newItem = this.form.value;
-      if(!newItem.id){
-        this.onAddItem.emit(newItem);
-      }else{
-        this.onUpdateItem.emit(newItem);
-      }
-      this.close();
-      this.reset();
-    }else{
-      this.form.markAllAsTouched();
-    }
-  }
-  setMonthAndYear(normalizedMonthAndYear: Moment, control:AbstractControl, datepicker: MatDatepicker<Moment>) {
-    control.setValue(moment());
-    const ctrlValue = control.value;
-    ctrlValue.month(normalizedMonthAndYear.month());
-    ctrlValue.year(normalizedMonthAndYear.year());
-    let formatValue = this.formatDate(ctrlValue);
-    control.setValue(formatValue);
-    datepicker.close();
   }
 }

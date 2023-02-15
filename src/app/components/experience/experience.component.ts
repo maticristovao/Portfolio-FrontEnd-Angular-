@@ -74,3 +74,9 @@ export interface Experience{
   current?:boolean
   description:string
 }
+
+export interface Company{
+  id:number,
+  name:string,
+  logo?:string
+}

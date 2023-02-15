@@ -1,12 +1,12 @@
-<div class="edit" [class.horizontal]="horizontal">
-  <button class="icon-wrapper" (click)="editMode()" onclick="blur()" [class.editing]="editing">
+<div class="edit" [ngClass]="{'horizontal':horizontal, 'editing':editing}">
+  <button class="icon-wrapper" (click)="editMode()" onclick="blur()">
     <fa-icon [icon]="faPencil" class="edit-toggle"></fa-icon>
     <fa-icon [icon]="faCheck" class="check"></fa-icon>
   </button>
-  <button class="icon-wrapper add" [class.editing]="editing" (click)="addItem()" onclick="blur()" *ngIf="showAdding" data-toggle="modal" data-target="#editForm" tabindex="{{editing?0:-1}}">
+  <button class="icon-wrapper add" (click)="addItem()" onclick="blur()" *ngIf="showAdding" data-toggle="modal" data-target="#editForm" tabindex="{{editing?0:-1}}">
     <fa-icon [icon]="faPlus"></fa-icon>
   </button>
-  <button class="icon-wrapper discard" [class.editing]="editing" (click)="deleteSection()" onclick="blur()" [ngStyle]="{'--translation':defineTranslation()}" tabindex="{{editing?0:-1}}">
-    <fa-icon [icon]="faClose"></fa-icon>
+  <button class="icon-wrapper discard" (click)="deleteSection()" onclick="blur()" [ngStyle]="{'--translation':defineTranslation()}" tabindex="{{editing?0:-1}}">
+    <fa-icon [icon]="faDiscard"></fa-icon>
   </button>
 </div>

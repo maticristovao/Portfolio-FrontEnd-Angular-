@@ -38,6 +38,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { AddItemComponent } from './components/add-item/add-item.component';
 
 
 
@@ -63,7 +65,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ProjectItemComponent,
     AddEducationComponent,
     EditItemComponent,
-    AddExperienceComponent
+    AddExperienceComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatNativeDateModule,
     MatSelectModule,
     DragDropModule,
-    MatIconModule
+    MatIconModule,
+    NgxMatSelectSearchModule
   ],
   providers: [DatePipe, {provide:LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]

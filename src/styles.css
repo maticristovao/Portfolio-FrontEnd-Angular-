@@ -52,14 +52,7 @@ header{
 }
 
 .inverse{
-    background-color: #212529 !important;
-}
-
-.text-left{
-    text-align: left;
-}
-.text-right{
-    text-align: right;
+    background-color: var(--secondary-color) !important;
 }
 
 .btn{
@@ -67,3 +60,4 @@ header{
                 background-color ease-in-out 0.3s,
                 border-color ease-in-out 0.3s;
 }
+

@@ -1,6 +1,6 @@
 import { getLocaleWeekEndRange } from '@angular/common';
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
-import { faCheck, faDeleteLeft, faPencil, faPlus, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faDeleteLeft, faPencil, faPlus, faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-edition',
@@ -21,7 +21,7 @@ export class EditionComponent {
 
   faPencil = faPencil;
   faCheck = faCheck;
-  faClose = faXmark;
+  faDiscard = faTrashCan;
   faPlus = faPlus;
   
   @HostListener('window:resize')

@@ -34,6 +34,7 @@
     "jquery": "^3.6.3",
     "jquery-datepicker": "^1.12.3",
     "moment": "^2.29.4",
+    "ngx-mat-select-search": "^7.0.0",
     "rxjs": "~7.5.0",
     "select2": "^4.1.0-rc.0",
     "tslib": "^2.3.0",

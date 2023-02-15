@@ -11,22 +11,20 @@
                 </div>
             </div>
             <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
-                <div class="row mt-5 px-0 px-md-3">
-                    <label for="title" autocapitalize="letters"><h4>Título</h4></label>
+                <div class="row mt-4 px-0 px-md-3">
+                    <label for="title"><h4 [ngStyle]="{'color':(Title?.errors && Title?.touched)?'red':'var(--primary-color)'}">Título</h4></label>
                     <mat-form-field appearance="fill">
-                        <mat-label>Introduzca su título</mat-label>
-                        <input matInput placeholder="Ej. Medicina" id="title" name="title" formControlName="title">
-                        <button *ngIf="Title?.value" class="close clear me-1" matSuffix aria-label="Clear" (click)="Title?.setValue('')">
+                        <input matInput placeholder="Ex. Medicina" id="title" name="title" formControlName="title">
+                        <button *ngIf="Title?.value" class="close clear me-3" matSuffix aria-label="Clear" (click)="Title?.setValue('')">
                             <fa-icon [icon]="faExit"></fa-icon>
                         </button>
                         <mat-error *ngIf="Title?.hasError('minlength') && Title?.touched">El título debe tener al menos 6 caracteres</mat-error>
                     </mat-form-field>
                 </div>
                 <div class="row mt-4 px-0 px-md-3">
-                    <h4>Institución</h4>
+                    <h4 [ngStyle]="{'color':(InstitutionId?.errors && InstitutionId?.touched)?'red':'var(--primary-color)'}">Institución</h4>
                     <mat-form-field appearance="fill">
-                        <mat-label>Seleccione una institución...</mat-label>
-                        <mat-select formControlName="institutionId" id="institutionId">
+                        <mat-select formControlName="institutionId" id="institutionId" placeholder="Seleccione una institución...">
                             <mat-option>--</mat-option>
                             <mat-option *ngFor="let item of institutions" [value]="item.id">
                               {{item.name}}
@@ -35,10 +33,9 @@
                       </mat-form-field>
                 </div>
                 <div class="row mt-4 px-0 px-md-3">
-                    <h4>Área</h4>
+                    <h4 [ngStyle]="{'color':(AreaId?.errors && AreaId?.touched)?'red':'var(--primary-color)'}">Área</h4>
                     <mat-form-field appearance="fill">
-                        <mat-label>Seleccione un campo de estudio...</mat-label>
-                        <mat-select formControlName="areaId" id="areaId">
+                        <mat-select formControlName="areaId" id="areaId" placeholder="Seleccione un campo de estudio...">
                             <mat-option>--</mat-option>
                             <mat-option *ngFor="let item of areas" [value]="item.id">
                               {{item.name}}
@@ -49,10 +46,9 @@
                 <div class="row justify-content-between mt-4 px-0 px-md-3 gap-1">
                     <div class="col-12 col-md-5">
                         <div class="row">
-                            <label for="startDate"><h4>Inicio</h4></label>
+                            <label for="startDate"><h4 [ngStyle]="{'color':(StartDate?.errors && StartDate?.touched)?'red':'var(--primary-color)'}">Inicio</h4></label>
                             <mat-form-field appearance="fill">
-                                <mat-label>Seleccione una fecha</mat-label>
-                                <input matInput [matDatepicker]="startPicker" class="date" id="startDate" formControlName="startDate" [max]="today" placeholder="Fecha de inicio"/>
+                                <input matInput [matDatepicker]="startPicker" class="date" id="startDate" formControlName="startDate" [max]="today" placeholder="Fecha"/>
                                 <mat-hint>MM/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
                                 <mat-datepicker #startPicker
@@ -64,10 +60,9 @@
                     </div>
                     <div class="col-12 col-md-5">
                         <div class="row">
-                            <label for="endDate"><h4>Fin (o esperado)</h4></label>
+                            <label for="endDate"><h4 [ngStyle]="{'color':(EndDate?.errors && EndDate?.touched)?'red':'var(--primary-color)'}">Fin (o esperado)</h4></label>
                             <mat-form-field appearance="fill">
-                                <mat-label>Seleccione una fecha</mat-label>
-                                <input matInput [matDatepicker]="endPicker" class="date" id="endDate" formControlName="endDate" placeholder="Fecha de fin"/>
+                                <input matInput [matDatepicker]="endPicker" class="date" id="endDate" formControlName="endDate" placeholder="Fecha"/>
                                 <mat-hint>MM/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
                                 <mat-datepicker #endPicker
@@ -78,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center mb-5 pt-5">
+                <div class="row justify-content-center mb-4 pt-5">
                     <input class="btn btn-lg btn-block col-7 cl-sm-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
                 </div>
             </form>

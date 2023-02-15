@@ -140,22 +140,21 @@ header{
     color: var(--oposite-color);
     text-transform: uppercase;
     letter-spacing: 0px;
-    --fa-animation-duration: 4s; 
     font-weight: 600;
     backdrop-filter: contrast(30%);
     padding:15px 25px 15px 0;
     border-radius: 5px;
-    margin-right: 0 ;
-    transform: rotate('90deg');
+    transform: translateY(20px);
     opacity:0;
     max-width: 0;
-    transition: border-radius ease-in-out .3s .01s, opacity .5s ease-in-out, transform .8s ease-in-out, max-width .9s ease-in-out;
+    transition: border-radius ease-in-out .3s, opacity .5s ease-in-out, transform .8s ease-in-out, max-width .9s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 5px;
     -webkit-text-stroke-color: var(--oposite-color);
+    position: relative;
 }
 
 .logo.fade-in{
@@ -217,10 +216,6 @@ header{
                 top ease-in-out .3s;
 }
 
-.logo:hover{
-    border-radius: 37.5px;
-}
-
 .logo:hover::after{
     width:98%;
     left:1%;
@@ -238,9 +233,6 @@ header{
     .logo::before{
         width:115%;
         left: -7.5%;
-    }
-    .logo:hover{
-        border-radius: 25px;
     }
 }
 
@@ -288,7 +280,7 @@ header{
     }
 }
 
-  .carousel-item {
+.carousel-item {
     display: block;
     opacity: 0;
     transition: opacity 1.2s ease-in-out, visibility 1s;

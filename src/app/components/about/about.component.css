@@ -21,6 +21,7 @@
 	padding: 5em;
 	transition: transform 3.5s ease-in-out;
 	transform-style: preserve-3d;
+	height: 100%;
 }
 
 .card:is(:hover,.editing) .card_content {
@@ -81,24 +82,19 @@
 		width:0%;
 	}
 }
-.card_front::after {
+.card_front::after, .card_front::before {
 	position: absolute;
 	content: "";
 	top: 50%;
-	left: 3em; 
 	border-top: 4px solid var(--primary-color);
 	transform:translateZ(2rem);
 	animation: borderAnimateLarge 5s infinite;
 }
-
-.card_front::before {
-	position: absolute;
-	content: "";
-	top: 50%;
+.card_front::after{
+	left: 3em;
+}
+.card_front::before{
 	right: 3em;
-	border-top: 4px solid var(--primary-color);
-	transform:translateZ(2rem);
-	animation: borderAnimateLarge 5s infinite;
 }
 
 .card:hover .card_front::after, .card:hover .card_front::before{

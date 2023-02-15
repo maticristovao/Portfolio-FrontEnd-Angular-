@@ -184,7 +184,7 @@
       "employType": "Full Time",
       "startDate": "2023-02-01",
       "endDate": "2023-02-23",
-      "current": null,
+      "current": false,
       "description": null
     }
   ],
