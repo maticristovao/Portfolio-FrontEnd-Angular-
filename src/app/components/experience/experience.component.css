@@ -41,7 +41,7 @@ h1{
     width: 100%;
     position: relative;
     overflow-x: hidden;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transition: opacity .9s ease-in-out, transform .9s ease-in-out;
 }
 
 .item:nth-child(odd){

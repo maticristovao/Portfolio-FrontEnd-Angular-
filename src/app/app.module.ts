@@ -37,6 +37,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AddItemComponent } from './components/add-item/add-item.component';
@@ -88,7 +89,8 @@ import { AddPersonalInfoComponent } from './components/personal-info/add-persona
     DragDropModule,
     MatIconModule,
     NgxMatSelectSearchModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSlideToggleModule
   ],
   providers: [DatePipe, {provide:LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]

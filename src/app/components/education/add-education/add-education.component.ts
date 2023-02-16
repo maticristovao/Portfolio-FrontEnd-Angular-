@@ -64,6 +64,9 @@ export class AddEducationComponent extends AddItemComponent implements OnInit{
       areaId:['', [Validators.required]],
       startDate:['', [Validators.required]],
       endDate:['', [Validators.required]]
+    },
+    {
+      validators:[this.endAfter('startDate', 'endDate')]
     });
     this.initialValue = this.form.value;
   }

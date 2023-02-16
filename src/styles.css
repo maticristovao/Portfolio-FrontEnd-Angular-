@@ -1,12 +1,11 @@
 /* Needed for datepicker*/
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 
-
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root{
+:root{ 
     /* Wheat va a ser el primary color en el light mode */
     --primary-color:#23b3e4;
     --rgb-color: 35, 179, 228;
@@ -19,7 +18,7 @@
     --modal-color:#878a8c;
     --datepicker-effect: 45, 165, 230;
     --bright-filter:100%;
-}
+} 
 
 *, *::before, *::after{
     box-sizing: border-box;
@@ -38,9 +37,12 @@ html{
 
 body{
         min-height: 100vh;
-        background-color:#1a1c1f;
+        background-color:var(--background-color, #1a1c1f);
         position: relative;
         overflow-anchor: none;
+}
+body:has(.light-theme){
+    background-color: var(--background-color,#e5e3e0);
 }
 nav{
     z-index:3;
@@ -51,7 +53,7 @@ header{
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.74);
 }
 
-.inverse{
+section.inverse{
     background-color: var(--secondary-color) !important;
 }
 
@@ -61,3 +63,30 @@ header{
                 border-color ease-in-out 0.3s;
 }
 
+.light-theme{
+    --primary-color:wheat;
+    --rgb-color: 245, 222, 179;
+    --background-color:#e5e3e0;
+    --secondary-color:#dedad6;
+    --tertiary-color:#5F4842;
+    --plain-color:white;
+    --cards-background:rgb(5,5,5);
+    --oposite-color:black;
+    --modal-color:#878a8c;
+    --datepicker-effect: 45, 165, 230;
+    --bright-filter:110%;
+}
+
+.dark-theme{
+    --primary-color:#23b3e4;
+    --rgb-color: 35, 179, 228;
+    --background-color:#1a1c1f;
+    --secondary-color:#212529;
+    --tertiary-color:#0d6efd;
+    --plain-color:black;
+    --cards-background:rgb(5,5,5);
+    --oposite-color:white;
+    --modal-color:#878a8c;
+    --datepicker-effect: 45, 165, 230;
+    --bright-filter:100%;
+}

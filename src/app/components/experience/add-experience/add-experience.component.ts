@@ -84,7 +84,7 @@ export class AddExperienceComponent extends AddItemComponent{
         employTypeId:['', [Validators.required]],
         startDate:['', [Validators.required]],
         endDate:[{value:'', disabled:false}, []],
-        current:[false, []],
+        current:[false, [Validators.requiredTrue]],
         description:['', []]
       },
       {

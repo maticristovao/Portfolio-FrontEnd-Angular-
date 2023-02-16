@@ -1,4 +1,4 @@
-<article class="personal-info container-fluid inverse">
+<section class="personal-info container-fluid inverse">
     <div class="row">
         <div class="photo col-3 col-lg-2 d-none d-md-block">
             <img src="{{personalInfo.photo? personalInfo.photo:'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'}}" alt="Personal picture">
@@ -16,7 +16,7 @@
             </div>
             <div class="row other-info">
                 <div class="info col-12 col-sm-9 col-lg-10 col-xxl-8 align-self-end">
-                    <p><fa-icon class="me-2" [icon]="faLocationDot"></fa-icon> {{personalInfo.location.province}} ({{personalInfo.location.country}}) <span><a type="button" data-toggle="modal" data-target="#contactModal">Contact info</a></span></p>
+                    <p><fa-icon class="me-2" [icon]="faLocationDot"></fa-icon> {{personalInfo.province}} ({{personalInfo.country}}) <span><a type="button" data-toggle="modal" data-target="#contactModal">Contact info</a></span></p>
                     <app-contact-modal name="{{personalInfo.name}} {{personalInfo.surname}}" phoneNum="{{phone.number}}" phoneType="{{phone.type}}" mail="{{personalInfo.mail}}"></app-contact-modal>
                 </div>
                 <div class="place col-sm-3 col-lg-2 col-xxl-4 d-none d-sm-inline-block">
@@ -32,4 +32,4 @@
             <app-edition [horizontal]="windowWidth>=576" class="edition mb-sm-2 me-3 me-sm-1 mt-3 mt-sm-0"></app-edition>
         </div>
     </div>
-</article>
+</section>

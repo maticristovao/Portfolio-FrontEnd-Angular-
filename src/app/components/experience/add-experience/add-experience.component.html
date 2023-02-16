@@ -12,8 +12,6 @@
         </div>
         <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
             <div class="row mt-5 px-3">
-                <!-- <label for="company"><h4 [ngStyle]="{'color':(Company?.errors && Company?.touched)?'red':'var(--primary-color)'}">Empresa</h4></label> -->
-                <!-- <input type="text" class="form-control" id="company" name="company" formControlName="company" placeholder="Tu título"/> -->
                 <mat-form-field appearance="outline">
                     <mat-label>Empresa</mat-label>
                     <input matInput  id="company" name="company" formControlName="company" [errorStateMatcher]="matcher">
@@ -23,7 +21,6 @@
                     <mat-error *ngIf="Company?.hasError('minlength') && Company?.touched">El nombre de la empresa debe tener al menos 2 caracteres</mat-error>
                     <mat-error *ngIf="Company?.hasError('maxlength')">El nombre de la empresa debe tener menos de 20 caracteres</mat-error>
                 </mat-form-field>
-                <!-- <p class="error"><span *ngIf="Company?.hasError('required') && Company?.touched">Empresa requerida</span></p> -->
             </div>
             <div class="row mt-4 px-3">
                 <mat-form-field appearance="outline">
@@ -37,7 +34,6 @@
                 </mat-form-field>
             </div>
             <div class="row mt-4 px-3">
-                <!-- <label for="employTypeId"><h4 [ngStyle]="{'color':(EmployTypeId?.errors && EmployTypeId?.touched)?'red':'var(--primary-color)'}">Tipo de empleo</h4></label> -->
                 <mat-form-field appearance="outline">
                     <mat-label>Tipo de empleo</mat-label>
                     <mat-select formControlName="employTypeId" name="employTypeId" id="employTypeId" placeholder="Seleccione un tipo de empleo...">
@@ -47,45 +43,38 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <!-- <p class="error"><span *ngIf="EmployType?.hasError('required') && EmployType?.touched">Tipo de empleo requerido</span></p> -->
             </div>
             <div class="row justify-content-center mt-4 px-3">
-                <div class="col-6 text-center">
-                    
-                        <!-- <label for="startDate"><h4 [ngStyle]="{'color':(StartDate?.errors && StartDate?.touched)?'red':'var(--primary-color)'}">Inicio</h4></label> -->
-                        <mat-form-field appearance="outline" class="px-0 w-100">
-                            <mat-label>Fecha de inicio</mat-label>
-                            <input matInput [matDatepicker]="startPicker" id="startDate" formControlName="startDate" [max]="today"/>
-                            <mat-hint>MM/YYYY</mat-hint>
-                            <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
-                            <mat-datepicker #startPicker
-                            startView="multi-year"
-                            (monthSelected)="setMonthAndYear($event, StartDate!, startPicker)"
-                            panelClass="datepicker"></mat-datepicker>
-                        </mat-form-field>
-                    
-                    <!-- <p class="error"><span *ngIf="StartDate?.hasError('required') && StartDate?.touched">Fecha de inicio requerida</span></p> -->
+                <div class="col-12 col-md-6 text-center">
+                    <mat-form-field appearance="outline" class="px-0 w-100">
+                        <mat-label>Fecha de inicio</mat-label>
+                        <input matInput [matDatepicker]="startPicker" id="startDate" name="startDate" formControlName="startDate" [max]="today"/>
+                        <mat-hint>MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #startPicker
+                        startView="multi-year"
+                        (monthSelected)="setMonthAndYear($event, StartDate!, startPicker)"
+                        panelClass="datepicker"></mat-datepicker>
+                    </mat-form-field>
+                    <div class="text-start">
+                        <mat-checkbox formControlName="current" color="accent">En curso</mat-checkbox>
+                    </div>
                 </div>
-                <div class="col-6 text-center">
-                            <mat-form-field appearance="outline" class="px-0 w-100">
-                                <mat-label>Fecha de fin</mat-label>
-                                <input matInput [matDatepicker]="endPicker" id="endDate" formControlName="endDate"/>
-                                <mat-hint>MM/YYYY</mat-hint>
-                                <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
-                                <mat-datepicker #endPicker
-                                startView="multi-year"
-                                (monthSelected)="setMonthAndYear($event, EndDate!, endPicker)"
-                                panelClass="datepicker"></mat-datepicker>
-                            </mat-form-field>
-                        <!-- <label for="endDate"><h4 [ngStyle]="{'color':(EndDate?.errors && EndDate?.touched && EndDate?.enabled)?'red':'var(--primary-color)'}">Fin</h4></label> -->
-                        <div class="text-start">
-                            <mat-checkbox formControlName="current" color="accent">En curso</mat-checkbox>
-                        </div>
-                    <!-- <p class="error"><span *ngIf="EndDate?.hasError('required') && EndDate?.touched">Fecha de fin requerida</span></p> -->
+                <div class="col-12 col-md-6 text-center">
+                    <mat-form-field appearance="outline" class="px-0 w-100">
+                        <mat-label>Fecha de fin</mat-label>
+                        <input matInput [matDatepicker]="endPicker" id="endDate" name="endDate" formControlName="endDate"/>
+                        <mat-hint>MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #endPicker
+                        startView="multi-year"
+                        (monthSelected)="setMonthAndYear($event, EndDate!, endPicker)"
+                        panelClass="datepicker"></mat-datepicker>
+                        <mat-error *ngIf="EndDate?.hasError('endafter')">La fecha de fin no puede ser menor a la de inicio</mat-error>
+                    </mat-form-field>
                 </div>
             </div>
             <div class="row mt-3 px-3">
-                <!-- <label for="description"><h4 [ngStyle]="{'color':(Description?.errors && Description?.touched)?'red':'var(--primary-color)'}">Descripción</h4></label> -->
                 <mat-form-field appearance="outline">
                     <mat-label>Descripción</mat-label>
                     <textarea matInput cdkTextareaAutosize name="description" id="description" formControlName="description" maxlength="300"></textarea>

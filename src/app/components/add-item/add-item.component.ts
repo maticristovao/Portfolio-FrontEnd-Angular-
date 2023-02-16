@@ -85,7 +85,7 @@ export class AddItemComponent {
         if((start.errors && !start.errors['endafter']) || (end.errors  && !end.errors['endafter'])){
           return;
         }
-        if(start.value >= end.value ){
+        if(start.value > end.value ){
           end.setErrors({ endafter: true });
         }else{
           end.setErrors(null);

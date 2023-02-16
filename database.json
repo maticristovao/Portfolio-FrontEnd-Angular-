@@ -9,10 +9,8 @@
       "Full Stack Developer Jr",
       "Economics Student"
     ],
-    "location": {
-      "country": "Argentina",
-      "province": "Buenos Aires"
-    }
+    "country": "Argentina",
+    "province": "Buenos Aires"
   },
   "phone": {
     "number": 1139458436,
@@ -172,7 +170,7 @@
     {
       "id": 1,
       "company": "PwC",
-      "position":"Contact center specialist",
+      "position": "Contact center specialist",
       "employTypeId": 2,
       "startDate": "2022-02-01T03:00:00.000Z",
       "endDate": "2023-02-15T18:59:35.460Z",
@@ -182,7 +180,7 @@
     {
       "id": 2,
       "company": "JP Morgan",
-      "position":"CEO",
+      "position": "CEO",
       "employTypeId": 1,
       "startDate": "2023-02-01",
       "endDate": "2023-02-23",
