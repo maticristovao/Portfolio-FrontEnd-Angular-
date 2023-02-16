@@ -1,8 +1,6 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { DatePipe } from '@angular/common';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { Area, Education, Institution } from '../education.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import _moment from 'moment';
@@ -26,22 +24,9 @@ import moment from 'moment';
     encapsulation: ViewEncapsulation.None
 })
 
-export class AddEducationComponent extends AddItemComponent {
+export class AddEducationComponent extends AddItemComponent implements OnInit{
   @Input()institutions:Institution[] = [];
   @Input()areas:Area[] = [];
-
-  constructor(override formBuilder:FormBuilder,  override modalService:NgbModal, override datepipe:DatePipe){
-    super(formBuilder, modalService, datepipe);
-    this.form = this.formBuilder.group({
-      id:undefined,
-      title:['', [Validators.required, Validators.minLength(6)]],
-      institutionId:['', [Validators.required]],
-      areaId:['', [Validators.required]],
-      startDate:['', [Validators.required]],
-      endDate:['', [Validators.required]]
-    });
-    this.initialValue = this.form.value;
-  }
 
   get Title(){
     return this.form.get('title');
@@ -69,5 +54,17 @@ export class AddEducationComponent extends AddItemComponent {
       endDate: moment(card.endDate) 
     })
     this.add = false;
+  }
+
+  ngOnInit():void{
+    this.form = this.formBuilder.group({
+      id:undefined,
+      title:['', [Validators.required, Validators.minLength(6)]],
+      institutionId:['', [Validators.required]],
+      areaId:['', [Validators.required]],
+      startDate:['', [Validators.required]],
+      endDate:['', [Validators.required]]
+    });
+    this.initialValue = this.form.value;
   }
 }

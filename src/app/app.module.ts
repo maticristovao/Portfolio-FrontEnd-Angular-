@@ -41,6 +41,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { AddPersonalInfoComponent } from './components/personal-info/add-personal-info/add-personal-info.component';
 
 
 
@@ -67,7 +68,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AddEducationComponent,
     EditItemComponent,
     AddExperienceComponent,
-    AddItemComponent
+    AddItemComponent,
+    AddPersonalInfoComponent
   ],
   imports: [
     BrowserModule,

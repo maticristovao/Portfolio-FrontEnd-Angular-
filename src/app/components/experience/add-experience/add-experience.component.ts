@@ -1,9 +1,7 @@
-import { DatePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import moment from 'moment';
 import { AddItemComponent, MY_FORMATS } from '../../add-item/add-item.component';
 import { Company, EmployType, Experience } from '../experience.component';
@@ -26,27 +24,6 @@ import { Company, EmployType, Experience } from '../experience.component';
 export class AddExperienceComponent extends AddItemComponent{
   @Input() companies:Company[] = [];
   @Input() types:EmployType[] = [];
-
-  constructor(override formBuilder:FormBuilder, override modalService:NgbModal, override datepipe:DatePipe){
-    super(formBuilder, modalService, datepipe);
-    this.form = this.formBuilder.group(
-      {
-        id:undefined,
-        company:['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-        position:['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
-        employTypeId:['', [Validators.required]],
-        startDate:['', [Validators.required]],
-        endDate:[{value:'', disabled:false}, []],
-        current:[false, []],
-        description:['', []]
-      },
-      {
-        validators:[this.finishedOrCurrent('endDate', 'current'), this.endAfter('startDate', 'endDate')]
-      }
-    );
-
-    this.initialValue = this.form.value;
-  }
 
   finishedOrCurrent(affectedControl: string, toggleRequire: string) {
     return (formGroup: FormGroup) => {
@@ -99,6 +76,23 @@ export class AddExperienceComponent extends AddItemComponent{
   }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group(
+      {
+        id:undefined,
+        company:['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+        position:['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
+        employTypeId:['', [Validators.required]],
+        startDate:['', [Validators.required]],
+        endDate:[{value:'', disabled:false}, []],
+        current:[false, []],
+        description:['', []]
+      },
+      {
+        validators:[this.finishedOrCurrent('endDate', 'current'), this.endAfter('startDate', 'endDate')]
+      }
+    );
+
+    this.initialValue = this.form.value;
     this.Current!.valueChanges.subscribe(value => {
       if (value) {
         this.EndDate!.disable();
