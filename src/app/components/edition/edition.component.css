@@ -15,8 +15,8 @@
   display: grid;
   place-items: center;
   border: 3px solid white;
-  transition: background-color ease-in-out 0.4s,
-    border ease-in-out 0.4s;
+  transition: background-color ease-in-out 0.3s,
+    border ease-in-out 0.3s;
   z-index: 4;
   overflow: hidden;
   position: relative;
@@ -37,7 +37,7 @@
 
 .edit :is(.discard, .add){
   opacity: 0;
-  transition: transform 0.3s ease-in, opacity 0.3s ease-in 0.1s, background-color .4s ease-in-out, border-color .4s ease-in-out;
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in 0.1s, background-color .3s ease-in-out, border-color .3s ease-in-out;
 }
 
 :not(.horizontal) .discard{

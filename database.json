@@ -172,20 +172,44 @@
     {
       "id": 1,
       "company": "PwC",
-      "employType": "Part time",
-      "startDate": "2022-02",
-      "endDate": "2022-11",
+      "position":"Contact center specialist",
+      "employTypeId": 2,
+      "startDate": "2022-02-01T03:00:00.000Z",
+      "endDate": "2023-02-15T18:59:35.460Z",
       "current": false,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
     },
     {
       "id": 2,
       "company": "JP Morgan",
-      "employType": "Full Time",
+      "position":"CEO",
+      "employTypeId": 1,
       "startDate": "2023-02-01",
       "endDate": "2023-02-23",
       "current": false,
       "description": null
+    }
+  ],
+  "employTypes": [
+    {
+      "id": 1,
+      "name": "Full time"
+    },
+    {
+      "id": 2,
+      "name": "Part time"
+    },
+    {
+      "id": 3,
+      "name": "Emprendimiento"
+    },
+    {
+      "id": 4,
+      "name": "Freelance"
+    },
+    {
+      "id": 5,
+      "name": "Pasantía"
     }
   ],
   "projects": [

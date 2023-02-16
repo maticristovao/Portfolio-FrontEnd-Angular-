@@ -13,6 +13,7 @@ export class ExperienceComponent implements OnInit{
   windowWidth:number = window.innerWidth;
   editMode:boolean = false;
   field:string = 'experience';
+  employTypes:EmployType[] = [];
 
   @ViewChild(AddExperienceComponent) editModal!:AddExperienceComponent;
   
@@ -24,15 +25,14 @@ export class ExperienceComponent implements OnInit{
   constructor(private personalData:PersonalInfoService){}
 
   addItem(item:Experience){
-    console.log('done');
-    this.personalData.addItem(item, this.field).subscribe((card)=>{
-      this.personalExperience.push(card);
+    this.personalData.addItem(item, this.field).subscribe(()=>{
+      this.getExperience();
     });
   }
 
   save(item:Experience){
-    this.personalData.updateItem(item, this.field).subscribe((i)=>{
-      this.personalExperience[this.getCardPosition(i)] = i;
+    this.personalData.updateItem(item, this.field).subscribe(()=>{
+      this.getExperience();
     });
   }
 
@@ -48,6 +48,11 @@ export class ExperienceComponent implements OnInit{
     return position;
   }
 
+  appendRelations(item:Experience){
+    let type = this.employTypes.find((i:EmployType) => i.id === item.employTypeId);
+    item.employType = type!;
+  }
+
   toggleModal(){
     this.editModal.reset();
     this.editModal.open(this.editModal.myModal);
@@ -58,25 +63,39 @@ export class ExperienceComponent implements OnInit{
     this.editModal.loadEditData(card);
   }
 
-  ngOnInit(): void {
-    this.personalData.getData(`${this.field}?_sort=startDate&_order=desc`).subscribe(data => {
+  getExperience(){
+    this.personalData.getData(`${this.field}?_sort=endDate&_order=desc&_expand=employType`).subscribe(data => {
       this.personalExperience = data;
     })
+  }
+
+  ngOnInit(): void {
+    this.getExperience();
+    this.personalData.getData('employTypes').subscribe(data =>{
+      this.employTypes = data;
+    });
   }
 }
 
 export interface Experience{
   id?:number,
   company:string,
-  employType:string,
+  position:string,
+  employTypeId:number,
   startDate:string,
   endDate?:string,
-  current?:boolean
+  current:boolean
   description:string
+  employType:EmployType
 }
 
 export interface Company{
   id:number,
   name:string,
   logo?:string
+}
+
+export interface EmployType{
+  id:number,
+  name:string
 }

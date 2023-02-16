@@ -1,23 +1,27 @@
 <section class="experience py-5" id="experience">
     <h1 class="my-4 text-center">Experiencia</h1>
     <app-edition class="edition my-2 my-sm-5 me-1 me-sm-5" [showAdding]="true" (adding)="toggleModal()" (edition)="editMode = !editMode"></app-edition>
-    <div class="timeline m-auto" elementObserver [threshold]="windowWidth>1150? 0.4:0.25" [wait]="0" (visible)="intersecting=true">
-        <div class="item fade-in mb-5" *ngFor="let experience of personalExperience" [class.visible]="intersecting">
-            <div class="content p-3" >
+    <div class="timeline m-auto" elementObserver [threshold]="windowWidth>1150? 0.4:0.25" [wait]="0" (visible)="intersecting = true">
+        <div class="item mb-3" *ngFor="let experience of personalExperience" [class.visible]="intersecting">
+            <div class="content p-3 mb-1" >
                 <h3 class="text-light">
                     {{experience.company}}
                 </h3>
-                <h5 class="date mb-2 text-light">
-                    {{experience.startDate | date:'MMM Y'}} - {{!experience.current? (experience.endDate | date:'MMM Y'):'Presente'}}
+                <h5 class="position">
+                    {{experience.position}}
                 </h5>
-                <p class="pt-2 text-secondary">
+                <h6 class="date mb-2">
+                    {{experience.startDate | date:'MMM Y'}} - {{!experience.current? (experience.endDate | date:'MMM Y'):'Presente'}}
+                </h6>
+                <p class="pt-2 description">
                     {{experience.description}}
                 </p>
             </div>
-            <h5 class="type p-2 mt-4 text-center">
-                {{experience.employType}}
+            <h5 class="type p-2 mt-2 mt-sm-4 text-center">
+                {{experience.employType.name}}
             </h5>
+            <app-edit-item [white]="true" [editMode]="editMode" (deleteItem)="deleteItem(experience)" (updateItem)="passData(experience)"></app-edit-item>
         </div>
     </div>
 </section>
-<app-add-experience (onAddItem)="addItem($event)" (onUpdateItem)="save($event)"></app-add-experience>
+<app-add-experience (onAddItem)="addItem($event)" (onUpdateItem)="save($event)" [types]="employTypes"></app-add-experience>

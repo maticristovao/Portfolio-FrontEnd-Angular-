@@ -1,4 +1,4 @@
-section.education {
+  section.education {
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -323,8 +323,4 @@ section.education {
     opacity:0;
     z-index: -1;
     transition: opacity ease-in-out .4s;
-  }
-
-  .edit-item:not(.enabled){
-    z-index: -1;
   }

@@ -2,7 +2,7 @@
         <div class="modal-body container-fluid">
             <div class="row">
                 <div class="col-9">
-                    <p class="body-head ms-0 ms-sm-3">{{add?'Agregar estudio':'Editar estudio'}}</p>
+                    <p class="body-head ms-0 ms-sm-3">{{add?'Agregar':'Editar'}} estudio</p>
                 </div>
                 <div class="col-3">
                     <button aria-hidden="true" type="button" class="close me-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
@@ -41,7 +41,7 @@
                               {{item.name}}
                             </mat-option>
                         </mat-select>
-                      </mat-form-field>
+                    </mat-form-field>
                 </div>
                 <div class="row justify-content-between mt-4 px-0 px-md-3 gap-1">
                     <div class="col-12 col-md-5">

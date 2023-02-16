@@ -63,7 +63,9 @@ h1{
     border: 2px solid var(--primary-color);
     position: relative;
 }
-
+.content::before, .content::after{
+    transition: opacity .5s ease-in-out 1s;
+}
 .content::before{
     content:'';
     width:20px;
@@ -94,8 +96,26 @@ h1{
     right:-100px;
     left: auto;
 }
+
+.item:not(.visible) .content::before, .item:not(.visible) .content::after{
+    opacity:0;
+}
+
 .item h3{
     text-transform: capitalize;
+}
+
+.date{
+    text-transform: capitalize;
+    color: var(--tertiary-color);
+}
+.position{
+    color: var(--modal-color);
+}
+.description{
+    overflow: hidden;
+    color: var(--oposite-color);
+    text-align: justify;
 }
 
 .type{
@@ -131,15 +151,15 @@ h1{
     transform: translateX(0) !important;
 }
 
-.fade-in:not(.visible){
+.item:not(.visible){
     opacity: 0;
 }
 
-.fade-in:not(.visible).item:nth-child(odd) {
+.item:not(.visible).item:nth-child(odd) {
     transform:translateX(30%);
 }
 
-.fade-in:not(.visible).item:nth-child(even) {
+.item:not(.visible).item:nth-child(even) {
     transform:translateX(-30%);
 }
 
@@ -207,5 +227,20 @@ h1{
 @media screen and (width<=350px){
     .type{
         display: none;
+    }
+
+    .description{
+        text-align: start;
+    }
+
+    .timeline::before{
+        display: none;
+    }
+    .content::after, .content::before{
+        display: none;
+    }
+
+    .item{
+        padding:0 !important;
     }
 }

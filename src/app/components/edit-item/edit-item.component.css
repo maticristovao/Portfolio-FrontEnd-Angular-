@@ -1,6 +1,5 @@
 .edit-item{
     display: inline-flex;
-    /* opacity: 1; */
     transition: opacity ease-in-out .3s;
 }
   .edit-item:not(.active){
@@ -30,5 +29,5 @@
   }
   
   .item-wrapper fa-icon{
-    font-size: 25px;
+    font-size: 22.5px;
   }

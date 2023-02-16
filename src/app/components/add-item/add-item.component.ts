@@ -1,11 +1,11 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDatepicker } from '@angular/material/datepicker';
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { DateAdapter, ErrorStateMatcher, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import _moment from 'moment';
 import {default as _rollupMoment, Moment} from 'moment';
 
@@ -36,15 +36,15 @@ export const MY_FORMATS = {
     {
       provide: MAT_DATE_FORMATS, useValue: MY_FORMATS
     }
-  ],
-  encapsulation: ViewEncapsulation.None
+  ]
 })
 
 export class AddItemComponent {
-  today!: Date;
-  add:boolean = true;
   form!:FormGroup;
   initialValue:any;
+  add:boolean = true;
+  matcher:LiveErrorMatcher = new LiveErrorMatcher();
+  today!: Date;
   faExit = faTimes;
 
   @ViewChild('content') myModal!:ElementRef;
@@ -77,6 +77,22 @@ export class AddItemComponent {
     datepicker.close();
   }
 
+  
+  endAfter(startCrtl:string, endCtrl:string){
+      return (formGroup:FormGroup) => {
+        const start = formGroup.controls[startCrtl];
+        const end = formGroup.controls[endCtrl];
+        if((start.errors && !start.errors['endafter']) || (end.errors  && !end.errors['endafter'])){
+          return;
+        }
+        if(start.value >= end.value ){
+          end.setErrors({ endafter: true });
+        }else{
+          end.setErrors(null);
+        }
+      }
+    }
+
   reset(){
     this.form.reset(this.initialValue);
     this.add = true;
@@ -95,5 +111,13 @@ export class AddItemComponent {
     }else{
       this.form.markAllAsTouched();
     }
+  }
+}
+
+export class LiveErrorMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    const invalidCtrl = control && control.invalid;
+    return (invalidCtrl && (!control.hasError('minlength') && control.dirty || (control.touched || isSubmitted)))!;
   }
 }

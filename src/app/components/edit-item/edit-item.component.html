@@ -1,8 +1,8 @@
 <div class="edit-item me-4 mb-3 gap-2" [class.horizontal]="horizontal" [class.active]="editMode">
-    <button class="item-wrapper" (click)="update()" [ngStyle]="!white? {'color':'black'}:{'color':'white'}" data-toggle="modal" data-target="#editForm" tabindex="{{editMode?0:-1}}">
+    <button class="item-wrapper" (click)="editMode && update()" [ngStyle]="{'color':!white?'black':'white', 'cursor':editMode?'pointer':'default'}" data-toggle="modal" data-target="#editForm" tabindex="{{editMode?0:-1}}">
       <fa-icon [icon]="faPencil" class="edit-toggle"></fa-icon>
     </button>
-    <button class="item-wrapper delete" (click)="delete()" [ngStyle]="!white? {'color':'black'}:{'color':'white'}" tabindex="{{editMode?0:-1}}">
+    <button class="item-wrapper delete" (click)="editMode && delete()" [ngStyle]="{'color':!white?'black':'white', 'cursor':editMode?'pointer':'default'}" tabindex="{{editMode?0:-1}}">
       <fa-icon [icon]="faDelete"></fa-icon>
     </button>
 </div>

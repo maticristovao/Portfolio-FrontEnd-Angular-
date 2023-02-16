@@ -40,7 +40,7 @@
 .modal-body .body-head{
     font-size: 25px;
     font-weight: 500;
-    color:var(--modal-color);
+    color:var(--primary-color);
 }
 
 @media screen and (width<380px) {
@@ -109,31 +109,31 @@ input.btn:hover{
     transition: all 200ms linear !important;
 }
 
-input:-ms-input-placeholder{
+:is(input, textarea):-ms-input-placeholder{
     opacity: 0.7;
     -webkit-transition: all 200ms linear !important;
     transition: all 200ms linear !important;
 }
 
-input::-moz-placeholder{
+:is(input, textarea)::-moz-placeholder{
     opacity: 0.7;
     -webkit-transition: all 200ms linear !important;
     transition: all 200ms linear !important;
 }
 
-input:-moz-placeholder{
+:is(input, textarea):-moz-placeholder{
     opacity: 0.7;
     -webkit-transition: all 200ms linear !important;
     transition: all 200ms linear !important;
 }
 
-input::-webkit-input-placeholder{
+:is(input, textarea)::-webkit-input-placeholder{
     opacity: 0.7;
     -webkit-transition: all 200ms linear !important;
     transition: all 200ms linear !important;
 } 
 
-input:focus::-webkit-input-placeholder, .mat-mdc-select:focus .mat-mdc-select-placeholder{
+:is(input, textarea):focus::-webkit-input-placeholder{
     opacity: 0 !important;
 }
 
@@ -244,7 +244,7 @@ h4{
     z-index: 1061;
 }
 
-.mdc-text-field--filled:not(.mdc-text-field--disabled){
+/* .mdc-text-field--filled:not(.mdc-text-field--disabled), .mdc-text-field--outlined:not(.mdc-text-field--disabled){
     background-color: var(--plain-color);
     border-radius: 10px;
 }
@@ -252,7 +252,7 @@ h4{
 mat-label :not(.mdc-text-field--invalid), .mdc-text-field:not(.mdc-text-field--invalid, .mdc-text-field--disabled) .mdc-floating-label{
     color:var(--primary-color);
 }
-.mdc-text-field:not(.mdc-text-field--invalid) .mdc-text-field__input {
+.mdc-text-field:not(.mdc-text-field--invalid, .mdc-text-field--disabled) .mdc-text-field__input {
     caret-color: var(--primary-color);
     color:var(--primary-color);
 }
@@ -262,12 +262,22 @@ mat-label :not(.mdc-text-field--invalid), .mdc-text-field:not(.mdc-text-field--i
     color: var(--primary-color);
     opacity:.85;
     transition:color .15s ease-out;
-}
+}*/
 .mdc-text-field--invalid .mat-mdc-icon-button{
     color:red;
     --mat-mdc-button-persistent-ripple-color: red;
 }
-
+.mdc-text-field--focused:not(.mdc-text-field--invalid) .mat-mdc-icon-button {
+    color: rgba(var(--rgb-color,.87));
+    --mat-mdc-button-persistent-ripple-color: var(--primary-color);
+}
+.mat-form-field-invalid .mat-mdc-form-field-bottom-align mat-hint{
+    color:red;
+}
+.mat-focused:not(.mat-form-field-invalid) .mat-mdc-form-field-bottom-align mat-hint{
+    color:var(--primary-color);
+}
+/*
 .mat-mdc-raised-button.mat-primary {
     --mdc-protected-button-container-color: var(--datepicker-exit);
 }
@@ -299,7 +309,7 @@ mat-label :not(.mdc-text-field--invalid), .mdc-text-field:not(.mdc-text-field--i
 
 .mat-mdc-select-value {
     color: var(--primary-color);
-}
+}*/
 
 .close.clear{
     border: none;
@@ -318,7 +328,16 @@ mat-label :not(.mdc-text-field--invalid), .mdc-text-field:not(.mdc-text-field--i
     color:red;
 }
 
-.mdc-text-field--outlined:not(:is(.mdc-text-field--disabled, .mdc-text-field--invalid)).mdc-text-field--focused .mdc-notched-outline 
+/* .mdc-text-field--outlined:not(.mdc-text-field--disabled, .mdc-text-field--invalid).mdc-text-field--focused .mdc-notched-outline 
 :is(.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing) {
     border-color: var(--primary-color);
+}  */
+
+.mat-mdc-checkbox .mdc-form-field label{
+    font-size: 15px;
+}
+
+.mat-mdc-form-field:has(textarea) :is(.mat-mdc-form-field-icon-prefix, .mat-mdc-form-field-icon-suffix){
+    align-self:start;
+    margin-top: 10px;
 }

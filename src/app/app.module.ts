@@ -40,6 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AddItemComponent } from './components/add-item/add-item.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -84,7 +85,8 @@ import { AddItemComponent } from './components/add-item/add-item.component';
     MatSelectModule,
     DragDropModule,
     MatIconModule,
-    NgxMatSelectSearchModule
+    NgxMatSelectSearchModule,
+    MatCheckboxModule
   ],
   providers: [DatePipe, {provide:LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
