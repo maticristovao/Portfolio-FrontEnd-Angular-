@@ -59,7 +59,7 @@ export class AddEducationComponent extends AddItemComponent implements OnInit{
   ngOnInit():void{
     this.form = this.formBuilder.group({
       id:undefined,
-      title:['', [Validators.required, Validators.minLength(6)]],
+      title:['', [Validators.required, Validators.minLength(6), Validators.maxLength(35)]],
       institutionId:['', [Validators.required]],
       areaId:['', [Validators.required]],
       startDate:['', [Validators.required]],

@@ -77,11 +77,11 @@
             <div class="row mt-3 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Descripción</mat-label>
-                    <textarea matInput cdkTextareaAutosize name="description" id="description" formControlName="description" maxlength="300"></textarea>
+                    <textarea matInput cdkTextareaAutosize name="description" id="description" formControlName="description" maxlength="350"></textarea>
                     <button *ngIf="Description?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="Description?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
-                    <mat-hint [align]="'end'">{{Description?.value.length}}/300</mat-hint>
+                    <mat-hint [align]="'end'">{{Description?.value? Description?.value.length:0}}/350</mat-hint>
                 </mat-form-field>
             </div>
             <div class="row justify-content-center mb-4 pt-4">

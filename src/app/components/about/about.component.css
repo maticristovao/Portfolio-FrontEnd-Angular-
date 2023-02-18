@@ -7,6 +7,7 @@
 	background:transparent !important;
     border:none;
 	height:288px;
+	cursor: pointer;
 }
 .edition{
 	position: absolute;

@@ -24,9 +24,4 @@ export class AboutComponent implements OnInit{
       this.about = data.about;
     })
   }
-
-  editMode(){
-    this.editing = !this.editing;
-  }
-  
 }

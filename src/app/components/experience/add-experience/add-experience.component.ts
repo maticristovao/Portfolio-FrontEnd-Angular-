@@ -63,7 +63,7 @@ export class AddExperienceComponent extends AddItemComponent{
   }
   
   loadEditData(item:Experience){
-    this.form.patchValue({
+    this.form.setValue({
       id: item.id,
       company: item.company,
       position: item.position,

@@ -3,10 +3,10 @@
     <fa-icon [icon]="faPencil" class="edit-toggle"></fa-icon>
     <fa-icon [icon]="faCheck" class="check"></fa-icon>
   </button>
-  <button class="icon-wrapper add" (click)="addItem()" onclick="blur()" *ngIf="showAdding" data-toggle="modal" data-target="#editForm" tabindex="{{editing?0:-1}}">
+  <button class="icon-wrapper add" *ngIf="showAdding" (click)="addItem()" onclick="blur()" data-toggle="modal" data-target="#editForm" tabindex="{{editing?0:-1}}">
     <fa-icon [icon]="faPlus"></fa-icon>
   </button>
-  <button class="icon-wrapper discard" (click)="deleteSection()" onclick="blur()" [ngStyle]="{'--translation':defineTranslation()}" tabindex="{{editing?0:-1}}">
+  <button class="icon-wrapper discard" *ngIf="!editOnly" (click)="deleteSection()" onclick="blur()" [ngStyle]="{'--translation':defineTranslation()}" tabindex="{{editing?0:-1}}">
     <fa-icon [icon]="faDiscard"></fa-icon>
   </button>
 </div>

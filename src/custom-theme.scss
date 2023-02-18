@@ -110,12 +110,12 @@ $light-portfolio-theme: mat.define-light-theme((
 @include mat.all-component-themes($dark-portfolio-theme);
 
 .light-theme {
-  @include mat.all-component-themes($light-portfolio-theme);
+  // @include mat.all-component-themes($light-portfolio-theme);
   
 }
 
 .dark-theme {
-  @include mat.all-component-themes($dark-portfolio-theme);
+  // @include mat.all-component-themes($dark-portfolio-theme);
   // --primary-color:#23b3e4;
   // --rgb-color: 35, 179, 228;
   // --background-color:#1a1c1f;

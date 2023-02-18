@@ -21,23 +21,22 @@
             </div>
             <div class="row justify-content-end">
                 <div class="col-10 data">
-                    <p><a href="mailto:{{mail}}">{{mail}}</a></p>
+                    <p><a href="mailto:{{mail.adress}}">{{mail.adress}}</a></p>
                 </div>
             </div>
 
 
-            <div class="row mt-5" *ngIf="phoneNum">
+            <div class="row mt-5" *ngIf="phone">
                 <div class="col-2 d-flex justify-content-center">
-                    <fa-icon [icon]="phoneType.toLowerCase().trim() === 'mobile'? faMobile : faPhone"></fa-icon>
+                    <fa-icon [icon]="phone.type.toLowerCase().trim() === 'mobile'? faMobile : faPhone"></fa-icon>
                 </div>
                 <div class="col-10">
                     <p class="label">Teléfono</p>
-                    
                 </div>
             </div>
             <div class="row justify-content-end">
                 <div class="col-10 data">
-                    <p>{{phoneNum}} <span>({{phoneType.trim()}})</span></p>
+                    <p>{{phone.number}} <span>({{phone.type.trim()}})</span></p>
                 </div>
             </div>
         </div>

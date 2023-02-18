@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { AddPersonalInfoComponent } from './add-personal-info/add-personal-info.component';
 
 @Component({
   selector: 'app-personal-info',
@@ -8,9 +9,10 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
   styleUrls: ['./personal-info.component.css']
 })
 export class PersonalInfoComponent implements OnInit{
-  @ViewChild('asMore') more!:ElementRef;
+  @ViewChild(AddPersonalInfoComponent) editModal!:AddPersonalInfoComponent;
+
   moreContent!:string;
-  personalInfo:any;
+  personalInfo!:UserData;
   windowWidth:number = window.innerWidth;
   phone:any;
 
@@ -19,6 +21,18 @@ export class PersonalInfoComponent implements OnInit{
   @HostListener('window:resize')
   onResize() {
     this.windowWidth = window.innerWidth;
+  }
+
+  toggleModal(){
+    this.editModal.reset();
+    this.editModal.open(this.editModal.myModal);
+    this.editModal.loadEditData(this.personalInfo);
+  }
+
+  save(item:UserData){
+    this.personalData.patchItem(item, 'user').subscribe((item)=>{
+        this.personalInfo = item;
+    });
   }
 
   constructor(private personalData:PersonalInfoService){}
@@ -31,4 +45,13 @@ export class PersonalInfoComponent implements OnInit{
       this.phone = data;
     });
   }
+}
+
+export interface UserData{
+  name:string,
+  surname:string,
+  title:string[],
+  province:string,
+  country:string,
+  photo:string
 }

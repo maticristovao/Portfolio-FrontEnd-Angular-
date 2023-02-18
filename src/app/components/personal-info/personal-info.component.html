@@ -1,13 +1,13 @@
 <section class="personal-info container-fluid inverse">
     <div class="row">
         <div class="photo col-3 col-lg-2 d-none d-md-block">
-            <img src="{{personalInfo.photo? personalInfo.photo:'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'}}" alt="Personal picture">
+            <img [src]="personalInfo.photo? personalInfo.photo:'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'" alt="Personal picture">
         </div>
         <div class="col-12 col-md-9 col-lg-10 data">
             <div class="row head-info">
                 <div class="name-title col-12 col-sm-9 col-lg-10 col-xxl-8 mt-4">
                     <h1>{{personalInfo.name}} {{personalInfo.surname}}</h1>
-                    <h2><div class="d-inline-block me-5 me-sm-0">{{personalInfo.title[0]}} </div><span class="d-none d-lg-inline-block"> - </span><div class="d-inline-block">{{personalInfo.title[1]}}</div></h2>
+                    <h2><div class="d-inline-block me-5 me-sm-0">{{personalInfo.title[0]}} </div><span *ngIf="personalInfo.title.length>1" class="d-none d-lg-inline-block"> - </span><div *ngIf="personalInfo.title.length>1" class="d-inline-block">{{personalInfo.title[1]}}</div></h2>
                 </div>
                 <div class="place col-sm-2 col-lg-2 col-xxl-4 mt-4 d-none d-sm-inline-block">
                     <img class="img-fluid ub" src="https://ub.edu.ar/sites/default/files/inline-images/iso2022.jpg" alt="Universidad de Belgrano">
@@ -17,7 +17,7 @@
             <div class="row other-info">
                 <div class="info col-12 col-sm-9 col-lg-10 col-xxl-8 align-self-end">
                     <p><fa-icon class="me-2" [icon]="faLocationDot"></fa-icon> {{personalInfo.province}} ({{personalInfo.country}}) <span><a type="button" data-toggle="modal" data-target="#contactModal">Contact info</a></span></p>
-                    <app-contact-modal name="{{personalInfo.name}} {{personalInfo.surname}}" phoneNum="{{phone.number}}" phoneType="{{phone.type}}" mail="{{personalInfo.mail}}"></app-contact-modal>
+                    <app-contact-modal name="{{personalInfo.name}} {{personalInfo.surname}}"></app-contact-modal>
                 </div>
                 <div class="place col-sm-3 col-lg-2 col-xxl-4 d-none d-sm-inline-block">
                     <img class="img-fluid pwc " src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Logo-pwc.png" alt="Universidad de Belgrano">
@@ -29,7 +29,8 @@
                 <button class="btn btn-outline-primary profile-btn col-12 col-sm-4 col-md-4 col-lg-4 col-xl-3 col-xxl-3">Añadir sección</button>
                 <button #asMore class="btn btn-outline-light profile-btn col-md-1 col-lg-1 col-xl-1 col-xxl-1 d-none d-md-block" id="more">{{windowWidth>1200? 'Más' : '...'}}</button>
             </div>
-            <app-edition [horizontal]="windowWidth>=576" class="edition mb-sm-2 me-3 me-sm-1 mt-3 mt-sm-0"></app-edition>
+            <app-edition [horizontal]="windowWidth>=576" [editOnly]="true" (edition)="toggleModal()" class="edition mb-sm-2 me-3 mt-3 mt-sm-0"></app-edition>
         </div>
     </div>
 </section>
+<app-add-personal-info (onUpdateItem)="save($event)"></app-add-personal-info>

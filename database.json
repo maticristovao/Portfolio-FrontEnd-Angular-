@@ -1,18 +1,102 @@
 {
   "user": {
-    "photo": "https://media.licdn.com/dms/image/D4D03AQGvC1cOyWVkgw/profile-displayphoto-shrink_200_200/0/1673571910638?e=1678924800&v=beta&t=JuoqdhESe1Iq_9Ele9kjI15ojxlbA02jHl55Tg1631s",
     "name": "Matías",
     "surname": "Cristovao",
-    "mail": "maticristovao@hotmail.com",
-    "about": "I am a proactive, responsible and detailed-oriented person. I like continuous improvement; always looking for ways to change and develop current systems, methods, and results. In addition, I enjoy lifelong learning and feel grateful for every opportunity to acquire knowledge and skills in order to enhance my future career.",
     "title": [
       "Full Stack Developer Jr",
       "Economics Student"
     ],
+    "province": "Buenos Aires",
     "country": "Argentina",
-    "province": "Buenos Aires"
+    "photo": "https://media.licdn.com/dms/image/D4D03AQGvC1cOyWVkgw/profile-displayphoto-shrink_200_200/0/1673571910638?e=1678924800&v=beta&t=JuoqdhESe1Iq_9Ele9kjI15ojxlbA02jHl55Tg1631s",
+    "about": "I am a proactive, responsible and detailed-oriented person. I like continuous improvement; always looking for ways to change and develop current systems, methods, and results. In addition, I enjoy lifelong learning and feel grateful for every opportunity to acquire knowledge and skills in order to enhance my future career."
+  },
+  "countries": [
+    {
+      "id": 1,
+      "name": "Argentina"
+    },
+    {
+      "id": 2,
+      "name": "Estados Unidos"
+    },
+    {
+      "id": 3,
+      "name": "Brasil"
+    },
+    {
+      "id": 4,
+      "name": "España"
+    }
+  ],
+  "provinces": [
+    {
+      "id": 1,
+      "name": "Buenos Aires",
+      "countryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Córdoba",
+      "countryId": 1
+    },
+    {
+      "id": 3,
+      "name": "Mendoza",
+      "countryId": 1
+    },
+    {
+      "id": 4,
+      "name": "Sevilla",
+      "countryId": 4
+    },
+    {
+      "id": 5,
+      "name": "Madrid",
+      "countryId": 4
+    },
+    {
+      "id": 6,
+      "name": "Barcelona",
+      "countryId": 4
+    },
+    {
+      "id": 7,
+      "name": "Nebraska",
+      "countryId": 2
+    },
+    {
+      "id": 8,
+      "name": "Florida",
+      "countryId": 2
+    },
+    {
+      "id": 9,
+      "name": "California",
+      "countryId": 2
+    },
+    {
+      "id": 10,
+      "name": "San Pablo",
+      "countryId": 3
+    },
+    {
+      "id": 11,
+      "name": "Rio de Janeiro",
+      "countryId": 3
+    },
+    {
+      "id": 12,
+      "name": "Bahía",
+      "countryId": 3
+    }
+  ],
+  "mail": {
+    "id": 1,
+    "adress": "maticristovao@hotmail.com"
   },
   "phone": {
+    "id": 1,
     "number": 1139458436,
     "type": "Mobile"
   },
@@ -172,10 +256,9 @@
       "company": "PwC",
       "position": "Contact center specialist",
       "employTypeId": 2,
-      "startDate": "2022-02-01T03:00:00.000Z",
-      "endDate": "2023-02-15T18:59:35.460Z",
-      "current": false,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      "startDate": "2023-01-01T03:00:00.000Z",
+      "current": true,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
     },
     {
       "id": 2,
@@ -185,7 +268,7 @@
       "startDate": "2023-02-01",
       "endDate": "2023-02-23",
       "current": false,
-      "description": null
+      "description": ""
     }
   ],
   "employTypes": [

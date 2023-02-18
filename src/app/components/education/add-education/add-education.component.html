@@ -14,11 +14,12 @@
                 <div class="row mt-4 px-0 px-md-3">
                     <mat-form-field appearance="outline">
                         <mat-label>Título</mat-label>
-                        <input matInput placeholder="Ex. Medicina" id="title" name="title" formControlName="title">
+                        <input matInput id="title" name="title" formControlName="title" [errorStateMatcher]="matcher">
                         <button *ngIf="Title?.value" class="close clear me-3" matSuffix aria-label="Clear" (click)="Title?.setValue('')">
                             <fa-icon [icon]="faExit"></fa-icon>
                         </button>
                         <mat-error *ngIf="Title?.hasError('minlength') && Title?.touched">El título debe tener al menos 6 caracteres</mat-error>
+                        <mat-error *ngIf="Title?.hasError('maxlength')">El título debe tener menos de 35 caracteres</mat-error>
                     </mat-form-field>
                 </div>
                 <div class="row mt-4 px-0 px-md-3">

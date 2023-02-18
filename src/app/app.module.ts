@@ -43,7 +43,9 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AddPersonalInfoComponent } from './components/personal-info/add-personal-info/add-personal-info.component';
-
+// import { MatFileUploadModule }
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -90,7 +92,9 @@ import { AddPersonalInfoComponent } from './components/personal-info/add-persona
     MatIconModule,
     NgxMatSelectSearchModule,
     MatCheckboxModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule,
+    MatChipsModule
   ],
   providers: [DatePipe, {provide:LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]

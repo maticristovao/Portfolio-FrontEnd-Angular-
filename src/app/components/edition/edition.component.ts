@@ -13,6 +13,7 @@ export class EditionComponent {
   
   @Input() horizontal:boolean = false;
   @Input() showAdding:boolean = false;
+  @Input() editOnly:boolean = false;
 
   @Output() edition = new EventEmitter()
   @Output() adding = new EventEmitter()
@@ -30,7 +31,9 @@ export class EditionComponent {
   }
   
   editMode(){
-    this.editing = !this.editing;
+    if(!this.editOnly){
+      this.editing = !this.editing;
+    }
     this.edition.emit();
   }
 

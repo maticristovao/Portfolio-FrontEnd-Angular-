@@ -8,6 +8,7 @@ import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/mater
 import { DateAdapter, ErrorStateMatcher, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import _moment from 'moment';
 import {default as _rollupMoment, Moment} from 'moment';
+import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
 export const moment = _rollupMoment || _moment;
 
@@ -51,7 +52,7 @@ export class AddItemComponent {
   @Output() onAddItem:EventEmitter<any> = new EventEmitter();
   @Output() onUpdateItem:EventEmitter<any> = new EventEmitter();
 
-  constructor(protected formBuilder:FormBuilder, protected modalService:NgbModal, protected datepipe?:DatePipe){
+  constructor(protected formBuilder:FormBuilder, protected modalService:NgbModal, protected datepipe:DatePipe, protected personalData:PersonalInfoService){
     this.today = new Date()
   }
 
