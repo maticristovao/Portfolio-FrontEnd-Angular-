@@ -88,8 +88,8 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
       name:['', [Validators.required]],
       surname: ['', [Validators.required]],
       title:[this.titles, [Validators.required, Validators.maxLength(2)]],
-      province: ['', []],
-      country: ['', []],
+      province: ['', [Validators.required]],
+      country: ['', [Validators.required]],
       photo: ['', []]
     });
   }

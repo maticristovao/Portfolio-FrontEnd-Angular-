@@ -11,6 +11,7 @@ export class AboutComponent implements OnInit{
   existence:boolean=true;
   windowWidth:number = window.innerWidth;
   editing:boolean = false;
+  flip:boolean = false;
 
   @HostListener('window:resize')
   onResize() {
