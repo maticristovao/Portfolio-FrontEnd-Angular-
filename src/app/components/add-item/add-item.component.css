@@ -187,3 +187,35 @@ mat-hint, mat-error{
 .mat-calendar-body-cell-content {
     font-size: 14px;
 }
+
+.close.clear.folder{
+    font-size: 18px;
+    display: grid;
+    place-items: center;
+}
+
+mat-panel-title{
+    color: var(--primary-color);
+}
+
+.mat-mdc-tab-body-content{
+    overflow: hidden !important;
+}
+
+.slider{
+    width: 90% !important;
+    padding-inline: 0 !important;
+}
+
+.mat-mdc-slider .mdc-slider__value-indicator {
+    color: var(--primary-color) !important;
+    background-color: rgba(0, 0, 0, 0.692) !important;
+}
+.mat-mdc-slider .mdc-slider__value-indicator::before{
+    border-top-color: rgba(0, 0, 0, 0.692) !important;
+}
+
+mat-label{
+    font-size: 16.65px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

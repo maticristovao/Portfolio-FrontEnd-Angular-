@@ -5,6 +5,7 @@ import {COMMA, ENTER, DASH, SLASH} from '@angular/cdk/keycodes';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 import { UserData } from '../personal-info.component';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { faFolder } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-personal-info',
@@ -16,6 +17,7 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
   titles:string[] = [];
   countries:Country[] = [];
   provinces:Province[] = [];
+  faFolder = faFolder;
 
   get Name(){
     return this.form.get('name');
@@ -97,9 +99,9 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
   override onSubmit():void{
     if(this.form.valid){
       const newItem = this.form.value;
+      console.log(newItem.photo);
       this.onUpdateItem.emit(newItem);
       this.close();
-      this.reset();
     }else{
       this.form.markAllAsTouched();
     }

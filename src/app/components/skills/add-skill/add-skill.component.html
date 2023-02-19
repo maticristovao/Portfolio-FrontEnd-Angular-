@@ -1,0 +1,120 @@
+<ng-template #content let-modal class="fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editFormTitle"
+    aria-hidden="true">
+    <div class="modal-body container-fluid">
+        <!-- <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Agregar habilidad
+                    </mat-panel-title>
+                    <mat-panel-description class="justify-content-center">
+                        <fa-icon [icon]="faSkill"></fa-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+                    <div class="row mt-4 px-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Empresa</mat-label>
+                            <input matInput  id="company" name="company" formControlName="company" [errorStateMatcher]="matcher">
+                        </mat-form-field>
+                    </div>
+                    <div class="row mt-4 px-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Posición</mat-label>
+                            <input matInput  id="position" name="position" formControlName="position" [errorStateMatcher]="matcher">
+                        </mat-form-field>
+                    </div>
+                    <div class="row mt-4 px-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Tipo de empleo</mat-label>
+                            <mat-select formControlName="employTypeId" name="employTypeId" id="employTypeId" placeholder="Seleccione un tipo de empleo...">
+                                <mat-option>--</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="row mt-3 px-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Descripción</mat-label>
+                            <textarea matInput cdkTextareaAutosize name="description" id="description" formControlName="description" maxlength="350"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="row justify-content-center mb-4 pt-4">
+                        <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
+                    </div>
+                </form>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Agregar idioma
+                    </mat-panel-title>
+                    <mat-panel-description class="justify-content-center">
+                        <fa-icon [icon]="faLanguage"></fa-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Date</mat-label>
+                    <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly>
+                </mat-form-field>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-expansion-panel>
+        </mat-accordion> -->
+        <mat-tab-group animationDuration="1000ms">
+            <mat-tab label="Habilidad">
+                <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+                    <div class="row mt-4 px-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nombre de la habilidad</mat-label>
+                            <input matInput  id="name" name="name" formControlName="name"  [errorStateMatcher]="matcher">
+                        </mat-form-field>
+                    </div>
+                    <div class="row justify-content-center mt-4 px-3">
+                            <mat-label [ngStyle]="{'color':Progress?.invalid && Progress?.touched? '#f44336':'rgba(255, 255, 255, 0.6)'}">Progreso*</mat-label>
+                            
+                            <mat-slider min="0" max="100" step="1" class="slider" showTickMarks discrete [displayWith]="formatLabel" [color]="Progress?.invalid && Progress?.touched?'warn':'primary'">
+                                <input matSliderThumb id="progress" formControlName="progress">
+                            </mat-slider>
+                    </div>
+                    <div class="row justify-content-center mb-4 pt-4">
+                        <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
+                    </div>
+                </form>
+            </mat-tab>
+            <mat-tab label="Idioma">
+                <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+                    <div class="row mt-4 px-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Empresa</mat-label>
+                            <input matInput  id="company" name="company" [errorStateMatcher]="matcher">
+                        </mat-form-field>
+                    </div>
+                    <div class="row mt-4 px-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Posición</mat-label>
+                            <input matInput  id="position" name="position" [errorStateMatcher]="matcher">
+                        </mat-form-field>
+                    </div>
+                    <div class="row mt-4 px-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Tipo de empleo</mat-label>
+                            <mat-select name="employTypeId" id="employTypeId" placeholder="Seleccione un tipo de empleo...">
+                                <mat-option>--</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="row mt-3 px-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Descripción</mat-label>
+                            <textarea matInput cdkTextareaAutosize name="description" id="description" maxlength="350"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="row justify-content-center mb-4 pt-4">
+                        <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
+                    </div>
+                </form>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</ng-template>

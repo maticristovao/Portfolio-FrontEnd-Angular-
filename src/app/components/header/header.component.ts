@@ -30,12 +30,12 @@ export class HeaderComponent implements OnInit, AfterViewInit{
   }
 
   constructor(private personalData:PersonalInfoService, private config:NgbCarouselConfig){
-    config.interval=6000;
-    config.pauseOnHover=false;
-    config.keyboard=false;
-    config.showNavigationArrows=false;
-    config.animation=false
-    config.pauseOnFocus=false;    
+    this.config.interval=6000;
+    this.config.pauseOnHover=false;
+    this.config.keyboard=false;
+    this.config.showNavigationArrows=false;
+    this.config.animation=false
+    this.config.pauseOnFocus=false;    
   }
 
   removeAccents(str:string):string{
@@ -75,5 +75,4 @@ export class HeaderComponent implements OnInit, AfterViewInit{
     this.defineName();
     this.defineSurname();
   }
-
 }

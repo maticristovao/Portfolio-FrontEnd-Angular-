@@ -108,7 +108,6 @@ export class AddItemComponent {
         this.onUpdateItem.emit(newItem);
       }
       this.close();
-      this.reset();
     }else{
       this.form.markAllAsTouched();
     }

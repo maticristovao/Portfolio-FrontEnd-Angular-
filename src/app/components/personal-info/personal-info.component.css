@@ -120,3 +120,7 @@ div.data{
         top:0;
     }
 }
+
+#title{
+    text-transform: capitalize;
+}

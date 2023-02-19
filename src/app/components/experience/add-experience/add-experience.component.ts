@@ -72,7 +72,8 @@ export class AddExperienceComponent extends AddItemComponent{
       endDate: moment(item.endDate),
       current: item.current,
       description: item.description
-    })
+    });
+    this.add = false;
   }
 
   ngOnInit(): void {

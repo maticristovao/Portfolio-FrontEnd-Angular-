@@ -1,6 +1,7 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { AddSkillComponent } from './add-skill/add-skill.component';
 
 @Component({
   selector: 'app-skills',
@@ -12,6 +13,8 @@ export class SkillsComponent implements OnInit{
   languages:any;
   windowWidth:number = window.innerWidth;
   editMode:boolean = false;
+
+  @ViewChild(AddSkillComponent) editModal!:AddSkillComponent;
 
   @HostListener('window:resize')
   onResize() {
@@ -27,6 +30,11 @@ export class SkillsComponent implements OnInit{
     this.personalData.getData('languages').subscribe(data => {
       this.languages = data;
     });
+  }
+
+  toggleModal(){
+    this.editModal.reset();
+    this.editModal.open(this.editModal.myModal);
   }
 
   drop(event: CdkDragDrop<string[]>) {

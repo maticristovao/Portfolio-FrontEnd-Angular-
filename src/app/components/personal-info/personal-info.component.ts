@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { FileInput } from 'ngx-material-file-input/lib/model/file-input.model';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { AddPersonalInfoComponent } from './add-personal-info/add-personal-info.component';
 
@@ -30,8 +31,8 @@ export class PersonalInfoComponent implements OnInit{
   }
 
   save(item:UserData){
-    this.personalData.patchItem(item, 'user').subscribe((item)=>{
-        this.personalInfo = item;
+    this.personalData.patchItem(item, 'user').subscribe((user)=>{
+        this.personalInfo = user;
     });
   }
 
@@ -53,5 +54,5 @@ export interface UserData{
   title:string[],
   province:string,
   country:string,
-  photo:string
+  photo:any
 }

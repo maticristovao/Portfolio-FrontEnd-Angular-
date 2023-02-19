@@ -1,6 +1,5 @@
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
@@ -15,7 +14,7 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ElementObserverDirective } from './components/element-observer.directive';
 import { SkillItemComponent } from './components/skills/skill-item/skill-item.component';
-import { LanguagesComponent } from './components/languages/languages.component';
+import { LanguagesComponent } from './components/skills/languages/languages.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { EditionComponent } from './components/edition/edition.component';
 import { LoginComponent } from './components/login/login.component';
@@ -43,10 +42,14 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AddPersonalInfoComponent } from './components/personal-info/add-personal-info/add-personal-info.component';
-// import { MatFileUploadModule }
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { AddSkillComponent } from './components/skills/add-skill/add-skill.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -73,7 +76,8 @@ import { MatButtonModule } from '@angular/material/button';
     EditItemComponent,
     AddExperienceComponent,
     AddItemComponent,
-    AddPersonalInfoComponent
+    AddPersonalInfoComponent,
+    AddSkillComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +100,11 @@ import { MatButtonModule } from '@angular/material/button';
     MatSlideToggleModule,
     MatDialogModule,
     MatChipsModule,
-    MatButtonModule
+    MatButtonModule,
+    MaterialFileInputModule,
+    MatExpansionModule,
+    MatTabsModule,
+    MatSliderModule
   ],
   providers: [DatePipe, {provide:LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
