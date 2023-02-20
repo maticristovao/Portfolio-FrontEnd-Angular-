@@ -211,37 +211,37 @@
   "skills": [
     {
       "id": 1,
-      "name": "html",
-      "progress": "90"
+      "name": "Html",
+      "progress": 90
     },
     {
       "id": 2,
-      "name": "css",
+      "name": "Css",
       "progress": "80"
     },
     {
       "id": 3,
-      "name": "javascript / typescript",
+      "name": "Javascript / Typescript",
       "progress": "65"
     },
     {
       "id": 4,
-      "name": "angular",
+      "name": "Angular",
       "progress": "70"
     },
     {
       "id": 5,
-      "name": "mysql",
+      "name": "MySql",
       "progress": "85"
     },
     {
       "id": 6,
-      "name": "bootstrap",
+      "name": "Bootstrap",
       "progress": "95"
     },
     {
       "id": 7,
-      "name": "git / github",
+      "name": "Git / Github",
       "progress": "80"
     }
   ],

@@ -3,7 +3,7 @@
     <div class="modal-body container-fluid">
         <div class="row">
             <div class="col-10">
-                <p class="body-head ms-0 ms-sm-3">Agregar...</p>
+                <p class="body-head ms-0 ms-sm-3">{{add?'Agregar...':(isSkillEdit?'Editar habilidad':'Editar idioma')}}</p>
             </div>
             <div class="col-2">
                 <button aria-hidden="true" type="button" class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
@@ -11,7 +11,8 @@
                 </button>
             </div>
         </div>
-        <mat-tab-group animationDuration="800ms" dynamicHeight="true" (selectedTabChange)="reset()">
+
+        <mat-tab-group animationDuration="800ms" dynamicHeight="true" (selectedTabChange)="reset()" *ngIf="add">
             <mat-tab label="Habilidades">
                 <form class="container px-0" [formGroup]="skillForm" autocomplete="off" (ngSubmit)="submitForm(true)">
                     <div class="row mt-5 px-3">
@@ -35,7 +36,6 @@
                     </div>
                 </form>
             </mat-tab>
-
             <mat-tab label="Idiomas">
                 <form class="container px-0" [formGroup]="langForm" autocomplete="off" (ngSubmit)="submitForm(false)">
                     <div class="row mt-4 px-3">
@@ -69,5 +69,58 @@
                 </form>
             </mat-tab>
         </mat-tab-group>
+
+        <form class="container px-0" [formGroup]="skillForm" autocomplete="off" (ngSubmit)="submitForm(true)" *ngIf="!add && isSkillEdit">
+            <div class="row mt-5 px-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Habilidad</mat-label>
+                    <input matInput  id="name" name="name" formControlName="name" [errorStateMatcher]="matcher">
+                    <button *ngIf="SkillName?.value" class="close clear me-3" matSuffix aria-label="Clear" (click)="SkillName?.setValue('')">
+                        <fa-icon [icon]="faExit"></fa-icon>
+                    </button>
+                    <mat-error *ngIf="SkillName?.hasError('maxlength')">El nombre de la habilidad no puede exceder los 15 caracteres</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row justify-content-center mt-4 px-3">
+                <mat-label [ngStyle]="{'color':Progress?.invalid && Progress?.touched? '#f44336':'rgba(255, 255, 255, 0.6)'}" id="progress-label">Progreso*</mat-label>
+                <mat-slider min="0" max="100" step="1" class="slider" showTickMarks discrete [displayWith]="formatLabel" [color]="Progress?.invalid && Progress?.touched?'warn':'primary'">
+                    <input matSliderThumb id="progress" formControlName="progress">
+                </mat-slider>
+            </div>
+            <div class="row justify-content-center mt-4 mb-4 pt-5">
+                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus/>
+            </div>
+        </form>
+
+        <form class="container px-0" [formGroup]="langForm" autocomplete="off" (ngSubmit)="submitForm(false)" *ngIf="!add && !isSkillEdit">
+            <div class="row mt-4 px-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Idioma</mat-label>
+                    <input matInput id="name" name="name" formControlName="name">
+                    <button *ngIf="LangName?.value" class="close clear me-3" matSuffix aria-label="Clear" (click)="LangName?.setValue('')">
+                        <fa-icon [icon]="faExit"></fa-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div class="row mt-4 px-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nivel oral</mat-label>
+                    <mat-select name="oral" id="oral" formControlName="oral" placeholder="Seleccione un nivel...">
+                        <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row mt-4 px-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nivel escrito</mat-label>
+                    <mat-select name="written" id="written" formControlName="written" placeholder="Seleccione un nivel...">
+                        <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row justify-content-center mb-4 pt-4">
+                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus/>
+            </div>
+        </form>
     </div>
 </ng-template>

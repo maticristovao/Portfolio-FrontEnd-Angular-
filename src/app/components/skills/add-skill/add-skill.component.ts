@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { faLanguage, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 import { AddItemComponent } from '../../add-item/add-item.component';
+import { Language, Skill } from '../skills.component';
 
 @Component({
   selector: 'app-add-skill',
@@ -9,6 +10,7 @@ import { AddItemComponent } from '../../add-item/add-item.component';
   styleUrls: ['./add-skill.component.css']
 })
 export class AddSkillComponent extends AddItemComponent implements OnInit{
+  isSkillEdit!:boolean;
   faSkill = faScrewdriverWrench;
   faLanguage = faLanguage;
   levels = ['Básico', 'Intermedio', 'Avanzado', 'Bilingüe'];
@@ -50,6 +52,27 @@ export class AddSkillComponent extends AddItemComponent implements OnInit{
     this.langForm.reset(this.initialValue);
     this.skillForm.reset(this.initialValue);
     this.add = true;
+  }
+
+  loadSkill(skill: Skill){
+    this.isSkillEdit = true;
+    this.skillForm.setValue({
+      id: skill.id,
+      name: skill.name,
+      progress: skill.progress
+    });
+    this.add = false;
+  }
+
+  loadLanguage(language: Language){
+    this.isSkillEdit = false;
+    this.langForm.setValue({
+      id: language.id,
+      name: language.name,
+      oral: language.oral,
+      written: language.written
+    });
+    this.add = false;
   }
 
   submitForm(isSkill:boolean){

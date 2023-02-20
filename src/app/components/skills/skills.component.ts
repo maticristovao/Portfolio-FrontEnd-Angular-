@@ -8,20 +8,20 @@ import { AddSkillComponent } from './add-skill/add-skill.component';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css']
 })
-export class SkillsComponent implements OnInit{
-  skills:any;
-  languages:any;
-  windowWidth:number = window.innerWidth;
-  editMode:boolean = false;
+export class SkillsComponent implements OnInit {
+  skills: Skill[] = [];
+  languages: Language[] = [];
+  windowWidth: number = window.innerWidth;
+  editMode: boolean = false;
 
-  @ViewChild(AddSkillComponent) editModal!:AddSkillComponent;
+  @ViewChild(AddSkillComponent) editModal!: AddSkillComponent;
 
   @HostListener('window:resize')
   onResize() {
     this.windowWidth = window.innerWidth;
   }
 
-  constructor(private personalData:PersonalInfoService){}
+  constructor(private personalData: PersonalInfoService) { }
 
   ngOnInit(): void {
     this.personalData.getData('skills').subscribe(data => {
@@ -32,7 +32,7 @@ export class SkillsComponent implements OnInit{
     });
   }
 
-  toggleModal(){
+  toggleModal() {
     this.editModal.reset();
     this.editModal.open(this.editModal.myModal);
   }
@@ -41,49 +41,77 @@ export class SkillsComponent implements OnInit{
     moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
   }
 
-  isSkill(object:any): object is Skill{
+  isSkill(object: any): object is Skill {
     return 'progress' in object;
   }
 
-  deleteItem(item: Skill | Language){
-    if(this.isSkill(item)){
-      this.personalData.deleteItem(item, 'skills').subscribe(()=>{
+  deleteItem(item: Skill | Language) {
+    if (this.isSkill(item)) {
+      this.personalData.deleteItem(item, 'skills').subscribe(() => {
         this.skills = this.skills.filter((i: { id: number | undefined; }) => i.id !== item.id);
       });
-    } else{
-      this.personalData.deleteItem(item, 'languages').subscribe(()=>{
+    } else {
+      this.personalData.deleteItem(item, 'languages').subscribe(() => {
         this.languages = this.languages.filter((i: { id: number | undefined; }) => i.id !== item.id);
       });
     }
   }
 
-  addItem(item: Skill | Language){
-    if(this.isSkill(item)){
-      this.personalData.addItem(item, 'skills').subscribe((skill)=>{
+  addItem(item: Skill | Language) {
+    if (this.isSkill(item)) {
+      this.personalData.addItem(item, 'skills').subscribe((skill) => {
         this.skills.push(skill);
       });
-    }else{
-      this.personalData.addItem(item, 'languages').subscribe((lang)=>{
+    } else {
+      this.personalData.addItem(item, 'languages').subscribe((lang) => {
         this.languages.push(lang);
       });
     }
   }
+
+  passSkill(skill: Skill) {
+    this.toggleModal();
+    this.editModal.loadSkill(skill);
+  }
+
+  passLanguage(language: Language) {
+    this.toggleModal();
+    this.editModal.loadLanguage(language);
+  }
+
+  save(item: Skill | Language) {
+    if (this.isSkill(item)) {
+      this.personalData.updateItem(item, 'skills').subscribe(() => {
+        this.getAndSwitch(this.skills, item);
+      });
+    } else {
+      this.personalData.updateItem(item, 'languages').subscribe(() => {
+        this.getAndSwitch(this.languages, item);
+      });
+    }
+  }
+
+  getAndSwitch(collection: any, item: Skill | Language) {
+    let edited = collection.find((i: Skill|Language) => i.id === item.id);
+    let position = collection.indexOf(edited!)
+    collection[position] = item;
+  }
 }
 
-export interface Skill{
-  id:number,
-  name:string,
-  progress:number
+export interface Skill {
+  id: number,
+  name: string,
+  progress: number
 }
 
-export interface Language{
-  id:number,
-  name:string,
-  oral:string,
-  written:string
+export interface Language {
+  id: number,
+  name: string,
+  oral: string,
+  written: string
 }
 
-export enum Levels{
+export enum Levels {
   Basic,
   Medium,
   Advanced,
