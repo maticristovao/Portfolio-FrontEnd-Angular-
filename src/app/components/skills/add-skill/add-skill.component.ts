@@ -12,15 +12,19 @@ export class AddSkillComponent extends AddItemComponent implements OnInit{
   faSkill = faScrewdriverWrench;
   faLanguage = faLanguage;
   levels = ['Básico', 'Intermedio', 'Avanzado', 'Bilingüe'];
+
+  skillForm: FormGroup = this.formBuilder.group({
+    id:undefined,
+    name: ['', [Validators.required, Validators.maxLength(15)]],
+    progress: [0, [Validators.required]]
+  });
   langForm: FormGroup = this.formBuilder.group({
+    id:undefined,
     name: ['', [Validators.required]],
     oral: ['', [Validators.required]],
     written: ['', [Validators.required]]
   })
-  skillForm: FormGroup = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.maxLength(15)]],
-    progress: [0, [Validators.required]]
-  });
+  
 
   formatLabel(value: number): string {
     return `${value}%`;

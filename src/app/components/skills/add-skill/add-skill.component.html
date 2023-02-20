@@ -1,9 +1,16 @@
 <ng-template #content let-modal class="fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editFormTitle"
     aria-hidden="true">
     <div class="modal-body container-fluid">
-        <button aria-hidden="true" type="button" class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
-            <fa-icon [icon]="faExit"></fa-icon>
-        </button>
+        <div class="row">
+            <div class="col-10">
+                <p class="body-head ms-0 ms-sm-3">Agregar...</p>
+            </div>
+            <div class="col-2">
+                <button aria-hidden="true" type="button" class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
+                    <fa-icon [icon]="faExit"></fa-icon>
+                </button>
+            </div>
+        </div>
         <mat-tab-group animationDuration="800ms" dynamicHeight="true" (selectedTabChange)="reset()">
             <mat-tab label="Habilidades">
                 <form class="container px-0" [formGroup]="skillForm" autocomplete="off" (ngSubmit)="submitForm(true)">

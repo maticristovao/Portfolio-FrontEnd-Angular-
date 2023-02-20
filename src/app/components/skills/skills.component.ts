@@ -45,6 +45,18 @@ export class SkillsComponent implements OnInit{
     return 'progress' in object;
   }
 
+  deleteItem(item: Skill | Language){
+    if(this.isSkill(item)){
+      this.personalData.deleteItem(item, 'skills').subscribe(()=>{
+        this.skills = this.skills.filter((i: { id: number | undefined; }) => i.id !== item.id);
+      });
+    } else{
+      this.personalData.deleteItem(item, 'languages').subscribe(()=>{
+        this.languages = this.languages.filter((i: { id: number | undefined; }) => i.id !== item.id);
+      });
+    }
+  }
+
   addItem(item: Skill | Language){
     if(this.isSkill(item)){
       this.personalData.addItem(item, 'skills').subscribe((skill)=>{

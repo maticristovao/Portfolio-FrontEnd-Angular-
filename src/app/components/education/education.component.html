@@ -21,7 +21,7 @@
                     <img [src]="card.institution!.logo" alt="{{card.institution!.name}} logo" class="mt-1 mt-lg-3 mt-xl-5">
                 </div>
             </div>
-            <app-edit-item class="edit-item" [editMode]="editMode" [white]="true" (deleteItem)="deleteItem(card)" (updateItem)="passData(card)"></app-edit-item>
+            <app-edit-item class="edit-item" [editMode]="editMode" (deleteItem)="deleteItem(card)" (updateItem)="passData(card)"></app-edit-item>
         </div>
     </div>
 </section>

@@ -7,7 +7,7 @@ import { faEraser, faPencil } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./edit-item.component.css']
 })
 export class EditItemComponent {
-  @Input() white:boolean = false;
+  @Input() white:boolean = true;
   @Input() horizontal:boolean = false;
   @Input() editMode:boolean = false;
 

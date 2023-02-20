@@ -248,15 +248,15 @@
   "languages": [
     {
       "id": 1,
-      "name": "english",
-      "oral": "advanced",
-      "written": "advanced"
+      "name": "Inglés",
+      "oral": "Avanzado",
+      "written": "Avanzado"
     },
     {
       "id": 2,
-      "name": "french",
-      "oral": "basic",
-      "written": "medium"
+      "name": "Francés",
+      "oral": "Intermedio",
+      "written": "Intermedio"
     }
   ],
   "experience": [
