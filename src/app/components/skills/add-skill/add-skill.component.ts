@@ -17,7 +17,7 @@ export class AddSkillComponent extends AddItemComponent implements OnInit{
 
   skillForm: FormGroup = this.formBuilder.group({
     id:undefined,
-    name: ['', [Validators.required, Validators.maxLength(15)]],
+    name: ['', [Validators.required, Validators.maxLength(30)]],
     progress: [0, [Validators.required]]
   });
   langForm: FormGroup = this.formBuilder.group({

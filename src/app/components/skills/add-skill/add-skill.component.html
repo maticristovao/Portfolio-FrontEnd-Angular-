@@ -22,7 +22,7 @@
                             <button *ngIf="SkillName?.value" class="close clear me-3" matSuffix aria-label="Clear" (click)="SkillName?.setValue('')">
                                 <fa-icon [icon]="faExit"></fa-icon>
                             </button>
-                            <mat-error *ngIf="SkillName?.hasError('maxlength')">El nombre de la habilidad no puede exceder los 15 caracteres</mat-error>
+                            <mat-error *ngIf="SkillName?.hasError('maxlength')">El nombre de la habilidad no puede exceder los 30 caracteres</mat-error>
                         </mat-form-field>
                     </div>
                     <div class="row justify-content-center mt-4 px-3">
@@ -78,7 +78,7 @@
                     <button *ngIf="SkillName?.value" class="close clear me-3" matSuffix aria-label="Clear" (click)="SkillName?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
-                    <mat-error *ngIf="SkillName?.hasError('maxlength')">El nombre de la habilidad no puede exceder los 15 caracteres</mat-error>
+                    <mat-error *ngIf="SkillName?.hasError('maxlength')">El nombre de la habilidad no puede exceder los 30 caracteres</mat-error>
                 </mat-form-field>
             </div>
             <div class="row justify-content-center mt-4 px-3">
