@@ -40,4 +40,40 @@ export class SkillsComponent implements OnInit{
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
   }
+
+  isSkill(object:any): object is Skill{
+    return 'progress' in object;
+  }
+
+  addItem(item: Skill | Language){
+    if(this.isSkill(item)){
+      this.personalData.addItem(item, 'skills').subscribe((skill)=>{
+        this.skills.push(skill);
+      });
+    }else{
+      this.personalData.addItem(item, 'languages').subscribe((lang)=>{
+        this.languages.push(lang);
+      });
+    }
+  }
+}
+
+export interface Skill{
+  id:number,
+  name:string,
+  progress:number
+}
+
+export interface Language{
+  id:number,
+  name:string,
+  oral:string,
+  written:string
+}
+
+export enum Levels{
+  Basic,
+  Medium,
+  Advanced,
+  Native
 }

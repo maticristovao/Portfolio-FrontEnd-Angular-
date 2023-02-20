@@ -26,7 +26,6 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Institución</mat-label>
                         <mat-select formControlName="institutionId" id="institutionId" placeholder="Seleccione una institución...">
-                            <mat-option>--</mat-option>
                             <mat-option *ngFor="let item of institutions" [value]="item.id">
                               {{item.name}}
                             </mat-option>
@@ -37,7 +36,6 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Área</mat-label>
                         <mat-select formControlName="areaId" id="areaId" placeholder="Seleccione un campo de estudio...">
-                            <mat-option>--</mat-option>
                             <mat-option *ngFor="let item of areas" [value]="item.id">
                               {{item.name}}
                             </mat-option>
@@ -72,7 +70,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center mb-4 pt-5">
-                    <input class="btn btn-lg btn-block col-7 cl-sm-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
+                    <input class="btn btn-lg btn-block col-7 cl-sm-5 submit" type="submit" value="Guardar" NgbAutofocus/>
                 </div>
             </form>
         </div>

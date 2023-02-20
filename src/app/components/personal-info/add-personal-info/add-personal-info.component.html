@@ -34,7 +34,7 @@
             <div class="row mt-4 px-3">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Título/s</mat-label>
-                    <mat-chip-grid #chipGrid aria-label="Enter titles" formControlName="title" id="title" name="title" [errorStateMatcher]="matcher">
+                    <mat-chip-grid #chipGrid aria-label="Enter titles" formControlName="title" id="title" name="title">
                       <mat-chip-row *ngFor="let title of titles"
                                     (removed)="remove(title)"
                                     [editable]="true"
@@ -76,7 +76,7 @@
                 </mat-form-field>
             </div>
             <div class="row justify-content-center mb-4 pt-4">
-                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
+                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus/>
             </div>
         </form>
     </div>

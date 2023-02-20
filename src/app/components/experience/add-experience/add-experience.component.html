@@ -29,7 +29,7 @@
                     <button *ngIf="Position?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="Position?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
-                    <mat-error *ngIf="Position?.hasError('minlength') && Position?.touched">La posición debe tener al menos 5 caracteres</mat-error>
+                    <mat-error *ngIf="Position?.hasError('minlength') && Position?.touched">La posición debe tener al menos 3 caracteres</mat-error>
                     <mat-error *ngIf="Position?.hasError('maxlength')">La posición debe tener menos de 25 caracteres</mat-error>
                 </mat-form-field>
             </div>
@@ -37,7 +37,6 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Tipo de empleo</mat-label>
                     <mat-select formControlName="employTypeId" name="employTypeId" id="employTypeId" placeholder="Seleccione un tipo de empleo...">
-                        <mat-option>--</mat-option>
                         <mat-option *ngFor="let item of types" [value]="item.id">
                           {{item.name}}
                         </mat-option>
@@ -49,7 +48,7 @@
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>Fecha de inicio</mat-label>
                         <input matInput [matDatepicker]="startPicker" id="startDate" name="startDate" formControlName="startDate" [max]="today"/>
-                        <mat-hint>MM/YYYY</mat-hint>
+                        <mat-hint>MM/AAAA</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
                         <mat-datepicker #startPicker
                         startView="multi-year"
@@ -64,7 +63,7 @@
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>Fecha de fin</mat-label>
                         <input matInput [matDatepicker]="endPicker" id="endDate" name="endDate" formControlName="endDate"/>
-                        <mat-hint>MM/YYYY</mat-hint>
+                        <mat-hint>MM/AAAA</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
                         <mat-datepicker #endPicker
                         startView="multi-year"
@@ -85,7 +84,7 @@
                 </mat-form-field>
             </div>
             <div class="row justify-content-center mb-4 pt-4">
-                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" [class.btn-outline-secondary]="!form.valid" NgbAutofocus/>
+                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus/>
             </div>
         </form>
     </div>

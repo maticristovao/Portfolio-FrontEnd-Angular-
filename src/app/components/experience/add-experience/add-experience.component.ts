@@ -81,11 +81,11 @@ export class AddExperienceComponent extends AddItemComponent{
       {
         id:undefined,
         company:['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-        position:['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
+        position:['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
         employTypeId:['', [Validators.required]],
         startDate:['', [Validators.required]],
         endDate:[{value:'', disabled:false}, []],
-        current:[false, [Validators.requiredTrue]],
+        current:[false, []],
         description:['', []]
       },
       {

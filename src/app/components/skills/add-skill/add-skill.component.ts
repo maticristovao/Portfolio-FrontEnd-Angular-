@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { faLanguage, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 import { AddItemComponent } from '../../add-item/add-item.component';
 
@@ -11,19 +11,53 @@ import { AddItemComponent } from '../../add-item/add-item.component';
 export class AddSkillComponent extends AddItemComponent implements OnInit{
   faSkill = faScrewdriverWrench;
   faLanguage = faLanguage;
+  levels = ['Básico', 'Intermedio', 'Avanzado', 'Bilingüe'];
+  langForm: FormGroup = this.formBuilder.group({
+    name: ['', [Validators.required]],
+    oral: ['', [Validators.required]],
+    written: ['', [Validators.required]]
+  })
+  skillForm: FormGroup = this.formBuilder.group({
+    name: ['', [Validators.required, Validators.maxLength(15)]],
+    progress: [0, [Validators.required]]
+  });
 
-  formatLabel(value: number):string {
+  formatLabel(value: number): string {
     return `${value}%`;
   }
 
-  get Progress(){
-    return this.form.get('progress');
+  get SkillName() {
+    return this.skillForm.get('name');
+  }
+  get Progress() {
+    return this.skillForm.get('progress');
+  }
+  get LangName() {
+    return this.langForm.get('name');
+  }
+  get Oral() {
+    return this.langForm.get('oral');
+  }
+  get Written() {
+    return this.langForm.get('written');
+  }
+
+  override reset(): void {
+    this.langForm.reset(this.initialValue);
+    this.skillForm.reset(this.initialValue);
+    this.add = true;
+  }
+
+  submitForm(isSkill:boolean){
+    if(isSkill){
+      this.form = this.skillForm;
+    }else{
+      this.form = this.langForm;
+    }
+    this.onSubmit();
   }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      name:['', [Validators.required, Validators.maxLength(15)]],
-      progress:[0, [Validators.required]]
-    });
+    this.form = this.langForm || this.skillForm;
   }
 }

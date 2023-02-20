@@ -215,7 +215,8 @@ mat-panel-title{
     border-top-color: rgba(0, 0, 0, 0.692) !important;
 }
 
-mat-label{
-    font-size: 16.65px;
+#progress-label{
+    padding-left: 18px;
+    font-size: 15px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }

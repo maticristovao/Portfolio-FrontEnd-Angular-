@@ -210,41 +210,50 @@
   ],
   "skills": [
     {
+      "id": 1,
       "name": "html",
       "progress": "90"
     },
     {
+      "id": 2,
       "name": "css",
       "progress": "80"
     },
     {
+      "id": 3,
       "name": "javascript / typescript",
       "progress": "65"
     },
     {
+      "id": 4,
       "name": "angular",
       "progress": "70"
     },
     {
+      "id": 5,
       "name": "mysql",
       "progress": "85"
     },
     {
+      "id": 6,
       "name": "bootstrap",
       "progress": "95"
     },
     {
+      "id": 7,
       "name": "git / github",
       "progress": "80"
     }
   ],
   "languages": [
     {
+      "id": 1,
       "name": "english",
       "oral": "advanced",
       "written": "advanced"
     },
     {
+      "id": 2,
       "name": "french",
       "oral": "basic",
       "written": "medium"
@@ -265,8 +274,8 @@
       "company": "JP Morgan",
       "position": "CEO",
       "employTypeId": 1,
-      "startDate": "2023-02-01",
-      "endDate": "2023-02-23",
+      "startDate": "2022-02-01T03:00:00.000Z",
+      "endDate": "2022-02-01T03:00:00.000Z",
       "current": false,
       "description": ""
     }
