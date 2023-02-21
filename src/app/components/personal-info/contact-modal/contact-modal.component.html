@@ -1,45 +1,46 @@
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalTitle" aria-hidden="true">
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered d-flex justify-content-center" role="document">
-      <div class="modal-content">
-        <div class="modal-header pb-4">
-            <h5 class="modal-title" id="contactModalTitle">{{name}}</h5>
-            <span aria-hidden="true" type="button" class="close me-0 me-sm-2 d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0">
-                <fa-icon [icon]="faExit"></fa-icon>
-            </span>
+        <div class="modal-content">
+            <div class="modal-header pb-4">
+                <h5 class="modal-title" id="contactModalTitle">{{name}}</h5>
+                <span aria-hidden="true" type="button"
+                    class="close me-0 me-sm-2 d-flex justify-content-center align-items-center" data-dismiss="modal"
+                    aria-label="Close" tabindex="0">
+                    <fa-icon [icon]="faExit"></fa-icon>
+                </span>
+            </div>
+            <div class="modal-body container-fluid">
+                <div class="row">
+                    <p class="body-head ms-0 ms-sm-3">Contact Info</p>
+                </div>
+                <div class="row mt-4" *ngIf="mail">
+                    <div class="col-2 d-flex justify-content-center">
+                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                    </div>
+                    <div class="col-10">
+                        <p class="label">Email</p>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-10 data">
+                        <p><a href="mailto:{{mail.adress}}">{{mail.adress}}</a></p>
+                    </div>
+                </div>
+                <div class="row mt-5" *ngIf="phone">
+                    <div class="col-2 d-flex justify-content-center">
+                        <fa-icon [icon]="phone.type.toLowerCase().trim() === 'mobile'? faMobile : faPhone"></fa-icon>
+                    </div>
+                    <div class="col-10">
+                        <p class="label">Teléfono</p>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-10 data">
+                        <p>{{phone.number}} <span>({{phone.type.trim()}})</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body container-fluid">
-            <div class="row">
-                <p class="body-head ms-0 ms-sm-3">Contact Info</p>
-            </div>
-            <div class="row mt-4" *ngIf="mail">
-                <div class="col-2 d-flex justify-content-center">
-                    <fa-icon [icon]="faEnvelope"></fa-icon>
-                </div>
-                <div class="col-10">
-                    <p class="label">Email</p>
-                </div>
-            </div>
-            <div class="row justify-content-end">
-                <div class="col-10 data">
-                    <p><a href="mailto:{{mail.adress}}">{{mail.adress}}</a></p>
-                </div>
-            </div>
-
-
-            <div class="row mt-5" *ngIf="phone">
-                <div class="col-2 d-flex justify-content-center">
-                    <fa-icon [icon]="phone.type.toLowerCase().trim() === 'mobile'? faMobile : faPhone"></fa-icon>
-                </div>
-                <div class="col-10">
-                    <p class="label">Teléfono</p>
-                </div>
-            </div>
-            <div class="row justify-content-end">
-                <div class="col-10 data">
-                    <p>{{phone.number}} <span>({{phone.type.trim()}})</span></p>
-                </div>
-            </div>
-        </div>
-      </div>
     </div>
 </div>

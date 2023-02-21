@@ -1,4 +1,4 @@
-.item{
+.item {
     height: 700px;
     position: relative;
     border-radius: 5px;
@@ -11,15 +11,15 @@
     transition: opacity 1s ease-in-out, transform .7s ease-in-out;
 }
 
-.item.visible{
+.item.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.item::after{
+.item::after {
     content: '';
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -33,14 +33,15 @@
     display: block;
 }
 
-.item::before{
-    content:'';
-    position:absolute;
-    top:0;
+.item::before {
+    content: '';
+    position: absolute;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(15,20,30,.9);;
+    background-color: rgba(15, 20, 30, .9);
+    ;
     border-radius: inherit;
     opacity: 0;
     display: block;
@@ -48,30 +49,30 @@
     transition: opacity .4s ease-in-out;
 }
 
-.item:hover::before{
+.item:hover::before {
     opacity: 1;
 }
 
-.title{
-    color:var(--primary-color);
+.title {
+    color: var(--primary-color);
     filter: grayscale(0);
     font-weight: bold;
     text-transform: capitalize;
 }
 
-.description{
-    color:var(--oposite-color);
-    opacity:0;
+.description {
+    color: var(--oposite-color);
+    opacity: 0;
     transform: translateY(40px);
     transition: opacity .4s ease-in-out, transform .4s ease-in-out;
 }
 
-.item:hover .description{
-    opacity:1;
+.item:hover .description {
+    opacity: 1;
     transform: translateY(0);
 }
 
-.resources{
+.resources {
     color: var(--tertiary-color);
     width: 70px;
     height: 70px;
@@ -85,27 +86,27 @@
     border: 4px solid var(--tertiary-color);
 }
 
-.item:hover .resources{
+.item:hover .resources {
     opacity: 1;
     transform: translateY(0);
 }
 
-.resources:hover{
+.resources:hover {
     background-color: rgba(245, 245, 245, 0.683);
 }
 
-@media screen and (width>=768px){
-    .item.odd{
+@media screen and (width>=768px) {
+    .item.odd {
         transition-delay: .4s;
     }
 }
 
 @media screen and (width<413px) {
-    .description{
+    .description {
         display: none;
     }
 
-    .item{
+    .item {
         height: 450px;
         grid-template-rows: auto auto;
     }

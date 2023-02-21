@@ -1,77 +1,85 @@
-<ng-template #content let-modal class="fade p-4" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editFormTitle" aria-hidden="true">
-        <div class="modal-body container-fluid">
-            <div class="row">
-                <div class="col-9">
-                    <p class="body-head ms-0 ms-sm-3">{{add?'Agregar':'Editar'}} estudio</p>
-                </div>
-                <div class="col-3">
-                    <button aria-hidden="true" type="button" class="close me-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
+<ng-template #content let-modal class="fade p-4" id="editForm" tabindex="-1" role="dialog"
+    aria-labelledby="editFormTitle" aria-hidden="true">
+    <div class="modal-body container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <p class="body-head ms-0 ms-sm-3">{{add?'Agregar':'Editar'}} estudio</p>
+            </div>
+            <div class="col-3">
+                <button aria-hidden="true" type="button"
+                    class="close me-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal"
+                    aria-label="Close" tabindex="0" (click)="close()">
+                    <fa-icon [icon]="faExit"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+            <div class="row mt-4 px-0 px-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Título</mat-label>
+                    <input matInput id="title" name="title" formControlName="title" [errorStateMatcher]="matcher">
+                    <button *ngIf="Title?.value" class="close clear me-3" matSuffix aria-label="Clear"
+                        (click)="Title?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
-                </div>
+                    <mat-error *ngIf="Title?.hasError('minlength') && Title?.touched">El título debe tener al menos 6
+                        caracteres</mat-error>
+                    <mat-error *ngIf="Title?.hasError('maxlength')">El título debe tener menos de 35
+                        caracteres</mat-error>
+                </mat-form-field>
             </div>
-            <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
-                <div class="row mt-4 px-0 px-md-3">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Título</mat-label>
-                        <input matInput id="title" name="title" formControlName="title" [errorStateMatcher]="matcher">
-                        <button *ngIf="Title?.value" class="close clear me-3" matSuffix aria-label="Clear" (click)="Title?.setValue('')">
-                            <fa-icon [icon]="faExit"></fa-icon>
-                        </button>
-                        <mat-error *ngIf="Title?.hasError('minlength') && Title?.touched">El título debe tener al menos 6 caracteres</mat-error>
-                        <mat-error *ngIf="Title?.hasError('maxlength')">El título debe tener menos de 35 caracteres</mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="row mt-4 px-0 px-md-3">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Institución</mat-label>
-                        <mat-select formControlName="institutionId" id="institutionId" placeholder="Seleccione una institución...">
-                            <mat-option *ngFor="let item of institutions" [value]="item.id">
-                              {{item.name}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-                <div class="row mt-4 px-0 px-md-3">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Área</mat-label>
-                        <mat-select formControlName="areaId" id="areaId" placeholder="Seleccione un campo de estudio...">
-                            <mat-option *ngFor="let item of areas" [value]="item.id">
-                              {{item.name}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-                <div class="row justify-content-center mt-4 px-0 px-md-3">
-                    <div class="col-12 col-md-6 text-center">
-                        <mat-form-field appearance="outline" class="px-0 w-100">
-                            <mat-label>Fecha de inicio</mat-label>
-                            <input matInput [matDatepicker]="startPicker" id="startDate" name="startDate" formControlName="startDate" [max]="today"/>
-                            <mat-hint>MM/YYYY</mat-hint>
-                            <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
-                            <mat-datepicker #startPicker
-                            startView="multi-year"
+            <div class="row mt-4 px-0 px-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Institución</mat-label>
+                    <mat-select formControlName="institutionId" id="institutionId"
+                        placeholder="Seleccione una institución...">
+                        <mat-option *ngFor="let item of institutions" [value]="item.id">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row mt-4 px-0 px-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Área</mat-label>
+                    <mat-select formControlName="areaId" id="areaId" placeholder="Seleccione un campo de estudio...">
+                        <mat-option *ngFor="let item of areas" [value]="item.id">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row justify-content-center mt-4 px-0 px-md-3">
+                <div class="col-12 col-md-6 text-center">
+                    <mat-form-field appearance="outline" class="px-0 w-100">
+                        <mat-label>Fecha de inicio</mat-label>
+                        <input matInput [matDatepicker]="startPicker" id="startDate" name="startDate"
+                            formControlName="startDate" [max]="today" />
+                        <mat-hint>MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #startPicker startView="multi-year"
                             (monthSelected)="setMonthAndYear($event, StartDate!, startPicker)"
                             panelClass="datepicker"></mat-datepicker>
-                        </mat-form-field>
-                    </div>
-                    <div class="col-12 col-md-6 text-center">
-                        <mat-form-field appearance="outline" class="px-0 w-100">
-                            <mat-label>Fecha de fin (o esperada)</mat-label>
-                            <input matInput [matDatepicker]="endPicker" id="endDate" name="endDate" formControlName="endDate"/>
-                            <mat-hint>MM/YYYY</mat-hint>
-                            <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
-                            <mat-datepicker #endPicker
-                            startView="multi-year"
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <mat-form-field appearance="outline" class="px-0 w-100">
+                        <mat-label>Fecha de fin (o esperada)</mat-label>
+                        <input matInput [matDatepicker]="endPicker" id="endDate" name="endDate"
+                            formControlName="endDate" />
+                        <mat-hint>MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #endPicker startView="multi-year"
                             (monthSelected)="setMonthAndYear($event, EndDate!, endPicker)"
                             panelClass="datepicker"></mat-datepicker>
-                            <mat-error *ngIf="EndDate?.hasError('endafter')">La fecha de fin no puede ser menor a la de inicio</mat-error>
-                        </mat-form-field>
-                    </div>
+                        <mat-error *ngIf="EndDate?.hasError('endafter')">La fecha de fin no puede ser menor a la de
+                            inicio</mat-error>
+                    </mat-form-field>
                 </div>
-                <div class="row justify-content-center mb-4 pt-5">
-                    <input class="btn btn-lg btn-block col-7 cl-sm-5 submit" type="submit" value="Guardar" NgbAutofocus/>
-                </div>
-            </form>
-        </div>
+            </div>
+            <div class="row justify-content-center mb-4 pt-5">
+                <input class="btn btn-lg btn-block col-7 cl-sm-5 submit" type="submit" value="Guardar" NgbAutofocus />
+            </div>
+        </form>
+    </div>
 </ng-template>

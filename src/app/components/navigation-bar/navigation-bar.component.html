@@ -1,54 +1,50 @@
 <nav #asNav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-0" [class.change]="change" id="nav">
-    <fa-icon class ="mx-0 mx-sm-2" [icon]="faTerminal"></fa-icon>
+    <fa-icon class="mx-0 mx-sm-2" [icon]="faTerminal"></fa-icon>
     <a class="navbar-brand mx-0 mx-lg-3 my-0 py-0" href="#"> #YoProgramo</a>
-    <button #asNavToggler class="navbar-toggler me-0 px-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="blur()">
-            <svg fill="var(--button-color)" class="hamburger" viewBox="0 0 100 100" width="30">
-                <rect class="line top" 
-                    width="80" height="10"
-                    x='10'
-                    y="25"
-                    rx="5">
-                </rect>
-
-                <rect class="line middle" 
-                    width="80" height="10"
-                    x='10'
-                    y="45"
-                    rx="5">
-                </rect>
-
-                <rect class="line bottom" 
-                    width="80" height="10"
-                    x='10'
-                    y="65"
-                    rx="5">
-                </rect>
-            </svg>
+    <button #asNavToggler class="navbar-toggler me-0 px-1" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation" onclick="blur()">
+        <svg fill="var(--button-color)" class="hamburger" viewBox="0 0 100 100" width="30">
+            <rect class="line top" width="80" height="10" x='10' y="25" rx="5">
+            </rect>
+            <rect class="line middle" width="80" height="10" x='10' y="45" rx="5">
+            </rect>
+            <rect class="line bottom" width="80" height="10" x='10' y="65" rx="5">
+            </rect>
+        </svg>
     </button>
-  
+
     <div #asNavMenu class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mt-4 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#header" (click)="collapseNav()"><fa-icon [icon]="faHome" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Inicio</span></a>
+                <a class="nav-link" href="#header" (click)="collapseNav()"><fa-icon [icon]="faHome"
+                        class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Inicio</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#about" (click)="collapseNav()"><fa-icon [icon]="faUser" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Acerca de mi</span></a>
+                <a class="nav-link" href="#about" (click)="collapseNav()"><fa-icon [icon]="faUser"
+                        class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Acerca de mi</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#education" (click)="collapseNav()"><fa-icon [icon]="faEducation" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Estudios</span></a>
+                <a class="nav-link" href="#education" (click)="collapseNav()"><fa-icon [icon]="faEducation"
+                        class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Estudios</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#experience" (click)="collapseNav()"><fa-icon [icon]="faWork" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Experiencia</span></a>
+                <a class="nav-link" href="#experience" (click)="collapseNav()"><fa-icon [icon]="faWork"
+                        class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Experiencia</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#skills" (click)="collapseNav()"><fa-icon [icon]="faSkills" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Habilidades</span></a>
+                <a class="nav-link" href="#skills" (click)="collapseNav()"><fa-icon [icon]="faSkills"
+                        class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Habilidades</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#projects" (click)="collapseNav()"><fa-icon [icon]="faProjects" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Proyectos</span></a>
+                <a class="nav-link" href="#projects" (click)="collapseNav()"><fa-icon [icon]="faProjects"
+                        class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Proyectos</span></a>
             </li>
             <li class="nav-item">
-                <a #asMediaCollapse class="nav-link dropdown-toggle" href="#media-menu" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="media-menu" data-bs-toggle="true">
-                    <fa-icon [icon]="faGlobe" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Mis redes</span>
+                <a #asMediaCollapse class="nav-link dropdown-toggle" href="#media-menu" role="button"
+                    data-toggle="collapse" aria-expanded="false" aria-controls="media-menu" data-bs-toggle="true">
+                    <fa-icon [icon]="faGlobe" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Mis
+                        redes</span>
                 </a>
                 <div #asMediaMenu class="collapse container" id="media-menu">
                     <div class="card-icon mt-lg-3 mb-lg-1 mx-1" *ngFor="let item of personalMedia">
@@ -61,5 +57,4 @@
         </ul>
         <button class="btn btn-outline-success my-3 my-sm-2 mx-3 px-4 py-1" id="login-btn" routerLink="/login">Log in</button>
     </div>
-    
 </nav>

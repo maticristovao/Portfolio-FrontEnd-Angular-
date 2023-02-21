@@ -8,29 +8,29 @@ import { Project } from '../projects.component';
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.css']
 })
-export class AddProjectComponent extends AddItemComponent implements OnInit{
+export class AddProjectComponent extends AddItemComponent implements OnInit {
   reg = "(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?";
 
-  get Title(){
+  get Title() {
     return this.form.get('title');
   }
-  get Repo(){
+  get Repo() {
     return this.form.get('repo');
   }
-  get Link(){
+  get Link() {
     return this.form.get('link');
   }
-  get Collection(){
+  get Collection() {
     return this.form.get('collection');
   }
-  get Image(){
+  get Image() {
     return this.form.get('image');
   }
-  get Description(){
+  get Description() {
     return this.form.get('description');
   }
 
-  loadEditData(item: Project){
+  loadEditData(item: Project) {
     this.form.setValue({
       id: item.id,
       title: item.title,
@@ -45,8 +45,8 @@ export class AddProjectComponent extends AddItemComponent implements OnInit{
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      id:undefined,
-      title:['', [Validators.required, Validators.minLength(5), Validators.maxLength(35)]],
+      id: undefined,
+      title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(35)]],
       repo: ['', [Validators.required, Validators.pattern(this.reg)]],
       link: ['', [Validators.pattern(this.reg)]],
       collection: ['', [Validators.pattern(this.reg)]],

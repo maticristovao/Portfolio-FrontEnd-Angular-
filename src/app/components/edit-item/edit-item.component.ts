@@ -7,9 +7,9 @@ import { faEraser, faPencil } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./edit-item.component.css']
 })
 export class EditItemComponent {
-  @Input() white:boolean = true;
-  @Input() horizontal:boolean = false;
-  @Input() editMode:boolean = false;
+  @Input() white: boolean = true;
+  @Input() horizontal: boolean = false;
+  @Input() editMode: boolean = false;
 
   @Output() deleteItem = new EventEmitter();
   @Output() updateItem = new EventEmitter();
@@ -17,11 +17,11 @@ export class EditItemComponent {
   faPencil = faPencil;
   faDelete = faEraser;
 
-  delete(){
+  delete() {
     this.deleteItem.emit();
   }
 
-  update(){
+  update() {
     this.updateItem.emit();
   }
 }

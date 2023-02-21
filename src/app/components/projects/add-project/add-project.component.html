@@ -1,11 +1,14 @@
-<ng-template #content let-modal class="fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editFormTitle" aria-hidden="true">
+<ng-template #content let-modal class="fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editFormTitle"
+    aria-hidden="true">
     <div class="modal-body container-fluid">
         <div class="row">
             <div class="col-10">
                 <p class="body-head ms-0 ms-sm-3">{{add?'Agregar':'Editar'}} proyecto</p>
             </div>
             <div class="col-2">
-                <button aria-hidden="true" type="button" class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
+                <button aria-hidden="true" type="button"
+                    class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center"
+                    data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
                     <fa-icon [icon]="faExit"></fa-icon>
                 </button>
             </div>
@@ -14,19 +17,23 @@
             <div class="row mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Título</mat-label>
-                    <input matInput  id="title" name="title" formControlName="title" [errorStateMatcher]="matcher">
-                    <button *ngIf="Title?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="Title?.setValue('')">
+                    <input matInput id="title" name="title" formControlName="title" [errorStateMatcher]="matcher">
+                    <button *ngIf="Title?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                        (click)="Title?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
-                    <mat-error *ngIf="Title?.hasError('minlength') && Title?.touched">El título del proyecto debe al menos 5 caracteres</mat-error>
-                    <mat-error *ngIf="Title?.hasError('maxlength')">El título del proyecto debe tener menos de 35 caracteres</mat-error>
+                    <mat-error *ngIf="Title?.hasError('minlength') && Title?.touched">El título del proyecto debe al
+                        menos 5 caracteres</mat-error>
+                    <mat-error *ngIf="Title?.hasError('maxlength')">El título del proyecto debe tener menos de 35
+                        caracteres</mat-error>
                 </mat-form-field>
             </div>
             <div class="row mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Repositorio</mat-label>
-                    <input matInput  id="repo" name="repo" formControlName="repo">
-                    <button *ngIf="Repo?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="Repo?.setValue('')">
+                    <input matInput id="repo" name="repo" formControlName="repo">
+                    <button *ngIf="Repo?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                        (click)="Repo?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
                     <mat-error *ngIf="Repo?.hasError('pattern')">Ingrese una dirección válida</mat-error>
@@ -35,8 +42,9 @@
             <div class="row mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Link</mat-label>
-                    <input matInput  id="link" name="link" formControlName="link">
-                    <button *ngIf="Link?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="Link?.setValue('')">
+                    <input matInput id="link" name="link" formControlName="link">
+                    <button *ngIf="Link?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                        (click)="Link?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
                     <mat-error *ngIf="Link?.hasError('pattern')">Ingrese una dirección válida</mat-error>
@@ -46,7 +54,8 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Colección de CodePen</mat-label>
                     <input matInput id="collection" name="collection" formControlName="collection">
-                    <button *ngIf="Collection?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="Collection?.setValue('')">
+                    <button *ngIf="Collection?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                        (click)="Collection?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
                     <mat-error *ngIf="Collection?.hasError('pattern')">Ingrese una dirección válida</mat-error>
@@ -55,22 +64,26 @@
             <div class="row justify-content-center mt-3 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Imagen</mat-label>
-                    <ngx-mat-file-input formControlName="image" name="image" id="image" accept="image/jpg, image/png, image/jpeg" placeholder="Seleccione una imagen"></ngx-mat-file-input>
+                    <ngx-mat-file-input formControlName="image" name="image" id="image"
+                        accept="image/jpg, image/png, image/jpeg"
+                        placeholder="Seleccione una imagen"></ngx-mat-file-input>
                     <fa-icon matSuffix [icon]="faFolder" class="close clear folder me-2"></fa-icon>
                 </mat-form-field>
             </div>
             <div class="row mt-3 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Descripción</mat-label>
-                    <textarea matInput cdkTextareaAutosize name="description" id="description" formControlName="description" maxlength="250"></textarea>
-                    <button *ngIf="Description?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="Description?.setValue('')">
+                    <textarea matInput cdkTextareaAutosize name="description" id="description"
+                        formControlName="description" maxlength="250"></textarea>
+                    <button *ngIf="Description?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                        (click)="Description?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
                     <mat-hint [align]="'end'">{{Description?.value? Description?.value.length:0}}/250</mat-hint>
                 </mat-form-field>
             </div>
             <div class="row justify-content-center mb-2 pt-3">
-                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus/>
+                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus />
             </div>
         </form>
     </div>

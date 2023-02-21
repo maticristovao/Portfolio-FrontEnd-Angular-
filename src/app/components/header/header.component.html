@@ -1,11 +1,13 @@
 <header id="header">
     <div class="container-fluid name-logo">
-        <div class="logo" elementObserver (visible)="intersecting=true" [wait]="250" [class.fade-in]="intersecting"><div><span>{{name}}</span>{{surname}}</div></div>
+        <div class="logo" elementObserver (visible)="intersecting=true" [wait]="250" [class.fade-in]="intersecting">
+            <div><span>{{name}}</span>{{surname}}</div>
+        </div>
     </div>
     <ngb-carousel id="carousel" #asCarousel (slid)="resetTimer($event)">
         <ng-template class="carousel-item" ngbSlide *ngFor="let image of images">
             <div class="picsum-img-wrapper">
-                <img [src]="image" alt="Random first slide" class="d-block carousel-img"/>
+                <img [src]="image" alt="Random first slide" class="d-block carousel-img" />
             </div>
         </ng-template>
     </ngb-carousel>
@@ -15,7 +17,7 @@
                 <h5 class="photo-title">Mi CV</h5>
                 <button class="btn btn-outline-primary photo-btn mt-1" href="#">
                     <fa-icon [icon]="faDownload"></fa-icon>
-                    <span>Descargar</span> 
+                    <span>Descargar</span>
                 </button>
             </div>
         </div>

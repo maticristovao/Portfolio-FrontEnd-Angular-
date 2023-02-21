@@ -9,24 +9,24 @@ import { Language, Skill } from '../skills.component';
   templateUrl: './add-skill.component.html',
   styleUrls: ['./add-skill.component.css']
 })
-export class AddSkillComponent extends AddItemComponent implements OnInit{
-  isSkillEdit!:boolean;
+export class AddSkillComponent extends AddItemComponent implements OnInit {
+  isSkillEdit!: boolean;
   faSkill = faScrewdriverWrench;
   faLanguage = faLanguage;
   levels = ['Básico', 'Intermedio', 'Avanzado', 'Bilingüe'];
 
   skillForm: FormGroup = this.formBuilder.group({
-    id:undefined,
+    id: undefined,
     name: ['', [Validators.required, Validators.maxLength(30)]],
     progress: [0, [Validators.required]]
   });
   langForm: FormGroup = this.formBuilder.group({
-    id:undefined,
+    id: undefined,
     name: ['', [Validators.required]],
     oral: ['', [Validators.required]],
     written: ['', [Validators.required]]
   })
-  
+
 
   formatLabel(value: number): string {
     return `${value}%`;
@@ -54,7 +54,7 @@ export class AddSkillComponent extends AddItemComponent implements OnInit{
     this.add = true;
   }
 
-  loadSkill(skill: Skill){
+  loadSkill(skill: Skill) {
     this.isSkillEdit = true;
     this.skillForm.setValue({
       id: skill.id,
@@ -64,7 +64,7 @@ export class AddSkillComponent extends AddItemComponent implements OnInit{
     this.add = false;
   }
 
-  loadLanguage(language: Language){
+  loadLanguage(language: Language) {
     this.isSkillEdit = false;
     this.langForm.setValue({
       id: language.id,
@@ -75,10 +75,10 @@ export class AddSkillComponent extends AddItemComponent implements OnInit{
     this.add = false;
   }
 
-  submitForm(isSkill:boolean){
-    if(isSkill){
+  submitForm(isSkill: boolean) {
+    if (isSkill) {
       this.form = this.skillForm;
-    }else{
+    } else {
       this.form = this.langForm;
     }
     this.onSubmit();

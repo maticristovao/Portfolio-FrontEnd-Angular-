@@ -68,12 +68,12 @@ export class SkillsComponent implements OnInit {
       });
     }
   }
-  
-  passData(item: Skill | Language){
+
+  passData(item: Skill | Language) {
     this.toggleModal();
-    if(this.isSkill(item)){
+    if (this.isSkill(item)) {
       this.editModal.loadSkill(item);
-    }else{
+    } else {
       this.editModal.loadLanguage(item);
     }
   }
@@ -91,7 +91,7 @@ export class SkillsComponent implements OnInit {
   }
 
   getAndSwitch(collection: any, item: Skill | Language) {
-    let edited = collection.find((i: Skill|Language) => i.id === item.id);
+    let edited = collection.find((i: Skill | Language) => i.id === item.id);
     let position = collection.indexOf(edited!)
     collection[position] = item;
   }

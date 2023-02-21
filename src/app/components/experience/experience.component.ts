@@ -7,63 +7,63 @@ import { AddExperienceComponent } from './add-experience/add-experience.componen
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.css']
 })
-export class ExperienceComponent implements OnInit{
-  personalExperience:any;
-  intersecting:boolean = false;
-  windowWidth:number = window.innerWidth;
-  editMode:boolean = false;
-  field:string = 'experience';
-  employTypes:EmployType[] = [];
+export class ExperienceComponent implements OnInit {
+  personalExperience: any;
+  intersecting: boolean = false;
+  windowWidth: number = window.innerWidth;
+  editMode: boolean = false;
+  field: string = 'experience';
+  employTypes: EmployType[] = [];
 
-  @ViewChild(AddExperienceComponent) editModal!:AddExperienceComponent;
-  
+  @ViewChild(AddExperienceComponent) editModal!: AddExperienceComponent;
+
   @HostListener('window:resize')
   onResize() {
     this.windowWidth = window.innerWidth;
   }
 
-  constructor(private personalData:PersonalInfoService){}
+  constructor(private personalData: PersonalInfoService) { }
 
-  addItem(item:Experience){
-    this.personalData.addItem(item, this.field).subscribe(()=>{
+  addItem(item: Experience) {
+    this.personalData.addItem(item, this.field).subscribe(() => {
       this.getExperience();
     });
   }
 
-  save(item:Experience){
-    this.personalData.updateItem(item, this.field).subscribe(()=>{
+  save(item: Experience) {
+    this.personalData.updateItem(item, this.field).subscribe(() => {
       this.getExperience();
     });
   }
 
-  deleteItem(item:Experience){
-    this.personalData.deleteItem(item, this.field).subscribe(()=>{
+  deleteItem(item: Experience) {
+    this.personalData.deleteItem(item, this.field).subscribe(() => {
       this.personalExperience = this.personalExperience.filter((i: { id: number }) => i.id !== item.id);
     });
   }
 
-  getCardPosition(item:Experience):number{
-    let chosenItem = this.personalExperience.find((i: { id: number }) => i.id===item.id)
+  getCardPosition(item: Experience): number {
+    let chosenItem = this.personalExperience.find((i: { id: number }) => i.id === item.id)
     let position = this.personalExperience.indexOf(chosenItem!);
     return position;
   }
 
-  appendRelations(item:Experience){
-    let type = this.employTypes.find((i:EmployType) => i.id === item.employTypeId);
+  appendRelations(item: Experience) {
+    let type = this.employTypes.find((i: EmployType) => i.id === item.employTypeId);
     item.employType = type!;
   }
 
-  toggleModal(){
+  toggleModal() {
     this.editModal.reset();
     this.editModal.open(this.editModal.myModal);
   }
 
-  passData(card:any){
+  passData(card: any) {
     this.toggleModal();
     this.editModal.loadEditData(card);
   }
 
-  getExperience(){
+  getExperience() {
     this.personalData.getData(`${this.field}?_sort=endDate&_order=desc&_expand=employType`).subscribe(data => {
       this.personalExperience = data;
     })
@@ -71,31 +71,31 @@ export class ExperienceComponent implements OnInit{
 
   ngOnInit(): void {
     this.getExperience();
-    this.personalData.getData('employTypes').subscribe(data =>{
+    this.personalData.getData('employTypes').subscribe(data => {
       this.employTypes = data;
     });
   }
 }
 
-export interface Experience{
-  id?:number,
-  company:string,
-  position:string,
-  employTypeId:number,
-  startDate:string,
-  endDate?:string,
-  current:boolean
-  description:string
-  employType:EmployType
+export interface Experience {
+  id?: number,
+  company: string,
+  position: string,
+  employTypeId: number,
+  startDate: string,
+  endDate?: string,
+  current: boolean
+  description: string
+  employType: EmployType
 }
 
-export interface Company{
-  id:number,
-  name:string,
-  logo?:string
+export interface Company {
+  id: number,
+  name: string,
+  logo?: string
 }
 
-export interface EmployType{
-  id:number,
-  name:string
+export interface EmployType {
+  id: number,
+  name: string
 }

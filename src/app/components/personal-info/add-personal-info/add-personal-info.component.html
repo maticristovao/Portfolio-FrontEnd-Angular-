@@ -1,11 +1,14 @@
-<ng-template #content let-modal class="fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editFormTitle" aria-hidden="true">
+<ng-template #content let-modal class="fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editFormTitle"
+    aria-hidden="true">
     <div class="modal-body container-fluid">
         <div class="row">
             <div class="col-10">
                 <p class="body-head ms-0 ms-sm-3">Agregar experiencia</p>
             </div>
             <div class="col-2">
-                <button aria-hidden="true" type="button" class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center" data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
+                <button aria-hidden="true" type="button"
+                    class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center"
+                    data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
                     <fa-icon [icon]="faExit"></fa-icon>
                 </button>
             </div>
@@ -15,8 +18,9 @@
                 <div class="col-6 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>Nombre</mat-label>
-                        <input matInput id="name" name="name" formControlName="name"/>
-                        <button *ngIf="Name?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="Name?.setValue('')">
+                        <input matInput id="name" name="name" formControlName="name" />
+                        <button *ngIf="Name?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                            (click)="Name?.setValue('')">
                             <fa-icon [icon]="faExit"></fa-icon>
                         </button>
                     </mat-form-field>
@@ -24,8 +28,9 @@
                 <div class="col-6 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>Apellido</mat-label>
-                        <input matInput id="surname" name="surname" formControlName="surname"/>
-                        <button *ngIf="Surname?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="Surname?.setValue('')">
+                        <input matInput id="surname" name="surname" formControlName="surname" />
+                        <button *ngIf="Surname?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                            (click)="Surname?.setValue('')">
                             <fa-icon [icon]="faExit"></fa-icon>
                         </button>
                     </mat-form-field>
@@ -35,21 +40,16 @@
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Título/s</mat-label>
                     <mat-chip-grid #chipGrid aria-label="Enter titles" formControlName="title" id="title" name="title">
-                      <mat-chip-row *ngFor="let title of titles"
-                                    (removed)="remove(title)"
-                                    [editable]="true"
-                                    (edited)="edit(title, $event)"
-                                    [aria-description]="'press enter to edit ' + title">
-                        {{title}}
-                        <button matChipRemove [attr.aria-label]="'remove ' + title">
-                          <fa-icon [icon]="faExit" class="d-flex align-items-center"></fa-icon>
-                        </button>
-                      </mat-chip-row>
-                      <input placeholder="Nuevo título..."
-                             [matChipInputFor]="chipGrid"
-                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                             [matChipInputAddOnBlur]="true"
-                             (matChipInputTokenEnd)="added($event)"/>
+                        <mat-chip-row *ngFor="let title of titles" (removed)="remove(title)" [editable]="true"
+                            (edited)="edit(title, $event)" [aria-description]="'press enter to edit ' + title">
+                            {{title}}
+                            <button matChipRemove [attr.aria-label]="'remove ' + title">
+                                <fa-icon [icon]="faExit" class="d-flex align-items-center"></fa-icon>
+                            </button>
+                        </mat-chip-row>
+                        <input placeholder="Nuevo título..." [matChipInputFor]="chipGrid"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+                            (matChipInputTokenEnd)="added($event)" />
                     </mat-chip-grid>
                     <mat-error *ngIf="Title?.hasError('maxlength')">Puede incluir un máximo de 2 títulos</mat-error>
                 </mat-form-field>
@@ -58,25 +58,27 @@
                 <div class="col-6 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>País</mat-label>
-                        <input matInput id="country" name="country" formControlName="country"/>
+                        <input matInput id="country" name="country" formControlName="country" />
                     </mat-form-field>
                 </div>
                 <div class="col-6 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>Provincia</mat-label>
-                        <input matInput id="province" name="province" formControlName="province"/>
+                        <input matInput id="province" name="province" formControlName="province" />
                     </mat-form-field>
                 </div>
             </div>
             <div class="row justify-content-center mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Foto</mat-label>
-                    <ngx-mat-file-input formControlName="photo" name="photo" id="photo" accept="image/jpg, image/png, image/jpeg" placeholder="Seleccione una foto"></ngx-mat-file-input>
+                    <ngx-mat-file-input formControlName="photo" name="photo" id="photo"
+                        accept="image/jpg, image/png, image/jpeg"
+                        placeholder="Seleccione una foto"></ngx-mat-file-input>
                     <fa-icon matSuffix [icon]="faFolder" class="close clear folder me-2"></fa-icon>
                 </mat-form-field>
             </div>
             <div class="row justify-content-center mb-4 pt-4">
-                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus/>
+                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus />
             </div>
         </form>
     </div>

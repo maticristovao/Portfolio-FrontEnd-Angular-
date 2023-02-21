@@ -9,8 +9,8 @@ import { faCode } from '@fortawesome/free-solid-svg-icons';
 })
 export class ProjectItemComponent {
   visible = false
-  @Input() project:any;
-  @Input() even!:boolean;
+  @Input() project: any;
+  @Input() even!: boolean;
 
   faCode = faCode;
   faCodePen = faCodepen;

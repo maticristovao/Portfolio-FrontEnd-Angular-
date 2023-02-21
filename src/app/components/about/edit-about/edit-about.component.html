@@ -1,0 +1,63 @@
+<ng-template #content let-modal class="fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editFormTitle"
+    aria-hidden="true">
+    <div class="modal-body container-fluid">
+        <div class="row">
+            <div class="col-10">
+                <p class="body-head ms-0 ms-sm-3">Editar acerca de mí</p>
+            </div>
+            <div class="col-2">
+                <button aria-hidden="true" type="button"
+                    class="close me-0 me-sm-2 ms-auto d-flex justify-content-center align-items-center"
+                    data-dismiss="modal" aria-label="Close" tabindex="0" (click)="close()">
+                    <fa-icon [icon]="faExit"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+            <div class="row mt-4 px-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Acerca de mí</mat-label>
+                    <textarea matInput cdkTextareaAutosize name="about" id="about" formControlName="about"
+                        maxlength="350"></textarea>
+                    <button *ngIf="About?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                        (click)="About?.setValue('')">
+                        <fa-icon [icon]="faExit"></fa-icon>
+                    </button>
+                    <mat-hint [align]="'end'">{{About?.value? About?.value.length:0}}/350</mat-hint>
+                    <mat-error *ngIf="About?.hasError('minlength') && About?.touched">La descripción debe tener al menos
+                        100 caracteres</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row justify-content-center mb-4 pt-4">
+                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus />
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form *ngIf="editing" class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Acerca de mí</mat-label>
+            <textarea matInput cdkTextareaAutosize name="about" id="about" formControlName="about" maxlength="350"></textarea>
+            <button *ngIf="About?.value" class="close clear me-2" matSuffix aria-label="Clear" (click)="About?.setValue('')">
+                <fa-icon [icon]="faExit"></fa-icon>
+            </button>
+            <mat-hint [align]="'end'">{{About?.value? About?.value.length:0}}/350</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="row justify-content-center my-0 py-0">
+        <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus/>
+    </div>
+</form> -->

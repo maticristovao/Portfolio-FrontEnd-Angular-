@@ -7,9 +7,9 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
   templateUrl: './contact-modal.component.html',
   styleUrls: ['./contact-modal.component.css']
 })
-export class ContactModalComponent implements OnInit{
-  @Input() name!:string;
-  mail!:Mail;
+export class ContactModalComponent implements OnInit {
+  @Input() name!: string;
+  mail!: Mail;
   phone!: Phone;
 
   faPhone = faPhone;
@@ -17,9 +17,9 @@ export class ContactModalComponent implements OnInit{
   faEnvelope = faEnvelope;
   faExit = faXmark;
 
-  constructor(private personalData:PersonalInfoService){}
+  constructor(private personalData: PersonalInfoService) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.personalData.getData('mail').subscribe(data => {
       this.mail = data;
     });
@@ -29,12 +29,12 @@ export class ContactModalComponent implements OnInit{
   }
 }
 
-export interface Mail{
+export interface Mail {
   id: number,
   adress: string
 }
 
-export interface Phone{
+export interface Phone {
   id: number,
   number: number,
   type: string

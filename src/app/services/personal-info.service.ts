@@ -16,33 +16,33 @@ export class PersonalInfoService {
   private apiUrl = 'http://localhost:5000';
 
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getData(field:string):Observable<any>{
+  getData(field: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${field}`);
   }
 
-  getItemById(field:string, id:number):Observable<any>{
+  getItemById(field: string, id: number): Observable<any> {
     const url = `${this.apiUrl}/${field}/${id}`;
     return this.http.get<any>(url);
   }
 
-  addItem(item:any, field:string):Observable<any>{
+  addItem(item: any, field: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/${field}`, item, httpOptions);
   }
 
-  deleteItem(item:any, field:string): Observable<any>{
+  deleteItem(item: any, field: string): Observable<any> {
     const url = `${this.apiUrl}/${field}/${item.id}`;
     return this.http.delete<any>(url);
   }
 
-  updateItem(item:any, field:string): Observable<any>{
-    const url:string = `${this.apiUrl}/${field}/${item.id}`;
+  updateItem(item: any, field: string): Observable<any> {
+    const url: string = `${this.apiUrl}/${field}/${item.id}`;
     return this.http.put<any>(url, item, httpOptions);
   }
 
-  patchItem(item:any, field:string){
-    const url:string = `${this.apiUrl}/${field}`;
+  patchItem(item: any, field: string) {
+    const url: string = `${this.apiUrl}/${field}`;
     return this.http.patch<any>(url, item, httpOptions);
   }
 }

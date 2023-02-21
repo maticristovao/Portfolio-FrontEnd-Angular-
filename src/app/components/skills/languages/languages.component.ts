@@ -1,11 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { faFeather, faLanguage, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
-
-export interface Language{
-  name:string,
-  oral:string,
-  written:string
-}
+import { Language } from '../skills.component';
 
 @Component({
   selector: 'app-languages',
@@ -13,7 +8,7 @@ export interface Language{
   styleUrls: ['./languages.component.css']
 })
 export class LanguagesComponent {
-  @Input() language!:Language;
+  @Input() language!: Language;
 
   faOral = faVolumeHigh;
   faWritten = faFeather;

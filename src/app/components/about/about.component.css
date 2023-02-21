@@ -1,22 +1,23 @@
-.about{
-	height:100vh;
+.about {
+	height: 100vh;
 	display: grid;
 	position: relative;
 }
-.card{
-	background:transparent !important;
-    border:none;
-	height:288px;
-	cursor: pointer;
+
+.card {
+	background: transparent !important;
+	border: none;
+	height: 288px;
 }
-.edition{
+
+.edition {
 	position: absolute;
-	right:6vw;
-	top:180px;
+	right: 6vw;
+	top: 180px;
 }
 
 .card_content {
-    color:grey;
+	color: grey;
 	text-align: center;
 	position: relative;
 	padding: 5em;
@@ -25,7 +26,7 @@
 	height: 100%;
 }
 
-.card:is(:hover,.flip) .card_content {
+.card:is(:hover, .flip) .card_content {
 	transform: rotateY(0.5turn);
 }
 
@@ -39,143 +40,167 @@
 	padding: 9em 4em;
 	backface-visibility: hidden;
 	transform-style: preserve-3d;
-	display:grid;
-	align-content:center;
-	border-radius:10px;
-    background:var(--secondary-color);
-}
-.card_back{
-    padding: 9em 0em;
-    transform: rotateY(0.5turn);
+	display: grid;
+	align-content: center;
+	border-radius: 10px;
+	background: var(--secondary-color);
 }
 
-@keyframes borderAnimateLarge{
-	0%{
-		width:0%;
+.card_back {
+	padding: 9em 0em;
+	transform: rotateY(0.5turn);
+}
+
+@keyframes borderAnimateLarge {
+	0% {
+		width: 0%;
 	}
-	33%{
-		width:21vw;
+
+	33% {
+		width: 21vw;
 	}
-	50%{
-		width:21vw;
+
+	50% {
+		width: 21vw;
 	}
-	83%{
-		width:0%
+
+	83% {
+		width: 0%
 	}
-	100%{
-		width:0%;
+
+	100% {
+		width: 0%;
 	}
 }
-@keyframes borderAnimateSmall{
-	0%{
-		width:0%;
+
+@keyframes borderAnimateSmall {
+	0% {
+		width: 0%;
 	}
-	33%{
-		width:18vw;
+
+	33% {
+		width: 18vw;
 	}
-	50%{
-		width:18vw;
+
+	50% {
+		width: 18vw;
 	}
-	83%{
-		width:0%
+
+	83% {
+		width: 0%
 	}
-	100%{
-		width:0%;
+
+	100% {
+		width: 0%;
 	}
 }
-.card_front::after, .card_front::before {
+
+.card_front::after,
+.card_front::before {
 	position: absolute;
 	content: "";
 	top: 50%;
 	border-top: 4px solid var(--primary-color);
-	transform:translateZ(2rem);
+	transform: translateZ(2rem);
 	animation: borderAnimateLarge 5s infinite;
 }
-.card_front::after{
+
+.card_front::after {
 	left: 3em;
 }
-.card_front::before{
+
+.card_front::before {
 	right: 3em;
 }
 
-.card:hover .card_front::after, .card:hover .card_front::before{
-	animation-play-state:paused;
+.card:hover .card_front::after,
+.card:hover .card_front::before {
+	animation-play-state: paused;
 }
 
 .card_title {
 	font-size: 3.5rem;
 	transform: translateZ(2rem);
-    color:var(--primary-color);
-    text-transform: uppercase;
-    font-family: 'Averia Serif Libre', cursive;
+	color: var(--primary-color);
+	text-transform: uppercase;
+	font-family: 'Averia Serif Libre', cursive;
 }
+
 .card_subtitle {
 	transform: translateZ(2rem);
-    font-weight: 500;
+	font-weight: 500;
 }
+
 .card_body {
 	transform: translateZ(2rem);
-	text-align:center;
-	font-size:1.5em;
-    color:rgba(255, 255, 255, 0.705);
-    border:2px solid var(--primary-color);
-    padding:.5em;
-    margin: 1.2em;
+	text-align: center;
+	font-size: 1.5em;
+	color: rgba(255, 255, 255, 0.705);
+	border: 2px solid var(--primary-color);
+	padding: .5em;
+	margin: 1.2em;
 	height: 100% !important;
 }
 
 @media screen and (width<=832px) {
-	.card_back, .card_front{
+
+	.card_back,
+	.card_front {
 		padding-top: 10em;
 		padding-bottom: 10em;
 	}
+
 	.card_front::after {
-		left: 2em; 
+		left: 2em;
 	}
-	
+
 	.card_front::before {
 		right: 2em;
 	}
-	.card_front::after, .card_front::before{
+
+	.card_front::after,
+	.card_front::before {
 		animation: borderAnimateSmall 5s infinite;
 	}
 }
 
 @media screen and (width<=744px) {
-	.card_body{
-		border:none;
+	.card_body {
+		border: none;
 		padding: 0;
 	}
 }
 
 @media screen and (width<=630px) {
-	.card_front::after, .card_front::before{
-		width:12vw;
-		animation:none;
+
+	.card_front::after,
+	.card_front::before {
+		width: 12vw;
+		animation: none;
 	}
 }
 
 @media screen and (width<576px) {
-	.about{
+	.about {
 		place-items: center;
-		height:auto;
+		height: auto;
 	}
 
-	.edition{
-		top:10px;
-		right:1.5vw;
+	.edition {
+		top: 10px;
+		right: 1.5vw;
 	}
 }
 
 .small-version h3 {
 	font-size: 2rem;
-    color:var(--primary-color);
-    text-transform: uppercase;
-    font-family: 'Averia Serif Libre', cursive;
+	color: var(--primary-color);
+	text-transform: uppercase;
+	font-family: 'Averia Serif Libre', cursive;
 }
 
-.small-version p{
-	font-size:1em;
-    color:rgba(255, 255, 255, 0.705);
+.small-version p {
+	font-size: 1em;
+	color: rgba(255, 255, 255, 0.705);
 	text-align: justify;
 }

@@ -1,18 +1,19 @@
 <article class="about container-fluid py-5 px-3 py-sm-0 px-sm-0" id="about">
-    <app-edition class="edition" [horizontal]="windowWidth<1200" (edition)="editing = !editing; flip = !flip"></app-edition>
+    <app-edition class="edition" [horizontal]="windowWidth<1200"
+        (edition)="editing = !editing; editing && toggleModal()"></app-edition>
     <div class="row justify-content-center d-none d-sm-flex mx-0">
         <div class="col-12 col-xl-9 align-self-center px-3 px-xl-0">
-            <div class="card inverse" [class.flip]="flip" (click)="!editing && flip = !flip">
+            <div class="card inverse" [class.flip]="flip" (click)="flip = !flip">
                 <div class="card_content">
-                    <div class="card_front" >
+                    <div class="card_front">
                         <h3 class="card_title">
-                            Acerca de mi
+                            Acerca de mí
                         </h3>
                     </div>
-                    <div class="card_back align-items-center" >
+                    <div class="card_back align-items-center">
                         <div class="card_body d-flex align-items-center">
-                           {{about}}
-                        </div> 
+                            {{about}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -25,4 +26,4 @@
         </p>
     </div>
 </article>
-
+<app-edit-about (onUpdateItem)="save($event)"></app-edit-about>

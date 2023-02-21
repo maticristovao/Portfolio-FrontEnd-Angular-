@@ -37,7 +37,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -47,10 +47,11 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { AddSkillComponent } from './components/skills/add-skill/add-skill.component';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSliderModule } from '@angular/material/slider';
 import { AddProjectComponent } from './components/projects/add-project/add-project.component';
+import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { AddProjectComponent } from './components/projects/add-project/add-proje
     AddItemComponent,
     AddPersonalInfoComponent,
     AddSkillComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    EditAboutComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +110,7 @@ import { AddProjectComponent } from './components/projects/add-project/add-proje
     MatTabsModule,
     MatSliderModule
   ],
-  providers: [DatePipe, {provide:LOCALE_ID, useValue: 'es'}],
+  providers: [DatePipe, { provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

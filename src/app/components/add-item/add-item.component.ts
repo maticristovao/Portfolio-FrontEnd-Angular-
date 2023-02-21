@@ -4,10 +4,10 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirectiv
 import { DatePipe } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDatepicker } from '@angular/material/datepicker';
-import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { DateAdapter, ErrorStateMatcher, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import _moment from 'moment';
-import {default as _rollupMoment, Moment} from 'moment';
+import { default as _rollupMoment, Moment } from 'moment';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
 export const moment = _rollupMoment || _moment;
@@ -28,7 +28,7 @@ export const MY_FORMATS = {
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.css'],
-  providers:[
+  providers: [
     {
       provide: DateAdapter,
       useClass: MomentDateAdapter,
@@ -41,35 +41,35 @@ export const MY_FORMATS = {
 })
 
 export class AddItemComponent {
-  form!:FormGroup;
-  initialValue:any;
-  add:boolean = true;
-  matcher:LiveErrorMatcher = new LiveErrorMatcher();
+  form!: FormGroup;
+  initialValue: any;
+  add: boolean = true;
+  matcher: LiveErrorMatcher = new LiveErrorMatcher();
   today!: Date;
   faExit = faTimes;
   faFolder = faFolder;
 
-  @ViewChild('content') myModal!:ElementRef;
-  @Output() onAddItem:EventEmitter<any> = new EventEmitter();
-  @Output() onUpdateItem:EventEmitter<any> = new EventEmitter();
+  @ViewChild('content') myModal!: ElementRef;
+  @Output() onAddItem: EventEmitter<any> = new EventEmitter();
+  @Output() onUpdateItem: EventEmitter<any> = new EventEmitter();
 
-  constructor(protected formBuilder:FormBuilder, protected modalService:NgbModal, protected datepipe:DatePipe, protected personalData:PersonalInfoService){
+  constructor(protected formBuilder: FormBuilder, protected modalService: NgbModal, protected datepipe: DatePipe, protected personalData: PersonalInfoService) {
     this.today = new Date()
   }
 
-  formatDate(date:string | number | Date): string{
+  formatDate(date: string | number | Date): string {
     return this.datepipe!.transform(date, 'YYYY-MM')!;
   }
 
-  open(content:any){
-    this.modalService.open(content, {centered:true, backdropClass: 'custom-backdrop'});
+  open(content: any) {
+    this.modalService.open(content, { centered: true, backdropClass: 'custom-backdrop' });
   }
 
-  close(){
+  close() {
     this.modalService.dismissAll();
   }
 
-  setMonthAndYear(normalizedMonthAndYear: Moment, control:AbstractControl, datepicker: MatDatepicker<Moment>) {
+  setMonthAndYear(normalizedMonthAndYear: Moment, control: AbstractControl, datepicker: MatDatepicker<Moment>) {
     control.setValue(moment());
     const ctrlValue = control.value;
     ctrlValue.month(normalizedMonthAndYear.month());
@@ -79,37 +79,37 @@ export class AddItemComponent {
     datepicker.close();
   }
 
-  
-  endAfter(startCrtl:string, endCtrl:string){
-      return (formGroup:FormGroup) => {
-        const start = formGroup.controls[startCrtl];
-        const end = formGroup.controls[endCtrl];
-        if((start.errors && !start.errors['endafter']) || (end.errors  && !end.errors['endafter'])){
-          return;
-        }
-        if(start.value > end.value ){
-          end.setErrors({ endafter: true });
-        }else{
-          end.setErrors(null);
-        }
+
+  endAfter(startCrtl: string, endCtrl: string) {
+    return (formGroup: FormGroup) => {
+      const start = formGroup.controls[startCrtl];
+      const end = formGroup.controls[endCtrl];
+      if ((start.errors && !start.errors['endafter']) || (end.errors && !end.errors['endafter'])) {
+        return;
+      }
+      if (start.value > end.value) {
+        end.setErrors({ endafter: true });
+      } else {
+        end.setErrors(null);
       }
     }
+  }
 
-  reset(){
+  reset() {
     this.form.reset(this.initialValue);
     this.add = true;
   }
 
-  onSubmit(){
-    if(this.form.valid){
+  onSubmit() {
+    if (this.form.valid) {
       const newItem = this.form.value;
-      if(!newItem.id){
+      if (!newItem.id) {
         this.onAddItem.emit(newItem);
-      }else{
+      } else {
         this.onUpdateItem.emit(newItem);
       }
       this.close();
-    }else{
+    } else {
       this.form.markAllAsTouched();
     }
   }

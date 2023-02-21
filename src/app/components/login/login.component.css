@@ -1,11 +1,12 @@
-section{
+section {
     min-height: 100vh;
     position: relative;
 }
-section::after{
+
+section::after {
     content: '';
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -17,48 +18,49 @@ section::after{
     z-index: -1;
 }
 
-h1{
+h1 {
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 50px;
     width: fit-content;
-    color:var(--primary-color);
+    color: var(--primary-color);
 }
 
-button.back{
-    width:60px;
+button.back {
+    width: 60px;
     height: 60px;
     border-radius: 50%;
     font-size: 30px;
     transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 
-button.back:is(:hover, :focus){
+button.back:is(:hover, :focus) {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
 
-.wrapper{
+.wrapper {
     height: auto;
     border-radius: 40px;
     position: relative;
-    max-width:515px;
+    max-width: 515px;
     overflow-x: hidden;
 }
 
-.wrapper::after{
-    content:'';
-    border:2px solid var(--primary-color);
+.wrapper::after {
+    content: '';
+    border: 2px solid var(--primary-color);
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
     border-radius: 30px;
     transform: scale(.96);
 }
-.wrapper::before{
+
+.wrapper::before {
     position: absolute;
     content: '';
     top: 0;
@@ -66,33 +68,32 @@ button.back:is(:hover, :focus){
     left: 100%;
     right: 0;
     background-color: var(--plain-color);
-    transition: left .45s ease-in-out .1s;   
-}
-.wrapper.sign::before{
-    left: 0px;
+    transition: left .45s ease-in-out .1s;
 }
 
 
-.wrapper *{
+.wrapper * {
     z-index: 1;
 }
 
-app-login-form{
+app-login-form {
     animation: fade 1s;
 }
 
 @keyframes fade {
-    0%{
-        opacity:0;
-    }
-    20%{
+    0% {
         opacity: 0;
     }
-    100%{
+
+    20% {
+        opacity: 0;
+    }
+
+    100% {
         opacity: 1;
     }
 }
 
-.wrapper:focus-within::before{
+.wrapper:focus-within::before {
     left: 0px;
 }

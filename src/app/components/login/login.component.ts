@@ -8,12 +8,6 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  remember:boolean = false;
-  signMode:boolean = false;
-
+  remember: boolean = false;
   faBack = faArrowLeft;
-
-  toggleMode(boolean:boolean){
-    this.signMode = boolean;
-  }
 }

@@ -5,25 +5,14 @@ declare var bootstrap: any;
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements AfterViewInit{
-  windowWidth:number = window.innerWidth;
-  windowHeight:number = window.innerHeight;
+export class MainComponent implements AfterViewInit {
+  windowWidth: number = window.innerWidth;
+  windowHeight: number = window.innerHeight;
 
   @HostListener('window:resize')
-  onResize(){
+  onResize() {
     this.windowWidth = window.innerWidth;
     this.windowHeight = window.innerHeight;
-  }
-
-  defineThreshold(){
-    if(this.windowHeight<800){
-      return '[0.2]';
-    }
-    if(this.windowWidth>1200){
-      return '[0.5]';
-    }else{
-      return '[0.4]';
-    }
   }
 
   ngAfterViewInit(): void {

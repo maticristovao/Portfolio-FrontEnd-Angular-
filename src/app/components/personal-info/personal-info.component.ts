@@ -9,13 +9,13 @@ import { AddPersonalInfoComponent } from './add-personal-info/add-personal-info.
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.css']
 })
-export class PersonalInfoComponent implements OnInit{
-  @ViewChild(AddPersonalInfoComponent) editModal!:AddPersonalInfoComponent;
+export class PersonalInfoComponent implements OnInit {
+  @ViewChild(AddPersonalInfoComponent) editModal!: AddPersonalInfoComponent;
 
-  moreContent!:string;
-  personalInfo!:UserData;
-  windowWidth:number = window.innerWidth;
-  phone:any;
+  moreContent!: string;
+  personalInfo!: UserData;
+  windowWidth: number = window.innerWidth;
+  phone: any;
 
   faLocationDot = faLocationDot;
 
@@ -24,19 +24,19 @@ export class PersonalInfoComponent implements OnInit{
     this.windowWidth = window.innerWidth;
   }
 
-  toggleModal(){
+  toggleModal() {
     this.editModal.reset();
     this.editModal.open(this.editModal.myModal);
     this.editModal.loadEditData(this.personalInfo);
   }
 
-  save(item:UserData){
-    this.personalData.patchItem(item, 'user').subscribe((user)=>{
-        this.personalInfo = user;
+  save(item: UserData) {
+    this.personalData.patchItem(item, 'user').subscribe((user) => {
+      this.personalInfo = user;
     });
   }
 
-  constructor(private personalData:PersonalInfoService){}
+  constructor(private personalData: PersonalInfoService) { }
 
   ngOnInit(): void {
     this.personalData.getData('user').subscribe(data => {
@@ -48,11 +48,11 @@ export class PersonalInfoComponent implements OnInit{
   }
 }
 
-export interface UserData{
-  name:string,
-  surname:string,
-  title:string[],
-  province:string,
-  country:string,
-  photo:any
+export interface UserData {
+  name: string,
+  surname: string,
+  title: string[],
+  province: string,
+  country: string,
+  photo: any
 }

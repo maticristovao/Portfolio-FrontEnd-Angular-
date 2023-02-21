@@ -9,41 +9,41 @@ import { AddProjectComponent } from './add-project/add-project.component';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit{
+export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
   field = 'projects';
   faCode = faCode;
   faCodePen = faCodepen;
   editMode: boolean = false;
 
-  @ViewChild(AddProjectComponent) editModal!:AddProjectComponent;
+  @ViewChild(AddProjectComponent) editModal!: AddProjectComponent;
 
-  constructor(private personalData:PersonalInfoService){}
+  constructor(private personalData: PersonalInfoService) { }
 
-  toggleModal(){
+  toggleModal() {
     this.editModal.reset();
     this.editModal.open(this.editModal.myModal);
   }
 
-  addItem(item:Project){
+  addItem(item: Project) {
     this.personalData.addItem(item, this.field).subscribe((project) => {
       this.projects.push(project);
     });
   }
 
-  saveItem(item: Project){
+  saveItem(item: Project) {
     this.personalData.updateItem(item, this.field).subscribe(() => {
       this.getAndSwitch(this.projects, item);
     });
   }
 
-  deleteItem(item:Project){
-    this.personalData.deleteItem(item, this.field).subscribe(()=>{
+  deleteItem(item: Project) {
+    this.personalData.deleteItem(item, this.field).subscribe(() => {
       this.projects = this.projects.filter((i: { id: number }) => i.id !== item.id);
     });
   }
 
-  passData(item: Project){
+  passData(item: Project) {
     this.toggleModal();
     this.editModal.loadEditData(item);
   }
@@ -55,16 +55,16 @@ export class ProjectsComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.personalData.getData(this.field).subscribe(data =>{
+    this.personalData.getData(this.field).subscribe(data => {
       this.projects = data;
     })
   }
 }
 
-export interface Project{
-  id:number,
-  title:string,
-  description:string,
+export interface Project {
+  id: number,
+  title: string,
+  description: string,
   repo: string,
   link?: string,
   image: string,

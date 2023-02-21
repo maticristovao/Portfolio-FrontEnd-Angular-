@@ -6,6 +6,7 @@
     align-items: center;
     position: relative;
   }
+
   .education .cards {
     display: flex;
     align-items: center;
@@ -14,18 +15,18 @@
     justify-content: center;
   }
 
-  .row.edition{
-    width:100%;
+  .row.edition {
+    width: 100%;
   }
 
-  h1.heading{
-      color:var(--primary-color);
-      text-transform: uppercase;
-      font-family: 'Poppins', sans-serif;
-      font-weight: bold;
-      letter-spacing: 1px;
+  h1.heading {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
-  
+
   .education-card {
     position: relative;
     margin: 5px;
@@ -44,7 +45,7 @@
   .education-card:not(.active) {
     cursor: pointer;
   }
-  
+
   .label {
     display: flex;
     justify-content: center;
@@ -61,7 +62,7 @@
     opacity: 0.5;
     transition: all ease-in-out 0.5s;
   }
-  
+
   .education-card:is(.active, .smallactive) .label {
     bottom: 20px;
     left: 50px;
@@ -71,16 +72,16 @@
     width: 70px;
     opacity: 1;
   }
-  
+
   .education-card:is(.active, .smallactive) {
     flex: 5;
   }
-  
+
   .education-card:not(:is(.active, .smallactive)) .label {
     bottom: 10px;
     left: 10px;
   }
-  
+
   .info {
     color: var(--oposite-color);
     background: var(--primary-color);
@@ -90,52 +91,54 @@
     clip-path: polygon(calc(100% - 42.3vw) 0, 100% 0, 100% 100%, calc(100% - 13vw) 100%);
     text-align: right;
     padding-right: 40px;
-    padding-top:20px;
+    padding-top: 20px;
     transition: opacity 0.5s ease-in-out .3s;
   }
-  .info *{
+
+  .info * {
     opacity: 0;
     transition: opacity .1s linear;
   }
-  
+
   :is(.active, .smallactive) .info {
     opacity: 1;
   }
 
   :is(.active, .smallactive) .info * {
-    opacity:1;
+    opacity: 1;
     transition: opacity .4s ease-in-out .3s;
   }
-  
+
   .education-card:not(:is(.active, .smallactive)) .info {
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
   }
-  
+
   .info h1 {
     font-size: 45px;
     color: var(--plain-color);
     font-weight: 900;
     font-family: "Averia Serif Libre";
   }
-  h1::first-letter{
+
+  h1::first-letter {
     text-transform: uppercase;
   }
-  
+
   h3 {
     font-size: 25px;
     font-family: "Poppins", sans-serif;
   }
-  
+
   h5 {
     font-size: 20px;
     font-family: "Helvetica", sans-serif;
   }
 
-  #date{
+  #date {
     text-transform: capitalize;
   }
-  
+
   .icon {
     background: var(--oposite-color);
     position: absolute;
@@ -153,9 +156,9 @@
     color: var(--primary-color);
     opacity: 0.5;
     transition: all 0.5s ease-in-out;
-    z-index:1;
+    z-index: 1;
   }
-  
+
   .education-card:is(.active, .smallactive) .icon {
     opacity: 1;
     top: -50px;
@@ -166,8 +169,8 @@
     border-top-right-radius: 0%;
     border-bottom-left-radius: 0%;
   }
-  
-  
+
+
   .education-card .icon fa-icon {
     transition: padding-top ease-in-out 0.5s;
   }
@@ -176,151 +179,163 @@
     padding-top: 40px;
   }
 
-  .info img{
+  .info img {
     border-radius: 10px;
-    width:100px;
+    width: 100px;
   }
-  
-  @media screen and (width<1020px){
-    .education .cards{
-      width:95vw;
+
+  @media screen and (width<1020px) {
+    .education .cards {
+      width: 95vw;
     }
-    .info{
+
+    .info {
       clip-path: polygon(calc(100% - 50vw) 0, 100% 0, 100% 100%, calc(100% - 15vw) 100%);
     }
   }
 
   @media screen and (width<=820px) {
-    .info{
+    .info {
       clip-path: polygon(calc(100% - 55vw) 0, 100% 0, 100% 100%, calc(100% - 15vw) 100%);
     }
-    .education-card:not(:is(.active, .smallactive)) .icon{
-      left:8px;
-      width:40px;
-      height:40px;
+
+    .education-card:not(:is(.active, .smallactive)) .icon {
+      left: 8px;
+      width: 40px;
+      height: 40px;
       font-size: 20px;
     }
-    .education-card:not(:is(.active, .smallactive)) .label{
-      left:8px;
+
+    .education-card:not(:is(.active, .smallactive)) .label {
+      left: 8px;
     }
-    .info img{
-      width:85px;  
+
+    .info img {
+      width: 85px;
     }
 
   }
-  
 
-  @media screen and (width<=650px){
-    .info .col-sm-6{
-      width:102.9%;
+
+  @media screen and (width<=650px) {
+    .info .col-sm-6 {
+      width: 102.9%;
     }
-    .info{
-      clip-path:none;
-      background:transparent;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      flex-direction:column;
-      justify-content:flex-start !important;
+
+    .info {
+      clip-path: none;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-direction: column;
+      justify-content: flex-start !important;
       padding: 105px 17px 0 3px;
       text-align: center;
     }
-    h1{
-      color:var(--primary-color);
-      font-size:40px;
-    }
-    .education-card:is(.active, .smallactive) .icon{
-      width:100px;
-      height:100px;
-      top:0;
-      left:0;
-      border-top-left-radius:0;
-      font-size:50px;
-    }
-    .education-card:is(.active, .smallactive) .icon fa-icon{
-      padding:0;
-    }
-    .education-card:is(.active, .smallactive) .label{
-      font-size:150px;
-      bottom:-20px;
-      left:20px;
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 40px;
     }
 
-    .info img{
-      width:75px;  
+    .education-card:is(.active, .smallactive) .icon {
+      width: 100px;
+      height: 100px;
+      top: 0;
+      left: 0;
+      border-top-left-radius: 0;
+      font-size: 50px;
     }
 
-    .education-card .info 
-    img:is([src='https://static.wixstatic.com/media/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png/v1/fill/w_188,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png'], [src='https://upload.wikimedia.org/wikipedia/commons/a/a3/UBA.png']){
-      filter:invert(100%);
+    .education-card:is(.active, .smallactive) .icon fa-icon {
+      padding: 0;
     }
 
-    .education-card:not(:is(.active, .smallactive)) .icon{
-      left:2px;
+    .education-card:is(.active, .smallactive) .label {
+      font-size: 150px;
+      bottom: -20px;
+      left: 20px;
     }
 
-    .education-card:not(:is(.active, .smallactive)) .label{
-      font-size:35px;
-      width:20px;
-      left:2px;
+    .info img {
+      width: 75px;
+    }
+
+    .education-card .info img:is([src='https://static.wixstatic.com/media/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png/v1/fill/w_188,h_194,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4a9ae_77182ec5dde040c18e1c9aac46725938~mv2.png'], [src='https://upload.wikimedia.org/wikipedia/commons/a/a3/UBA.png']) {
+      filter: invert(100%);
+    }
+
+    .education-card:not(:is(.active, .smallactive)) .icon {
+      left: 2px;
+    }
+
+    .education-card:not(:is(.active, .smallactive)) .label {
+      font-size: 35px;
+      width: 20px;
+      left: 2px;
     }
   }
 
-  @media screen and (width<=576px){
-    section.education{
-      height:auto;
+  @media screen and (width<=576px) {
+    section.education {
+      height: auto;
     }
-    .education .cards{
+
+    .education .cards {
       display: block;
     }
-    .education-card{
+
+    .education-card {
       cursor: default;
     }
-    .education-card:is(.active, .smallactive){
+
+    .education-card:is(.active, .smallactive) {
       display: block !important;
-      height:520px;
+      height: 520px;
     }
   }
 
 
-  @media screen and (width<=450px){
-    .education-card:is(.active, .smallactive) .label{
+  @media screen and (width<=450px) {
+    .education-card:is(.active, .smallactive) .label {
       font-size: 75px;
-      height:60px !important;
+      height: 60px !important;
       bottom: 25px;
-      left:0;
+      left: 0;
     }
   }
 
   @media screen and (height<=600px) {
-    .education .cards{
+    .education .cards {
       height: auto;
-      width:80vw;
+      width: 80vw;
       margin: 20px 0;
     }
   }
 
-  @media screen and (height<400px){
-    .education .cards{
+  @media screen and (height<400px) {
+    .education .cards {
       display: block;
       height: auto;
     }
-    .education-card:is(.active, .smallactive){
+
+    .education-card:is(.active, .smallactive) {
       display: block !important;
-      height:520px;
+      height: 520px;
     }
   }
 
-  .edit-item{
+  .edit-item {
     position: absolute;
-    bottom:0;
-    right:0;
-    opacity:1;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
     transition: opacity ease-in-out .5s .3s;
   }
 
-  .education-card:not(:is(.active, .smallactive)) .edit-item{
-    opacity:0;
+  .education-card:not(:is(.active, .smallactive)) .edit-item {
+    opacity: 0;
     z-index: -1;
     transition: opacity ease-in-out .4s;
   }

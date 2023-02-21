@@ -1,86 +1,90 @@
-.modal-backdrop{
-    opacity:0.75 !important;
+.modal-backdrop {
+    opacity: 0.75 !important;
 }
-.modal-dialog{
+
+.modal-dialog {
     max-width: none;
 }
-.modal-content{
+
+.modal-content {
     background-color: var(--secondary-color);
-    color:var(--oposite-color);
+    color: var(--oposite-color);
     border-radius: 10px;
     padding: 10px;
 }
 
-.modal-header .modal-title{
+.modal-header .modal-title {
     font-size: 30px;
     color: rgba(255, 255, 255, 0.719);
 }
 
-.modal-body{
+.modal-body {
     font-size: 20px;
-    color:#e6e6e7c5;
+    color: #e6e6e7c5;
 }
 
-.modal-body .body-head{
+.modal-body .body-head {
     font-size: 25px;
     font-weight: 500;
-    color:#878a8c;
+    color: #878a8c;
 }
 
-.modal-body p.label{
+.modal-body p.label {
     font-weight: bolder;
     color: var(--primary-color);
     font-size: 22.5px;
 }
 
-.modal-body fa-icon{
+.modal-body fa-icon {
     color: var(--primary-color);
 }
 
-.modal-body p span{
+.modal-body p span {
     text-transform: capitalize;
 }
 
-.modal-body p a{
+.modal-body p a {
     text-decoration: none;
     color: var(--oposite-color);
     transition: color linear .2s;
 }
-.modal-body p a:hover, .modal-body p a:focus{
+
+.modal-body p a:hover,
+.modal-body p a:focus {
     color: var(--tertiary-color);
     outline: none;
 }
 
 @media screen and (width<380px) {
-    .col-10.data{
-        width:100%;
+    .col-10.data {
+        width: 100%;
     }
 
-    .modal-header h5{
+    .modal-header h5 {
         font-size: 15px;
     }
 
-    .data p{
-        font-size:18px;
+    .data p {
+        font-size: 18px;
     }
 
-    .modal-body .body-head{
-        font-size:22px;
+    .modal-body .body-head {
+        font-size: 22px;
     }
 
-    .modal-header .close{
-        font-size:20px;
-        padding:.5em;
+    .modal-header .close {
+        font-size: 20px;
+        padding: .5em;
     }
 
-    .modal-content{
-        padding:0;
+    .modal-content {
+        padding: 0;
     }
 }
 
 
 @media screen and (width>576px) {
-    .modal-content{
+    .modal-content {
         width: 650px;
     }
 }

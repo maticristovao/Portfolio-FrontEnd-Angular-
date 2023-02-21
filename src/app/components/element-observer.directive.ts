@@ -5,23 +5,23 @@ import { Subject } from 'rxjs';
   selector: '[elementObserver]',
   exportAs: 'intersection'
 })
-export class ElementObserverDirective implements OnInit{
+export class ElementObserverDirective implements OnInit {
   @Input() threshold: number = 0;
-  @Input() wait:number = 0;
+  @Input() wait: number = 0;
   @Output() visible = new EventEmitter<HTMLElement>();
 
   timer = (ms: number | undefined) => new Promise(res => setTimeout(res, ms));
 
-  private observer?:IntersectionObserver;
+  private observer?: IntersectionObserver;
 
   private subject$ = new Subject<{
     entry: IntersectionObserverEntry;
     observer: IntersectionObserver;
   }>();
 
-  constructor(private element:ElementRef) { }
+  constructor(private element: ElementRef) { }
 
-  
+
   ngOnInit() {
     this.createObserver();
   }
@@ -39,7 +39,7 @@ export class ElementObserverDirective implements OnInit{
     const isIntersecting = (entry: IntersectionObserverEntry) =>
       entry.isIntersecting;
 
-    this.observer = new IntersectionObserver((entries, observer) =>{
+    this.observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(async entry => {
         if (isIntersecting(entry)) {
           await this.timer(this.wait);
@@ -56,11 +56,11 @@ export class ElementObserverDirective implements OnInit{
 
     this.observer.observe(this.element.nativeElement);
 
-    this.subject$.subscribe( ({ entry, observer }) => {
-        const target = entry.target as HTMLElement;
-          this.visible.emit(target);
-          observer.unobserve(target);
-      });
+    this.subject$.subscribe(({ entry, observer }) => {
+      const target = entry.target as HTMLElement;
+      this.visible.emit(target);
+      observer.unobserve(target);
+    });
   }
-  
+
 }

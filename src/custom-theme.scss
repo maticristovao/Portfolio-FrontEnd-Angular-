@@ -10,69 +10,67 @@
 
 /* For use in src/lib/core/theming/_palette.scss */
 $md-lightbluepalette: (
-    50 : #e5f6fc,
-    100 : #bde8f7,
-    200 : #91d9f2,
-    300 : #65caec,
-    400 : #44bee8,
-    500 : #23b3e4,
-    600 : #1face1,
-    700 : #1aa3dd,
-    800 : #159ad9,
-    900 : #0c8bd1,
-    A100 : #fcfeff,
-    A200 : #c9eaff,
-    A400 : #96d6ff,
-    A700 : #7dccff,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50 : #e5f6fc,
+  100 : #bde8f7,
+  200 : #91d9f2,
+  300 : #65caec,
+  400 : #44bee8,
+  500 : #23b3e4,
+  600 : #1face1,
+  700 : #1aa3dd,
+  800 : #159ad9,
+  900 : #0c8bd1,
+  A100 : #fcfeff,
+  A200 : #c9eaff,
+  A400 : #96d6ff,
+  A700 : #7dccff,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
 );
 
 $md-wheatpallette: (
-    50 : #fefbf6,
-    100 : #fcf5e8,
-    200 : #faefd9,
-    300 : #f8e8ca,
-    400 : #f7e3be,
-    500 : #f5deb3,
-    600 : #f4daac,
-    700 : #f2d5a3,
-    800 : #f0d19a,
-    900 : #eec88b,
-    A100 : #ffffff,
-    A200 : #ffffff,
-    A400 : #ffffff,
-    A700 : #ffffff,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50 : #fefbf6,
+  100 : #fcf5e8,
+  200 : #faefd9,
+  300 : #f8e8ca,
+  400 : #f7e3be,
+  500 : #f5deb3,
+  600 : #f4daac,
+  700 : #f2d5a3,
+  800 : #f0d19a,
+  900 : #eec88b,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffffff,
+  A700 : #ffffff,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
 );
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
@@ -88,21 +86,15 @@ $light-portfolio-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$dark-portfolio-theme: mat.define-dark-theme((
-  color: (
-    primary: $dark-portfolio-primary,
-    accent: $dark-portfolio-accent,
-    warn: $dark-portfolio-warn,
-  )
-));
+$dark-portfolio-theme: mat.define-dark-theme((color: (primary: $dark-portfolio-primary,
+        accent: $dark-portfolio-accent,
+        warn: $dark-portfolio-warn,
+      )));
 
-$light-portfolio-theme: mat.define-light-theme((
-  color: (
-    primary: $light-portfolio-primary,
-    accent: $light-portfolio-accent,
-    warn: $light-portfolio-warn,
-  )
-));
+$light-portfolio-theme: mat.define-light-theme((color: (primary: $light-portfolio-primary,
+        accent: $light-portfolio-accent,
+        warn: $light-portfolio-warn,
+      )));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -111,7 +103,7 @@ $light-portfolio-theme: mat.define-light-theme((
 
 .light-theme {
   // @include mat.all-component-themes($light-portfolio-theme);
-  
+
 }
 
 .dark-theme {

@@ -8,10 +8,10 @@ import { faArrowLeft, faAt, faEye, faEyeSlash, faKey, faUserPlus, faUserShield }
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
-  form:FormGroup;
-  show:boolean = false;
-  remember:boolean = false;
-  
+  form: FormGroup;
+  show: boolean = false;
+  remember: boolean = false;
+
 
   faBack = faArrowLeft;
   faUsername = faUserShield;
@@ -19,32 +19,32 @@ export class LoginFormComponent {
   faEye = faEye;
   faEyeSlash = faEyeSlash;
 
-  constructor(private formBuilder:FormBuilder){
+  constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      username:['', [Validators.required]],
-      password:['', [Validators.required]],
-      remember:[false, []]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      remember: [false, []]
     })
   }
 
-  toggleVisibility(){
+  toggleVisibility() {
     this.show = !this.show;
   }
 
-  get Username(){
+  get Username() {
     return this.form.get('username');
   }
-  get Password(){
+  get Password() {
     return this.form.get('password');
   }
-  get Remember(){
+  get Remember() {
     return this.form.get('remember');
   }
 
-  onSubmit(){
-    if(this.form.valid){
+  onSubmit() {
+    if (this.form.valid) {
       this.form.reset();
-    }else{
+    } else {
       this.form.markAllAsTouched();
     }
   }

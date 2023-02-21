@@ -4,25 +4,31 @@
             <h1 class="heading">Estudios</h1>
         </div>
         <div class="col-4 col-sm-3 pe-5 text-end">
-            <app-edition [horizontal]="windowWidth<1020" [showAdding]="true" (edition)="editMode = !editMode" (adding)="toggleModal()"></app-edition>
+            <app-edition [horizontal]="windowWidth<1020" [showAdding]="true" (edition)="editMode = !editMode"
+                (adding)="toggleModal()"></app-edition>
         </div>
     </div>
     <div class="cards mx-3 mb-4 mt-lg-0 mt-5" elementObserver (visible)="visible=true" [threshold]="0.2" [wait]="200">
-        <div class="education-card my-3" *ngFor="let card of personalEducation; let i = index;" [ngClass]="{smallactive: windowWidth<=576, active:i==0 && visible}" tabindex="0">
+        <div class="education-card my-3" *ngFor="let card of personalEducation; let i = index;"
+            [ngClass]="{smallactive: windowWidth<=576, active:i==0 && visible}" tabindex="0">
             <div class="label">{{i+1}}</div>
             <div class="icon">
-              <fa-icon [icon]="determineIcon(card.areaId)"></fa-icon>
+                <fa-icon [icon]="determineIcon(card.areaId)"></fa-icon>
             </div>
             <div class="info row justify-content-end">
                 <div class="col-12 col-sm-7 col-lg-7 px-0">
                     <h1>{{card.title}}</h1>
                     <h3 class="mt-lg-3 my-xl-5">{{card.institution!.name}}</h3>
-                    <h5 class="mt-lg-3 mt-xl-5" id="date">{{card.startDate | date: 'MMM Y'}} - {{card.endDate | date: 'MMM Y'}}</h5>
-                    <img [src]="card.institution!.logo" alt="{{card.institution!.name}} logo" class="mt-1 mt-lg-3 mt-xl-5">
+                    <h5 class="mt-lg-3 mt-xl-5" id="date">{{card.startDate | date: 'MMM Y'}} - {{card.endDate | date:
+                        'MMM Y'}}</h5>
+                    <img [src]="card.institution!.logo" alt="{{card.institution!.name}} logo"
+                        class="mt-1 mt-lg-3 mt-xl-5">
                 </div>
             </div>
-            <app-edit-item class="edit-item" [editMode]="editMode" (deleteItem)="deleteItem(card)" (updateItem)="passData(card)"></app-edit-item>
+            <app-edit-item class="edit-item" [editMode]="editMode" (deleteItem)="deleteItem(card)"
+                (updateItem)="passData(card)"></app-edit-item>
         </div>
     </div>
 </section>
-<app-add-education (onAddItem)="addItem($event)" (onUpdateItem)="save($event)" [institutions]="institutions" [areas]="areas"></app-add-education>
+<app-add-education (onAddItem)="addItem($event)" (onUpdateItem)="save($event)" [institutions]="institutions"
+    [areas]="areas"></app-add-education>

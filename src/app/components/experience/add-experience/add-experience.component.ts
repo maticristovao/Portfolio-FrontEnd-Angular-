@@ -10,7 +10,7 @@ import { Company, EmployType, Experience } from '../experience.component';
   selector: 'app-add-experience',
   templateUrl: './add-experience.component.html',
   styleUrls: ['./add-experience.component.css'],
-  providers:[
+  providers: [
     {
       provide: DateAdapter,
       useClass: MomentDateAdapter,
@@ -21,9 +21,9 @@ import { Company, EmployType, Experience } from '../experience.component';
     }],
 })
 
-export class AddExperienceComponent extends AddItemComponent{
-  @Input() companies:Company[] = [];
-  @Input() types:EmployType[] = [];
+export class AddExperienceComponent extends AddItemComponent {
+  @Input() companies: Company[] = [];
+  @Input() types: EmployType[] = [];
 
   finishedOrCurrent(affectedControl: string, toggleRequire: string) {
     return (formGroup: FormGroup) => {
@@ -40,29 +40,29 @@ export class AddExperienceComponent extends AddItemComponent{
     }
   }
 
-  get Company(){
+  get Company() {
     return this.form.get('company');
   }
-  get Position(){
+  get Position() {
     return this.form.get('position');
   }
-  get EmployTypeId(){
+  get EmployTypeId() {
     return this.form.get('employTypeId');
   }
-  get StartDate(){
+  get StartDate() {
     return this.form.get('startDate');
   }
-  get EndDate(){
+  get EndDate() {
     return this.form.get('endDate');
   }
-  get Current(){
+  get Current() {
     return this.form.get('current');
   }
-  get Description(){
+  get Description() {
     return this.form.get('description');
   }
-  
-  loadEditData(item:Experience){
+
+  loadEditData(item: Experience) {
     this.form.setValue({
       id: item.id,
       company: item.company,
@@ -79,17 +79,17 @@ export class AddExperienceComponent extends AddItemComponent{
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {
-        id:undefined,
-        company:['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-        position:['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
-        employTypeId:['', [Validators.required]],
-        startDate:['', [Validators.required]],
-        endDate:[{value:'', disabled:false}, []],
-        current:[false, []],
-        description:['', []]
+        id: undefined,
+        company: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+        position: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+        employTypeId: ['', [Validators.required]],
+        startDate: ['', [Validators.required]],
+        endDate: [{ value: '', disabled: false }, []],
+        current: [false, []],
+        description: ['', []]
       },
       {
-        validators:[this.finishedOrCurrent('endDate', 'current'), this.endAfter('startDate', 'endDate')]
+        validators: [this.finishedOrCurrent('endDate', 'current'), this.endAfter('startDate', 'endDate')]
       }
     );
 
@@ -97,9 +97,9 @@ export class AddExperienceComponent extends AddItemComponent{
     this.Current!.valueChanges.subscribe(value => {
       if (value) {
         this.EndDate!.disable();
-      }else {
+      } else {
         this.EndDate!.enable();
       }
-    }) 
+    })
   }
 }

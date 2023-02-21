@@ -1,33 +1,35 @@
-.edit-item{
-    display: inline-flex;
-    transition: opacity ease-in-out .3s;
+.edit-item {
+  display: inline-flex;
+  transition: opacity ease-in-out .3s;
 }
-  .edit-item:not(.active){
-    opacity:0;
-  }
-  .item-wrapper{
-    background: transparent;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    border: none;
-    transition: background-color ease-in-out 0.3s,
-      border ease-in-out 0.4s;
-    z-index: 4;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .item-wrapper:hover{
-    background:#9b9d9ebb;
-  }
-  
-  .delete:hover{
-    background: rgba(255, 0, 0, 0.688);
-  }
-  
-  .item-wrapper fa-icon{
-    font-size: 22.5px;
-  }
+
+.edit-item:not(.active) {
+  opacity: 0;
+}
+
+.item-wrapper {
+  background: transparent;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: none;
+  transition: background-color ease-in-out 0.3s,
+    border ease-in-out 0.4s;
+  z-index: 4;
+  overflow: hidden;
+  position: relative;
+}
+
+.item-wrapper:hover {
+  background: #9b9d9ebb;
+}
+
+.delete:hover {
+  background: rgba(255, 0, 0, 0.688);
+}
+
+.item-wrapper fa-icon {
+  font-size: 22.5px;
+}

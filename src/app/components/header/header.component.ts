@@ -7,17 +7,17 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  providers:[NgbCarouselConfig],
+  providers: [NgbCarouselConfig],
   encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent implements OnInit, AfterViewInit{
-  @ViewChild('asCarousel')carousel!:NgbCarousel;
+export class HeaderComponent implements OnInit, AfterViewInit {
+  @ViewChild('asCarousel') carousel!: NgbCarousel;
   intersecting = false;
   faDownload = faArrowCircleDown;
-  personalInfo!:any;
-  name!:string;
-  surname!:string;
-  images:string[]=[
+  personalInfo!: any;
+  name!: string;
+  surname!: string;
+  images: string[] = [
     'https://elceo.com/wp-content/uploads/2021/10/mexico-economia-av.jpg',
     'https://www.fundacionaquae.org/wp-content/uploads/2020/04/Nuevas-formas-de-trabajo3-1-002.jpg',
     'https://a.storyblok.com/f/112937/568x400/19b8611e4b/10-most-fun-languages-to-learn_square-568x400.jpg/m/620x0/filters:quality(70)/'
@@ -29,47 +29,47 @@ export class HeaderComponent implements OnInit, AfterViewInit{
     this.defineSurname();
   }
 
-  constructor(private personalData:PersonalInfoService, private config:NgbCarouselConfig){
-    this.config.interval=6000;
-    this.config.pauseOnHover=false;
-    this.config.keyboard=false;
-    this.config.showNavigationArrows=false;
-    this.config.animation=false
-    this.config.pauseOnFocus=false;    
+  constructor(private personalData: PersonalInfoService, private config: NgbCarouselConfig) {
+    this.config.interval = 6000;
+    this.config.pauseOnHover = false;
+    this.config.keyboard = false;
+    this.config.showNavigationArrows = false;
+    this.config.animation = false
+    this.config.pauseOnFocus = false;
   }
 
-  removeAccents(str:string):string{
+  removeAccents(str: string): string {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
-  defineName(){
-    if(window.innerWidth>1025){
+  defineName() {
+    if (window.innerWidth > 1025) {
       this.name = this.removeAccents(this.personalInfo.name)
-    }else{
+    } else {
       this.name = this.removeAccents(this.personalInfo.name)[0];
     }
   }
 
-  defineSurname(){
-    if(window.innerWidth>737){
+  defineSurname() {
+    if (window.innerWidth > 737) {
       this.surname = this.removeAccents(this.personalInfo.surname)
-    }else{
+    } else {
       this.surname = this.removeAccents(this.personalInfo.surname)[0];
     }
   }
 
-  resetTimer(e:NgbSlideEvent){
-    if(e.source !== 'timer'){
+  resetTimer(e: NgbSlideEvent) {
+    if (e.source !== 'timer') {
       this.carousel.pause();
       this.carousel.cycle();
     }
   }
 
   ngOnInit(): void {
-    this.personalData.getData('user').subscribe(data =>{
+    this.personalData.getData('user').subscribe(data => {
       this.personalInfo = data;
     })
-    
+
   }
   ngAfterViewInit(): void {
     this.defineName();

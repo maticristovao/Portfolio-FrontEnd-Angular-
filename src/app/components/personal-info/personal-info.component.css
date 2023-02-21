@@ -1,99 +1,108 @@
-.photo{
+.photo {
     position: relative;
 }
-.photo img{
-    width:15vw;
+
+.photo img {
+    width: 15vw;
     border-radius: 50%;
-    border:2px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     position: absolute;
-    top:-4.8vw;
-    left:7%;
-    right:auto;
+    top: -4.8vw;
+    left: 7%;
+    right: auto;
     bottom: auto;
     z-index: 2;
     box-shadow: 0 0 20px var(--plain-color);
 }
+
 @media screen and (width<992px) {
-    .photo img{
-        left:10%;
-        width:20vw;
+    .photo img {
+        left: 10%;
+        width: 20vw;
     }
 }
 
-.name-title h1{
-    color:rgb(172, 171, 171);
-    
+.name-title h1 {
+    color: rgb(172, 171, 171);
+
 }
-.name-title h2{
-    color:rgba(148, 147, 147, 0.753);
+
+.name-title h2 {
+    color: rgba(148, 147, 147, 0.753);
     font-weight: 700;
 }
-.name-title h2 span{
+
+.name-title h2 span {
     margin: 0 20px;
     white-space: pre-wrap;
 }
 
-.place img.ub{
-    width:90px;
+.place img.ub {
+    width: 90px;
     border-radius: 400px;
-    border:4px solid red;
-    mix-blend-mode:color;
+    border: 4px solid red;
+    mix-blend-mode: color;
 }
-.place img.pwc{
-    width:80px;
+
+.place img.pwc {
+    width: 80px;
     border-radius: 00px;
 }
-.place div{
-    color:rgba(255, 255, 255, 0.685);
+
+.place div {
+    color: rgba(255, 255, 255, 0.685);
     font-weight: 500;
 }
 
 
-.other-info .info p{
-    color:rgb(148, 147, 147);
+.other-info .info p {
+    color: rgb(148, 147, 147);
     font-weight: 600;
 }
 
-.other-info .info p{
-    color:rgb(148, 147, 147);
+.other-info .info p {
+    color: rgb(148, 147, 147);
     font-weight: 600;
 }
 
-.other-info .info p span a{
+.other-info .info p span a {
     text-decoration: none;
     margin-left: 20px;
-    color:var(--oposite-color);
+    color: var(--oposite-color);
     transition: color ease-in-out .2s;
 }
-.other-info .info p span a:hover{
+
+.other-info .info p span a:hover {
     color: var(--tertiary-color);
 }
-.other-info .info p span{
+
+.other-info .info p span {
     position: relative;
 }
-.other-info .info p span::before{
+
+.other-info .info p span::before {
     content: "\00B7";
     width: fit-content;
     height: fit-content;
     display: flex;
     align-items: center;
-    color:var(--oposite-color);
+    color: var(--oposite-color);
     font-size: 30px;
     height: 10px;
     position: absolute;
-    top:5px;
-    left:5px;
+    top: 5px;
+    left: 5px;
 }
 
-.profile-btn{
+.profile-btn {
     font-size: 20px;
     border-radius: 400px;
     border-width: 2px;
     font-weight: 700;
 }
 
-@media screen and (width<=1200px){
-    #more{
+@media screen and (width<=1200px) {
+    #more {
         justify-content: center;
         letter-spacing: 3px;
         font-weight: 900;
@@ -104,23 +113,23 @@
     }
 }
 
-div.data{ 
+div.data {
     position: relative;
 }
 
-.edition{
+.edition {
     position: absolute;
-    right:0;
-    bottom:0;
+    right: 0;
+    bottom: 0;
     width: fit-content;
 }
 
 @media screen and (width<576px) {
-    .edition{
-        top:0;
+    .edition {
+        top: 0;
     }
 }
 
-#title{
+#title {
     text-transform: capitalize;
 }

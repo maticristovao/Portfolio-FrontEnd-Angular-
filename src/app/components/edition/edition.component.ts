@@ -8,53 +8,53 @@ import { faCheck, faDeleteLeft, faPencil, faPlus, faTrashCan, faXmark } from '@f
   styleUrls: ['./edition.component.css']
 })
 export class EditionComponent {
-  editing:boolean = false;
-  windowWidth:number = window.innerWidth;
-  
-  @Input() horizontal:boolean = false;
-  @Input() showAdding:boolean = false;
-  @Input() editOnly:boolean = false;
+  editing: boolean = false;
+  windowWidth: number = window.innerWidth;
+
+  @Input() horizontal: boolean = false;
+  @Input() showAdding: boolean = false;
+  @Input() editOnly: boolean = false;
 
   @Output() edition = new EventEmitter()
   @Output() adding = new EventEmitter()
   @Output() discard = new EventEmitter()
-  
+
 
   faPencil = faPencil;
   faCheck = faCheck;
   faDiscard = faTrashCan;
   faPlus = faPlus;
-  
+
   @HostListener('window:resize')
   onResize() {
     this.windowWidth = window.innerWidth;
   }
-  
-  editMode(){
-    if(!this.editOnly){
+
+  editMode() {
+    if (!this.editOnly) {
       this.editing = !this.editing;
     }
     this.edition.emit();
   }
 
-  deleteSection(){
+  deleteSection() {
     this.editing = false;
     this.discard.emit();
   }
 
-  addItem(){
+  addItem() {
     this.adding.emit();
   }
 
-  defineTranslation(){
-    switch (true){
-      case (this.showAdding && this.windowWidth<800):
+  defineTranslation() {
+    switch (true) {
+      case (this.showAdding && this.windowWidth < 800):
         return '-94px';
 
-      case (!this.showAdding && this.windowWidth>=800):
+      case (!this.showAdding && this.windowWidth >= 800):
         return '-65px';
 
-      case (!this.showAdding && this.windowWidth<800):
+      case (!this.showAdding && this.windowWidth < 800):
         return '-47px';
 
       // this.showAdding && this.windowWidth>=800
