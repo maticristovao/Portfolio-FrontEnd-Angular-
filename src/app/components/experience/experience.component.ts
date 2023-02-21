@@ -38,12 +38,12 @@ export class ExperienceComponent implements OnInit{
 
   deleteItem(item:Experience){
     this.personalData.deleteItem(item, this.field).subscribe(()=>{
-      this.personalExperience = this.personalExperience.filter((i: { id: number | undefined; }) => i.id !== item.id);
+      this.personalExperience = this.personalExperience.filter((i: { id: number }) => i.id !== item.id);
     });
   }
 
   getCardPosition(item:Experience):number{
-    let chosenItem = this.personalExperience.find((i: { id: number | undefined; }) => i.id===item.id)
+    let chosenItem = this.personalExperience.find((i: { id: number }) => i.id===item.id)
     let position = this.personalExperience.indexOf(chosenItem!);
     return position;
   }

@@ -17,7 +17,6 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
   titles:string[] = [];
   countries:Country[] = [];
   provinces:Province[] = [];
-  faFolder = faFolder;
 
   get Name(){
     return this.form.get('name');

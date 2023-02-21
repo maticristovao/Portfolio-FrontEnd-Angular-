@@ -50,6 +50,7 @@ import { AddSkillComponent } from './components/skills/add-skill/add-skill.compo
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSliderModule} from '@angular/material/slider';
+import { AddProjectComponent } from './components/projects/add-project/add-project.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import {MatSliderModule} from '@angular/material/slider';
     AddExperienceComponent,
     AddItemComponent,
     AddPersonalInfoComponent,
-    AddSkillComponent
+    AddSkillComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,

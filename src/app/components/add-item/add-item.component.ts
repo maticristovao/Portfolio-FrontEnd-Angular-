@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faFolder, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -47,6 +47,7 @@ export class AddItemComponent {
   matcher:LiveErrorMatcher = new LiveErrorMatcher();
   today!: Date;
   faExit = faTimes;
+  faFolder = faFolder;
 
   @ViewChild('content') myModal!:ElementRef;
   @Output() onAddItem:EventEmitter<any> = new EventEmitter();

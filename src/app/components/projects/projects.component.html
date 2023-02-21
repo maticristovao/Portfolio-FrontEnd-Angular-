@@ -4,12 +4,14 @@
             <h1 class="text-center">Proyectos</h1>
         </div>
         <div class="col-2">
-            <app-edition [showAdding]="true"></app-edition>
+            <app-edition class="edition" [showAdding]="true" (edition)="editMode = !editMode" (adding)="toggleModal()"></app-edition>
         </div>
     </div>
-    <div class="row justify-content-center gap-lg-5">
+    <div class="row justify-content-center gap-lg-5 mt-3">
         <div class="col-12 col-md-6 col-lg-5 col-xl-4 my-4" *ngFor="let project of projects; let evenItem = even">
+            <app-edit-item [editMode]="editMode" (deleteItem)="deleteItem(project)" (updateItem)="passData(project)"></app-edit-item>
             <app-project-item [project]="project" [even]="evenItem"></app-project-item>
         </div>
     </div>
 </section>
+<app-add-project (onAddItem)="addItem($event)" (onUpdateItem)="saveItem($event)"></app-add-project>

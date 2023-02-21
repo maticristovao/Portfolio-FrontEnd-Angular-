@@ -1,5 +1,5 @@
-<div class="item p-3 p-sm-5 p-md-5 px-md-4 p-xl-0 p-xl-5" [ngStyle]="{'--project-image':'url('+project.image+')'}" elementObserver (visible)="visible=true" [threshold]="0.10" [class.visible]="visible" [class.odd]="!even">
-    <h2 class="title">{{project.name}}</h2>
+<div class="item p-3 p-sm-5 p-md-5 px-md-4 p-xl-0 p-xl-5" [ngStyle]="{'--project-image':project.image?'url('+project.image+')':'url(https://img.freepik.com/vector-gratis/ilustracion-vector-concepto-abstracto-ciclo-vida-proyecto-gestion-exitosa-proyectos-etapas-finalizacion-proyecto-asignacion-tareas-caso-negocio-metafora-abstracta-requisitos-recursos_335657-2941.jpg?w=2000)'}" elementObserver (visible)="visible=true" [threshold]="0.10" [class.visible]="visible" [class.odd]="!even">
+    <h2 class="title">{{project.title}}</h2>
     <div class="links d-flex gap-3">
         <a [href]="project.repo" target="_blank" rel="noreferrer noopener"><fa-icon [icon]="faCode" class="resources"></fa-icon></a>
         <a *ngIf="project.collection" [href]="project.collection" target="_blank" rel="noreferrer noopener"><fa-icon [icon]="faCodePen" class="resources"></fa-icon></a>

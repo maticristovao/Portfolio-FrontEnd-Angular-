@@ -13,7 +13,7 @@
 
 .modal-open {
     padding:0 !important;
-    overflow-y: scroll !important;
+    /* overflow-y: scroll !important; */
 }
 
 .close{

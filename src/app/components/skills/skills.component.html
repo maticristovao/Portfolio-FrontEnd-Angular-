@@ -5,7 +5,7 @@
             <h1 class="title ms-sm-1 ms-lg-5  mb-5 text-sm-center text-lg-start">Habilidades</h1>
             <div class="container-fluid mt-4 ps-1 ps-lg-5 me-1 pe-5 pe-sm-4 pe-lg-2 mb-4" *ngFor="let skill of skills">
                 <app-skill-item [skill]="skill"></app-skill-item>
-                <app-edit-item [editMode]="editMode" (updateItem)="passSkill(skill)" (deleteItem)="deleteItem(skill)"></app-edit-item>
+                <app-edit-item [editMode]="editMode" (updateItem)="passData(skill)" (deleteItem)="deleteItem(skill)"></app-edit-item>
             </div>
         </article>
         <article class="col-12 col-lg-4 pt-3 pt-lg-0 languages">
@@ -13,7 +13,7 @@
             <div class="row px-1 px-lg-5">
             <div class="col-12 col-sm-6 col-lg-12 my-5 text-start text-sm-center text-lg-start" *ngFor="let language of languages">
                 <app-languages [language]="language"></app-languages>
-                <app-edit-item [editMode]="editMode" (updateItem)="passLanguage(language)" (deleteItem)="deleteItem(language)" class="ps-5"></app-edit-item>
+                <app-edit-item [editMode]="editMode" (updateItem)="passData(language)" (deleteItem)="deleteItem(language)" class="ps-5"></app-edit-item>
             </div>
         </div>
         </article>

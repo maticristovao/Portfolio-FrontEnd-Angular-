@@ -68,15 +68,14 @@ export class SkillsComponent implements OnInit {
       });
     }
   }
-
-  passSkill(skill: Skill) {
+  
+  passData(item: Skill | Language){
     this.toggleModal();
-    this.editModal.loadSkill(skill);
-  }
-
-  passLanguage(language: Language) {
-    this.toggleModal();
-    this.editModal.loadLanguage(language);
+    if(this.isSkill(item)){
+      this.editModal.loadSkill(item);
+    }else{
+      this.editModal.loadLanguage(item);
+    }
   }
 
   save(item: Skill | Language) {

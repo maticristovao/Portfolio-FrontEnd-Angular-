@@ -304,29 +304,31 @@
   ],
   "projects": [
     {
-      "name": "Personal portfolio page",
+      "id": 1,
+      "title": "Personal portfolio page",
       "description": "Sabiendo que word-wrap es el único soportado por todos los navegadores y que hyphens nos aporta una mejora en cuanto a las reglas y el modo de partir las palabras, a menos que debamos enfrentarnos a un texto multi-idioma.",
+      "link": "",
       "repo": "https://github.com/maticristovao/Portfolio-FrontEnd-Angular-",
       "collection": "https://codepen.io/collection/NqyQam",
       "image": "https://bootstrapmade.com/content/templatefiles/iPortfolio/iPortfolio-bootstrap-website-template.png"
     },
     {
-      "name": "Personal portfolio page",
+      "id": 3,
+      "title": "Personal portfolio page",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "link": "",
       "repo": "link",
+      "collection": "",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0qEEI4cpRp-fn7oNHKkMDxt7sENUTGTWrcA&usqp=CAU"
     },
     {
-      "name": "Personal portfolio page",
+      "id": 4,
+      "title": "Personal portfolio page",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "link": "",
       "repo": "link",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0qEEI4cpRp-fn7oNHKkMDxt7sENUTGTWrcA&usqp=CAU"
-    },
-    {
-      "name": "Personal portfolio page",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "repo": "link",
-      "image": "https://bootstrapmade.com/content/templatefiles/iPortfolio/iPortfolio-bootstrap-website-template.png"
+      "collection": "",
+      "image": ""
     }
   ]
 }
