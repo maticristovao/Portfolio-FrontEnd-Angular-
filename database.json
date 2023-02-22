@@ -4,7 +4,7 @@
     "surname": "Cristovao",
     "title": [
       "Full Stack Developer Jr",
-      "Economics Student"
+      "economics Student"
     ],
     "province": "Buenos Aires",
     "country": "Argentina",
@@ -221,13 +221,13 @@
     },
     {
       "id": 3,
-      "name": "Javascript / Typescript",
-      "progress": "65"
+      "name": "Bootstrap",
+      "progress": "95"
     },
     {
       "id": 4,
-      "name": "Angular",
-      "progress": "70"
+      "name": "Javascript / Typescript",
+      "progress": "65"
     },
     {
       "id": 5,
@@ -236,8 +236,8 @@
     },
     {
       "id": 6,
-      "name": "Bootstrap",
-      "progress": "95"
+      "name": "Angular",
+      "progress": "70"
     },
     {
       "id": 7,
@@ -268,16 +268,6 @@
       "startDate": "2023-01-01T03:00:00.000Z",
       "current": true,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-    },
-    {
-      "id": 2,
-      "company": "JP Morgan",
-      "position": "CEO",
-      "employTypeId": 1,
-      "startDate": "2022-02-01T03:00:00.000Z",
-      "endDate": "2022-02-01T03:00:00.000Z",
-      "current": false,
-      "description": ""
     }
   ],
   "employTypes": [

@@ -230,3 +230,7 @@ mat-panel-title {
     font-size: 15px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__text-label {
+    text-transform: capitalize;
+}

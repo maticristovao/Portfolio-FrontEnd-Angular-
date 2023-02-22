@@ -24,7 +24,7 @@ export class SkillsComponent implements OnInit {
   constructor(private personalData: PersonalInfoService) { }
 
   ngOnInit(): void {
-    this.personalData.getData('skills').subscribe(data => {
+    this.personalData.getData('skills?_sort=id').subscribe(data => {
       this.skills = data;
     });
     this.personalData.getData('languages').subscribe(data => {
@@ -37,9 +37,13 @@ export class SkillsComponent implements OnInit {
     this.editModal.open(this.editModal.myModal);
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
-  }
+  // drop(event: CdkDragDrop<string[]>) {
+  //   moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
+  //   this.skills.forEach(async skill => {
+  //     skill.id = this.skills.indexOf(skill) + 1;
+  //     await this.save(skill);
+  //   });
+  // }
 
   isSkill(object: any): object is Skill {
     return 'progress' in object;

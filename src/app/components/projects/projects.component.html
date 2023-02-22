@@ -8,8 +8,8 @@
                 (adding)="toggleModal()"></app-edition>
         </div>
     </div>
-    <div class="row justify-content-center gap-lg-5 mt-3">
-        <div class="col-12 col-md-6 col-lg-5 col-xl-4 my-4" *ngFor="let project of projects; let evenItem = even">
+    <div class="row justify-content-center gap-lg-5 mt-4">
+        <div class="col-12 col-md-6 col-lg-5 col-xl-4 my-2" *ngFor="let project of projects; let evenItem = even">
             <app-edit-item [editMode]="editMode" (deleteItem)="deleteItem(project)"
                 (updateItem)="passData(project)"></app-edit-item>
             <app-project-item [project]="project" [even]="evenItem"></app-project-item>

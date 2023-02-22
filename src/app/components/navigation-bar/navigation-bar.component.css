@@ -101,7 +101,7 @@ a.nav-link:focus-visible {
 }
 
 li.nav-item a.nav-link.active {
-    color: rgba(var(--datepicker-effect), 0.7);
+    color: rgba(var(--datepicker-effect), 0.7) !important;
     font-weight: 600;
     transition: color ease-in-out .2s 0s;
 }
@@ -236,6 +236,10 @@ nav>fa-icon {
     a.nav-link:focus::before {
         width: 100%;
     }
+
+    .nav-item>.tooltip {
+        display: none;
+    }
 }
 
 @media screen and (width>=992px) {
@@ -267,4 +271,12 @@ nav>fa-icon {
 
 nav.navbar-dark.change {
     background-color: var(--plain-color) !important;
+}
+
+.change .nav-item>.tooltip .tooltip-inner {
+    background-color: var(--secondary-color);
+}
+
+.change .nav-item>.tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: var(--secondary-color);
 }

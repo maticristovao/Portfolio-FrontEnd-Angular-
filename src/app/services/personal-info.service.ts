@@ -41,7 +41,7 @@ export class PersonalInfoService {
     return this.http.put<any>(url, item, httpOptions);
   }
 
-  patchItem(item: any, field: string) {
+  patchItem(item: any, field: string): Observable<any> {
     const url: string = `${this.apiUrl}/${field}`;
     return this.http.patch<any>(url, item, httpOptions);
   }

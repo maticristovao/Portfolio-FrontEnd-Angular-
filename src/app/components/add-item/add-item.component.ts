@@ -79,7 +79,6 @@ export class AddItemComponent {
     datepicker.close();
   }
 
-
   endAfter(startCrtl: string, endCtrl: string) {
     return (formGroup: FormGroup) => {
       const start = formGroup.controls[startCrtl];
