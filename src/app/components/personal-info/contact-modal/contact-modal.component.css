@@ -57,7 +57,7 @@ p.label span {
 .modal-body p a:hover,
 .modal-body p a:focus {
     color: var(--tertiary-color);
-    outline: none;
+    outline: transparent;
 }
 
 @media screen and (width<380px) {

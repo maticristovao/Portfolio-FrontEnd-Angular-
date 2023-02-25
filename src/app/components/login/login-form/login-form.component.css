@@ -26,7 +26,7 @@
 }
 
 .show-icon:focus-visible {
-    outline: none;
+    outline: transparent;
 }
 
 .show-icon.visible {

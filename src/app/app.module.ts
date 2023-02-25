@@ -50,6 +50,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { AddProjectComponent } from './components/projects/add-project/add-project.component';
 import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -80,7 +81,8 @@ import { EditAboutComponent } from './components/about/edit-about/edit-about.com
     AddPersonalInfoComponent,
     AddSkillComponent,
     AddProjectComponent,
-    EditAboutComponent
+    EditAboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

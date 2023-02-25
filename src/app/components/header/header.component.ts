@@ -36,6 +36,8 @@ export class HeaderComponent implements OnInit {
     this.config.showNavigationArrows = false;
     this.config.animation = false
     this.config.pauseOnFocus = false;
+
+    this.personalData.RefreshRequired.subscribe(() => this.getData());
   }
 
   removeAccents(str: string): string {
@@ -65,11 +67,15 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  getData(){
     this.personalData.getData('user/1').subscribe(data => {
       this.personalInfo = data;
       this.defineName();
       this.defineSurname();
     });
+  }
+
+  ngOnInit(): void {
+    this.getData();
   }
 }

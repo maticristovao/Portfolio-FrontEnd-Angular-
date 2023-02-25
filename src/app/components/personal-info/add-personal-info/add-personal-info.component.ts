@@ -82,6 +82,7 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
       // phoneType1: phones[0].type,
       // phone2: phones[1] ? phones[1].number : '',
       // phoneType2: phones[1] ? phones[1].type : 'Móvil',
+      email: user.email,
       province: user.province,
       country: user.country,
       photo: user.photo

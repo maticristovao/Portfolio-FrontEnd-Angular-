@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 
 
 const httpOptions = {
@@ -15,7 +15,10 @@ const httpOptions = {
 export class PersonalInfoService {
   private apiUrl = 'http://localhost:5000';
 
-
+  private refreshRequired = new Subject<void>();
+  get RefreshRequired() {
+    return this.refreshRequired;
+  }
   constructor(private http: HttpClient) { }
 
   getData(field: string): Observable<any> {
@@ -43,7 +46,9 @@ export class PersonalInfoService {
 
   patchItem(item: any, field: string): Observable<any> {
     const url: string = `${this.apiUrl}/${field}`;
-    return this.http.patch<any>(url, item, httpOptions);
+    return this.http.patch<any>(url, item, httpOptions).pipe(
+      tap(() => this.refreshRequired.next())
+    );
   }
 }
 
