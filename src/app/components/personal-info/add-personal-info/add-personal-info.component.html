@@ -48,12 +48,69 @@
                             </button>
                         </mat-chip-row>
                         <input placeholder="Nuevo título..." [matChipInputFor]="chipGrid"
-                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true" maxlength=30
-                            (matChipInputTokenEnd)="added($event)"/>
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+                            maxlength=30 (matChipInputTokenEnd)="added($event)" />
                     </mat-chip-grid>
                     <mat-error *ngIf="Title?.hasError('maxlength')">Puede incluir un máximo de 2 títulos</mat-error>
                 </mat-form-field>
             </div>
+            <div class="row mt-4 px-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput id="email" name="email" formControlName="email">
+                    <button *ngIf="Email?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                        (click)="Email?.setValue('')">
+                        <fa-icon [icon]="faExit"></fa-icon>
+                    </button>
+                    <mat-error *ngIf="Email?.hasError('email') && Email?.touched">Ingrese un email válido</mat-error>
+                </mat-form-field>
+            </div>
+            <!-- <div class="row justify-content-center mt-4 px-3">
+                <div class="col-8">
+                    <mat-form-field appearance="outline" class="px-0 w-100">
+                        <mat-label>Teléfono 1</mat-label>
+                        <input matInput id="phone1" name="phone1" formControlName="phone1" />
+                        <button *ngIf="Phone1?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                            (click)="Phone1?.setValue('')">
+                            <fa-icon [icon]="faExit"></fa-icon>
+                        </button>
+                        <mat-error *ngIf="Phone1?.hasError('pattern') && Phone1?.touched">Ingrese un número de teléfono
+                            válido</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Tipo</mat-label>
+                        <mat-select formControlName="phoneType1" name="phoneType1" id="phoneType1">
+                            <mat-option value="Móvil">Móvil</mat-option>
+                            <mat-option value="Fijo">Fijo</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3 px-3">
+                <div class="col-8">
+                    <mat-form-field appearance="outline" class="px-0 w-100">
+                        <mat-label>Teléfono 2</mat-label>
+                        <input matInput id="phone2" name="phone2" formControlName="phone2" />
+                        <button *ngIf="Phone2?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                            (click)="Phone2?.setValue('')">
+                            <fa-icon [icon]="faExit"></fa-icon>
+                        </button>
+                        <mat-error *ngIf="Phone2?.hasError('pattern') && Phone2?.touched">Ingrese un número de teléfono
+                            válido</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Tipo</mat-label>
+                        <mat-select formControlName="phoneType2" name="phoneType2" id="phoneType2">
+                            <mat-option value="Móvil">Móvil</mat-option>
+                            <mat-option value="Fijo">Fijo</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div> -->
             <div class="row justify-content-center mt-4 px-3">
                 <div class="col-6 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">

@@ -1,5 +1,7 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { UiService } from 'src/app/services/ui.service';
 import { EditAboutComponent } from './edit-about/edit-about.component';
 
 @Component({
@@ -13,7 +15,10 @@ export class AboutComponent implements OnInit {
   windowWidth: number = window.innerWidth;
   flip: boolean = false;
   editing: boolean = false;
-  field: string = 'user'
+  field: string = 'user';
+  section: string = 'about';
+  showAbout:boolean = true;
+  subscription?: Subscription;
 
   @ViewChild(EditAboutComponent) editModal!: EditAboutComponent;
 
@@ -34,11 +39,17 @@ export class AboutComponent implements OnInit {
     });
   }
 
-  constructor(private personalData: PersonalInfoService) { }
+  discardSection(){
+    this.uiService.toggleSection('about');
+  }
+
+  constructor(private personalData: PersonalInfoService, private uiService: UiService) {
+    this.subscription = this.uiService.onToggle().subscribe(value => this.showAbout = value);
+  }
 
   ngOnInit(): void {
     this.personalData.getData(this.field).subscribe(data => {
-      this.about = data.about;
+      this.about = data[0].about;
     })
   }
 }

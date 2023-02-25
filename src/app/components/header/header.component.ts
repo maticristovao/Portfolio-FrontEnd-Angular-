@@ -10,7 +10,7 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
   providers: [NgbCarouselConfig],
   encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements OnInit {
   @ViewChild('asCarousel') carousel!: NgbCarousel;
   intersecting = false;
   faDownload = faArrowCircleDown;
@@ -44,17 +44,17 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   defineName() {
     if (window.innerWidth > 1025) {
-      this.name = this.removeAccents(this.personalInfo.name)
+      this.name = this.removeAccents(this.personalInfo?.name)
     } else {
-      this.name = this.removeAccents(this.personalInfo.name)[0];
+      this.name = this.removeAccents(this.personalInfo?.name)[0];
     }
   }
 
   defineSurname() {
     if (window.innerWidth > 737) {
-      this.surname = this.removeAccents(this.personalInfo.surname)
+      this.surname = this.removeAccents(this.personalInfo?.surname)
     } else {
-      this.surname = this.removeAccents(this.personalInfo.surname)[0];
+      this.surname = this.removeAccents(this.personalInfo?.surname)[0];
     }
   }
 
@@ -66,13 +66,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.personalData.getData('user').subscribe(data => {
+    this.personalData.getData('user/1').subscribe(data => {
       this.personalInfo = data;
-    })
-
-  }
-  ngAfterViewInit(): void {
-    this.defineName();
-    this.defineSurname();
+      this.defineName();
+      this.defineSurname();
+    });
   }
 }

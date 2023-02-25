@@ -14,30 +14,34 @@
                 <div class="row">
                     <p class="body-head ms-0 ms-sm-3">Contact Info</p>
                 </div>
-                <div class="row mt-4" *ngIf="mail">
-                    <div class="col-2 d-flex justify-content-center">
-                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                <div class="email mt-4 mb-5" *ngIf="email">
+                    <div class="row">
+                        <div class="col-2 d-flex justify-content-center">
+                            <fa-icon [icon]="faEnvelope"></fa-icon>
+                        </div>
+                        <div class="col-10">
+                            <p class="label">Email</p>
+                        </div>
                     </div>
-                    <div class="col-10">
-                        <p class="label">Email</p>
-                    </div>
-                </div>
-                <div class="row justify-content-end">
-                    <div class="col-10 data">
-                        <p><a href="mailto:{{mail.adress}}">{{mail.adress}}</a></p>
-                    </div>
-                </div>
-                <div class="row mt-5" *ngIf="phone">
-                    <div class="col-2 d-flex justify-content-center">
-                        <fa-icon [icon]="phone.type.toLowerCase().trim() === 'mobile'? faMobile : faPhone"></fa-icon>
-                    </div>
-                    <div class="col-10">
-                        <p class="label">Teléfono</p>
+                    <div class="row justify-content-end">
+                        <div class="col-10 data">
+                            <p><a href="mailto:{{email}}">{{email}}</a></p>
+                        </div>
                     </div>
                 </div>
-                <div class="row justify-content-end">
-                    <div class="col-10 data">
-                        <p>{{phone.number}} <span>({{phone.type.trim()}})</span></p>
+                <div *ngFor="let p of phones" class="mt-3">
+                    <div class="row">
+                        <div class="col-2 d-flex justify-content-center">
+                            <fa-icon [icon]="p.type.toLowerCase().trim() === 'fijo'? faPhone : faMobile"></fa-icon>
+                        </div>
+                        <div class="col-10">
+                            <p class="label">Teléfono <span>({{p.type.trim()}})</span></p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="col-10 data">
+                            <p>{{p.number}}</p>
+                        </div>
                     </div>
                 </div>
             </div>

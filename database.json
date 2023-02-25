@@ -1,16 +1,34 @@
 {
-  "user": {
-    "name": "Matías",
-    "surname": "Cristovao",
-    "title": [
-      "Full Stack Developer Jr",
-      "economics Student"
-    ],
-    "province": "Buenos Aires",
-    "country": "Argentina",
-    "photo": "https://media.licdn.com/dms/image/D4D03AQGvC1cOyWVkgw/profile-displayphoto-shrink_200_200/0/1673571910638?e=1678924800&v=beta&t=JuoqdhESe1Iq_9Ele9kjI15ojxlbA02jHl55Tg1631s",
-    "about": "Soy una persona proactiva, detallista y responsable. Me gusta estar en constante mejora; siempre estoy en la búsqueda de formas de cambiar y mejorar los sistemas, métodos y resultados actuales.\nAdemás, disfruto del aprendizaje permanente, agradeciéndo cada oportunidad de adquirir conocimientos y habilidades que potencien mi carrera a futuro."
-  },
+  "user": [
+    {
+      "id": 1,
+      "name": "Matías",
+      "surname": "Cristovao",
+      "title": [
+        "Full Stack Developer Jr",
+        "economics Student"
+      ],
+      "email": "maticristovao@hotmail.com",
+      "province": "Buenos Aires",
+      "country": "Argentina",
+      "photo": "https://media.licdn.com/dms/image/D4D03AQGvC1cOyWVkgw/profile-displayphoto-shrink_200_200/0/1673571910638?e=1678924800&v=beta&t=JuoqdhESe1Iq_9Ele9kjI15ojxlbA02jHl55Tg1631s",
+      "about": "Soy una persona proactiva, detallista y responsable. Me gusta estar en constante mejora; siempre estoy en la búsqueda de formas de cambiar y mejorar los sistemas, métodos y resultados actuales.\nAdemás, disfruto del aprendizaje permanente, agradeciéndo cada oportunidad de adquirir conocimientos y habilidades que potencien mi carrera a futuro."
+    }
+  ],
+  "phones": [
+    {
+      "id": 1,
+      "number": "11 3945 8436",
+      "type": "Móvil",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "number": "46640444",
+      "type": "Fijo",
+      "userId": 1
+    }
+  ],
   "countries": [
     {
       "id": 1,
@@ -91,15 +109,6 @@
       "countryId": 3
     }
   ],
-  "mail": {
-    "id": 1,
-    "adress": "maticristovao@hotmail.com"
-  },
-  "phone": {
-    "id": 1,
-    "number": 1139458436,
-    "type": "Mobile"
-  },
   "social": [
     {
       "media": "Linkedin",

@@ -1,6 +1,6 @@
-<article class="about container-fluid py-5 px-3 py-sm-0 px-sm-0" id="about">
+<article class="about container-fluid py-5 px-3 py-sm-0 px-sm-0" id="about" *ngIf="showAbout">
     <app-edition class="edition" [horizontal]="windowWidth<1200"
-        (edition)="editing = !editing; editing && toggleModal()"></app-edition>
+        (edition)="editing = !editing; editing && toggleModal()" (discard)="discardSection()"></app-edition>
     <div class="row justify-content-center d-none d-sm-flex mx-0">
         <div class="col-12 col-xl-9 align-self-center px-3 px-xl-0">
             <div class="card inverse" [class.flip]="flip" (click)="flip = !flip">

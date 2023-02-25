@@ -4,8 +4,7 @@ import { AddItemComponent } from '../../add-item/add-item.component';
 import { COMMA, ENTER, DASH, SLASH } from '@angular/cdk/keycodes';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 import { UserData } from '../personal-info.component';
-import { PersonalInfoService } from 'src/app/services/personal-info.service';
-import { faFolder } from '@fortawesome/free-solid-svg-icons';
+import { Phone } from '../contact-modal/contact-modal.component';
 
 @Component({
   selector: 'app-add-personal-info',
@@ -27,6 +26,15 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
   get Title() {
     return this.form.get('title');
   }
+  get Email() {
+    return this.form.get('email');
+  }
+  // get Phone1() {
+  //   return this.form.get('phone1');
+  // }
+  // get Phone2() {
+  //   return this.form.get('phone2');
+  // }
   get Province() {
     return this.form.get('province');
   }
@@ -70,6 +78,10 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
       name: user.name,
       surname: user.surname,
       title: user.title,
+      // phone1: phones[0].number,
+      // phoneType1: phones[0].type,
+      // phone2: phones[1] ? phones[1].number : '',
+      // phoneType2: phones[1] ? phones[1].type : 'Móvil',
       province: user.province,
       country: user.country,
       photo: user.photo
@@ -89,6 +101,11 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
       name: ['', [Validators.required]],
       surname: ['', [Validators.required]],
       title: [this.titles, [Validators.required, Validators.maxLength(2), Validators.max(20)]],
+      email: ['', [Validators.required, Validators.email]],
+      // phone1: ['', [Validators.required, Validators.pattern('[- +()0-9]{6,14}')]],
+      // phoneType1: ['', [Validators.required]],
+      // phone2: ['', [Validators.pattern('[- +()0-9]{6,14}')]],
+      // phoneType2: ['', []],
       province: ['', [Validators.required]],
       country: ['', [Validators.required]],
       photo: ['', []]
@@ -97,9 +114,25 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
 
   override onSubmit(): void {
     if (this.form.valid) {
-      const newItem = this.form.value;
-      console.log(newItem.photo);
-      this.onUpdateItem.emit(newItem);
+      const newUser = this.form.value;
+      // const newPhones = [
+      //   {
+      //     id: 1,
+      //     number: this.Phone1?.value,
+      //     type: this.form.value.phoneType1,
+      //     userId: 1
+      //   },
+      //   {
+      //     id: 2,
+      //     number: this.Phone2?.value,
+      //     type: this.form.value.phoneType2,
+      //     userId: 1
+      //   }
+      // ];
+      // if (!this.Phone2?.value) {
+      //   newPhones.splice(1, 1);
+      // }
+      this.onUpdateItem.emit(newUser);
       this.close();
     } else {
       this.form.markAllAsTouched();
