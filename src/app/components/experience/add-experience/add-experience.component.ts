@@ -86,7 +86,7 @@ export class AddExperienceComponent extends AddItemComponent {
         startDate: ['', [Validators.required]],
         endDate: [{ value: '', disabled: false }, []],
         current: [false, []],
-        description: ['', []]
+        description: ['', [Validators.required]]
       },
       {
         validators: [this.finishedOrCurrent('endDate', 'current'), this.endAfter('startDate', 'endDate')]

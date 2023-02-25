@@ -67,6 +67,6 @@ export interface Project {
   description: string,
   repo: string,
   link?: string,
-  image: string,
-  collection: string
+  image?: string,
+  collection?: string
 }

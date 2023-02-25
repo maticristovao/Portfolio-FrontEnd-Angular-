@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener, AfterViewInit, ViewEncapsulation } from '@angular/core';
-import { faCodepen, faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faCodepen, faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBuildingColumns, faGlobe, faHashtag, faHome, faScrewdriverWrench, faShoePrints, faSuitcase, faTerminal, faUser } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { Router } from '@angular/router';
@@ -36,7 +36,6 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
   faWork = faShoePrints;
   faSkills = faScrewdriverWrench;
   faProjects = faSuitcase;
-  faHashtag = faHashtag;
 
   @HostListener('document:click', ['$event'])
   handleClick(event: JQuery.ClickEvent<Document, null, Document, Document>) {
@@ -56,22 +55,14 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
   constructor(private renderer: Renderer2, private personalData: PersonalInfoService, private router: Router) { }
 
   determineIcon(media: string) {
-    switch (media.toLowerCase().trim()) {
-      case "linkedin":
-        return faLinkedin;
-
-      case "github":
-        return faGithub;
-
-      case "codepen":
-        return faCodepen;
-
-      case "instagram":
-        return faInstagram;
-
-      default:
-        return faHashtag;
-    }
+    const map: any = {
+      'linkedin': faLinkedin,
+      'github': faGithub,
+      'codepen': faCodepen,
+      'instagram': faInstagram,
+      'twitter': faTwitter
+    };
+    return map[media.toLowerCase().trim()] ?? faHashtag;
   }
 
   giveDataContent(links: HTMLCollectionOf<Element>) {
@@ -121,6 +112,7 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     $('.card-icon fa-icon').on('mouseenter', this.bounce);
+    $('.card-icon fa-icon').on('focus', this.bounce);
     $('.card-icon fa-icon').on('mouseleave', this.notBounce);
   }
 }

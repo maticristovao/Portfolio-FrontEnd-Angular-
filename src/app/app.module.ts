@@ -21,7 +21,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
 import { AddEducationComponent } from './components/education/add-education/add-education.component';
 import { DatePipe, registerLocaleData } from '@angular/common';
@@ -44,10 +44,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AddPersonalInfoComponent } from './components/personal-info/add-personal-info/add-personal-info.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatButtonModule } from '@angular/material/button';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { AddSkillComponent } from './components/skills/add-skill/add-skill.component';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { AddProjectComponent } from './components/projects/add-project/add-project.component';
@@ -105,12 +103,9 @@ import { EditAboutComponent } from './components/about/edit-about/edit-about.com
     MatSlideToggleModule,
     MatDialogModule,
     MatChipsModule,
-    MatButtonModule,
     MaterialFileInputModule,
-    MatExpansionModule,
     MatTabsModule,
-    MatSliderModule,
-    NgbTooltipModule
+    MatSliderModule
   ],
   providers: [DatePipe, { provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]

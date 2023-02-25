@@ -45,14 +45,15 @@ export class AddEducationComponent extends AddItemComponent implements OnInit {
   }
 
   loadEditData(card: Education) {
-    this.form.setValue({
+    this.form.patchValue({
       id: card.id,
       title: card.title,
       institutionId: card.institutionId,
       areaId: card.areaId,
-      startDate: moment(card.startDate),
-      endDate: moment(card.endDate)
+      startDate: this.extractDate(this.StartDate!, card.startDate),
+      endDate: this.extractDate(this.EndDate!, card.endDate)
     })
+    console.log(this.form.value)
     this.add = false;
   }
 

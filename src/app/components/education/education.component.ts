@@ -114,7 +114,6 @@ export class EducationComponent implements OnInit, AfterViewChecked {
     this.personalData.getData('areas?_sort=name&_order=asc').subscribe(data => {
       this.areas = data;
     });
-
   }
 
   ngAfterViewChecked(): void {
@@ -130,7 +129,7 @@ export interface Education {
   areaId: number,
   area?: Area,
   startDate: string | Date,
-  endDate?: string | Date,
+  endDate: string | Date,
 }
 
 export interface Institution {

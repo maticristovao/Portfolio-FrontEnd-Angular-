@@ -5,14 +5,14 @@ import { DatePipe } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
-import { DateAdapter, ErrorStateMatcher, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { DateAdapter, ErrorStateMatcher, MatDateFormats, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
 export const moment = _rollupMoment || _moment;
 
-export const MY_FORMATS = {
+export const MY_FORMATS: MatDateFormats = {
   parse: {
     dateInput: 'MM/YYYY',
   },
@@ -69,7 +69,7 @@ export class AddItemComponent {
     this.modalService.dismissAll();
   }
 
-  setMonthAndYear(normalizedMonthAndYear: Moment, control: AbstractControl, datepicker: MatDatepicker<Moment>) {
+  setMonthAndYear(normalizedMonthAndYear: Moment, control: AbstractControl, datepicker: MatDatepicker<Moment>): void {
     control.setValue(moment());
     const ctrlValue = control.value;
     ctrlValue.month(normalizedMonthAndYear.month());
@@ -77,6 +77,16 @@ export class AddItemComponent {
     let formatValue = this.formatDate(ctrlValue);
     control.setValue(formatValue);
     datepicker.close();
+  }
+
+  extractDate(control: AbstractControl, value:any): string{
+    let date = moment(value);
+    control.setValue(moment());
+    const ctrlValue = control.value;
+    ctrlValue.month(date.month());
+    ctrlValue.year(date.year());
+    let formatValue = this.formatDate(ctrlValue);
+    return (formatValue);
   }
 
   endAfter(startCrtl: string, endCtrl: string) {

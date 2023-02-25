@@ -120,8 +120,8 @@
       "title": "Licenciatura en Economía",
       "institutionId": 1,
       "areaId": 1,
-      "startDate": "2022-03-01T03:00:00.000Z",
-      "endDate": "2025-12-01T03:00:00.000Z"
+      "startDate": "2022-03",
+      "endDate": "2025-12"
     },
     {
       "id": 2,
@@ -136,8 +136,8 @@
       "title": "Educación Secundaria",
       "institutionId": 3,
       "areaId": 3,
-      "startDate": "2015-03-01T03:00:00.000Z",
-      "endDate": "2021-12-01T03:00:00.000Z"
+      "startDate": "2015-03",
+      "endDate": "2021-12"
     }
   ],
   "areas": [
@@ -217,32 +217,32 @@
     {
       "id": 2,
       "name": "Css",
-      "progress": "80"
+      "progress": 80
     },
     {
       "id": 3,
       "name": "Bootstrap",
-      "progress": "95"
+      "progress": 95
     },
     {
       "id": 4,
       "name": "Javascript / Typescript",
-      "progress": "65"
+      "progress": 65
     },
     {
       "id": 5,
       "name": "MySql",
-      "progress": "85"
+      "progress": 85
     },
     {
       "id": 6,
       "name": "Angular",
-      "progress": "70"
+      "progress": 70
     },
     {
       "id": 7,
       "name": "Git / Github",
-      "progress": "80"
+      "progress": 80
     }
   ],
   "languages": [

@@ -51,7 +51,7 @@ export class AddProjectComponent extends AddItemComponent implements OnInit {
       link: ['', [Validators.pattern(this.reg)]],
       collection: ['', [Validators.pattern(this.reg)]],
       image: [],
-      description: ['']
+      description: ['', [Validators.required]]
     })
   }
 }
