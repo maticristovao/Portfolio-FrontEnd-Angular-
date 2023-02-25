@@ -48,8 +48,8 @@
                             </button>
                         </mat-chip-row>
                         <input placeholder="Nuevo título..." [matChipInputFor]="chipGrid"
-                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
-                            (matChipInputTokenEnd)="added($event)" />
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true" maxlength=30
+                            (matChipInputTokenEnd)="added($event)"/>
                     </mat-chip-grid>
                     <mat-error *ngIf="Title?.hasError('maxlength')">Puede incluir un máximo de 2 títulos</mat-error>
                 </mat-form-field>

@@ -69,18 +69,18 @@ export class AddItemComponent {
     this.modalService.dismissAll();
   }
 
-  setMonthAndYear(normalizedMonthAndYear: Moment, control: AbstractControl, datepicker: MatDatepicker<Moment>): void {
-    control.setValue(this.extractDate(control, normalizedMonthAndYear));
+  setMonthAndYear(pickedDate: Moment, control: AbstractControl, datepicker: MatDatepicker<Moment>): void {
+    control.setValue(this.extractDate(pickedDate));
     datepicker.close();
   }
 
-  extractDate(control: AbstractControl, date:Moment): string{
-    control.setValue(moment());
-    const ctrlValue = control.value;
-    ctrlValue.month(date.month());
-    ctrlValue.year(date.year());
-    let formatValue = this.formatDate(ctrlValue);
-    return (formatValue);
+  extractDate(date: string | Moment | Date | undefined): string {
+    if (date) {
+      let formatValue = this.formatDate(moment(date) as any);
+      return (formatValue);
+    } else {
+      return '';
+    }
   }
 
   endAfter(startCrtl: string, endCtrl: string) {

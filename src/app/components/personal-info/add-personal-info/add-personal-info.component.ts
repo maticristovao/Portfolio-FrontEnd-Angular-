@@ -88,7 +88,7 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       surname: ['', [Validators.required]],
-      title: [this.titles, [Validators.required, Validators.maxLength(2)]],
+      title: [this.titles, [Validators.required, Validators.maxLength(2), Validators.max(20)]],
       province: ['', [Validators.required]],
       country: ['', [Validators.required]],
       photo: ['', []]
