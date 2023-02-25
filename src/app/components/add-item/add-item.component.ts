@@ -70,17 +70,11 @@ export class AddItemComponent {
   }
 
   setMonthAndYear(normalizedMonthAndYear: Moment, control: AbstractControl, datepicker: MatDatepicker<Moment>): void {
-    control.setValue(moment());
-    const ctrlValue = control.value;
-    ctrlValue.month(normalizedMonthAndYear.month());
-    ctrlValue.year(normalizedMonthAndYear.year());
-    let formatValue = this.formatDate(ctrlValue);
-    control.setValue(formatValue);
+    control.setValue(this.extractDate(control, normalizedMonthAndYear));
     datepicker.close();
   }
 
-  extractDate(control: AbstractControl, value:any): string{
-    let date = moment(value);
+  extractDate(control: AbstractControl, date:Moment): string{
     control.setValue(moment());
     const ctrlValue = control.value;
     ctrlValue.month(date.month());

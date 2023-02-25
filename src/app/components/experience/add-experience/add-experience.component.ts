@@ -68,8 +68,8 @@ export class AddExperienceComponent extends AddItemComponent {
       company: item.company,
       position: item.position,
       employTypeId: item.employTypeId,
-      startDate: moment(item.startDate),
-      endDate: moment(item.endDate),
+      startDate: this.extractDate(this.StartDate!, moment(item.startDate)),
+      endDate: this.extractDate(this.EndDate!, moment(item.endDate)),
       current: item.current,
       description: item.description
     });

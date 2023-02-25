@@ -50,8 +50,8 @@ export class AddEducationComponent extends AddItemComponent implements OnInit {
       title: card.title,
       institutionId: card.institutionId,
       areaId: card.areaId,
-      startDate: this.extractDate(this.StartDate!, card.startDate),
-      endDate: this.extractDate(this.EndDate!, card.endDate)
+      startDate: this.extractDate(this.StartDate!, moment(card.startDate)),
+      endDate: this.extractDate(this.EndDate!, moment(card.endDate))
     })
     console.log(this.form.value)
     this.add = false;
