@@ -110,6 +110,9 @@ import { ToastrModule } from 'ngx-toastr';
     MatTabsModule,
     MatSliderModule,
     ToastrModule.forRoot({
+      timeOut: 3500,
+      extendedTimeOut: 1500,
+      easing: 'ease-in-out',
       progressBar: true,
       progressAnimation: 'increasing',
       positionClass: 'custom-toast-container',
