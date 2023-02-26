@@ -26,7 +26,7 @@ footer p {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 0 10px 4px blue;
+    box-shadow: 0 0 10px 4px var(--tertiary-color);
 }
 
 .message fa-icon {

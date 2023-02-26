@@ -161,9 +161,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 5px;
-    -webkit-text-stroke-color: var(--oposite-color);
     position: relative;
 }
 

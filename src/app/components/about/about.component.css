@@ -1,7 +1,7 @@
 .about {
 	height: 100vh;
 	display: grid;
-	position: relative;
+	align-items: center;
 }
 
 .card {
@@ -13,7 +13,8 @@
 .edition {
 	position: absolute;
 	right: 6vw;
-	top: 180px;
+	top: -100px;
+	width: fit-content;
 }
 
 .card_content {
@@ -187,7 +188,7 @@
 	}
 
 	.edition {
-		top: 10px;
+		top: -20px;
 		right: 1.5vw;
 	}
 }
