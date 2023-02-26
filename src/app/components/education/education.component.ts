@@ -1,6 +1,6 @@
 import { AfterViewChecked, Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { faUserGraduate, faLaptopCode, faBook, faRadio, faFlask, faDumbbell, faGears, faLandmarkDome, faHeartPulse, faChurch, faSackDollar, faCircleDollarToSlot, faCommentDollar, faCommentsDollar, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
-import { IndividualConfig, ToastrService } from 'ngx-toastr';
+import { faUserGraduate, faLaptopCode, faBook, faRadio, faFlask, faDumbbell, faGears, faLandmarkDome, faHeartPulse, faChurch, faCommentsDollar, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { AddEducationComponent } from './add-education/add-education.component';
 
@@ -18,7 +18,6 @@ export class EducationComponent implements OnInit, AfterViewChecked {
   field: string = 'education';
   institutions: Institution[] = [];
   areas: Area[] = [];
-  toastConfig: Partial<IndividualConfig> = { progressBar: true, progressAnimation: 'increasing', positionClass: 'custom-toast-container', newestOnTop: false };
 
   @ViewChild(AddEducationComponent) editModal!: AddEducationComponent;
 
@@ -123,14 +122,14 @@ export class EducationComponent implements OnInit, AfterViewChecked {
 
   showSuccess(type: 'add' | 'edit') {
     if (type === 'add') {
-      this.toastService.success('Ítem añadido correctamente', undefined, this.toastConfig);
+      this.toastService.success('Ítem añadido correctamente', 'Estudios');
     } else {
-      this.toastService.success('Cambios guardados', undefined, this.toastConfig);
+      this.toastService.success('Cambios guardados', 'Estudios');
     }
   }
 
   showDelete() {
-    this.toastService.error('ítem eliminado', undefined, this.toastConfig);
+    this.toastService.error('ítem eliminado', 'Estudios');
   }
 
   ngAfterViewChecked(): void {

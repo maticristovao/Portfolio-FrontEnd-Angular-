@@ -109,7 +109,13 @@ import { ToastrModule } from 'ngx-toastr';
     MaterialFileInputModule,
     MatTabsModule,
     MatSliderModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      progressBar: true,
+      progressAnimation: 'increasing',
+      positionClass: 'custom-toast-container',
+      newestOnTop: false,
+      maxOpened: 3,
+    })
   ],
   providers: [DatePipe, { provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
