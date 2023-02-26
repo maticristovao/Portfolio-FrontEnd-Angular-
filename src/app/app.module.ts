@@ -51,6 +51,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AddProjectComponent } from './components/projects/add-project/add-project.component';
 import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -107,7 +108,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatChipsModule,
     MaterialFileInputModule,
     MatTabsModule,
-    MatSliderModule
+    MatSliderModule,
+    ToastrModule.forRoot()
   ],
   providers: [DatePipe, { provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]

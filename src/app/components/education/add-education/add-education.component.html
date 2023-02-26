@@ -22,7 +22,7 @@
                         (click)="Title?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
-                    <mat-error *ngIf="Title?.hasError('minlength') && Title?.touched">El título debe tener al menos 6
+                    <mat-error *ngIf="Title?.hasError('minlength') && Title?.touched">El título debe tener al menos 5
                         caracteres</mat-error>
                     <mat-error *ngIf="Title?.hasError('maxlength')">El título debe tener menos de 35
                         caracteres</mat-error>

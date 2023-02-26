@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, HostListener, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
-import { NgbCarousel, NgbCarouselConfig, NgbSlide, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarousel, NgbCarouselConfig, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
 @Component({

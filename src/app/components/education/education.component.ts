@@ -1,5 +1,6 @@
 import { AfterViewChecked, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { faUserGraduate, faLaptopCode, faBook, faRadio, faFlask, faDumbbell, faGears, faLandmarkDome, faHeartPulse, faChurch, faSackDollar, faCircleDollarToSlot, faCommentDollar, faCommentsDollar, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
+import { IndividualConfig, ToastrService } from 'ngx-toastr';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { AddEducationComponent } from './add-education/add-education.component';
 
@@ -17,6 +18,7 @@ export class EducationComponent implements OnInit, AfterViewChecked {
   field: string = 'education';
   institutions: Institution[] = [];
   areas: Area[] = [];
+  toastConfig: Partial<IndividualConfig> = { progressBar: true, progressAnimation: 'increasing', positionClass: 'custom-toast-container', newestOnTop: false };
 
   @ViewChild(AddEducationComponent) editModal!: AddEducationComponent;
 
@@ -25,7 +27,7 @@ export class EducationComponent implements OnInit, AfterViewChecked {
     this.windowWidth = window.innerWidth;
   }
 
-  constructor(private personalData: PersonalInfoService) { }
+  constructor(private personalData: PersonalInfoService, private toastService: ToastrService) { }
 
   setActive() {
     if (window.innerWidth <= 576) return;
@@ -58,6 +60,7 @@ export class EducationComponent implements OnInit, AfterViewChecked {
       this.personalEducation.push(card);
       this.setActive();
       setTimeout(() => this.getCards().item(this.getCardPosition(card))!.className += ' active', 10);
+      this.showSuccess('add');
     });
   }
 
@@ -71,6 +74,7 @@ export class EducationComponent implements OnInit, AfterViewChecked {
   save(item: Education) {
     this.personalData.updateItem(item, this.field).subscribe(() => {
       this.getCards().item(this.getCardPosition(item))!.className += ' active';
+      this.showSuccess('edit');
     });
     this.appendRelations(item);
     this.personalEducation[this.getCardPosition(item)] = item;
@@ -80,6 +84,7 @@ export class EducationComponent implements OnInit, AfterViewChecked {
     this.personalData.deleteItem(item, this.field).subscribe(() => {
       this.getCards().item(this.getCardPosition(item) > 0 ? (this.getCardPosition(item) - 1) : 1)!.className += ' active';
       this.personalEducation = this.personalEducation.filter(i => i.id !== item.id);
+      this.showDelete();
     });
   }
 
@@ -114,6 +119,18 @@ export class EducationComponent implements OnInit, AfterViewChecked {
     this.personalData.getData('areas?_sort=name&_order=asc').subscribe(data => {
       this.areas = data;
     });
+  }
+
+  showSuccess(type: 'add' | 'edit') {
+    if (type === 'add') {
+      this.toastService.success('Ítem añadido correctamente', undefined, this.toastConfig);
+    } else {
+      this.toastService.success('Cambios guardados', undefined, this.toastConfig);
+    }
+  }
+
+  showDelete() {
+    this.toastService.error('ítem eliminado', undefined, this.toastConfig);
   }
 
   ngAfterViewChecked(): void {

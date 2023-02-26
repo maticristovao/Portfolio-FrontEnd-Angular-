@@ -96,3 +96,10 @@ section.inverse {
     --datepicker-effect: 45, 165, 230;
     --bright-filter: 100%;
 }
+
+.custom-toast-container{
+    position: fixed;
+    z-index: 1200;
+    top:80px;
+    right:15px;
+}
