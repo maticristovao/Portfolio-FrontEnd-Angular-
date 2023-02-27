@@ -14,7 +14,7 @@
 }
 
 .card.fade-in {
-	opacity:1;
+	opacity: 1;
 	transform: rotateX(0);
 }
 
@@ -46,22 +46,22 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	padding: 9em 4em;
 	backface-visibility: hidden;
 	transform-style: preserve-3d;
-	display: grid;
-	align-content: center;
 	border-radius: 10px;
 	background: var(--secondary-color);
 }
 
-.card_front{
+.card_front {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 9em 4em;
 }
 
 .card_back {
+	display: grid;
+	align-content: center;
 	padding: 9em 0em;
 	transform: rotateY(0.5turn);
 }
@@ -157,7 +157,8 @@
 	height: 100% !important;
 }
 
-@media screen and (width<1530px){
+@media screen and (width<1530px) {
+
 	.card_front::after,
 	.card_front::before {
 		animation: borderAnimateSmall 5s infinite;
@@ -165,6 +166,7 @@
 }
 
 @media screen and (width<=890px) {
+
 	.card_back,
 	.card_front {
 		padding-top: 10em;
@@ -183,6 +185,7 @@
 	.card_front::before {
 		animation: borderAnimateSmall 5s infinite;
 	}
+
 	.card_body {
 		padding: 0;
 	}
