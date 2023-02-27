@@ -1,6 +1,12 @@
 .edit {
   display: inline-flex;
   flex-direction: column;
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+.edit.visible{
+  opacity: 1;
 }
 
 .edit.horizontal {

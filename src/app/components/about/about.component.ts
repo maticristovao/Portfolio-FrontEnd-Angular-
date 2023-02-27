@@ -11,7 +11,6 @@ import { EditAboutComponent } from './edit-about/edit-about.component';
 })
 export class AboutComponent implements OnInit {
   about!: string;
-  existence: boolean = true;
   windowWidth: number = window.innerWidth;
   flip: boolean = false;
   editing: boolean = false;
@@ -19,6 +18,7 @@ export class AboutComponent implements OnInit {
   section: string = 'about';
   showAbout:boolean = true;
   subscription?: Subscription;
+  visible: boolean = false;
 
   @ViewChild(EditAboutComponent) editModal!: EditAboutComponent;
 

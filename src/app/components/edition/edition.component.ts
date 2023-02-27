@@ -10,6 +10,7 @@ import { faCheck, faDeleteLeft, faPencil, faPlus, faTrashCan, faXmark } from '@f
 export class EditionComponent {
   editing: boolean = false;
   windowWidth: number = window.innerWidth;
+  visible: boolean = false;
 
   @Input() horizontal: boolean = false;
   @Input() showAdding: boolean = false;

@@ -8,6 +8,14 @@
 	background: transparent !important;
 	border: none;
 	height: 288px;
+	opacity: 0;
+	transition: opacity .6s ease-in-out, transform 1s ease-in-out;
+	transform: rotateX(-60deg);
+}
+
+.card.fade-in {
+	opacity:1;
+	transform: rotateX(0);
 }
 
 .edition {
@@ -45,6 +53,12 @@
 	align-content: center;
 	border-radius: 10px;
 	background: var(--secondary-color);
+}
+
+.card_front{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .card_back {
@@ -143,8 +157,14 @@
 	height: 100% !important;
 }
 
-@media screen and (width<=832px) {
+@media screen and (width<1530px){
+	.card_front::after,
+	.card_front::before {
+		animation: borderAnimateSmall 5s infinite;
+	}
+}
 
+@media screen and (width<=890px) {
 	.card_back,
 	.card_front {
 		padding-top: 10em;
@@ -163,21 +183,14 @@
 	.card_front::before {
 		animation: borderAnimateSmall 5s infinite;
 	}
-}
-
-@media screen and (width<=744px) {
 	.card_body {
-		border: none;
 		padding: 0;
 	}
 }
 
-@media screen and (width<=630px) {
-
-	.card_front::after,
-	.card_front::before {
-		width: 12vw;
-		animation: none;
+@media screen and (width<=676px) {
+	.card_body {
+		border: none;
 	}
 }
 

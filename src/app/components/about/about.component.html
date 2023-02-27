@@ -3,12 +3,14 @@
         <app-edition class="edition" [horizontal]="windowWidth<1200"
             (edition)="editing = !editing; editing && toggleModal()" (discard)="discardSection()"></app-edition>
         <div class="col-12 col-xl-9 align-self-center px-3 px-xl-0">
-            <div class="card" [class.flip]="flip" (click)="flip = !flip">
+            <div class="card" [class.flip]="flip" (click)="flip = !flip" elementObserver (visible)="visible = true" [class.fade-in]="visible" [threshold]="1" margin="-180px 0px">
                 <div class="card_content">
                     <div class="card_front">
-                        <h3 class="card_title">
-                            Acerca de mí
-                        </h3>
+                        <div class="col-sm-8 text-center justify-content-center">
+                            <h3 class="card_title text-center">
+                                Acerca de mí
+                            </h3>
+                        </div>
                     </div>
                     <div class="card_back align-items-center">
                         <div class="card_body d-flex align-items-center">

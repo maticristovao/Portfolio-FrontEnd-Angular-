@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 })
 export class ElementObserverDirective implements OnInit {
   @Input() threshold: number = 0;
+  @Input() margin: string = '0px';
   @Input() wait: number = 0;
   @Output() visible = new EventEmitter<HTMLElement>();
 
@@ -32,7 +33,7 @@ export class ElementObserverDirective implements OnInit {
 
   private createObserver() {
     const options = {
-      rootMargin: '0px',
+      rootMargin: this.margin,
       threshold: this.threshold,
     };
 
