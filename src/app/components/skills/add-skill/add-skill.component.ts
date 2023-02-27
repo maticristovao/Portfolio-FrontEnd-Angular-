@@ -41,12 +41,6 @@ export class AddSkillComponent extends AddItemComponent implements OnInit {
   get LangName() {
     return this.langForm.get('name');
   }
-  get Oral() {
-    return this.langForm.get('oral');
-  }
-  get Written() {
-    return this.langForm.get('written');
-  }
 
   override reset(): void {
     this.langForm.reset(this.initialValue);

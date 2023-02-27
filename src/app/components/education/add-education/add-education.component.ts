@@ -6,7 +6,6 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import _moment from 'moment';
 import { default as _rollupMoment } from 'moment';
 import { AddItemComponent, MY_FORMATS } from '../../add-item/add-item.component';
-import moment from 'moment';
 
 @Component({
   selector: 'app-add-education',

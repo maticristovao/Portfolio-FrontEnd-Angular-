@@ -17,131 +17,76 @@
 
         <mat-tab-group animationDuration="800ms" dynamicHeight="true" (selectedTabChange)="reset()" *ngIf="add">
             <mat-tab label="Habilidades">
-                <form class="container px-0" [formGroup]="skillForm" autocomplete="off" (ngSubmit)="submitForm(true)">
-                    <div class="row mt-5 px-3">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Habilidad</mat-label>
-                            <input matInput id="name" name="name" formControlName="name" [errorStateMatcher]="matcher">
-                            <button *ngIf="SkillName?.value" class="close clear me-3" matSuffix aria-label="Clear"
-                                (click)="SkillName?.setValue('')">
-                                <fa-icon [icon]="faExit"></fa-icon>
-                            </button>
-                            <mat-error *ngIf="SkillName?.hasError('maxlength')">El nombre de la habilidad no puede
-                                exceder los 30 caracteres</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div class="row justify-content-center mt-4 px-3">
-                        <mat-label
-                            [ngStyle]="{'color':Progress?.invalid && Progress?.touched? '#f44336':'rgba(255, 255, 255, 0.6)'}"
-                            id="progress-label">Progreso*</mat-label>
-                        <mat-slider min="0" max="100" step="1" class="slider" showTickMarks discrete
-                            [displayWith]="formatLabel"
-                            [color]="Progress?.invalid && Progress?.touched?'warn':'primary'">
-                            <input matSliderThumb id="progress" formControlName="progress">
-                        </mat-slider>
-                    </div>
-                    <div class="row justify-content-center mt-4 mb-4 pt-5">
-                        <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus />
-                    </div>
-                </form>
+                <ng-template [ngTemplateOutlet]="skillform"></ng-template>
             </mat-tab>
             <mat-tab label="Idiomas">
-                <form class="container px-0" [formGroup]="langForm" autocomplete="off" (ngSubmit)="submitForm(false)">
-                    <div class="row mt-4 px-3">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Idioma</mat-label>
-                            <input matInput id="name" name="name" formControlName="name">
-                            <button *ngIf="LangName?.value" class="close clear me-3" matSuffix aria-label="Clear"
-                                (click)="LangName?.setValue('')">
-                                <fa-icon [icon]="faExit"></fa-icon>
-                            </button>
-                        </mat-form-field>
-                    </div>
-                    <div class="row mt-4 px-3">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Nivel oral</mat-label>
-                            <mat-select name="oral" id="oral" formControlName="oral"
-                                placeholder="Seleccione un nivel...">
-                                <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-                    <div class="row mt-4 px-3">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Nivel escrito</mat-label>
-                            <mat-select name="written" id="written" formControlName="written"
-                                placeholder="Seleccione un nivel...">
-                                <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-                    <div class="row justify-content-center mb-4 pt-4">
-                        <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus />
-                    </div>
-                </form>
+                <ng-template [ngTemplateOutlet]="langform"></ng-template>
             </mat-tab>
         </mat-tab-group>
 
-        <form class="container px-0" [formGroup]="skillForm" autocomplete="off" (ngSubmit)="submitForm(true)"
-            *ngIf="!add && isSkillEdit">
-            <div class="row mt-5 px-3">
-                <mat-form-field appearance="outline">
-                    <mat-label>Habilidad</mat-label>
-                    <input matInput id="name" name="name" formControlName="name" [errorStateMatcher]="matcher">
-                    <button *ngIf="SkillName?.value" class="close clear me-3" matSuffix aria-label="Clear"
-                        (click)="SkillName?.setValue('')">
-                        <fa-icon [icon]="faExit"></fa-icon>
-                    </button>
-                    <mat-error *ngIf="SkillName?.hasError('maxlength')">El nombre de la habilidad no puede exceder los
-                        30 caracteres</mat-error>
-                </mat-form-field>
-            </div>
-            <div class="row justify-content-center mt-4 px-3">
-                <mat-label
-                    [ngStyle]="{'color':Progress?.invalid && Progress?.touched? '#f44336':'rgba(255, 255, 255, 0.6)'}"
-                    id="progress-label">Progreso*</mat-label>
-                <mat-slider min="0" max="100" step="1" class="slider" showTickMarks discrete [displayWith]="formatLabel"
-                    [color]="Progress?.invalid && Progress?.touched?'warn':'primary'">
-                    <input matSliderThumb id="progress" formControlName="progress">
-                </mat-slider>
-            </div>
-            <div class="row justify-content-center mt-4 mb-4 pt-5">
-                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus />
-            </div>
-        </form>
-
-        <form class="container px-0" [formGroup]="langForm" autocomplete="off" (ngSubmit)="submitForm(false)"
-            *ngIf="!add && !isSkillEdit">
-            <div class="row mt-4 px-3">
-                <mat-form-field appearance="outline">
-                    <mat-label>Idioma</mat-label>
-                    <input matInput id="name" name="name" formControlName="name">
-                    <button *ngIf="LangName?.value" class="close clear me-3" matSuffix aria-label="Clear"
-                        (click)="LangName?.setValue('')">
-                        <fa-icon [icon]="faExit"></fa-icon>
-                    </button>
-                </mat-form-field>
-            </div>
-            <div class="row mt-4 px-3">
-                <mat-form-field appearance="outline">
-                    <mat-label>Nivel oral</mat-label>
-                    <mat-select name="oral" id="oral" formControlName="oral" placeholder="Seleccione un nivel...">
-                        <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="row mt-4 px-3">
-                <mat-form-field appearance="outline">
-                    <mat-label>Nivel escrito</mat-label>
-                    <mat-select name="written" id="written" formControlName="written"
-                        placeholder="Seleccione un nivel...">
-                        <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="row justify-content-center mb-4 pt-4">
-                <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" NgbAutofocus />
-            </div>
-        </form>
+        <ng-template *ngIf="!add" [ngTemplateOutlet]="isSkillEdit? skillform:langform"></ng-template>
     </div>
+</ng-template>
+
+<ng-template #skillform>
+    <form class="container px-0" [formGroup]="skillForm" autocomplete="off" (ngSubmit)="submitForm(true)">
+        <div class="row mt-5 px-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Habilidad</mat-label>
+                <input matInput id="name" name="name" formControlName="name" [errorStateMatcher]="matcher">
+                <button *ngIf="SkillName?.value" class="close clear me-3" matSuffix aria-label="Clear"
+                    (click)="SkillName?.setValue('')">
+                    <fa-icon [icon]="faExit"></fa-icon>
+                </button>
+                <mat-error *ngIf="SkillName?.hasError('maxlength')">El nombre de la habilidad no puede
+                    exceder los 30 caracteres</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row justify-content-center mt-4 px-3">
+            <mat-label
+                [ngStyle]="{'color':Progress?.invalid && Progress?.touched? '#f44336':'rgba(255, 255, 255, 0.6)'}"
+                id="progress-label">Progreso*</mat-label>
+            <mat-slider min="0" max="100" step="1" class="slider" showTickMarks discrete [displayWith]="formatLabel"
+                [color]="Progress?.invalid && Progress?.touched?'warn':'primary'">
+                <input matSliderThumb id="progress" formControlName="progress">
+            </mat-slider>
+        </div>
+        <div class="row justify-content-center mt-4 mb-4 pt-5">
+            <input class="btn btn-lg btn-block col-5 submit" type="submit" value="Guardar" />
+        </div>
+    </form>
+</ng-template>
+
+<ng-template #langform>
+    <form class="container px-0" [formGroup]="langForm" autocomplete="off" (ngSubmit)="submitForm(false)">
+        <div class="row mt-4 px-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Idioma</mat-label>
+                <input matInput id="name" name="name" formControlName="name">
+                <button *ngIf="LangName?.value" class="close clear me-3" matSuffix aria-label="Clear"
+                    (click)="LangName?.setValue('')">
+                    <fa-icon [icon]="faExit"></fa-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="row mt-4 px-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Nivel oral</mat-label>
+                <mat-select name="oral" id="oral" formControlName="oral" placeholder="Seleccione un nivel...">
+                    <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row mt-4 px-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Nivel escrito</mat-label>
+                <mat-select name="written" id="written" formControlName="written" placeholder="Seleccione un nivel...">
+                    <mat-option *ngFor="let level of levels" [value]="level">{{level}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row justify-content-center mb-4 pt-4">
+            <input class="btn btn-lg btn-block col-7 col-sm-5 submit" type="submit" value="Guardar" />
+        </div>
+    </form>
 </ng-template>

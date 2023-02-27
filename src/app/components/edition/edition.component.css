@@ -109,7 +109,7 @@ fa-icon.check {
 }
 
 .editing .icon-wrapper:has(.check):is(:hover, :focus) {
-  background-color: rgba(0, 163, 0, 0.758);
+  background-color: rgba(6, 196, 6, 0.758);
 }
 
 fa-icon.edit-toggle {
