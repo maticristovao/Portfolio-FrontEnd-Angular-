@@ -21,7 +21,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
 import { AddEducationComponent } from './components/education/add-education/add-education.component';
 import { DatePipe, registerLocaleData } from '@angular/common';
@@ -93,7 +93,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
+    NgbCarouselModule,
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
@@ -109,6 +109,7 @@ import { ToastrModule } from 'ngx-toastr';
     MaterialFileInputModule,
     MatTabsModule,
     MatSliderModule,
+    NgbTooltipModule,
     ToastrModule.forRoot({
       timeOut: 3500,
       extendedTimeOut: 1500,

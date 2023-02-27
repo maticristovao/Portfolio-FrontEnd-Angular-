@@ -1,6 +1,6 @@
 <footer>
     <p>Copyright @2023</p>
-    <div class="message mb-1" ngbTooltip="Contáctame" placement="right" tooltipClass="tooltip">
+    <div *ngIf="!hasRoute('/login')" class="message mb-1" ngbTooltip="Contáctame" placement="right" tooltipClass="tooltip">
         <fa-icon [icon]="faEnvelope"></fa-icon>
         <fa-icon [icon]="faOpen" class="open"></fa-icon>
     </div>
