@@ -9,8 +9,8 @@
 	border: none;
 	height: 288px;
 	opacity: 0;
-	transition: opacity .6s ease-in-out, transform 1s ease-in-out;
 	transform: rotateX(-60deg);
+	transition: opacity .6s ease-in-out, transform 1s ease-in-out;
 }
 
 .card.fade-in {
