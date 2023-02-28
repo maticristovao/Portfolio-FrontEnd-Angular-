@@ -77,16 +77,15 @@ p.label span {
         font-size: 22px;
     }
 
-    .modal-header .close {
-        font-size: 20px;
-        padding: .5em;
-    }
-
     .modal-content {
         padding: 0;
     }
 }
-
+@media screen and (width<300px) {
+    .close {
+        width: 41px;
+    }
+}
 
 @media screen and (width>576px) {
     .modal-content {

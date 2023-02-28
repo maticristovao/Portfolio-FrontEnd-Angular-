@@ -64,8 +64,9 @@
     }
 
     .close {
-        font-size: 20px;
-        padding: .5em;
+        font-size: 24px;
+        width: 37.5px;
+        height: 37.5px;
     }
 
     .modal-content {
