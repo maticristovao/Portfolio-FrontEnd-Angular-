@@ -10,14 +10,13 @@ export class AuthService {
   // private url = 'http://localhost:5000';
   private credentials!: Credential;
   logged: boolean = false;
-  token: string = Math.random().toString();
 
   constructor(private http: HttpClient, private router: Router, private personalDataService: PersonalInfoService) {
     this.personalDataService.getData('user/1').subscribe(user => {
       this.credentials = {
         username: user.username,
         password: user.password
-      }
+      };
     })
   }
 
@@ -26,8 +25,6 @@ export class AuthService {
     //   this.router.navigate(['']);
     //   localStorage.setItem('auth_token', resp.token);
     // });
-    console.log('logdata', username, password, remember);
-    console.log('fetched credentials', this.credentials);
     if (this.credentials.username === username && this.credentials.password === password) {
       this.router.navigate(['']);
       this.logged = true;
@@ -35,16 +32,17 @@ export class AuthService {
       return;
     }
     if (remember) {
-      localStorage.setItem('auth_token', this.token);
+      localStorage.setItem('auth_user', this.credentials.username);
     }
   }
 
   logout(): void {
-    localStorage.removeItem('auth_token');
+    localStorage.removeItem('auth_user');
+    this.logged = false;
   }
 
   public get isLogged(): boolean {
-    return (localStorage.getItem('auth_token') !== null) || this.logged;
+    return (localStorage.getItem('auth_user') !== null) || this.logged;
   }
 }
 interface Credential {

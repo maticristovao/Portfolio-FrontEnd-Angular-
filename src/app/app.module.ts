@@ -19,7 +19,6 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { EditionComponent } from './components/edition/edition.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
-import { LoginFormComponent } from './components/login/login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbCarouselModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
@@ -73,7 +72,6 @@ import { ToastrModule } from 'ngx-toastr';
     EditionComponent,
     LoginComponent,
     MainComponent,
-    LoginFormComponent,
     ProjectItemComponent,
     AddEducationComponent,
     EditItemComponent,
