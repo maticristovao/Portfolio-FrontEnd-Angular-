@@ -1,6 +1,9 @@
 section {
     min-height: calc(100vh - 80px);
     position: relative;
+    display: grid;
+    grid-auto-rows: 50px auto;
+    align-items: center;
 }
 
 section::after {
@@ -76,16 +79,12 @@ button.back:is(:hover, :focus) {
     z-index: 1;
 }
 
-app-login-form {
-    animation: fade 1s;
-}
-
 @keyframes fade {
     0% {
         opacity: 0;
     }
 
-    20% {
+    15% {
         opacity: 0;
     }
 
@@ -96,10 +95,6 @@ app-login-form {
 
 .wrapper:focus-within::before {
     left: 0px;
-}
-
-* {
-    z-index: 1;
 }
 
 .input-group-text,
@@ -271,4 +266,8 @@ p.error {
 
 .login-form:focus-within :is(.input-group:not(.remember), .remember input) {
     background-color: var(--secondary-color);
+}
+
+.login-form{
+    animation: fade 1s;
 }

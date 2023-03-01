@@ -8,7 +8,7 @@
                 (adding)="toggleModal()"></app-edition>
         </div>
     </div>
-    <div class="cards mx-3 mb-4 mt-4 mt-lg-0" elementObserver (visible)="visible = true" [threshold]="0.35" [wait]="150">
+    <div class="cards mx-3 mb-4 mt-4 mt-lg-0" elementObserver (visible)="visible = true" [threshold]="0.25" [wait]="150">
         <div class="education-card my-3" *ngFor="let card of personalEducation; let i = index;"
             [ngClass]="{smallactive: windowWidth<=576, active:i==0 && visible}" tabindex="0">
             <div class="label">{{i+1}}</div>
