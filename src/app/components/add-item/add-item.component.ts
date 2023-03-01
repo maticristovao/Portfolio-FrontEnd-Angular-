@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faFolder, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
@@ -48,6 +48,12 @@ export class AddItemComponent {
   today!: Date;
   faExit = faTimes;
   faFolder = faFolder;
+  windowWidth: number = window.innerWidth;
+
+  @HostListener('window:resize')
+  onResize(){
+    this.windowWidth = window.innerWidth;
+  }
 
   @ViewChild('content') myModal!: ElementRef;
   @Output() onAddItem: EventEmitter<any> = new EventEmitter();

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faArrowLeft, faAt, faEye, faEyeSlash, faKey, faUserPlus, faUserShield } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,6 +12,7 @@ export class LoginFormComponent {
   show: boolean = false;
   remember: boolean = false;
 
+  @Output() onLoginSubmit: EventEmitter<any> = new EventEmitter();
 
   faBack = faArrowLeft;
   faUsername = faUserShield;
@@ -43,6 +44,8 @@ export class LoginFormComponent {
 
   onSubmit() {
     if (this.form.valid) {
+      const LOGDATA = this.form.value;
+      this.onLoginSubmit.emit(LOGDATA);
       this.form.reset();
     } else {
       this.form.markAllAsTouched();

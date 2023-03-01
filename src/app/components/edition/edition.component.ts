@@ -1,6 +1,7 @@
 import { getLocaleWeekEndRange } from '@angular/common';
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { faCheck, faDeleteLeft, faPencil, faPlus, faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-edition',
@@ -30,6 +31,8 @@ export class EditionComponent {
   onResize() {
     this.windowWidth = window.innerWidth;
   }
+
+  constructor(public authService: AuthService){}
 
   editMode() {
     if (!this.editOnly) {

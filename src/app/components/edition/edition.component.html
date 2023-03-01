@@ -1,4 +1,4 @@
-<div class="edit" [ngClass]="{'horizontal':horizontal, 'editing':editing, 'visible':visible}" elementObserver (visible)="visible = true" [threshold]="1" margin="-15px 0px">
+<div class="edit" *ngIf="authService.isLogged" [ngClass]="{'horizontal':horizontal, 'editing':editing, 'visible':visible}" elementObserver (visible)="visible = true" [threshold]="1" margin="-15px 0px">
   <button class="icon-wrapper" (click)="editMode()" onclick="blur()">
     <fa-icon [icon]="faPencil" class="edit-toggle"></fa-icon>
     <fa-icon [icon]="faCheck" class="check"></fa-icon>

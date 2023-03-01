@@ -63,14 +63,14 @@
                         <mat-hint>MM/AAAA</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
                         <mat-datepicker #startPicker startView="multi-year"
-                            (monthSelected)="setMonthAndYear($event, StartDate!, startPicker)"
-                            panelClass="datepicker"></mat-datepicker>
+                            (monthSelected)="setMonthAndYear($event, StartDate!, startPicker)" panelClass="datepicker"
+                            [touchUi]="windowWidth < 578"></mat-datepicker>
                     </mat-form-field>
-                    <div class="text-start">
+                    <div class="text-start py-0 my-0">
                         <mat-checkbox formControlName="current" color="accent">En curso</mat-checkbox>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 text-center">
+                <div class="col-12 col-md-6 mt-3 mt-md-0 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>Fecha de fin</mat-label>
                         <input matInput [matDatepicker]="endPicker" id="endDate" name="endDate"
@@ -78,8 +78,8 @@
                         <mat-hint>MM/AAAA</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
                         <mat-datepicker #endPicker startView="multi-year"
-                            (monthSelected)="setMonthAndYear($event, EndDate!, endPicker)"
-                            panelClass="datepicker"></mat-datepicker>
+                            (monthSelected)="setMonthAndYear($event, EndDate!, endPicker)" panelClass="datepicker"
+                            [touchUi]="windowWidth < 578"></mat-datepicker>
                         <mat-error *ngIf="EndDate?.hasError('endafter')">La fecha de fin no puede ser menor a la de
                             inicio</mat-error>
                     </mat-form-field>
@@ -89,7 +89,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Descripción</mat-label>
                     <textarea matInput cdkTextareaAutosize name="description" id="description"
-                        formControlName="description" maxlength="350"></textarea>
+                        formControlName="description" maxlength="350" rows="3"></textarea>
                     <button *ngIf="Description?.value" class="close clear me-2" matSuffix aria-label="Clear"
                         (click)="Description?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
@@ -98,7 +98,7 @@
                 </mat-form-field>
             </div>
             <div class="row justify-content-center mb-4 pt-4">
-                <input class="btn btn-lg btn-block col-7 col-sm-5 submit" type="submit" value="Guardar"/>
+                <input class="btn btn-lg btn-block col-7 col-sm-5 submit" type="submit" value="Guardar" />
             </div>
         </form>
     </div>

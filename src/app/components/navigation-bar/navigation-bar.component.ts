@@ -3,6 +3,7 @@ import { faCodepen, faGithub, faInstagram, faLinkedin, faTwitter } from '@fortaw
 import { faBuildingColumns, faGlobe, faHashtag, faHome, faScrewdriverWrench, faShoePrints, faSuitcase, faTerminal, faUser } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 export interface Media {
   media: string,
@@ -52,7 +53,7 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  constructor(private renderer: Renderer2, private personalData: PersonalInfoService, private router: Router) { }
+  constructor(private renderer: Renderer2, private personalData: PersonalInfoService, private router: Router, public authService: AuthService) { }
 
   determineIcon(media: string) {
     const map: any = {
