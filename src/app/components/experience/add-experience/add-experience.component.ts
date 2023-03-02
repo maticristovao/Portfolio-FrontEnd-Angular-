@@ -1,8 +1,7 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import moment from 'moment';
 import { AddItemComponent, MY_FORMATS } from '../../add-item/add-item.component';
 import { Company, EmployType, Experience } from '../experience.component';
 
@@ -27,15 +26,15 @@ export class AddExperienceComponent extends AddItemComponent {
 
   finishedOrCurrent(affectedControl: string, toggleRequire: string) {
     return (formGroup: FormGroup) => {
-      const control = formGroup.controls[affectedControl];
-      const requireFactor = formGroup.controls[toggleRequire];
-      if (control.errors && !control.errors['required']) {
+      const CONTROL = formGroup.controls[affectedControl];
+      const REQUIRETOGGLE = formGroup.controls[toggleRequire];
+      if (CONTROL.errors && !CONTROL.errors['required']) {
         return;
       }
-      if (!control.value && requireFactor.value === false) {
-        control.setErrors({ required: true });
+      if (!CONTROL.value && REQUIRETOGGLE.value === false) {
+        CONTROL.setErrors({ required: true });
       } else {
-        control.setErrors(null);
+        CONTROL.setErrors(null);
       }
     }
   }

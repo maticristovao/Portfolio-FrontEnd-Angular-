@@ -46,30 +46,30 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
   }
 
   added(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
-    if (value) {
-      this.titles.push(value);
+    const VALUE = (event.value || '').trim();
+    if (VALUE) {
+      this.titles.push(VALUE);
     }
     event.chipInput!.clear();
   }
 
   remove(title: string): void {
-    const index = this.titles.indexOf(title);
+    const INDEX = this.titles.indexOf(title);
 
-    if (index >= 0) {
-      this.titles.splice(index, 1);
+    if (INDEX >= 0) {
+      this.titles.splice(INDEX, 1);
     }
   }
 
   edit(title: string, event: MatChipEditedEvent) {
-    const value = event.value.trim();
-    if (!value) {
+    const VALUE = event.value.trim();
+    if (!VALUE) {
       this.remove(title);
       return;
     }
-    const index = this.titles.indexOf(title);
-    if (index >= 0) {
-      this.titles[index] = value;
+    const INDEX = this.titles.indexOf(title);
+    if (INDEX >= 0) {
+      this.titles[INDEX] = VALUE;
     }
   }
 
@@ -115,8 +115,8 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
 
   override onSubmit(): void {
     if (this.form.valid) {
-      const newUser = this.form.value;
-      // const newPhones = [
+      const NEWUSER = this.form.value;
+      // const NEWPHONES = [
       //   {
       //     id: 1,
       //     number: this.Phone1?.value,
@@ -131,9 +131,9 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
       //   }
       // ];
       // if (!this.Phone2?.value) {
-      //   newPhones.splice(1, 1);
+      //   NEWPHONES.splice(1, 1);
       // }
-      this.onUpdateItem.emit(newUser);
+      this.onUpdateItem.emit(NEWUSER);
       this.close();
     } else {
       this.form.markAllAsTouched();

@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Output, ViewChild } from '@angular/core';
 import { faFolder, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
@@ -10,7 +10,7 @@ import _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 
-export const moment = _rollupMoment || _moment;
+export const MOMENT = _rollupMoment || _moment;
 
 export const MY_FORMATS: MatDateFormats = {
   parse: {
@@ -82,7 +82,7 @@ export class AddItemComponent {
 
   extractDate(date: string | Moment | Date | undefined): string {
     if (date) {
-      let formatValue = this.formatDate(moment(date) as any);
+      let formatValue = this.formatDate(MOMENT(date) as any);
       return (formatValue);
     } else {
       return '';
@@ -91,15 +91,15 @@ export class AddItemComponent {
 
   endAfter(startCrtl: string, endCtrl: string) {
     return (formGroup: FormGroup) => {
-      const start = formGroup.controls[startCrtl];
-      const end = formGroup.controls[endCtrl];
-      if ((start.errors && !start.errors['endafter']) || (end.errors && !end.errors['endafter'])) {
+      const START = formGroup.controls[startCrtl];
+      const END = formGroup.controls[endCtrl];
+      if ((START.errors && !START.errors['endafter']) || (END.errors && !END.errors['endafter'])) {
         return;
       }
-      if (start.value > end.value) {
-        end.setErrors({ endafter: true });
+      if (START.value > END.value) {
+        END.setErrors({ endafter: true });
       } else {
-        end.setErrors(null);
+        END.setErrors(null);
       }
     }
   }
@@ -112,11 +112,11 @@ export class AddItemComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      const newItem = this.form.value;
-      if (!newItem.id) {
-        this.onAddItem.emit(newItem);
+      const NEWITEM = this.form.value;
+      if (!NEWITEM.id) {
+        this.onAddItem.emit(NEWITEM);
       } else {
-        this.onUpdateItem.emit(newItem);
+        this.onUpdateItem.emit(NEWITEM);
       }
       this.close();
     } else {
@@ -127,8 +127,8 @@ export class AddItemComponent {
 
 export class LiveErrorMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    const invalidCtrl = control && control.invalid;
-    return (invalidCtrl && (!control.hasError('minlength') && control.dirty || (control.touched || isSubmitted)))!;
+    const SUBMITTED = form && form.submitted;
+    const INVALIDCONTROL = control && control.invalid;
+    return (INVALIDCONTROL && (!control.hasError('minlength') && control.dirty || (control.touched || SUBMITTED)))!;
   }
 }

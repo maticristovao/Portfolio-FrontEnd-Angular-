@@ -26,7 +26,7 @@ export class EducationComponent extends Section implements AfterViewChecked {
   }
 
   determineIcon(id: number) {
-    const map: any = {
+    const MAP: any = {
       1: faCommentsDollar,
       2: faLaptopCode,
       3: faUserGraduate,
@@ -39,7 +39,7 @@ export class EducationComponent extends Section implements AfterViewChecked {
       10: faScaleBalanced,
       11: faChurch
     };
-    return map[id] ?? faBook;
+    return MAP[id] ?? faBook;
   }
 
   addItem(item: Education) {

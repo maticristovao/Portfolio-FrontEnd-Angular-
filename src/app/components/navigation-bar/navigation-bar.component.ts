@@ -57,14 +57,14 @@ export class NavigationBarComponent implements OnInit {
   constructor(private renderer: Renderer2, private personalData: PersonalInfoService, private router: Router, public authService: AuthService) { }
 
   determineIcon(media: string) {
-    const map: any = {
+    const MAP: any = {
       'linkedin': faLinkedin,
       'github': faGithub,
       'codepen': faCodepen,
       'instagram': faInstagram,
       'twitter': faTwitter
     };
-    return map[media.toLowerCase().trim()] ?? faHashtag;
+    return MAP[media.toLowerCase().trim()] ?? faHashtag;
   }
 
   giveDataContent(links: HTMLCollectionOf<Element>) {

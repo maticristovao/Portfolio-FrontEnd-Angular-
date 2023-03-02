@@ -21,8 +21,8 @@ export class EditAboutComponent extends AddItemComponent implements OnInit {
 
   override onSubmit() {
     if (this.form.valid) {
-      const newItem = this.form.value;
-      this.onUpdateItem.emit(newItem);
+      const NEWITEM = this.form.value;
+      this.onUpdateItem.emit(NEWITEM);
       this.close();
     } else {
       this.form.markAllAsTouched();

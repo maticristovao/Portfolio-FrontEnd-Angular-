@@ -281,7 +281,8 @@ nav.navbar-dark.change {
     border-bottom-color: var(--secondary-color);
 }
 
-.media-icon:hover {
+.media-icon:hover,
+.card-icon a:focus .media-icon {
     -webkit-animation-name: fa-bounce;
     animation-name: fa-bounce;
     -webkit-animation-duration: 1s;
@@ -290,4 +291,8 @@ nav.navbar-dark.change {
     animation-iteration-count: infinite;
     -webkit-animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
     animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+.card-icon a:focus-visible {
+    outline: transparent;
 }

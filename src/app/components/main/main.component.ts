@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component, HostListener } from '@angular/core';
 declare var bootstrap: any;
 @Component({
   selector: 'app-main',
@@ -16,9 +16,9 @@ export class MainComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const wrapper = document.querySelector('#scroll');
-    const scrollSpy = new bootstrap.ScrollSpy(wrapper, {
+    const WRAPPER = document.querySelector('#scroll');
+    const SCROLLSPY = new bootstrap.ScrollSpy(WRAPPER, {
       target: '#nav'
-    })
+    });
   }
 }
