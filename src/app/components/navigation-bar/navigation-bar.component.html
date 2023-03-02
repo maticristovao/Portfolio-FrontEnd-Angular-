@@ -43,13 +43,13 @@
             <li class="nav-item">
                 <a #asMediaCollapse class="nav-link dropdown-toggle" href="#media-menu" role="button"
                     data-toggle="collapse" aria-expanded="false" aria-controls="media-menu" data-bs-toggle="true" placement="bottom" ngbTooltip="Mis redes" tooltipClass="tooltip">
-                    <fa-icon [icon]="faGlobe" class="d-none d-lg-inline-block"></fa-icon><span class="d-lg-none">Mis
-                        redes</span>
+                    <fa-icon [icon]="faGlobe" class="d-none d-lg-inline-block"></fa-icon>
+                    <span class="d-lg-none">Mis redes</span>
                 </a>
                 <div #asMediaMenu class="collapse container" id="media-menu">
                     <div class="card-icon mt-lg-3 mb-lg-1 mx-1" *ngFor="let item of personalMedia" [ngbTooltip]="item.media" placement="bottom">
                         <a [href]="item.url" target="_blank" rel="noreferrer noopener">
-                            <fa-icon [icon]="determineIcon(item.media)"></fa-icon>
+                            <fa-icon [icon]="determineIcon(item.media)" class="media-icon"></fa-icon>
                         </a>
                     </div>
                 </div>

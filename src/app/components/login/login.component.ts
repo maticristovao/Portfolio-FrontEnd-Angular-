@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent {
   form: FormGroup;
   show: boolean = false;
-  logToastConfig: Partial<IndividualConfig> = { positionClass: 'log-toast-container', progressBar: false, toastClass:'success-login-toast ngx-toastr' };
+  logToastConfig: Partial<IndividualConfig> = { positionClass: 'log-toast-container', progressBar: false };
   faBack = faArrowLeft;
   faUsername = faUserShield;
   faKey = faKey;

@@ -1,4 +1,4 @@
-import { Component, Directive, HostListener, OnInit, ViewChild } from "@angular/core";
+import { Directive, HostListener, OnInit } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { AddItemComponent } from "src/app/components/add-item/add-item.component";
 import { PersonalInfoService } from "src/app/services/personal-info.service";
@@ -8,7 +8,7 @@ export abstract class Section implements OnInit {
     // Esto cambia cuando pase la app a inglés, ahí uso lo mismo que para hacer los http request
     campo: string = '';
     windowWidth: number = window.innerWidth;
-    abstract editModal: any;
+    abstract editModal: AddItemComponent;
     field: string = '';
     editMode: boolean = false;
     visible: boolean = false;
@@ -28,7 +28,7 @@ export abstract class Section implements OnInit {
     }
     passData(item: any) {
         this.toggleModal();
-        this.editModal.loadEditData(item);
+        this.editModal.loadEditData!(item);
     }
 
     showSuccess(type: 'add' | 'edit', title?: string) {

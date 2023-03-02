@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener, ViewEncapsulation } from '@angular/core';
 import { faCodepen, faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBuildingColumns, faGlobe, faHashtag, faHome, faScrewdriverWrench, faShoePrints, faSuitcase, faTerminal, faUser } from '@fortawesome/free-solid-svg-icons';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
@@ -17,7 +17,7 @@ export interface Media {
   encapsulation: ViewEncapsulation.None
 })
 
-export class NavigationBarComponent implements OnInit, AfterViewInit {
+export class NavigationBarComponent implements OnInit {
   navLinks = document.getElementsByClassName('nav-link');
   inverseElements = document.getElementsByClassName('inverse');
   change: boolean = false;
@@ -44,10 +44,11 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
   }
 
   @HostListener('window:scroll', ['$event'])
-  handleScroll() {
+  handleScroll(): void {
     this.change = false;
+    let navHeight = this.nav.nativeElement.clientHeight;
     for (let inverse of this.inverseElements) {
-      if (window.pageYOffset >= ((inverse as HTMLElement).offsetTop) - this.nav.nativeElement.clientHeight && window.pageYOffset <= (inverse as HTMLElement).offsetTop + (inverse as HTMLElement).clientHeight - this.nav.nativeElement.clientHeight) {
+      if (window.pageYOffset >= ((inverse as HTMLElement).offsetTop) - navHeight && window.pageYOffset <= (inverse as HTMLElement).offsetTop + (inverse as HTMLElement).clientHeight - navHeight) {
         this.change = true;
       }
     }
@@ -71,14 +72,6 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
       link.setAttribute('data-content', link.textContent!);
     }
   }
-
-  bounce() {
-    $(this).addClass('fa-bounce');
-  }
-  notBounce() {
-    $(this).removeClass('fa-bounce');
-  }
-
 
   closeCollapse(e: JQuery.ClickEvent<Document, null, Document, Document>) {
     if (!this.mediaMenu.nativeElement.contains(e.target) && !$(e.target).is(this.mediaCollapse.nativeElement) && this.mediaCollapse.nativeElement.getAttribute('aria-expanded') === 'true' && this.mediaMenu.nativeElement.classList.contains('show')) {
@@ -109,11 +102,5 @@ export class NavigationBarComponent implements OnInit, AfterViewInit {
     this.personalData.getData('social').subscribe(data => {
       this.personalMedia = data;
     })
-  }
-
-  ngAfterViewInit(): void {
-    $('.card-icon fa-icon').on('mouseenter', this.bounce);
-    $('.card-icon fa-icon').on('focus', this.bounce);
-    $('.card-icon fa-icon').on('mouseleave', this.notBounce);
   }
 }

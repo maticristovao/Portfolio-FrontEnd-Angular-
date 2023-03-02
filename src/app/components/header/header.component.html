@@ -1,7 +1,10 @@
 <header id="header">
     <div class="container-fluid name-logo">
-        <div class="logo" elementObserver (visible)="intersecting=true" [wait]="250" [class.fade-in]="intersecting">
-            <div><span>{{name}}</span>{{surname}}</div>
+        <div class="logo" elementObserver (visible)="visible = true" [wait]="250" [class.fade-in]="visible">
+            <div>
+                <span>
+                    {{windowWidth > 1025?removeAccents(name):removeAccents(name)[0]}}</span>{{windowWidth > 737? removeAccents(surname):removeAccents(surname)[0]}}
+            </div>
         </div>
     </div>
     <ngb-carousel id="carousel" #asCarousel (slid)="resetTimer($event)">
