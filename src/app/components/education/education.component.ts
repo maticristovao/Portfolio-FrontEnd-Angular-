@@ -1,7 +1,6 @@
-import { AfterViewChecked, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ViewChild } from '@angular/core';
 import { faUserGraduate, faLaptopCode, faBook, faRadio, faFlask, faDumbbell, faGears, faLandmarkDome, faHeartPulse, faChurch, faCommentsDollar, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
-import { ToastrService } from 'ngx-toastr';
-import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { Section } from 'src/assets/section';
 import { AddEducationComponent } from './add-education/add-education.component';
 
 @Component({
@@ -9,24 +8,14 @@ import { AddEducationComponent } from './add-education/add-education.component';
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.css']
 })
-export class EducationComponent implements OnInit, AfterViewChecked {
+export class EducationComponent extends Section implements AfterViewChecked {
   personalEducation!: Education[];
-  windowWidth = window.innerWidth;
-  editMode: boolean = false;
-  update: boolean = false;
-  visible: boolean = false;
-  field: string = 'education';
+  override field = 'education';
+  override campo = 'Estudios';
   institutions: Institution[] = [];
   areas: Area[] = [];
 
-  @ViewChild(AddEducationComponent) editModal!: AddEducationComponent;
-
-  @HostListener('window:resize')
-  onResize(): void {
-    this.windowWidth = window.innerWidth;
-  }
-
-  constructor(private personalData: PersonalInfoService, private toastService: ToastrService) { }
+  @ViewChild(AddEducationComponent) override editModal!: AddEducationComponent;
 
   setActive() {
     if (window.innerWidth <= 576) return;
@@ -98,17 +87,7 @@ export class EducationComponent implements OnInit, AfterViewChecked {
     return cards;
   }
 
-  toggleModal() {
-    this.editModal.reset();
-    this.editModal.open(this.editModal.myModal);
-  }
-
-  passData(card: any) {
-    this.toggleModal();
-    this.editModal.loadEditData(card);
-  }
-
-  ngOnInit(): void {
+  getData(): void{
     this.personalData.getData(`${this.field}?_expand=institution&_expand=area`).subscribe(data => {
       this.personalEducation = data;
     })
@@ -118,18 +97,6 @@ export class EducationComponent implements OnInit, AfterViewChecked {
     this.personalData.getData('areas?_sort=name&_order=asc').subscribe(data => {
       this.areas = data;
     });
-  }
-
-  showSuccess(type: 'add' | 'edit') {
-    if (type === 'add') {
-      this.toastService.success('Ítem añadido correctamente', 'Estudios');
-    } else {
-      this.toastService.success('Cambios guardados', 'Estudios');
-    }
-  }
-
-  showDelete() {
-    this.toastService.error('ítem eliminado', 'Estudios');
   }
 
   ngAfterViewChecked(): void {

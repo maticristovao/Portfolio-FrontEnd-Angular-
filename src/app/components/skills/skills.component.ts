@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { Component, ViewChild } from '@angular/core';
+import { Section } from 'src/assets/section';
 import { AddSkillComponent } from './add-skill/add-skill.component';
 
 @Component({
@@ -8,33 +8,19 @@ import { AddSkillComponent } from './add-skill/add-skill.component';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css']
 })
-export class SkillsComponent implements OnInit {
+export class SkillsComponent extends Section {
   skills: Skill[] = [];
   languages: Language[] = [];
-  windowWidth: number = window.innerWidth;
-  editMode: boolean = false;
 
   @ViewChild(AddSkillComponent) editModal!: AddSkillComponent;
 
-  @HostListener('window:resize')
-  onResize() {
-    this.windowWidth = window.innerWidth;
-  }
-
-  constructor(private personalData: PersonalInfoService) { }
-
-  ngOnInit(): void {
+  getData(): void {
     this.personalData.getData('skills?_sort=id').subscribe(data => {
       this.skills = data;
     });
     this.personalData.getData('languages').subscribe(data => {
       this.languages = data;
     });
-  }
-
-  toggleModal() {
-    this.editModal.reset();
-    this.editModal.open(this.editModal.myModal);
   }
 
   // drop(event: CdkDragDrop<string[]>) {
@@ -53,10 +39,12 @@ export class SkillsComponent implements OnInit {
     if (this.isSkill(item)) {
       this.personalData.deleteItem(item, 'skills').subscribe(() => {
         this.skills = this.skills.filter((i: { id: number | undefined; }) => i.id !== item.id);
+        this.showDelete('Habilidades');
       });
     } else {
       this.personalData.deleteItem(item, 'languages').subscribe(() => {
         this.languages = this.languages.filter((i: { id: number | undefined; }) => i.id !== item.id);
+        this.showDelete('Idiomas');
       });
     }
   }
@@ -65,20 +53,13 @@ export class SkillsComponent implements OnInit {
     if (this.isSkill(item)) {
       this.personalData.addItem(item, 'skills').subscribe((skill) => {
         this.skills.push(skill);
+        this.showSuccess('add', 'Habilidades');
       });
     } else {
       this.personalData.addItem(item, 'languages').subscribe((lang) => {
         this.languages.push(lang);
+        this.showSuccess('add', 'Idiomas');
       });
-    }
-  }
-
-  passData(item: Skill | Language) {
-    this.toggleModal();
-    if (this.isSkill(item)) {
-      this.editModal.loadSkill(item);
-    } else {
-      this.editModal.loadLanguage(item);
     }
   }
 
@@ -86,11 +67,22 @@ export class SkillsComponent implements OnInit {
     if (this.isSkill(item)) {
       this.personalData.updateItem(item, 'skills').subscribe(() => {
         this.getAndSwitch(this.skills, item);
+        this.showSuccess('edit', 'Habilidades');
       });
     } else {
       this.personalData.updateItem(item, 'languages').subscribe(() => {
         this.getAndSwitch(this.languages, item);
+        this.showSuccess('edit', 'Idiomas');
       });
+    }
+  }
+
+  override passData(item: Skill | Language) {
+    this.toggleModal();
+    if (this.isSkill(item)) {
+      this.editModal.loadSkill(item);
+    } else {
+      this.editModal.loadLanguage(item);
     }
   }
 

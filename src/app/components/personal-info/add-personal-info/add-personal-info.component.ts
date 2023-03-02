@@ -73,7 +73,7 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
     }
   }
 
-  loadEditData(user: UserData) {
+  override loadEditData(user: UserData) {
     this.form.setValue({
       name: user.name,
       surname: user.surname,

@@ -110,3 +110,7 @@ section.inverse {
     top:75px;
     left: calc(50% - 150px);
 }
+
+.toast-success{
+    background-color: var(--primary-color);
+}

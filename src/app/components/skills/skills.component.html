@@ -15,7 +15,7 @@
             <div class="row px-1 px-lg-5">
                 <div class="col-12 col-sm-6 col-lg-12 my-5 text-start text-sm-center text-lg-start"
                     *ngFor="let language of languages">
-                    <app-languages [language]="language"></app-languages>
+                    <app-language-item [language]="language"></app-language-item>
                     <app-edit-item [editMode]="editMode" (updateItem)="passData(language)"
                         (deleteItem)="deleteItem(language)" class="ps-5"></app-edit-item>
                 </div>

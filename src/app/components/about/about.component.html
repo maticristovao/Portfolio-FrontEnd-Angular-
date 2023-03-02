@@ -1,7 +1,7 @@
-<section class="about container-fluid py-5 px-3 py-sm-0 px-sm-0" id="about" *ngIf="showAbout">
+<section class="about container-fluid py-5 px-3 py-sm-0 px-sm-0" id="about">
     <div class="row justify-content-center d-none d-sm-flex mx-0 position-relative inverse">
         <app-edition class="edition" [horizontal]="windowWidth<1200"
-            (edition)="editing = !editing; editing && toggleModal()" (discard)="discardSection()"></app-edition>
+            (edition)="editMode = !editMode; editMode && toggleModal()"></app-edition>
         <div class="col-12 col-xl-9 align-self-center px-3 px-xl-0">
             <div class="card" [class.flip]="flip" (click)="flip = !flip" elementObserver (visible)="visible = true" [class.fade-in]="visible" [threshold]="1" margin="-150px 0px">
                 <div class="card_content">
@@ -23,7 +23,7 @@
     </div>
     <div class="row d-sm-none small-version position-relative">
         <app-edition class="edition d-sm-none" [horizontal]="windowWidth<1200"
-            (edition)="editing = !editing; editing && toggleModal()" (discard)="discardSection()"></app-edition>
+            (edition)="editMode = !editMode; editMode && toggleModal()"></app-edition>
         <h3>Acerca de mi</h3>
         <p>
             {{about}}

@@ -3,8 +3,8 @@
     <app-edition class="edition my-2 my-sm-5 me-1 me-sm-5" [showAdding]="true" (adding)="toggleModal()"
         (edition)="editMode = !editMode"></app-edition>
     <div class="timeline m-auto" elementObserver [threshold]="windowWidth>1150? 0.4:0.25" [wait]="0"
-        (visible)="intersecting = true">
-        <div class="item mb-3" *ngFor="let experience of personalExperience" [class.visible]="intersecting">
+        (visible)="visible = true">
+        <div class="item mb-3" *ngFor="let experience of personalExperience" [class.visible]="visible">
             <div class="content p-3 mb-1">
                 <h3 class="text-light">
                     {{experience.company}}

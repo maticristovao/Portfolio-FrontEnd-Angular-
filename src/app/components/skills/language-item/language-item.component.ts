@@ -3,11 +3,11 @@ import { faFeather, faLanguage, faVolumeHigh } from '@fortawesome/free-solid-svg
 import { Language } from '../skills.component';
 
 @Component({
-  selector: 'app-languages',
-  templateUrl: './languages.component.html',
-  styleUrls: ['./languages.component.css']
+  selector: 'app-language-item',
+  templateUrl: './language-item.component.html',
+  styleUrls: ['./language-item.component.css']
 })
-export class LanguagesComponent {
+export class LanguageItemComponent {
   @Input() language!: Language;
 
   faOral = faVolumeHigh;

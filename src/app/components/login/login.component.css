@@ -116,11 +116,11 @@ button.back:is(:hover, :focus) {
     transition: transform .3s ease-in-out, color .5s ease-in-out;
 }
 
-.show-icon:is(:hover, :focus) {
-    transform: scale(1.2);
+.show:is(:hover, :focus) .show-icon {
+    transform: scale(1.18);
 }
 
-.show-icon:focus-visible {
+.show:focus-visible {
     outline: transparent;
 }
 

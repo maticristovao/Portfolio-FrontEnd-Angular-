@@ -30,7 +30,7 @@ export class AddProjectComponent extends AddItemComponent implements OnInit {
     return this.form.get('description');
   }
 
-  loadEditData(item: Project) {
+  override loadEditData(item: Project) {
     this.form.setValue({
       id: item.id,
       title: item.title,

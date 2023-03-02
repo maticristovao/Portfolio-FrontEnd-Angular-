@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { Section } from 'src/assets/section';
 import { AddPersonalInfoComponent } from './add-personal-info/add-personal-info.component';
 import { Phone } from './contact-modal/contact-modal.component';
 
@@ -9,37 +9,32 @@ import { Phone } from './contact-modal/contact-modal.component';
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.css']
 })
-export class PersonalInfoComponent implements OnInit {
+export class PersonalInfoComponent extends Section implements OnInit {
   @ViewChild(AddPersonalInfoComponent) editModal!: AddPersonalInfoComponent;
 
   moreContent!: string;
   personalInfo: UserData | undefined;
-  windowWidth: number = window.innerWidth;
   phones!: Phone[];
+  override field = 'user/1';
+  override campo = 'Información personal';
 
   faLocationDot = faLocationDot;
 
-  @HostListener('window:resize')
-  onResize() {
-    this.windowWidth = window.innerWidth;
-  }
-
-  toggleModal() {
+  override toggleModal() {
     this.editModal.reset();
     this.editModal.open(this.editModal.myModal);
     this.editModal.loadEditData(this.personalInfo!);
   }
 
   save(item: any) {
-    this.personalData.patchItem(item, 'user/1').subscribe((user) => {
+    this.personalData.patchItem(item, this.field).subscribe((user) => {
       this.personalInfo = user;
+      this.showSuccess('edit');
     });
   }
 
-  constructor(private personalData: PersonalInfoService) { }
-
-  ngOnInit(): void {
-    this.personalData.getData('user/1?_embed=phones').subscribe((user: UserData) => {
+  getData(): void {
+    this.personalData.getData(`${this.field}?_embed=phones`).subscribe((user: UserData) => {
       this.personalInfo = user;
       this.phones = user.phones!;
     });

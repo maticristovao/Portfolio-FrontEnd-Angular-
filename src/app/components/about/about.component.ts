@@ -1,7 +1,7 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { UiService } from 'src/app/services/ui.service';
+import { Section } from 'src/assets/section';
 import { EditAboutComponent } from './edit-about/edit-about.component';
 
 @Component({
@@ -9,47 +9,40 @@ import { EditAboutComponent } from './edit-about/edit-about.component';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent extends Section {
   about!: string;
-  windowWidth: number = window.innerWidth;
   flip: boolean = false;
-  editing: boolean = false;
-  field: string = 'user';
-  section: string = 'about';
-  showAbout:boolean = true;
-  subscription?: Subscription;
-  visible: boolean = false;
+  override campo = 'Acerca de mí';
+  override field = 'user/1';
+  // showAbout:boolean = true;
+  // subscription?: Subscription;
 
   @ViewChild(EditAboutComponent) editModal!: EditAboutComponent;
 
-  @HostListener('window:resize')
-  onResize() {
-    this.windowWidth = window.innerWidth;
-  }
-
-  toggleModal() {
+  override toggleModal() {
     this.editModal.reset();
     this.editModal.open(this.editModal.myModal);
     this.editModal.loadEditData(this.about);
+    console.log('done');
   }
 
   save(about: string) {
     this.personalData.patchItem(about, this.field).subscribe((newUser) => {
       this.about = newUser.about;
+      this.showSuccess('edit');
     });
   }
 
-  discardSection(){
-    this.uiService.toggleSection('about');
-  }
+  // discardSection(){
+  //   this.uiService.toggleSection('about');
+  // }
 
-  constructor(private personalData: PersonalInfoService, private uiService: UiService) {
-    this.subscription = this.uiService.onToggle().subscribe(value => this.showAbout = value);
-  }
-
-  ngOnInit(): void {
+  // constructor(private uiService: UiService) {
+  //   this.subscription = this.uiService.onToggle().subscribe(value => this.showAbout = value);
+  // }
+  getData(){
     this.personalData.getData(this.field).subscribe(data => {
-      this.about = data[0].about;
-    })
+      this.about = data.about;
+    });
   }
 }

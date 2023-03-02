@@ -1,5 +1,5 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { Component, ViewChild } from '@angular/core';
+import { Section } from 'src/assets/section';
 import { AddExperienceComponent } from './add-experience/add-experience.component';
 
 @Component({
@@ -7,39 +7,33 @@ import { AddExperienceComponent } from './add-experience/add-experience.componen
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.css']
 })
-export class ExperienceComponent implements OnInit {
+export class ExperienceComponent extends Section{
   personalExperience: any;
-  intersecting: boolean = false;
-  windowWidth: number = window.innerWidth;
-  editMode: boolean = false;
-  field: string = 'experience';
+  override campo = 'Experiencia';
+  override field = 'experience';
   employTypes: EmployType[] = [];
 
   @ViewChild(AddExperienceComponent) editModal!: AddExperienceComponent;
-
-  @HostListener('window:resize')
-  onResize() {
-    this.windowWidth = window.innerWidth;
-  }
-
-  constructor(private personalData: PersonalInfoService) { }
 
   addItem(item: Experience) {
     this.personalData.addItem(item, this.field).subscribe(() => {
       this.getExperience();
     });
+    this.showSuccess('add');
   }
 
   save(item: Experience) {
     this.personalData.updateItem(item, this.field).subscribe(() => {
       this.getExperience();
     });
+    this.showSuccess('edit');
   }
 
   deleteItem(item: Experience) {
     this.personalData.deleteItem(item, this.field).subscribe(() => {
       this.personalExperience = this.personalExperience.filter((i: { id: number }) => i.id !== item.id);
     });
+    this.showDelete();
   }
 
   getCardPosition(item: Experience): number {
@@ -53,23 +47,13 @@ export class ExperienceComponent implements OnInit {
     item.employType = type!;
   }
 
-  toggleModal() {
-    this.editModal.reset();
-    this.editModal.open(this.editModal.myModal);
-  }
-
-  passData(card: any) {
-    this.toggleModal();
-    this.editModal.loadEditData(card);
-  }
-
   getExperience() {
     this.personalData.getData(`${this.field}?_sort=endDate&_order=desc&_expand=employType`).subscribe(data => {
       this.personalExperience = data;
-    })
+    });
   }
 
-  ngOnInit(): void {
+  override getData() {
     this.getExperience();
     this.personalData.getData('employTypes').subscribe(data => {
       this.employTypes = data;

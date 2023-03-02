@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { faCodepen } from '@fortawesome/free-brands-svg-icons';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
-import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { Section } from 'src/assets/section';
 import { AddProjectComponent } from './add-project/add-project.component';
 
 @Component({
@@ -9,43 +9,34 @@ import { AddProjectComponent } from './add-project/add-project.component';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent extends Section {
   projects: Project[] = [];
-  field = 'projects';
+  override field = 'projects';
+  override campo = 'Proyectos';
   faCode = faCode;
   faCodePen = faCodepen;
-  editMode: boolean = false;
 
   @ViewChild(AddProjectComponent) editModal!: AddProjectComponent;
-
-  constructor(private personalData: PersonalInfoService) { }
-
-  toggleModal() {
-    this.editModal.reset();
-    this.editModal.open(this.editModal.myModal);
-  }
 
   addItem(item: Project) {
     this.personalData.addItem(item, this.field).subscribe((project) => {
       this.projects.push(project);
+      this.showSuccess('add');
     });
   }
 
   saveItem(item: Project) {
     this.personalData.updateItem(item, this.field).subscribe(() => {
       this.getAndSwitch(this.projects, item);
+      this.showSuccess('edit');
     });
   }
 
   deleteItem(item: Project) {
     this.personalData.deleteItem(item, this.field).subscribe(() => {
       this.projects = this.projects.filter((i: { id: number }) => i.id !== item.id);
+      this.showDelete();
     });
-  }
-
-  passData(item: Project) {
-    this.toggleModal();
-    this.editModal.loadEditData(item);
   }
 
   getAndSwitch(collection: any, item: Project) {
@@ -54,10 +45,10 @@ export class ProjectsComponent implements OnInit {
     collection[position] = item;
   }
 
-  ngOnInit(): void {
+  getData(): void {
     this.personalData.getData(this.field).subscribe(data => {
       this.projects = data;
-    })
+    });
   }
 }
 

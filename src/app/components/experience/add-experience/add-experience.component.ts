@@ -62,7 +62,7 @@ export class AddExperienceComponent extends AddItemComponent {
     return this.form.get('description');
   }
 
-  loadEditData(item: Experience) {
+  override loadEditData(item: Experience) {
     this.form.setValue({
       id: item.id,
       company: item.company,

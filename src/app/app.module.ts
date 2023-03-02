@@ -14,7 +14,7 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ElementObserverDirective } from './components/element-observer.directive';
 import { SkillItemComponent } from './components/skills/skill-item/skill-item.component';
-import { LanguagesComponent } from './components/skills/languages/languages.component';
+import { LanguageItemComponent } from './components/skills/language-item/language-item.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { EditionComponent } from './components/edition/edition.component';
 import { LoginComponent } from './components/login/login.component';
@@ -67,7 +67,7 @@ import { ToastrModule } from 'ngx-toastr';
     SkillsComponent,
     ElementObserverDirective,
     SkillItemComponent,
-    LanguagesComponent,
+    LanguageItemComponent,
     ProjectsComponent,
     EditionComponent,
     LoginComponent,

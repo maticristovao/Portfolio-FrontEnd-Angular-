@@ -13,7 +13,7 @@ export class EditAboutComponent extends AddItemComponent implements OnInit {
     return this.form.get('about');
   }
 
-  loadEditData(description: string) {
+  override loadEditData(description: string) {
     this.form.setValue({
       about: description
     })

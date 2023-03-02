@@ -103,6 +103,7 @@ export class AddItemComponent {
       }
     }
   }
+  loadEditData?(item:any, type?:any):void;
 
   reset() {
     this.form.reset(this.initialValue);

@@ -43,7 +43,7 @@ export class AddEducationComponent extends AddItemComponent implements OnInit {
     return this.form.get('endDate');
   }
 
-  loadEditData(card: Education) {
+  override loadEditData(card: Education) {
     this.form.setValue({
       id: card.id,
       title: card.title,
