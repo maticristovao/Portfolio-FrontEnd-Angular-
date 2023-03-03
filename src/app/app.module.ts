@@ -117,6 +117,7 @@ import { ToastrModule } from 'ngx-toastr';
       positionClass: 'custom-toast-container',
       newestOnTop: false,
       maxOpened: 3,
+      enableHtml: true
     })
   ],
   providers: [DatePipe, { provide: LOCALE_ID, useValue: 'es' }],

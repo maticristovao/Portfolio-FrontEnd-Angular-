@@ -274,15 +274,15 @@ nav.navbar-dark.change {
 }
 
 .change .nav-item>.tooltip .tooltip-inner {
-    background-color: var(--secondary-color);
+    background-color: var(--background-color);
 }
 
 .change .nav-item>.tooltip.bs-tooltip-bottom .tooltip-arrow::before {
-    border-bottom-color: var(--secondary-color);
+    border-bottom-color: var(--background-color);
 }
 
-.media-icon:hover,
-.card-icon a:focus .media-icon {
+div.card-icon:hover .media-icon,
+div.card-icon a:focus .media-icon {
     -webkit-animation-name: fa-bounce;
     animation-name: fa-bounce;
     -webkit-animation-duration: 1s;

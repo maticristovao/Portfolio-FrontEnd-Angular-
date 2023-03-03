@@ -3,12 +3,12 @@
         <div class="col-12 col-sm-6 text-center">
             <h1 class="heading">Estudios</h1>
         </div>
-        <div class="col-12 col-sm-3 pe-sm-5 text-center text-sm-end">
+        <div class="col-12 col-sm-3 pe-sm-5 text-center text-sm-end position-relative">
             <app-edition [horizontal]="windowWidth<1020" [showAdding]="true" (edition)="editMode = !editMode"
                 (adding)="toggleModal()"></app-edition>
         </div>
     </div>
-    <div class="cards mx-3 mb-4 mt-4 mt-lg-0" elementObserver (visible)="visible = true" [threshold]="0.25" [wait]="150">
+    <div class="cards mx-3 mb-4 mt-4" elementObserver (visible)="visible = true" [threshold]="0.25" [wait]="150">
         <div class="education-card my-3" *ngFor="let card of personalEducation; let i = index;"
             [ngClass]="{smallactive: windowWidth<=576, active:i==0 && visible}" tabindex="0">
             <div class="label">{{i+1}}</div>

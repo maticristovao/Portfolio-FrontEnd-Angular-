@@ -339,3 +339,8 @@
     z-index: -1;
     transition: opacity ease-in-out .4s;
   }
+
+  app-edition{
+    position:absolute;
+    right: 25%;
+  }

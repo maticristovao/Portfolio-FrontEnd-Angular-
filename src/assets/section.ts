@@ -1,4 +1,5 @@
 import { Directive, HostListener, OnInit } from "@angular/core";
+import { faTrashCanArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
 import { AddItemComponent } from "src/app/components/add-item/add-item.component";
 import { PersonalInfoService } from "src/app/services/personal-info.service";
@@ -12,6 +13,7 @@ export abstract class Section implements OnInit {
     field: string = '';
     editMode: boolean = false;
     visible: boolean = false;
+    itemDelIcon = faTrashCanArrowUp;
 
     @HostListener('window:resize')
     onResize(): void {
@@ -48,7 +50,7 @@ export abstract class Section implements OnInit {
             this.campo = title;
         }
 
-        this.toastService.error('ítem eliminado', this.campo);
+        this.toastService.error('Ítem eliminado', this.campo, {toastClass:'toast-delete ngx-toastr'});
     }
 
     ngOnInit(): void {

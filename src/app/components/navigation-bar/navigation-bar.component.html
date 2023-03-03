@@ -55,6 +55,6 @@
                 </div>
             </li>
         </ul>
-        <button class="btn btn-outline-success my-3 my-sm-2 mx-3 px-4 py-1" id="login-btn" [routerLink]="!authService.isLogged?'/login':null" (click)="authService.isLogged && authService.logout()">{{!authService.isLogged?'Log in':'Log out'}}</button>
+        <button class="btn btn-outline-success my-3 my-sm-2 mx-3 px-4 py-1" id="login-btn" [routerLink]="!authService.isLogged?'/login':'/'" (click)="authService.isLogged && authService.logout()">{{!authService.isLogged?'Log in':'Log out'}}</button>
     </div>
 </nav>
