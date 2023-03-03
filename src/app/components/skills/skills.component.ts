@@ -23,13 +23,13 @@ export class SkillsComponent extends Section {
     });
   }
 
-  // drop(event: CdkDragDrop<string[]>) {
-  //   moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
-  //   this.skills.forEach(async skill => {
-  //     skill.id = this.skills.indexOf(skill) + 1;
-  //     await this.save(skill);
-  //   });
-  // }
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
+    this.skills.forEach(async skill => {
+      skill.id = this.skills.indexOf(skill) + 1;
+      await this.save(skill);
+    });
+  }
 
   isSkill(object: any): object is Skill {
     return 'progress' in object;

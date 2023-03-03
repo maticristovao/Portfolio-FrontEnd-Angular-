@@ -128,14 +128,21 @@
             <div class="row justify-content-center mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Foto</mat-label>
-                    <ngx-mat-file-input formControlName="photo" name="photo" id="photo"
+                    <!-- <ngx-mat-file-input formControlName="photo" name="photo" id="photo"
                         accept="image/jpg, image/png, image/jpeg"
                         placeholder="Seleccione una foto"></ngx-mat-file-input>
-                    <fa-icon matSuffix [icon]="faFolder" class="close clear folder me-2"></fa-icon>
+                    <fa-icon matSuffix [icon]="faFolder" class="close clear folder me-2"></fa-icon> -->
+                    <input matInput id="photo" name="photo" formControlName="photo" />
+                    <button *ngIf="Photo?.value" class="close clear me-2" matSuffix aria-label="Clear"
+                        (click)="Photo?.setValue('')">
+                        <fa-icon [icon]="faExit"></fa-icon>
+                    </button>
+                    <mat-hint>Inserte la dirección URL de su foto de perfil</mat-hint>
+                    <mat-error *ngIf="Photo?.hasError('pattern')">Ingrese una dirección válida</mat-error>
                 </mat-form-field>
             </div>
             <div class="row justify-content-center mb-4 pt-4">
-                <input class="btn btn-lg btn-block col-7 col-sm-5 submit" type="submit" value="Guardar"/>
+                <input class="btn btn-lg btn-block col-7 col-sm-5 submit" type="submit" value="Guardar" />
             </div>
         </form>
     </div>

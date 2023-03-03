@@ -9,8 +9,6 @@ import { Project } from '../projects.component';
   styleUrls: ['./add-project.component.css']
 })
 export class AddProjectComponent extends AddItemComponent implements OnInit {
-  reg = "(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?";
-
   get Title() {
     return this.form.get('title');
   }
@@ -47,9 +45,9 @@ export class AddProjectComponent extends AddItemComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: undefined,
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(35)]],
-      repo: ['', [Validators.required, Validators.pattern(this.reg)]],
-      link: ['', [Validators.pattern(this.reg)]],
-      collection: ['', [Validators.pattern(this.reg)]],
+      repo: ['', [Validators.required, Validators.pattern(this.urlPattern)]],
+      link: ['', [Validators.pattern(this.urlPattern)]],
+      collection: ['', [Validators.pattern(this.urlPattern)]],
       image: [],
       description: ['', [Validators.required]]
     })

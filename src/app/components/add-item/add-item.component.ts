@@ -49,6 +49,7 @@ export class AddItemComponent {
   faExit = faTimes;
   faFolder = faFolder;
   windowWidth: number = window.innerWidth;
+  urlPattern = "(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?";
 
   @HostListener('window:resize')
   onResize(){

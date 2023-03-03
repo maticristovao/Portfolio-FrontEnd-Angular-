@@ -5,6 +5,7 @@ import { COMMA, ENTER, DASH, SLASH } from '@angular/cdk/keycodes';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 import { UserData } from '../personal-info.component';
 import { Phone } from '../contact-modal/contact-modal.component';
+import { FileInput } from 'ngx-material-file-input';
 
 @Component({
   selector: 'app-add-personal-info',
@@ -109,7 +110,7 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
       // phoneType2: ['', []],
       province: ['', [Validators.required]],
       country: ['', [Validators.required]],
-      photo: ['', []]
+      photo: ['', [Validators.pattern(this.urlPattern)]]
     });
   }
 
