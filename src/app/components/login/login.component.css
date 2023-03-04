@@ -13,11 +13,11 @@ section::after {
     bottom: 0;
     left: 0;
     right: 0;
-    background: url(https://www.informaticsint.com/wp-content/uploads/2019/06/informatics-home-banner-bg.jpg);
+    background: url('https://cdn.pixabay.com/photo/2020/05/07/04/01/digitization-5140071__340.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    filter: grayscale(15%);
+    filter: blur(10px);
     z-index: -1;
 }
 
@@ -40,8 +40,8 @@ button.back {
 }
 
 button.back:is(:hover, :focus) {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .wrapper {
