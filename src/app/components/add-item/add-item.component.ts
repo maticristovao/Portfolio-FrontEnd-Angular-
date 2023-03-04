@@ -26,7 +26,7 @@ export const MY_FORMATS: MatDateFormats = {
 
 @Component({
   selector: 'app-add-item',
-  templateUrl: './add-item.component.html',
+  template: '',
   styleUrls: ['./add-item.component.css'],
   providers: [
     {

@@ -4,64 +4,40 @@
             <fa-icon [icon]="faBack"></fa-icon>
         </button>
     </div>
-    <div class="wrapper container bg-dark px-5 ms-md-5">
+    <div class="wrapper container-fluid bg-dark px-5 ms-md-5">
         <div class="row justify-content-center pt-5 mb-4 px-2">
             <h1 class="me-0 me-sm-1 me-md-2">Log In</h1>
         </div>
         <form class="login-form container px-0" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
-            <div class="row justify-content-center mt-5 px-3">
-                <div class="input-group px-0">
-                    <div class="col-1 px-0">
-                        <div class="input-group-prepend text-center px-0">
-                            <label for="username">
-                                <div class="input-group-text"><fa-icon [icon]="faUsername"></fa-icon></div>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-11 px-0 position-relative">
-                        <input type="text" class="form-control col-8" id="username" name="username"
-                            formControlName="username" placeholder="Tu usuario" />
-                    </div>
-                </div>
-                <p class="error"><span *ngIf="Username?.hasError('required') && Username?.touched">Username
-                        required</span></p>
+            <div class="row mt-5 px-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput id="username" name="username" formControlName="username">
+                    <fa-icon class="ms-3 me-2"
+                        [ngStyle]="{'color': Username?.invalid && Username?.touched? 'red':'var(--primary-color)'}"
+                        matPrefix [icon]="faUsername"></fa-icon>
+                </mat-form-field>
             </div>
-            <div class="row justify-content-center my-4 px-3">
-                <div class="input-group px-0">
-                    <div class="col-1 px-0">
-                        <div class="input-group-prepend text-center px-0">
-                            <label for="password">
-                                <div class="input-group-text"><fa-icon [icon]="faKey"></fa-icon></div>
-                            </label>
-                        </div>
+            <div class="row mt-4 px-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input [type]="show?'text':'password'" matInput id="password" name="password" formControlName="password">
+                    <fa-icon class="ms-3 me-2"
+                        [ngStyle]="{'color': Password?.invalid && Password?.touched? 'red':'var(--primary-color)'}"
+                        matPrefix [icon]="faKey"></fa-icon>
+                    <div #showbtn matSuffix class="show text-center me-3"
+                        [ngStyle]="{'color': show?'grey': (Password?.invalid && Password?.touched?'red':'var(--primary-color)')}"
+                        (click)="toggleVisibility()" (keyup.enter)="toggleVisibility()" tabindex="0">
+                        <fa-icon [icon]="!show? faEye:faEyeSlash" class="show-icon"></fa-icon>
                     </div>
-                    <div class="col-10 px-0">
-                        <input [type]="show?'text':'password'" class="form-control col-8" id="password" name="password"
-                            formControlName="password" placeholder="Tu contraseña" autocomplete="off" (paste)="false" />
-                    </div>
-                    <div #showbtn class="col-1 show text-center" (click)="toggleVisibility(); showbtn.blur()"
-                        (keyup.enter)="toggleVisibility(); showbtn.blur()" tabindex="0">
-                        <fa-icon [icon]="!show? faEye:faEyeSlash" class="show-icon" [class.visible]="show"></fa-icon>
-                    </div>
-                </div>
-                <p class="error">
-                    <span *ngIf="Password?.hasError('required') && Password?.touched">Password required</span>
-                </p>
+                </mat-form-field>
             </div>
-            <div class="row justify-content-center my-5 px-3">
-                <div class="input-group px-0 remember">
-                    <div class="col-11 col-sm-7 col-md-5 px-0">
-                        <label for="remember">Recordarme</label>
-                    </div>
-                    <div class="col-1">
-                        <input type="checkbox" class="col-8" id="remember" name="remember" formControlName="remember"
-                            placeholder="Your password" />
-                    </div>
-                </div>
+            <div class="row mt-1 mb-4 px-3">
+                <mat-checkbox class="remember" formControlName="remember" [color]="form.valid?'primary':'warn'">Recordarme</mat-checkbox>
             </div>
             <div class="row justify-content-center mb-5 pt-3">
                 <input class="btn btn-lg btn-block col-9 col-sm-5" type="submit" value="Ingresar"
-                    [class.btn-outline-secondary]="!form.valid" onclick="blur()"/>
+                    [class.btn-outline-secondary]="!form.valid" onclick="blur()" />
             </div>
         </form>
     </div>
