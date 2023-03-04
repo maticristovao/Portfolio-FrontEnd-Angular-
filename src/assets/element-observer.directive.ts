@@ -22,7 +22,6 @@ export class ElementObserverDirective implements OnInit {
 
   constructor(private element: ElementRef) { }
 
-
   ngOnInit() {
     this.createObserver();
   }
@@ -63,5 +62,4 @@ export class ElementObserverDirective implements OnInit {
       observer.unobserve(target);
     });
   }
-
 }

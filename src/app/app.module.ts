@@ -12,7 +12,7 @@ import { EducationComponent } from './components/education/education.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ElementObserverDirective } from './components/element-observer.directive';
+import { ElementObserverDirective } from '../assets/element-observer.directive';
 import { SkillItemComponent } from './components/skills/skill-item/skill-item.component';
 import { LanguageItemComponent } from './components/skills/language-item/language-item.component';
 import { ProjectsComponent } from './components/projects/projects.component';
