@@ -37,7 +37,6 @@ export abstract class Section implements OnInit {
         if (title) {
             this.campo = title;
         }
-
         if (type === 'add') {
             this.toastService.success('Ítem añadido correctamente', this.campo);
         } else {
@@ -49,7 +48,6 @@ export abstract class Section implements OnInit {
         if (title) {
             this.campo = title;
         }
-
         this.toastService.error('Ítem eliminado', this.campo, {toastClass:'toast-delete ngx-toastr'});
     }
 

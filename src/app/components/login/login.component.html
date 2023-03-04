@@ -8,7 +8,7 @@
         <div class="row justify-content-center pt-5 mb-4 px-2">
             <h1 class="me-0 me-sm-1 me-md-2">Log In</h1>
         </div>
-        <form class="login-form container px-0" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+        <form class="login-form container px-0" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" (keydown.enter)="onSubmit()">
             <div class="row mt-5 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Usuario</mat-label>

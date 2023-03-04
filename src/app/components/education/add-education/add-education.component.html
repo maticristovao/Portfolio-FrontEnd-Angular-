@@ -13,7 +13,7 @@
                 </button>
             </div>
         </div>
-        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()" (keydown.enter)="onSubmit()">
             <div class="row mt-4 px-0 px-md-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Título</mat-label>

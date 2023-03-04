@@ -69,8 +69,8 @@ export class AddSkillComponent extends AddItemComponent implements OnInit {
     this.add = false;
   }
 
-  submitForm(isSkill: boolean) {
-    if (isSkill) {
+  submitForm(type: 'skill' | 'language') {
+    if (type === 'skill') {
       this.form = this.skillForm;
     } else {
       this.form = this.langForm;

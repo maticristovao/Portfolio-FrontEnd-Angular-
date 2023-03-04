@@ -14,7 +14,6 @@
                 </button>
             </div>
         </div>
-
         <mat-tab-group animationDuration="800ms" dynamicHeight="true" (selectedTabChange)="reset()" *ngIf="add">
             <mat-tab label="Habilidades">
                 <ng-template [ngTemplateOutlet]="skillform"></ng-template>
@@ -29,7 +28,8 @@
 </ng-template>
 
 <ng-template #skillform>
-    <form class="container px-0" [formGroup]="skillForm" autocomplete="off" (ngSubmit)="submitForm(true)">
+    <form class="container px-0" [formGroup]="skillForm" autocomplete="off" (ngSubmit)="submitForm('skill')"
+        (keydown.enter)="onSubmit()">
         <div class="row mt-5 px-3">
             <mat-form-field appearance="outline">
                 <mat-label>Habilidad</mat-label>
@@ -58,7 +58,8 @@
 </ng-template>
 
 <ng-template #langform>
-    <form class="container px-0" [formGroup]="langForm" autocomplete="off" (ngSubmit)="submitForm(false)">
+    <form class="container px-0" [formGroup]="langForm" autocomplete="off" (ngSubmit)="submitForm('language')"
+        (keydown.enter)="onSubmit()">
         <div class="row mt-4 px-3">
             <mat-form-field appearance="outline">
                 <mat-label>Idioma</mat-label>
