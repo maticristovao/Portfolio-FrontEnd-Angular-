@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faArrowLeft, faEye, faEyeSlash, faKey, faUserShield } from '@fortawesome/free-solid-svg-icons';
-import { ToastrService } from 'ngx-toastr';
+import { IndividualConfig, ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorMatcher } from 'src/assets/error-matchers';
 
@@ -19,6 +19,10 @@ export class LoginComponent {
   faEye = faEye;
   faEyeSlash = faEyeSlash;
   matcher: ErrorMatcher = new ErrorMatcher();
+  toastConfig: Partial<IndividualConfig> = {
+    positionClass: 'log-container',
+    progressBar: false
+  }
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private toastService: ToastrService) {
     this.form = this.formBuilder.group({
@@ -34,9 +38,6 @@ export class LoginComponent {
   get Password() {
     return this.form.get('password');
   }
-  get Remember() {
-    return this.form.get('remember');
-  }
 
   toggleVisibility() {
     this.show = !this.show;
@@ -46,9 +47,9 @@ export class LoginComponent {
     this.authService.login(logData.username, logData.password, logData.remember);
 
     if (this.authService.isLogged) {
-      this.toastService.success('Inicio de sesión exitoso', 'Log In', { positionClass: 'valid-log-container', progressBar: false });
+      this.toastService.success('Inicio de sesión exitoso', 'Log In', this.toastConfig);
     } else {
-      this.toastService.error('Credenciales inválidas', 'Log In', { positionClass: 'invalid-log-container', progressBar: false });
+      this.toastService.error('Credenciales inválidas', 'Log In', this.toastConfig);
     }
   }
 

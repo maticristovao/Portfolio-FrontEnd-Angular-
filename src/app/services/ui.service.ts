@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { PersonalInfoService } from './personal-info.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UiService {
-  private showAbout: boolean = true;
-  private showEducation: boolean = true;
-  private showExperience: boolean = true;
-  private showSkills: boolean = true;
-  private showLanguages: boolean = true;
-  private showProjects: boolean = true;
+  public showAbout: boolean = true;
+  public showEducation: boolean = true;
+  public showExperience: boolean = true;
+  public showSkills: boolean = true;
+  public showLanguages: boolean = true;
+  public showProjects: boolean = true;
 
   private subject = new Subject<any>();
 
-  constructor() { }
+  constructor(private personalDataService: PersonalInfoService) {
+    this.personalDataService.getData('user/1').subscribe(user => {
+      this.showAbout = user.showAbout;
+      this.showEducation = user.showEdu;
+      this.showExperience = user.showExp;
+      this.showSkills = user.showSkills;
+      this.showProjects = user.showProj;
+    })
+  }
 
   toggleSection(section: string): void {
     switch (section) {

@@ -8,11 +8,13 @@
         <div class="row justify-content-center pt-5 mb-4 px-2">
             <h1 class="me-0 me-sm-1 me-md-2">Log In</h1>
         </div>
-        <form class="login-form container px-0" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" (keydown.enter)="onSubmit()">
+        <form class="login-form container px-0" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off"
+            (keydown.enter)="onSubmit()">
             <div class="row mt-5 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Usuario</mat-label>
-                    <input matInput id="username" name="username" formControlName="username" [errorStateMatcher]="matcher">
+                    <input matInput id="username" name="username" formControlName="username"
+                        [errorStateMatcher]="matcher">
                     <fa-icon class="ms-3 me-2"
                         [ngStyle]="{'color': Username?.invalid && Username?.touched? 'red':'var(--primary-color)'}"
                         matPrefix [icon]="faUsername"></fa-icon>
@@ -21,7 +23,8 @@
             <div class="row mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Contraseña</mat-label>
-                    <input [type]="show?'text':'password'" matInput id="password" name="password" formControlName="password" autocomplete="off" [errorStateMatcher]="matcher">
+                    <input [type]="show?'text':'password'" matInput id="password" name="password"
+                        formControlName="password" autocomplete="off" [errorStateMatcher]="matcher">
                     <fa-icon class="ms-3 me-2"
                         [ngStyle]="{'color': Password?.invalid && Password?.touched? 'red':'var(--primary-color)'}"
                         matPrefix [icon]="faKey"></fa-icon>
@@ -35,7 +38,7 @@
             <div class="row mt-1 mb-4 px-3">
                 <mat-checkbox class="remember" formControlName="remember" color="primary">Recordarme</mat-checkbox>
             </div>
-            <div class="row justify-content-center mb-5 pt-3">
+            <div class="row justify-content-center mb-5 pt-4">
                 <input class="btn btn-lg btn-block col-9 col-sm-5" type="submit" value="Ingresar"
                     [class.btn-outline-secondary]="!form.valid" onclick="blur()" />
             </div>

@@ -17,6 +17,13 @@
       "about": "Soy una persona proactiva, detallista y responsable. Me gusta estar en constante mejora; siempre estoy en la búsqueda de formas de cambiar y mejorar los sistemas, métodos y resultados actuales.\nAdemás, disfruto del aprendizaje permanente, agradeciéndo cada oportunidad de adquirir conocimientos y habilidades que potencien mi carrera a futuro."
     }
   ],
+  "uiConfig": {
+    "showAbout": true,
+    "showEdu": true,
+    "showExp": true,
+    "showSkills": true,
+    "showProj": true
+  },
   "phones": [
     {
       "id": 1,
