@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { faArrowLeft, faEye, faEyeSlash, faKey, faTimes, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faEye, faEyeSlash, faKey, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import { ErrorMatcher } from 'src/assets/error-matchers';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent {
   faKey = faKey;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
+  matcher: ErrorMatcher = new ErrorMatcher();
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder, private toastService: ToastrService) {
     this.form = this.formBuilder.group({

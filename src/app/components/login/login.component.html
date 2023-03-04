@@ -4,7 +4,7 @@
             <fa-icon [icon]="faBack"></fa-icon>
         </button>
     </div>
-    <div class="wrapper container-fluid bg-dark px-5 ms-md-5">
+    <div class="wrapper container-fluid bg-dark px-5">
         <div class="row justify-content-center pt-5 mb-4 px-2">
             <h1 class="me-0 me-sm-1 me-md-2">Log In</h1>
         </div>
@@ -12,7 +12,7 @@
             <div class="row mt-5 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Usuario</mat-label>
-                    <input matInput id="username" name="username" formControlName="username">
+                    <input matInput id="username" name="username" formControlName="username" [errorStateMatcher]="matcher">
                     <fa-icon class="ms-3 me-2"
                         [ngStyle]="{'color': Username?.invalid && Username?.touched? 'red':'var(--primary-color)'}"
                         matPrefix [icon]="faUsername"></fa-icon>
@@ -21,7 +21,7 @@
             <div class="row mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Contraseña</mat-label>
-                    <input [type]="show?'text':'password'" matInput id="password" name="password" formControlName="password">
+                    <input [type]="show?'text':'password'" matInput id="password" name="password" formControlName="password" autocomplete="off" [errorStateMatcher]="matcher">
                     <fa-icon class="ms-3 me-2"
                         [ngStyle]="{'color': Password?.invalid && Password?.touched? 'red':'var(--primary-color)'}"
                         matPrefix [icon]="faKey"></fa-icon>

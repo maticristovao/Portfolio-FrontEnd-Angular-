@@ -1,14 +1,15 @@
 import { Component, ElementRef, EventEmitter, HostListener, Output, ViewChild } from '@angular/core';
 import { faFolder, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
-import { DateAdapter, ErrorStateMatcher, MatDateFormats, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { DateAdapter, MatDateFormats, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
+import { LiveErrorMatcher } from 'src/assets/error-matchers';
 
 export const MOMENT = _rollupMoment || _moment;
 
@@ -123,13 +124,5 @@ export class AddItemComponent {
     } else {
       this.form.markAllAsTouched();
     }
-  }
-}
-
-export class LiveErrorMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const SUBMITTED = form && form.submitted;
-    const INVALIDCONTROL = control && control.invalid;
-    return (INVALIDCONTROL && (!control.hasError('minlength') && control.dirty || (control.touched || SUBMITTED)))!;
   }
 }
