@@ -24,8 +24,6 @@
 .percentage {
     color: var(--primary-color);
     border-radius: 50%;
-    height: 45px;
-    width: 45px;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -42,11 +40,10 @@
 .progress-percentage {
     background-color: var(--plain-color);
     border-radius: 50%;
-    width: fit-content;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
 }
 
 @media screen and (width<378px) {
@@ -55,9 +52,16 @@
     }
 
     .progress-percentage {
-        margin-top: 8px;
-        justify-content: start;
-        margin-left: 0;
-        padding-left: 0;
+        width: 40px;
+        height: 40px;
     }
+
+    .percentage{
+        font-size: smaller;
+    }
+}
+
+.progress-perc-col{
+    display: grid;
+    place-items: center;
 }

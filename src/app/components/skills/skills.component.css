@@ -9,15 +9,10 @@ app-edition {
   top: 0;
 }
 
-@media screen and (992px<width<1230px) {
+@media screen and (992px < width < 1230px) {
   app-edition {
     margin: 0px !important;
   }
-}
-
-.skills {
-  position: relative;
-  align-items: center;
 }
 
 .cdk-drag-preview {
@@ -48,11 +43,5 @@ app-skill-item:last-child {
   .languages {
     border-top: 5px solid var(--plain-color);
     display: block;
-  }
-}
-
-@media screen and (width<378px) {
-  .skills .container-fluid {
-    padding-right: 35px !important;
   }
 }
