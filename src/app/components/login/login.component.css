@@ -53,12 +53,6 @@ button.back:is(:hover, :focus) {
     overflow-x: hidden;
 }
 
-@media screen and (width>768px) {
-    .wrapper {
-        margin-left: 12.wrapper 0px;
-    }
-}
-
 .wrapper::after {
     content: '';
     border: 2px solid var(--primary-color);
@@ -68,7 +62,7 @@ button.back:is(:hover, :focus) {
     right: 0;
     bottom: 0;
     border-radius: 30px;
-    transform: scale(.96);
+    transform: scale(.95);
 }
 
 .wrapper::before {
