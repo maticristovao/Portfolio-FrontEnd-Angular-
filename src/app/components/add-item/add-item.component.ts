@@ -50,10 +50,10 @@ export class AddItemComponent {
   faExit = faTimes;
   faFolder = faFolder;
   windowWidth: number = window.innerWidth;
-  urlPattern = "(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?";
+  urlPattern = "^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?";
 
   @HostListener('window:resize')
-  onResize(){
+  onResize() {
     this.windowWidth = window.innerWidth;
   }
 
@@ -105,7 +105,7 @@ export class AddItemComponent {
       }
     }
   }
-  loadEditData?(item:any, type?:any):void;
+  loadEditData?(item: any, type?: any): void;
 
   reset() {
     this.form.reset(this.initialValue);

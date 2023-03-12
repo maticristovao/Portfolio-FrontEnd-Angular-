@@ -11,7 +11,8 @@
                     <h2 id="title" *ngIf="personalInfo?.title">
                         <div class="d-inline-block me-5 me-sm-0">{{personalInfo?.title![0]}} </div><span
                             *ngIf="personalInfo?.title!.length>1" class="d-none d-lg-inline-block"> - </span>
-                        <div *ngIf="personalInfo?.title!.length>1" class="d-inline-block">{{personalInfo?.title![1]}}</div>
+                        <div *ngIf="personalInfo?.title!.length>1" class="d-inline-block">{{personalInfo?.title![1]}}
+                        </div>
                     </h2>
                 </div>
                 <div class="place col-sm-2 col-lg-2 col-xxl-4 mt-4 d-none d-sm-inline-block">
@@ -25,7 +26,8 @@
                     <p><fa-icon class="me-2" [icon]="faLocationDot"></fa-icon> {{personalInfo?.province}}
                         ({{personalInfo?.country}}) <span><a type="button" data-toggle="modal"
                                 data-target="#contactModal">Contact info</a></span></p>
-                    <app-contact-modal name="{{personalInfo?.name}} {{personalInfo?.surname}}" [email]="personalInfo?.email!" [phones]="phones"></app-contact-modal>
+                    <app-contact-modal name="{{personalInfo?.name}} {{personalInfo?.surname}}"
+                        [email]="personalInfo?.email!" [phones]="phones"></app-contact-modal>
                 </div>
                 <div class="place col-sm-3 col-lg-2 col-xxl-4 d-none d-sm-inline-block">
                     <img class="img-fluid pwc " src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Logo-pwc.png"
@@ -44,7 +46,7 @@
                     id="more">{{windowWidth>1200? 'Más' : '...'}}</button>
             </div>
             <app-edition [horizontal]="windowWidth>=576" [editOnly]="true" (edition)="toggleModal()"
-                class="edition mb-sm-2 me-3 mt-3 mt-sm-0"></app-edition>
+                class="edition mb-sm-2 me-2 me-sm-3 mt-3 mt-sm-0"></app-edition>
         </div>
     </div>
 </section>

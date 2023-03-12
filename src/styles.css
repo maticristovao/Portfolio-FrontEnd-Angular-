@@ -128,8 +128,21 @@ h1.heading {
     letter-spacing: 1px;
 }
 
-@media screen and (width<576px){
-    h1.heading{
+@media screen and (width<576px) {
+    h1.heading {
         font-size: 30px;
+    }
+
+    .custom-toast-container {
+        right: auto;
+        left: calc(50% - 125px);
+    }
+
+    .log-container {
+        left: calc(50% - 125px);
+    }
+
+    .toast-container .ngx-toastr {
+        width: 250px;
     }
 }
