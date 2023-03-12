@@ -1,7 +1,13 @@
 <section class="experience py-5" id="experience">
-    <h1 class="heading my-4 text-center">Experiencia</h1>
-    <app-edition class="edition my-2 my-sm-5 me-1 me-sm-5" [showAdding]="true" (adding)="toggleModal()"
-        (edition)="editMode = !editMode"></app-edition>
+    <div class="row w-100 justify-content-end mt-5 mb-xl-0">
+        <div class="col-12 col-md-6 mb-4 mb-md-0 d-flex justify-content-center">
+            <h1 class="heading ">Experiencia</h1>
+        </div>
+        <div class="col-12 col-md-3 pe-md-5 position-relative d-flex justify-content-center align-items-center">
+            <app-edition class="position-absolute" [horizontal]="windowWidth<1020" [showAdding]="true"
+                (adding)="toggleModal()" (edition)="editMode = !editMode"></app-edition>
+        </div>
+    </div>
     <div class="timeline m-auto" elementObserver [threshold]="windowWidth>1150? 0.4:0.25" [wait]="0"
         (visible)="visible = true">
         <div class="item mb-3" *ngFor="let experience of personalExperience" [class.visible]="visible">
@@ -27,4 +33,5 @@
         </div>
     </div>
 </section>
-<app-add-experience (onAddItem)="addItem($event)" (onUpdateItem)="save($event)" [types]="employTypes"></app-add-experience>
+<app-add-experience (onAddItem)="addItem($event)" (onUpdateItem)="save($event)"
+    [types]="employTypes"></app-add-experience>

@@ -314,11 +314,11 @@
     {
       "id": 1,
       "title": "Personal portfolio page",
-      "description": "Sabiendo que word-wrap es el único soportado por todos los navegadores y que hyphens nos aporta una mejora en cuanto a las reglas y el modo de partir las palabras, a menos que debamos enfrentarnos a un texto multi-idioma.",
-      "link": "",
       "repo": "https://github.com/maticristovao/Portfolio-FrontEnd-Angular-",
+      "link": "",
       "collection": "https://codepen.io/collection/NqyQam",
-      "image": "https://bootstrapmade.com/content/templatefiles/iPortfolio/iPortfolio-bootstrap-website-template.webp"
+      "image": "https://bootstrapmade.com/content/templatefiles/iPortfolio/iPortfolio-bootstrap-website-template.webp",
+      "description": "Sabiendo que word-wrap es el único soportado por todos los navegadores y que hyphens nos aporta una mejora en cuanto a las reglas y el modo de partir las palabras, a menos que debamos enfrentarnos a un texto multi-idioma."
     },
     {
       "id": 3,

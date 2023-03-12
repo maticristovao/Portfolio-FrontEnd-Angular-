@@ -126,6 +126,9 @@ h1.heading {
     text-transform: uppercase;
     font-size: 40px;
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (width<576px) {

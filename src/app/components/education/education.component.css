@@ -1,7 +1,6 @@
   section.education {
     height: 100vh;
     min-height: 700px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
