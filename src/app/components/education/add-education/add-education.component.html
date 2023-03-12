@@ -13,7 +13,8 @@
                 </button>
             </div>
         </div>
-        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()" (keydown.enter)="onSubmit()">
+        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()"
+            (keydown.enter)="onSubmit()">
             <div class="row mt-4 px-0 px-md-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Título</mat-label>
@@ -33,7 +34,7 @@
                     <mat-label>Institución</mat-label>
                     <mat-select formControlName="institutionId" id="institutionId"
                         placeholder="Seleccione una institución...">
-                        <mat-option *ngFor="let item of institutions" [value]="item.id">
+                        <mat-option *ngFor="let item of institutions" [value]="item.id" class="py-2">
                             {{item.name}}
                         </mat-option>
                     </mat-select>
@@ -43,7 +44,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Área</mat-label>
                     <mat-select formControlName="areaId" id="areaId" placeholder="Seleccione un campo de estudio...">
-                        <mat-option *ngFor="let item of areas" [value]="item.id">
+                        <mat-option *ngFor="let item of areas" [value]="item.id" class="py-2">
                             {{item.name}}
                         </mat-option>
                     </mat-select>
@@ -52,7 +53,7 @@
             <div class="row justify-content-center mt-4 px-0 px-md-3">
                 <div class="col-12 col-md-6 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
-                        <mat-label>Fecha de inicio</mat-label>
+                        <mat-label>Fecha inicio</mat-label>
                         <input matInput [matDatepicker]="startPicker" id="startDate" name="startDate"
                             formControlName="startDate" [max]="today" />
                         <mat-hint>MM/YYYY</mat-hint>
@@ -64,7 +65,7 @@
                 </div>
                 <div class="col-12 col-md-6 mt-2 mt-md-0 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
-                        <mat-label>Fecha de fin (o esperada)</mat-label>
+                        <mat-label>Fecha fin (o esperada)</mat-label>
                         <input matInput [matDatepicker]="endPicker" id="endDate" name="endDate"
                             formControlName="endDate" />
                         <mat-hint>MM/YYYY</mat-hint>
@@ -77,7 +78,7 @@
                     </mat-form-field>
                 </div>
             </div>
-            <div class="row justify-content-center mb-4 pt-5">
+            <div class="row justify-content-center mb-4 mt-5 mt-sm-4">
                 <input class="btn btn-lg btn-block col-7 col-sm-5 submit" type="submit" value="Guardar" />
             </div>
         </form>

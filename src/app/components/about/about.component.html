@@ -21,10 +21,10 @@
             </div>
         </div>
     </div>
-    <div class="row d-sm-none small-version position-relative">
+    <div class="row d-sm-none small-version position-relative py-3">
         <app-edition class="edition d-sm-none" [horizontal]="windowWidth<1200"
             (edition)="editMode = !editMode; editMode && toggleModal()"></app-edition>
-        <h3>Acerca de mi</h3>
+        <h1 class="heading">Acerca de mi</h1>
         <p>
             {{about}}
         </p>

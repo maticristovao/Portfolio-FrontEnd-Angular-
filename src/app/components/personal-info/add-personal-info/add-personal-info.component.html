@@ -13,9 +13,10 @@
                 </button>
             </div>
         </div>
-        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()" (keydown.enter)="onSubmit()">
-            <div class="row justify-content-center mt-4 px-3">
-                <div class="col-6 text-center">
+        <form class="container-fluid px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()"
+            (keydown.enter)="onSubmit()">
+            <div class="row justify-content-center mt-4 px-2 px-sm-3">
+                <div class="col-12 col-sm-6 px-0 px-sm-2 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>Nombre</mat-label>
                         <input matInput id="name" name="name" formControlName="name" />
@@ -25,7 +26,7 @@
                         </button>
                     </mat-form-field>
                 </div>
-                <div class="col-6 text-center">
+                <div class="col-12 col-sm-6 px-0 px-sm-2 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>Apellido</mat-label>
                         <input matInput id="surname" name="surname" formControlName="surname" />
@@ -36,8 +37,8 @@
                     </mat-form-field>
                 </div>
             </div>
-            <div class="row mt-4 px-3">
-                <mat-form-field class="w-100" appearance="outline">
+            <div class="row mt-4 px-2 px-sm-3">
+                <mat-form-field class="w-100 px-0 px-sm-2" appearance="outline">
                     <mat-label>Título/s</mat-label>
                     <mat-chip-grid #chipGrid aria-label="Enter titles" formControlName="title" id="title" name="title">
                         <mat-chip-row *ngFor="let title of titles" (removed)="remove(title)" [editable]="true"
@@ -54,8 +55,8 @@
                     <mat-error *ngIf="Title?.hasError('maxlength')">Puede incluir un máximo de 2 títulos</mat-error>
                 </mat-form-field>
             </div>
-            <div class="row mt-4 px-3">
-                <mat-form-field appearance="outline">
+            <div class="row mt-4 px-2 px-sm-3">
+                <mat-form-field appearance="outline" class="px-0 px-sm-2">
                     <mat-label>Email</mat-label>
                     <input matInput id="email" name="email" formControlName="email">
                     <button *ngIf="Email?.value" class="close clear me-2" matSuffix aria-label="Clear"
@@ -111,22 +112,22 @@
                     </mat-form-field>
                 </div>
             </div> -->
-            <div class="row justify-content-center mt-4 px-3">
-                <div class="col-6 text-center">
+            <div class="row justify-content-center mt-4 px-2 px-sm-3">
+                <div class="col-12 col-sm-6 px-0 px-sm-2 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>País</mat-label>
                         <input matInput id="country" name="country" formControlName="country" />
                     </mat-form-field>
                 </div>
-                <div class="col-6 text-center">
+                <div class="col-12 col-sm-6 px-0 px-sm-2 text-center">
                     <mat-form-field appearance="outline" class="px-0 w-100">
                         <mat-label>Provincia</mat-label>
                         <input matInput id="province" name="province" formControlName="province" />
                     </mat-form-field>
                 </div>
             </div>
-            <div class="row justify-content-center mt-4 px-3">
-                <mat-form-field appearance="outline">
+            <div class="row mt-4 px-2 px-sm-3">
+                <mat-form-field appearance="outline" class="px-0 px-sm-2">
                     <mat-label>Foto</mat-label>
                     <!-- <ngx-mat-file-input formControlName="photo" name="photo" id="photo"
                         accept="image/jpg, image/png, image/jpeg"
@@ -141,7 +142,7 @@
                     <mat-error *ngIf="Photo?.hasError('pattern')">Ingrese una dirección válida</mat-error>
                 </mat-form-field>
             </div>
-            <div class="row justify-content-center mb-4 pt-4">
+            <div class="row justify-content-center mb-4 mt-5 mt-sm-4">
                 <input class="btn btn-lg btn-block col-7 col-sm-5 submit" type="submit" value="Guardar" />
             </div>
         </form>

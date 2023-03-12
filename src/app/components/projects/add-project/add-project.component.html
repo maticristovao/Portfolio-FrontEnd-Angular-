@@ -13,7 +13,8 @@
                 </button>
             </div>
         </div>
-        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()" (keydown.enter)="onSubmit()">
+        <form class="container px-0" [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()"
+            (keydown.enter)="onSubmit()">
             <div class="row mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Título</mat-label>
@@ -73,11 +74,11 @@
                         (click)="Image?.setValue('')">
                         <fa-icon [icon]="faExit"></fa-icon>
                     </button>
-                    <mat-hint>Inserte la dirección URL de la imagen del proyecto</mat-hint>
+                    <mat-hint>Ingrese la dirección URL de la imagen del proyecto</mat-hint>
                     <mat-error *ngIf="Image?.hasError('pattern')">Ingrese una dirección válida</mat-error>
                 </mat-form-field>
             </div>
-            <div class="row mt-3 px-3">
+            <div class="row mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Descripción</mat-label>
                     <textarea matInput cdkTextareaAutosize name="description" id="description"
@@ -89,8 +90,8 @@
                     <mat-hint [align]="'end'">{{Description?.value? Description?.value.length:0}}/250</mat-hint>
                 </mat-form-field>
             </div>
-            <div class="row justify-content-center mb-2 pt-4">
-                <input class="btn btn-lg btn-block col-7 col-sm-5 submit" type="submit" value="Guardar"/>
+            <div class="row justify-content-center mb-2 mt-5 mt-sm-4">
+                <input class="btn btn-lg btn-block col-7 col-sm-5 submit" type="submit" value="Guardar" />
             </div>
         </form>
     </div>

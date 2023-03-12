@@ -204,16 +204,10 @@
 	}
 
 	.edition {
-		top: -20px;
-		right: 1.5vw;
+		top: -30px;
+		left: 0px;
+		right: auto;
 	}
-}
-
-.small-version h3 {
-	font-size: 2rem;
-	color: var(--primary-color);
-	text-transform: uppercase;
-	font-family: 'Averia Serif Libre', cursive;
 }
 
 .small-version p {

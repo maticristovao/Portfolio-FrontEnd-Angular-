@@ -3,7 +3,7 @@
         class="m-1 m-sm-4 m-md-0 m-lg-4"></app-edition>
     <div class="row pb-lg-5 mt-2">
         <article class="col-12 col-lg-8 mb-5 mb-lg-0 skills" cdkDropList (cdkDropListDropped)="drop($event)">
-            <h1 class="title ms-sm-1 ms-lg-5  mb-5 text-sm-center text-lg-start">Habilidades</h1>
+            <h1 class="heading ms-sm-1 ms-lg-5 mb-5 text-sm-center text-lg-start">Habilidades</h1>
             <div class="container-fluid my-3 ps-1 ps-lg-5 me-1 pe-5 pe-sm-4 pe-lg-2" *ngFor="let skill of skills" cdkDrag>
                 <app-skill-item [skill]="skill"></app-skill-item>
                 <app-edit-item [editMode]="editMode" (updateItem)="passData(skill)"
@@ -11,7 +11,7 @@
             </div>
         </article>
         <article class="col-12 col-lg-4 pt-3 pt-lg-0 languages">
-            <h1 class="title ms-1 ms-lg-5 mt-5 mt-lg-0 text-center">Idiomas</h1>
+            <h1 class="heading ms-1 ms-lg-5 mt-5 mt-lg-0 text-center">Idiomas</h1>
             <div class="row px-1 px-lg-5">
                 <div class="col-12 col-sm-6 col-lg-12 my-5 text-start text-sm-center text-lg-start"
                     *ngFor="let language of languages">

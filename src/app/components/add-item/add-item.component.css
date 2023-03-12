@@ -74,13 +74,6 @@
     }
 }
 
-
-@media screen and (width>576px) {
-    .modal-content {
-        min-width: 650px;
-    }
-}
-
 input[type='submit'] {
     text-transform: uppercase;
     font-weight: 600;
@@ -233,4 +226,12 @@ mat-panel-title {
 
 .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__text-label {
     text-transform: capitalize;
+}
+
+@media screen and (width<576px) {
+
+    .mat-mdc-form-field-hint-wrapper,
+    .mat-mdc-form-field-error-wrapper {
+        padding: 0 8px !important;
+    }
 }

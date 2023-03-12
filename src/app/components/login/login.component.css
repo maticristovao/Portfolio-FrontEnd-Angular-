@@ -42,6 +42,7 @@ button.back {
 button.back:is(:hover, :focus) {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    color: var(--oposite-color);
 }
 
 .wrapper {
@@ -52,8 +53,8 @@ button.back:is(:hover, :focus) {
     overflow-x: hidden;
 }
 
-@media screen and (width>768px){
-    .wrapper{
+@media screen and (width>768px) {
+    .wrapper {
         margin-left: 12.wrapper 0px;
     }
 }

@@ -1,15 +1,15 @@
-<section class="projects container-fluid p-5" id="projects">
+<section class="projects container-fluid p-3 p-sm-5" id="projects">
     <div class="row justify-content-end mt-5">
-        <div class="col-8">
-            <h1 class="text-center">Proyectos</h1>
+        <div class="col-10 col-sm-8 px-0">
+            <h1 class="heading text-center">Proyectos</h1>
         </div>
-        <div class="col-2">
+        <div class="col-2 px-0 text-md-end pe-md-5">
             <app-edition class="edition" [showAdding]="true" (edition)="editMode = !editMode"
                 (adding)="toggleModal()"></app-edition>
         </div>
     </div>
     <div class="row justify-content-center gap-lg-5 mt-4">
-        <div class="col-12 col-md-6 col-lg-5 col-xl-4 my-2" *ngFor="let project of projects; let evenItem = even">
+        <div class="col-12 col-md-6 col-lg-5 col-xl-4  my-5 my-md-2" *ngFor="let project of projects; let evenItem = even">
             <app-edit-item [editMode]="editMode" (deleteItem)="deleteItem(project)"
                 (updateItem)="passData(project)"></app-edit-item>
             <app-project-item [project]="project" [even]="evenItem"></app-project-item>
