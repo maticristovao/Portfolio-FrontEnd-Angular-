@@ -46,7 +46,7 @@ export class ProjectsComponent extends Section {
   }
 
   getData(): void {
-    this.personalData.newGetData(`${this.field}/all`).subscribe(data => {
+    this.personalData.getData(`${this.field}/all`).subscribe(data => {
       this.projects = data;
     });
   }

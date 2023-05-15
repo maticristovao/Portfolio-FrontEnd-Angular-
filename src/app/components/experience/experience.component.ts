@@ -48,14 +48,14 @@ export class ExperienceComponent extends Section{
   }
 
   getExperience() {
-    this.personalData.newGetData(`${this.field}/all`).subscribe(data => {
+    this.personalData.getData(`${this.field}/all`).subscribe(data => {
       this.personalExperience = data;
     });
   }
 
   override getData() {
     this.getExperience();
-    this.personalData.newGetData('employ-type/all').subscribe(data => {
+    this.personalData.getData('employ-type/all').subscribe(data => {
       this.employTypes = data;
     });
   }

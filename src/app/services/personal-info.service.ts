@@ -12,8 +12,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PersonalInfoService {
-  private apiUrl = 'http://localhost:5000';
-  private myApiUrl = 'http://localhost:8080';
+  // private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'http://localhost:8080';
 
   private refreshRequired = new Subject<void>();
   get RefreshRequired() {
@@ -24,30 +24,27 @@ export class PersonalInfoService {
   getData(field: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${field}`);
   }
-  newGetData(field: string): Observable<any> {
-    return this.http.get<any>(`${this.myApiUrl}/${field}`);
-  }
   getItemById(field: string, id: number): Observable<any> {
     const url = `${this.apiUrl}/${field}/${id}`;
     return this.http.get<any>(url);
   }
-
   addItem(item: any, field: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/${field}`, item, httpOptions);
+    item.user_id = 1;
+    return this.http.post<any>(`${this.apiUrl}/${field}/add`, item, httpOptions);
   }
-
   deleteItem(item: any, field: string): Observable<any> {
     const url = `${this.apiUrl}/${field}/${item.id}`;
     return this.http.delete<any>(url);
   }
 
   updateItem(item: any, field: string): Observable<any> {
-    const url: string = `${this.apiUrl}/${field}/${item.id}`;
+    const url: string = `${this.apiUrl}/${field}/update`;
+    item.user_id = 1;
     return this.http.put<any>(url, item, httpOptions);
   }
 
   patchItem(item: any, field: string): Observable<any> {
-    const url: string = `${this.apiUrl}/${field}`;
+    const url: string = `${this.apiUrl}/${field}/update`;
     return this.http.patch<any>(url, item, httpOptions).pipe(
       tap(() => this.refreshRequired.next())
     );

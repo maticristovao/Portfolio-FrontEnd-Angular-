@@ -14,7 +14,7 @@ export class PersonalInfoComponent extends Section implements OnInit {
 
   moreContent!: string;
   personalInfo: UserData | undefined;
-  override field = 'user/1';
+  override field = 'user';
   override campo = 'Información personal';
   photo: string = '';
 
@@ -27,16 +27,16 @@ export class PersonalInfoComponent extends Section implements OnInit {
   }
 
   save(item: any) {
-    this.personalData.patchItem(item, this.field).subscribe((user) => {
-      this.personalInfo = user;
+    this.personalData.patchItem(item, this.field).subscribe(() => {
       this.showSuccess('edit');
     });
   }
 
   getData(): void {
-    this.personalData.newGetData(this.field).subscribe((user: UserData) => {
+    this.personalData.getData(`${this.field}/1`).subscribe((user: UserData) => {
       this.personalInfo = user;
     });
+    this.personalData.RefreshRequired.subscribe(() => this.getData());
   }
 }
 

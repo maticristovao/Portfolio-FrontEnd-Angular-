@@ -8,11 +8,13 @@
       "surname": "Cristovao",
       "title": "Full Stack Developer Jr",
       "email": "maticristovao@hotmail.com",
-      "phone": "+54 9 11 3945 8436",
+      "phone": "1139458436",
       "province": "Buenos Aires",
       "country": "Argentina",
-      "photo": "https://media.licdn.com/dms/image/D4D03AQGvC1cOyWVkgw/profile-displayphoto-shrink_400_400/0/1673571910638?e=1684368000&v=beta&t=CEwNHM7uC21Emyftbx2gj8rf7dVHGWPbIinmLH-Lb6c",
-      "about": "Soy una persona proactiva, detallista y responsable. Me gusta estar en constante mejora; siempre estoy en la búsqueda de formas de cambiar y mejorar los sistemas, métodos y resultados actuales.\nAdemás, disfruto del aprendizaje permanente, agradeciéndo cada oportunidad de adquirir conocimientos y habilidades que potencien mi carrera a futuro."
+      "photo": "https://acortar.link/TMSnq0",
+      "about": "Soy una persona proactiva, detallista y responsable. Me gusta estar en constante mejora; siempre estoy en la búsqueda de formas de cambiar y mejorar los sistemas, métodos y resultados actuales.\nAdemás, disfruto del aprendizaje permanente, agradeciéndo cada oportunidad de adquirir conocimientos y habilidades que potencien mi carrera a futuro.",
+      "province_id": 1,
+      "country_id": 1
     }
   ],
   "uiConfig": {
@@ -140,6 +142,22 @@
       "areaId": 3,
       "startDate": "2015-03",
       "endDate": "2021-12"
+    },
+    {
+      "id": 4,
+      "title": "jkfwrjkbgfwjkb",
+      "institution_id": 3,
+      "area_id": 2,
+      "startDate": "2022-10",
+      "endDate": "2039-11"
+    },
+    {
+      "id": 5,
+      "title": "gwrgwrg",
+      "institution_id": 3,
+      "area_id": 4,
+      "startDate": "2022-10",
+      "endDate": "2038-10"
     }
   ],
   "areas": [
@@ -245,6 +263,11 @@
       "id": 7,
       "name": "Angular",
       "progress": 70
+    },
+    {
+      "id": 8,
+      "name": "Poker",
+      "progress": 97
     }
   ],
   "languages": [
@@ -259,6 +282,12 @@
       "name": "Francés",
       "oral": "Intermedio",
       "written": "Intermedio"
+    },
+    {
+      "id": 3,
+      "name": "Chino",
+      "oral": 4,
+      "written": 1
     }
   ],
   "experience": [

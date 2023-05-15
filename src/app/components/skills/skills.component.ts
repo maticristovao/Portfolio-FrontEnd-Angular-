@@ -1,4 +1,3 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ViewChild } from '@angular/core';
 import { Section } from 'src/assets/section';
 import { AddSkillComponent } from './add-skill/add-skill.component';
@@ -16,13 +15,13 @@ export class SkillsComponent extends Section {
   @ViewChild(AddSkillComponent) editModal!: AddSkillComponent;
 
   getData(): void {
-    this.personalData.newGetData('skill/all').subscribe(data => {
+    this.personalData.getData('skill/all').subscribe(data => {
       this.skills = data;
     });
-    this.personalData.newGetData('language/all').subscribe(data => {
+    this.personalData.getData('language/all').subscribe(data => {
       this.languages = data;
     });
-    this.personalData.newGetData('level/all').subscribe(data => {
+    this.personalData.getData('level/all').subscribe(data => {
       this.levels = data;
     });
   }
@@ -33,12 +32,12 @@ export class SkillsComponent extends Section {
 
   deleteItem(item: Skill | Language) {
     if (this.isSkill(item)) {
-      this.personalData.deleteItem(item, 'skills').subscribe(() => {
+      this.personalData.deleteItem(item, 'skill').subscribe(() => {
         this.skills = this.skills.filter((i: { id: number | undefined; }) => i.id !== item.id);
         this.showDelete('Habilidades');
       });
     } else {
-      this.personalData.deleteItem(item, 'languages').subscribe(() => {
+      this.personalData.deleteItem(item, 'language').subscribe(() => {
         this.languages = this.languages.filter((i: { id: number | undefined; }) => i.id !== item.id);
         this.showDelete('Idiomas');
       });
@@ -47,26 +46,34 @@ export class SkillsComponent extends Section {
 
   addItem(item: Skill | Language) {
     if (this.isSkill(item)) {
-      this.personalData.addItem(item, 'skills').subscribe((skill) => {
+      this.personalData.addItem(item, 'skill').subscribe((skill) => {
         this.skills.push(skill);
         this.showSuccess('add', 'Habilidades');
       });
     } else {
-      this.personalData.addItem(item, 'languages').subscribe((lang) => {
+      this.personalData.addItem(item, 'language').subscribe((lang) => {
+        this.appendRelations(lang);
         this.languages.push(lang);
         this.showSuccess('add', 'Idiomas');
       });
     }
   }
+  appendRelations(item: Language): void {
+    let oralLevel = this.levels.find((l: Level) => l.id === item.oral);
+    item.oralLevel = oralLevel!;
+    let writtenLevel = this.levels.find((l: Level) => l.id === item.written);
+    item.writtenLevel = writtenLevel!;
+  }
 
   save(item: Skill | Language) {
     if (this.isSkill(item)) {
-      this.personalData.updateItem(item, 'skills').subscribe(() => {
+      this.personalData.updateItem(item, 'skill').subscribe(() => {
         this.getAndSwitch(this.skills, item);
         this.showSuccess('edit', 'Habilidades');
       });
     } else {
-      this.personalData.updateItem(item, 'languages').subscribe(() => {
+      this.personalData.updateItem(item, 'language').subscribe(() => {
+        this.appendRelations(item);
         this.getAndSwitch(this.languages, item);
         this.showSuccess('edit', 'Idiomas');
       });

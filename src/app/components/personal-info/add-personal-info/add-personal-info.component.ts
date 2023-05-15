@@ -53,15 +53,15 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
   }
 
   getData(id?: number) {
-    this.personalData.newGetData("country/all").subscribe(data => {
+    this.personalData.getData("country/all").subscribe(data => {
       this.countries = data;
     });
     if (id) {
-      this.personalData.newGetData(`province/country/${id}`).subscribe(data => {
+      this.personalData.getData(`province/country/${id}`).subscribe(data => {
         this.provinces = data;
       });
     } else {
-      this.personalData.newGetData("province/all").subscribe(data => {
+      this.personalData.getData("province/all").subscribe(data => {
         this.provinces = data;
       });
     }
@@ -84,7 +84,6 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
   override onSubmit(): void {
     if (this.form.valid) {
       const NEWUSER = this.form.value;
-      delete NEWUSER.country;
       this.onUpdateItem.emit(NEWUSER);
       this.close();
     } else {

@@ -47,7 +47,7 @@ export class HeaderComponent extends Section {
   }
 
   getData() {
-    this.personalData.newGetData('user/1').subscribe(data => {
+    this.personalData.getData('user/1').subscribe(data => {
       this.name = data.name;
       this.surname = data.surname;
     });

@@ -1,6 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { UiService } from 'src/app/services/ui.service';
 import { Section } from 'src/assets/section';
 import { EditAboutComponent } from './edit-about/edit-about.component';
 
@@ -13,7 +11,7 @@ export class AboutComponent extends Section {
   about!: string;
   flip: boolean = false;
   override campo = 'Acerca de mí';
-  override field = 'user/1';
+  override field = 'user';
 
   @ViewChild(EditAboutComponent) editModal!: EditAboutComponent;
 
@@ -30,7 +28,7 @@ export class AboutComponent extends Section {
     });
   }
   getData(){
-    this.personalData.newGetData(this.field).subscribe(data => {
+    this.personalData.getData(`${this.field}/1`).subscribe(data => {
       this.about = data.about;
     });
   }

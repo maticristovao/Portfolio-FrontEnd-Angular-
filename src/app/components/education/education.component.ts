@@ -44,7 +44,7 @@ export class EducationComponent extends Section implements AfterViewChecked {
 
   addItem(item: Education): void {
     this.personalData.addItem(item, this.field).subscribe((card) => {
-      this.appendRelations(card)
+      this.appendRelations(card);
       this.personalEducation.push(card);
       this.setActive();
       setTimeout(() => this.getCards().item(this.getCardPosition(card))!.className += ' active', 10);
@@ -53,9 +53,9 @@ export class EducationComponent extends Section implements AfterViewChecked {
   }
 
   appendRelations(item: Education): void {
-    let inst = this.institutions.find((i: Institution) => i.id === item.institutionId);
+    let inst = this.institutions.find((i: Institution) => i.id === item.institution_id);
     item.institution = inst;
-    let area = this.institutions.find((a: Area) => a.id === item.areaId);
+    let area = this.institutions.find((a: Area) => a.id === item.area_id);
     item.area = area;
   }
 
@@ -88,13 +88,13 @@ export class EducationComponent extends Section implements AfterViewChecked {
   }
 
   getData(): void {
-    this.personalData.newGetData(`${this.field}/all`).subscribe(data => {
+    this.personalData.getData(`${this.field}/all`).subscribe(data => {
       this.personalEducation = data;
     })
-    this.personalData.newGetData('institution/all').subscribe(data => {
+    this.personalData.getData('institution/all').subscribe(data => {
       this.institutions = data;
     });
-    this.personalData.newGetData('area/all').subscribe(data => {
+    this.personalData.getData('area/all').subscribe(data => {
       this.areas = data;
     });
   }
@@ -107,9 +107,9 @@ export class EducationComponent extends Section implements AfterViewChecked {
 export interface Education {
   id?: number
   title: string,
-  institutionId: number,
+  institution_id: number,
   institution?: Institution,
-  areaId: number,
+  area_id: number,
   area?: Area,
   startDate: string | Date,
   endDate: string | Date,
