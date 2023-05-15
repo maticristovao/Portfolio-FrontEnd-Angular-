@@ -12,8 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PersonalInfoService {
-  // private apiUrl = 'http://localhost:5000';
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'https://portfolio-service-forl.onrender.com';
 
   private refreshRequired = new Subject<void>();
   get RefreshRequired() {

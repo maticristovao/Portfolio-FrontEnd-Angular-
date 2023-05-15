@@ -50,7 +50,8 @@ export class AddItemComponent {
   faExit = faTimes;
   faFolder = faFolder;
   windowWidth: number = window.innerWidth;
-  urlPattern: string = "^(http[s]?|ftp):\\/\\/[\\w\\.-]+(?:\\/[\\w\\.\\/-]*)?$";
+  urlPattern: string = "^(http[s]?|ftp):\\/\\/[\\w\\.-]+(?:\\/[\\w\\.\\/-]*)?(\\?.*)?$";
+  ;
 
   @HostListener('window:resize')
   onResize() {
