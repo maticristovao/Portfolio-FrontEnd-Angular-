@@ -1,10 +1,10 @@
-<section class="personal-info container-fluid inverse">
+<section class="personal-info container-fluid inverse py-3">
     <div class="row">
         <div class="photo col-3 col-lg-2 d-none d-md-block">
             <img [src]="personalInfo?.photo? personalInfo?.photo:'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'"
                 alt="Personal picture">
         </div>
-        <div class="col-12 col-md-9 col-lg-10 data">
+        <div class="col-12 col-md-9 col-lg-10 ps-5 data">
             <div class="row head-info">
                 <div class="name-title col-12 col-sm-9 col-lg-10 col-xxl-8 mt-4">
                     <h1>{{personalInfo?.name}} {{personalInfo?.surname}}</h1>
@@ -36,7 +36,7 @@
                     <div class="d-none d-xxl-inline-block ms-4 text-center">Price Waterhouse & Coopers</div>
                 </div>
             </div>
-            <div class="row gap-2 mt-2 mt-sm-4 mt-md-4 mt-lg-4 mb-5 align-items-center">
+            <!-- <div class="row gap-2 mt-2 mt-sm-4 mt-md-4 mt-lg-4 mb-5 align-items-center">
                 <button class="btn profile-btn btn-primary col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3 col-xxl-2">Tengo
                     interés en</button>
                 <button
@@ -45,7 +45,7 @@
                 <button #asMore
                     class="btn btn-outline-light profile-btn col-md-1 col-lg-1 col-xl-1 col-xxl-1 d-none d-md-block"
                     id="more">{{windowWidth>1200? 'Más' : '...'}}</button>
-            </div>
+            </div> -->
             <app-edition [horizontal]="windowWidth>=576" [editOnly]="true" (edition)="toggleModal()"
                 class="edition mb-sm-2 me-2 me-sm-3 mt-3 mt-sm-0"></app-edition>
         </div>

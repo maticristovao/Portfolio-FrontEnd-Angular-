@@ -33,7 +33,7 @@ export class PersonalInfoService {
     return this.http.post<any>(`${this.apiUrl}/${field}/add`, item, httpOptions);
   }
   deleteItem(item: any, field: string): Observable<any> {
-    const url = `${this.apiUrl}/${field}/${item.id}`;
+    const url = `${this.apiUrl}/${field}/delete/${item.id}`;
     return this.http.delete<any>(url);
   }
 
