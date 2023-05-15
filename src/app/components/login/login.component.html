@@ -1,4 +1,4 @@
-<section class="pt-5 px-sm-5 pb-0 container-fluid">
+<section class="pt-5 px-sm-5 pb-0 container-fluid position-relative">
     <div class="row">
         <button routerLink="/" class="btn btn-outline-secondary back m-3 m-sm-0">
             <fa-icon [icon]="faBack"></fa-icon>
@@ -6,10 +6,9 @@
     </div>
     <div class="wrapper container-fluid bg-dark px-3 px-sm-5">
         <div class="row justify-content-center pt-5 mb-4 px-2">
-            <h1 class="me-0 me-sm-1 me-md-2">Log In</h1>
+            <h1>Log In</h1>
         </div>
-        <form class="login-form container px-0" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off"
-            (keydown.enter)="onSubmit()">
+        <form class="login-form container px-0" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
             <div class="row mt-5 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Usuario</mat-label>
@@ -39,9 +38,22 @@
                 <mat-checkbox class="remember" formControlName="remember" color="primary">Recordarme</mat-checkbox>
             </div>
             <div class="row justify-content-center mb-5 pt-4">
-                <input class="btn btn-lg btn-block col-9 col-sm-5" type="submit" value="Ingresar"
-                    [class.btn-outline-secondary]="!form.valid" onclick="blur()" />
+                <input class="btn btn-lg btn-block col-9 col-sm-5" type="submit" value="Ingresar" onclick="blur()" />
             </div>
         </form>
     </div>
+    <!-- <div class="fake-wrapper position-absolute">
+        <div class="row">
+            <div class="col-12 fake-toggle" (click)="showHint = true">
+                <h4>Probar modo edición</h4>
+            </div>
+        </div>
+        <div class="row mx-0">
+            <div class="fake-hint col-12 text-center" [class.visible]="showHint">
+                <p>Podrás editar ítems, pero los cambios no quedarán guardados.</p>
+                Usuario: fakeuser
+                <p>Contraseña: fake123</p>
+            </div>
+        </div>
+    </div> -->
 </section>

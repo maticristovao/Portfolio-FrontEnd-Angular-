@@ -2,9 +2,9 @@
     <app-edition [showAdding]="true" (edition)="editMode = !editMode" (adding)="toggleModal()"
         class="m-2 m-xl-3"></app-edition>
     <div class="row w-100 mt-2 mx-0">
-        <article class="col-12 col-lg-8 mb-5 mb-lg-0 skills px-1" cdkDropList (cdkDropListDropped)="drop($event)">
+        <article class="col-12 col-lg-8 mb-5 mb-lg-0 skills px-1">
             <h1 class="heading mb-5">Habilidades</h1>
-            <div class="my-3 ps-0 ps-lg-5 pe-md-4 pe-lg-2" *ngFor="let skill of skills" cdkDrag>
+            <div class="my-3 ps-0 ps-lg-5 pe-md-4 pe-lg-2" *ngFor="let skill of skills">
                 <app-skill-item [skill]="skill"></app-skill-item>
                 <app-edit-item [editMode]="editMode" (updateItem)="passData(skill)"
                     (deleteItem)="deleteItem(skill)"></app-edit-item>
@@ -23,10 +23,4 @@
         </article>
     </div>
 </section>
-<app-add-skill (onAddItem)="addItem($event)" (onUpdateItem)="save($event)"></app-add-skill>
-
-<!-- cdkDrag -->
-<!-- ESO VA EN LA LINEA DEL NGFOR -->
-
-<!-- cdkDropList (cdkDropListDropped)="drop($event)" -->
-<!-- eso va en el article.skills -->
+<app-add-skill (onAddItem)="addItem($event)" (onUpdateItem)="save($event)" [levels]="levels"></app-add-skill>

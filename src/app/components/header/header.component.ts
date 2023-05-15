@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 import { NgbCarousel, NgbCarouselConfig, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { Section } from 'src/assets/section';
 
@@ -22,10 +23,10 @@ export class HeaderComponent extends Section {
     'https://www.fundacionaquae.org/wp-content/uploads/2020/04/Nuevas-formas-de-trabajo3-1-002.jpg',
     'https://a.storyblok.com/f/112937/568x400/19b8611e4b/10-most-fun-languages-to-learn_square-568x400.jpg/m/620x0/filters:quality(70)/'
   ];
-  editModal:any;
+  editModal: any;
 
-  constructor(personalData: PersonalInfoService, toastService: ToastrService, private config: NgbCarouselConfig) {
-    super(personalData, toastService);
+  constructor(personalData: PersonalInfoService, toastService: ToastrService, auth: AuthService, private config: NgbCarouselConfig) {
+    super(personalData, toastService, auth);
     this.config.interval = 6000;
     this.config.pauseOnHover = false;
     this.config.keyboard = false;
@@ -46,7 +47,7 @@ export class HeaderComponent extends Section {
   }
 
   getData() {
-    this.personalData.getData('user/1').subscribe(data => {
+    this.personalData.newGetData('user/1').subscribe(data => {
       this.name = data.name;
       this.surname = data.surname;
     });

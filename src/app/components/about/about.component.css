@@ -35,6 +35,10 @@
 	height: 100%;
 }
 
+.card:hover {
+	cursor: pointer;
+}
+
 .card:is(:hover, .flip) .card_content {
 	transform: rotateY(0.5turn);
 }

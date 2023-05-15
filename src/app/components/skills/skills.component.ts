@@ -11,23 +11,19 @@ import { AddSkillComponent } from './add-skill/add-skill.component';
 export class SkillsComponent extends Section {
   skills: Skill[] = [];
   languages: Language[] = [];
+  levels: Level[] = [];
 
   @ViewChild(AddSkillComponent) editModal!: AddSkillComponent;
 
   getData(): void {
-    this.personalData.getData('skills?_sort=id').subscribe(data => {
+    this.personalData.newGetData('skill/all').subscribe(data => {
       this.skills = data;
     });
-    this.personalData.getData('languages').subscribe(data => {
+    this.personalData.newGetData('language/all').subscribe(data => {
       this.languages = data;
     });
-  }
-
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
-    this.skills.forEach(async skill => {
-      skill.id = this.skills.indexOf(skill) + 1;
-      await this.save(skill);
+    this.personalData.newGetData('level/all').subscribe(data => {
+      this.levels = data;
     });
   }
 
@@ -102,13 +98,13 @@ export interface Skill {
 export interface Language {
   id: number,
   name: string,
-  oral: string,
-  written: string
+  oral: number,
+  written: number,
+  oralLevel: Level,
+  writtenLevel: Level
 }
 
-export enum Levels {
-  Basic,
-  Medium,
-  Advanced,
-  Native
+export interface Level {
+  id: number,
+  name: string
 }

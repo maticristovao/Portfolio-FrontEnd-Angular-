@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
 
-
 const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json"
@@ -14,6 +13,7 @@ const httpOptions = {
 })
 export class PersonalInfoService {
   private apiUrl = 'http://localhost:5000';
+  private myApiUrl = 'http://localhost:8080';
 
   private refreshRequired = new Subject<void>();
   get RefreshRequired() {
@@ -24,7 +24,9 @@ export class PersonalInfoService {
   getData(field: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${field}`);
   }
-
+  newGetData(field: string): Observable<any> {
+    return this.http.get<any>(`${this.myApiUrl}/${field}`);
+  }
   getItemById(field: string, id: number): Observable<any> {
     const url = `${this.apiUrl}/${field}/${id}`;
     return this.http.get<any>(url);
@@ -51,5 +53,3 @@ export class PersonalInfoService {
     );
   }
 }
-
-

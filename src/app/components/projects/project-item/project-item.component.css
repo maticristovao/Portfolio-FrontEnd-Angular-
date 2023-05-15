@@ -1,7 +1,7 @@
 .item {
     height: 700px;
     position: relative;
-    border-radius: 5px;
+    border-radius: 10px;
     display: grid;
     grid-template-rows: auto auto 150px;
     justify-items: center;

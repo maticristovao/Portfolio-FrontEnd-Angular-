@@ -2,8 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FileInput } from 'ngx-material-file-input';
 import { Section } from 'src/assets/section';
-import { AddPersonalInfoComponent } from './add-personal-info/add-personal-info.component';
-import { Phone } from './contact-modal/contact-modal.component';
+import { AddPersonalInfoComponent, Province } from './add-personal-info/add-personal-info.component';
 
 @Component({
   selector: 'app-personal-info',
@@ -15,7 +14,6 @@ export class PersonalInfoComponent extends Section implements OnInit {
 
   moreContent!: string;
   personalInfo: UserData | undefined;
-  phones!: Phone[];
   override field = 'user/1';
   override campo = 'Información personal';
   photo: string = '';
@@ -36,34 +34,18 @@ export class PersonalInfoComponent extends Section implements OnInit {
   }
 
   getData(): void {
-    this.personalData.getData(`${this.field}?_embed=phones`).subscribe((user: UserData) => {
+    this.personalData.newGetData(this.field).subscribe((user: UserData) => {
       this.personalInfo = user;
-      this.phones = user.phones!;
-      // this.cargarFoto(user.photo);  
     });
   }
-
-  // cargarFoto(foto: FileInput) { 
-  //   console.log(foto);
-  //   const ARCHIVO: File = foto.files[0]; 
-  //   if (ARCHIVO) { 
-  //     const LECTOR: FileReader = new FileReader();
-  //     LECTOR.readAsDataURL(ARCHIVO);
-  //     LECTOR.onload = () => { 
-  //       this.photo = LECTOR.result as string;
-  //     };
-  //   }
-  //   console.log(this.photo);
-  // }
 }
 
 export interface UserData {
   name: string,
   surname: string,
-  title: string[],
+  title: string,
   email: string,
-  phones?: Phone[],
-  province: string,
-  country: string,
+  phone: string,
+  province: Province,
   photo: any
 }

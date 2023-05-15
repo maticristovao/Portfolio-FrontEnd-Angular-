@@ -11,7 +11,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
 })
 export class ProjectsComponent extends Section {
   projects: Project[] = [];
-  override field = 'projects';
+  override field = 'project';
   override campo = 'Proyectos';
   faCode = faCode;
   faCodePen = faCodepen;
@@ -46,7 +46,7 @@ export class ProjectsComponent extends Section {
   }
 
   getData(): void {
-    this.personalData.getData(this.field).subscribe(data => {
+    this.personalData.newGetData(`${this.field}/all`).subscribe(data => {
       this.projects = data;
     });
   }

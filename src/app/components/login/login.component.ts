@@ -11,6 +11,8 @@ import { ErrorMatcher } from 'src/assets/error-matchers';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  showHint: boolean = false;
+
   form: FormGroup;
   show: boolean = false;
   faBack = faArrowLeft;

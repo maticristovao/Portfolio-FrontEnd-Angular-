@@ -10,7 +10,7 @@ import { PersonalInfoService } from 'src/app/services/personal-info.service';
 export class ContactModalComponent implements OnInit {
   @Input() name: string = '';
   @Input() email: string = '';
-  @Input() phones: Phone[] = [];
+  @Input() phone: string = '';
 
   faPhone = faPhone;
   faMobile = faMobile;
@@ -21,10 +21,4 @@ export class ContactModalComponent implements OnInit {
 
   ngOnInit(): void {
   }
-}
-
-export interface Phone {
-  id: number,
-  number: number,
-  type: string
 }

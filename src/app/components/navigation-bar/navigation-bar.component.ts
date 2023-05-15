@@ -99,7 +99,7 @@ export class NavigationBarComponent implements OnInit {
   ngOnInit(): void {
     this.giveDataContent(this.navLinks);
 
-    this.personalData.getData('social').subscribe(data => {
+    this.personalData.newGetData('social/all').subscribe(data => {
       this.personalMedia = data;
     })
   }

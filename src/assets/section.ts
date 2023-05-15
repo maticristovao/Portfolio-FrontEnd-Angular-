@@ -2,6 +2,7 @@ import { Directive, HostListener, OnInit } from "@angular/core";
 import { faTrashCanArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { ToastrService } from "ngx-toastr";
 import { AddItemComponent } from "src/app/components/add-item/add-item.component";
+import { AuthService } from "src/app/services/auth.service";
 import { PersonalInfoService } from "src/app/services/personal-info.service";
 
 @Directive()
@@ -20,7 +21,7 @@ export abstract class Section implements OnInit {
         this.windowWidth = window.innerWidth;
     }
 
-    constructor(protected personalData: PersonalInfoService, protected toastService: ToastrService) { }
+    constructor(protected personalData: PersonalInfoService, protected toastService: ToastrService, protected authService: AuthService) { }
 
     abstract getData(): void;
 
@@ -48,7 +49,7 @@ export abstract class Section implements OnInit {
         if (title) {
             this.campo = title;
         }
-        this.toastService.error('Ítem eliminado', this.campo, {toastClass:'toast-delete ngx-toastr'});
+        this.toastService.error('Ítem eliminado', this.campo, { toastClass: 'toast-delete ngx-toastr' });
     }
 
     ngOnInit(): void {

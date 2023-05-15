@@ -21,14 +21,19 @@ section::after {
     z-index: -1;
 }
 
-h1 {
+h1,
+h4 {
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 50px;
-    width: fit-content;
     color: var(--primary-color);
     user-select: none;
+    margin: 0;
+}
+
+h1 {
+    font-size: 50px;
+    width: fit-content;
 }
 
 button.back {
@@ -151,4 +156,32 @@ input[type="submit"]:hover {
     100% {
         opacity: 1;
     }
+}
+
+.fake-toggle {
+    background-color: var(--secondary-color);
+    text-align: center;
+    padding: 20px 30px;
+    border-radius: 5000px;
+    z-index: 2;
+}
+
+.fake-hint {
+    color: white;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .6s ease-in-out, transform .4s ease-in-out;
+}
+
+.fake-hint.visible {
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+.fake-hint {
+    max-width: 350px;
+}
+
+.fake-wrapper{
+    right:150px;
 }

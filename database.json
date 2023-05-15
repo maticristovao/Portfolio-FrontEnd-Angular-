@@ -6,14 +6,12 @@
       "password": "pepe123",
       "name": "Matías",
       "surname": "Cristovao",
-      "title": [
-        "Full Stack Developer Jr",
-        "economics Student"
-      ],
+      "title": "Full Stack Developer Jr",
       "email": "maticristovao@hotmail.com",
+      "phone": "+54 9 11 3945 8436",
       "province": "Buenos Aires",
       "country": "Argentina",
-      "photo": "https://media.licdn.com/dms/image/D4D03AQGvC1cOyWVkgw/profile-displayphoto-shrink_200_200/0/1673571910638?e=1678924800&v=beta&t=JuoqdhESe1Iq_9Ele9kjI15ojxlbA02jHl55Tg1631s",
+      "photo": "https://media.licdn.com/dms/image/D4D03AQGvC1cOyWVkgw/profile-displayphoto-shrink_400_400/0/1673571910638?e=1684368000&v=beta&t=CEwNHM7uC21Emyftbx2gj8rf7dVHGWPbIinmLH-Lb6c",
       "about": "Soy una persona proactiva, detallista y responsable. Me gusta estar en constante mejora; siempre estoy en la búsqueda de formas de cambiar y mejorar los sistemas, métodos y resultados actuales.\nAdemás, disfruto del aprendizaje permanente, agradeciéndo cada oportunidad de adquirir conocimientos y habilidades que potencien mi carrera a futuro."
     }
   ],
@@ -24,20 +22,6 @@
     "showSkills": true,
     "showProj": true
   },
-  "phones": [
-    {
-      "id": 1,
-      "number": "11 3945 8436",
-      "type": "Móvil",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "number": "46640444",
-      "type": "Fijo",
-      "userId": 1
-    }
-  ],
   "countries": [
     {
       "id": 1,
@@ -208,7 +192,7 @@
     {
       "id": 1,
       "name": "Universidad de Belgrano",
-      "logo": "https://media.licdn.com/dms/image/C4D0BAQGpKBYNiEzYYw/company-logo_100_100/0/1661171292091?e=1681948800&v=beta&t=SQ_kSjmeRtWn7Av9laBuPkM04W8WgfZBpDPkpt9nK7Y"
+      "logo": "https://acortar.link/Y5NAmm"
     },
     {
       "id": 2,

@@ -1,5 +1,5 @@
 import { AfterViewChecked, Component, ViewChild } from '@angular/core';
-import { faUserGraduate, faLaptopCode, faBook, faRadio, faFlask, faDumbbell, faGears, faLandmarkDome, faHeartPulse, faChurch, faCommentsDollar, faScaleBalanced } from '@fortawesome/free-solid-svg-icons';
+import { faUserGraduate, faLaptopCode, faBook, faRadio, faFlask, faDumbbell, faGears, faLandmarkDome, faHeartPulse, faChurch, faCommentsDollar, faScaleBalanced, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { Section } from 'src/assets/section';
 import { AddEducationComponent } from './add-education/add-education.component';
 
@@ -17,7 +17,7 @@ export class EducationComponent extends Section implements AfterViewChecked {
 
   @ViewChild(AddEducationComponent) override editModal!: AddEducationComponent;
 
-  setActive() {
+  setActive(): void {
     if (window.innerWidth <= 576) return;
     for (let card of $('.education-card')) {
       card.classList.remove('active');
@@ -25,7 +25,7 @@ export class EducationComponent extends Section implements AfterViewChecked {
     $(this).addClass('active');
   }
 
-  determineIcon(id: number) {
+  determineIcon(id: number): IconDefinition {
     const MAP: any = {
       1: faCommentsDollar,
       2: faLaptopCode,
@@ -42,7 +42,7 @@ export class EducationComponent extends Section implements AfterViewChecked {
     return MAP[id] ?? faBook;
   }
 
-  addItem(item: Education) {
+  addItem(item: Education): void {
     this.personalData.addItem(item, this.field).subscribe((card) => {
       this.appendRelations(card)
       this.personalEducation.push(card);
@@ -52,14 +52,14 @@ export class EducationComponent extends Section implements AfterViewChecked {
     });
   }
 
-  appendRelations(item: Education) {
+  appendRelations(item: Education): void {
     let inst = this.institutions.find((i: Institution) => i.id === item.institutionId);
     item.institution = inst;
     let area = this.institutions.find((a: Area) => a.id === item.areaId);
     item.area = area;
   }
 
-  save(item: Education) {
+  save(item: Education): void {
     this.personalData.updateItem(item, this.field).subscribe(() => {
       this.getCards().item(this.getCardPosition(item))!.className += ' active';
       this.showSuccess('edit');
@@ -68,7 +68,7 @@ export class EducationComponent extends Section implements AfterViewChecked {
     this.personalEducation[this.getCardPosition(item)] = item;
   }
 
-  deleteItem(item: Education) {
+  deleteItem(item: Education): void {
     this.personalData.deleteItem(item, this.field).subscribe(() => {
       this.getCards().item(this.getCardPosition(item) > 0 ? (this.getCardPosition(item) - 1) : 1)!.className += ' active';
       this.personalEducation = this.personalEducation.filter(i => i.id !== item.id);
@@ -87,14 +87,14 @@ export class EducationComponent extends Section implements AfterViewChecked {
     return cards;
   }
 
-  getData(): void{
-    this.personalData.getData(`${this.field}?_expand=institution&_expand=area`).subscribe(data => {
+  getData(): void {
+    this.personalData.newGetData(`${this.field}/all`).subscribe(data => {
       this.personalEducation = data;
     })
-    this.personalData.getData('institutions?_sort=name&_order=asc').subscribe(data => {
+    this.personalData.newGetData('institution/all').subscribe(data => {
       this.institutions = data;
     });
-    this.personalData.getData('areas?_sort=name&_order=asc').subscribe(data => {
+    this.personalData.newGetData('area/all').subscribe(data => {
       this.areas = data;
     });
   }

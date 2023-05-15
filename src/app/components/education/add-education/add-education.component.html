@@ -32,7 +32,7 @@
             <div class="row mt-4 px-0 px-md-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Institución</mat-label>
-                    <mat-select formControlName="institutionId" id="institutionId"
+                    <mat-select formControlName="institution_id" id="institution_id"
                         placeholder="Seleccione una institución...">
                         <mat-option *ngFor="let item of institutions" [value]="item.id" class="py-2">
                             {{item.name}}
@@ -43,7 +43,7 @@
             <div class="row mt-4 px-0 px-md-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Área</mat-label>
-                    <mat-select formControlName="areaId" id="areaId" placeholder="Seleccione un campo de estudio...">
+                    <mat-select formControlName="area_id" id="area_id" placeholder="Seleccione un campo de estudio...">
                         <mat-option *ngFor="let item of areas" [value]="item.id" class="py-2">
                             {{item.name}}
                         </mat-option>

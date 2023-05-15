@@ -45,8 +45,8 @@ export class AddExperienceComponent extends AddItemComponent {
   get Position() {
     return this.form.get('position');
   }
-  get EmployTypeId() {
-    return this.form.get('employTypeId');
+  get EmployType_id() {
+    return this.form.get('employType_id');
   }
   get StartDate() {
     return this.form.get('startDate');
@@ -66,7 +66,7 @@ export class AddExperienceComponent extends AddItemComponent {
       id: item.id,
       company: item.company,
       position: item.position,
-      employTypeId: item.employTypeId,
+      employType_id: item.employType.id,
       startDate: this.extractDate(item.startDate),
       endDate: this.extractDate(item.endDate),
       current: item.current,
@@ -81,7 +81,7 @@ export class AddExperienceComponent extends AddItemComponent {
         id: undefined,
         company: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
         position: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
-        employTypeId: ['', [Validators.required]],
+        employType_id: ['', [Validators.required]],
         startDate: ['', [Validators.required]],
         endDate: [{ value: '', disabled: false }, []],
         current: [false, []],

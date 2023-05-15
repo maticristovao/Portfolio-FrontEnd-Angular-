@@ -46,7 +46,7 @@
             <div class="row mt-4 px-3">
                 <mat-form-field appearance="outline">
                     <mat-label>Tipo de empleo</mat-label>
-                    <mat-select formControlName="employTypeId" name="employTypeId" id="employTypeId"
+                    <mat-select formControlName="employType_id" name="employType_id" id="employType_id"
                         placeholder="Seleccione un tipo de empleo...">
                         <mat-option *ngFor="let item of types" [value]="item.id" class="py-2">
                             {{item.name}}

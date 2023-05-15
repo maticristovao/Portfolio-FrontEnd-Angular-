@@ -30,11 +30,11 @@ export class AddEducationComponent extends AddItemComponent implements OnInit {
   get Title() {
     return this.form.get('title');
   }
-  get InstitutionId() {
-    return this.form.get('institutionId');
+  get Institution_id() {
+    return this.form.get('institution_id');
   }
-  get AreaId() {
-    return this.form.get('areaId');
+  get Area_id() {
+    return this.form.get('area_id');
   }
   get StartDate() {
     return this.form.get('startDate');
@@ -47,8 +47,8 @@ export class AddEducationComponent extends AddItemComponent implements OnInit {
     this.form.setValue({
       id: card.id,
       title: card.title,
-      institutionId: card.institutionId,
-      areaId: card.areaId,
+      institution_id: card.institution?.id,
+      area_id: card.area?.id,
       startDate: this.extractDate(card.startDate),
       endDate: this.extractDate(card.endDate)
     })
@@ -59,8 +59,8 @@ export class AddEducationComponent extends AddItemComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: undefined,
       title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(35)]],
-      institutionId: ['', [Validators.required]],
-      areaId: ['', [Validators.required]],
+      institution_id: ['', [Validators.required]],
+      area_id: ['', [Validators.required]],
       startDate: ['', [Validators.required]],
       endDate: ['', [Validators.required]]
     },

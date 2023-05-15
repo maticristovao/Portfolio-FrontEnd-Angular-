@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { faLanguage, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 import { AddItemComponent } from '../../add-item/add-item.component';
-import { Language, Skill } from '../skills.component';
+import { Language, Level, Skill } from '../skills.component';
 
 @Component({
   selector: 'app-add-skill',
@@ -13,7 +13,7 @@ export class AddSkillComponent extends AddItemComponent implements OnInit {
   isSkillEdit!: boolean;
   faSkill = faScrewdriverWrench;
   faLanguage = faLanguage;
-  levels = ['Básico', 'Intermedio', 'Avanzado', 'Bilingüe'];
+  @Input() levels: Level[] = [];
 
   skillForm: FormGroup = this.formBuilder.group({
     id: undefined,
@@ -63,8 +63,8 @@ export class AddSkillComponent extends AddItemComponent implements OnInit {
     this.langForm.setValue({
       id: language.id,
       name: language.name,
-      oral: language.oral,
-      written: language.written
+      oral: language.oralLevel.id,
+      written: language.writtenLevel.id
     });
     this.add = false;
   }
