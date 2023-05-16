@@ -42,8 +42,8 @@ export class EditionComponent {
   }
 
   deleteSection() {
-    this.editing = false;
-    this.discard.emit();
+    // this.editing = false;
+    // this.discard.emit();
   }
 
   addItem() {
