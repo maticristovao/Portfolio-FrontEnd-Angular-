@@ -1,27 +1,36 @@
-# MyPortfolio
+# Portfolio-FrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Este es el repositorio del Front-End para mi portfolio personal. Proporciona una interfaz de usuario interactiva para mostrar mis proyectos, habilidades y experiencias.
 
-## Development server
+## Características
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Implementado en Angular.
+- Utiliza TypeScript para escribir el código.
+- Interfaz de usuario moderna y receptiva con estilos CSS personalizados.
+- Integración con el Back-End a través de servicios REST.
+- Utiliza librerías populares como Bootstrap para una mejor experiencia de usuario.
 
-## Code scaffolding
+## Estructura del proyecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+El proyecto sigue una estructura de directorios típica de una aplicación Angular. Aquí se encuentran los directorios y archivos más relevantes:
 
-## Build
+- `src/`: Contiene el código fuente de la aplicación.
+  - `app/`: Contiene los componentes, servicios y otros recursos de la aplicación.
+  - `assets/`: Contiene los archivos estáticos como imágenes y estilos CSS.
+  - `environments/`: Contiene archivos de configuración para diferentes entornos (desarrollo, producción, etc.).
+- `angular.json`: Archivo de configuración de Angular.
+- `package.json`: Archivo que especifica las dependencias y scripts de la aplicación.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Requisitos previos
 
-## Running unit tests
+- Node.js instalado en tu sistema.
+- Un navegador web compatible.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Configuración
 
-## Running end-to-end tests
+1. Clona el repositorio: `git clone https://github.com/maticristovao/portfolio-FrontEnd.git`
+2. Navega hasta el directorio del proyecto: `cd portfolio-FrontEnd`
+3. Instala las dependencias: `npm install`
+4. Inicia la aplicación: `ng serve`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+La aplicación se ejecutará en `http://localhost:4200` y se actualizará automáticamente cada vez que realices cambios en el código fuente.
