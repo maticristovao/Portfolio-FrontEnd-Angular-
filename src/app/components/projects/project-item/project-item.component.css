@@ -95,6 +95,11 @@
     background-color: rgba(245, 245, 245, 0.683);
 }
 
+.links a {
+    height: fit-content;
+    width: fit-content;
+}
+
 @media screen and (width>=768px) {
     .item.odd {
         transition-delay: .4s;

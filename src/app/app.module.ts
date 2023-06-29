@@ -51,6 +51,7 @@ import { AddProjectComponent } from './components/projects/add-project/add-proje
 import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 
@@ -81,7 +82,8 @@ import { ToastrModule } from 'ngx-toastr';
     AddSkillComponent,
     AddProjectComponent,
     EditAboutComponent,
-    FooterComponent
+    FooterComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

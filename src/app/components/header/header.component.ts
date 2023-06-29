@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 import { NgbCarousel, NgbCarouselConfig, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { Section } from 'src/assets/section';
@@ -47,9 +48,11 @@ export class HeaderComponent extends Section {
   }
 
   getData() {
+    this.personalData.startLoader();
     this.personalData.getData('user/1').subscribe(data => {
       this.name = data.name;
       this.surname = data.surname;
+      this.personalData.hideLoader();
     });
     this.personalData.RefreshRequired.subscribe(() => this.getData());
   }

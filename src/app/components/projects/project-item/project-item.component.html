@@ -3,6 +3,8 @@
     elementObserver (visible)="visible=true" [threshold]="0.10" [class.visible]="visible" [class.odd]="!even">
     <h2 class="title">{{project.title}}</h2>
     <div class="links d-flex gap-3">
+        <a [href]="project.link" target="_blank" rel="noreferrer noopener"><fa-icon [icon]="faLink"
+                class="resources"></fa-icon></a>
         <a [href]="project.repo" target="_blank" rel="noreferrer noopener"><fa-icon [icon]="faCode"
                 class="resources"></fa-icon></a>
         <a *ngIf="project.collection" [href]="project.collection" target="_blank" rel="noreferrer noopener"><fa-icon

@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faArrowLeft, faEye, faEyeSlash, faKey, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { IndividualConfig, ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import { ImageLoaderService } from 'src/app/services/image-loader.service';
+import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { ErrorMatcher } from 'src/assets/error-matchers';
 
 @Component({
@@ -10,8 +12,9 @@ import { ErrorMatcher } from 'src/assets/error-matchers';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   showHint: boolean = false;
+  imageUrl: string = '';
 
   form: FormGroup;
   show: boolean = false;
@@ -26,12 +29,27 @@ export class LoginComponent {
     progressBar: false
   }
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder, private toastService: ToastrService) {
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private toastService: ToastrService, private imageLoader: ImageLoaderService, private loader: PersonalInfoService) {
     this.form = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
       remember: [false, []]
     });
+  }
+
+  ngOnInit() {
+    this.imageUrl = 'https://cdn.pixabay.com/photo/2020/05/07/04/01/digitization-5140071__340.jpg';
+    this.loader.startLoader();
+
+    this.imageLoader.loadImage(this.imageUrl)
+      .then(() => {
+        console.log('La imagen se cargó exitosamente');
+        this.loader.hideLoader();
+      })
+      .catch((error) => {
+        console.error('Error al cargar la imagen', error);
+        // Maneja el error en caso de que ocurra
+      });
   }
 
   get Username() {
@@ -65,6 +83,7 @@ export class LoginComponent {
     }
   }
 }
+
 interface LoginData {
   username: string,
   password: string,

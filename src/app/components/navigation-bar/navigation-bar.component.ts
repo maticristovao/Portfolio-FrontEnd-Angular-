@@ -4,6 +4,7 @@ import { faBuildingColumns, faGlobe, faHashtag, faHome, faScrewdriverWrench, faS
 import { PersonalInfoService } from 'src/app/services/personal-info.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { Subscription } from 'rxjs';
 
 export interface Media {
   media: string,
@@ -21,6 +22,8 @@ export class NavigationBarComponent implements OnInit {
   navLinks = document.getElementsByClassName('nav-link');
   inverseElements = document.getElementsByClassName('inverse');
   change: boolean = false;
+  showLoader: boolean = true;
+  subscription: Subscription;
 
   @ViewChild('asNav') nav!: ElementRef;
   @ViewChild('asNavMenu') navMenu!: ElementRef;
@@ -54,7 +57,11 @@ export class NavigationBarComponent implements OnInit {
     }
   }
 
-  constructor(private renderer: Renderer2, private personalData: PersonalInfoService, private router: Router, public authService: AuthService) { }
+  constructor(private renderer: Renderer2, public personalData: PersonalInfoService, private router: Router, public authService: AuthService) {
+    this.subscription = personalData.onLoad().subscribe(value => {
+      this.showLoader = value;
+    });
+  }
 
   determineIcon(media: string) {
     const MAP: any = {
@@ -96,11 +103,15 @@ export class NavigationBarComponent implements OnInit {
     return this.router.url === route;
   }
 
-  ngOnInit(): void {
-    this.giveDataContent(this.navLinks);
-
+  getData() {
+    this.personalData.startLoader();
     this.personalData.getData('social/all').subscribe(data => {
       this.personalMedia = data;
-    })
+      this.personalData.hideLoader();
+    });
+  }
+  ngOnInit(): void {
+    this.giveDataContent(this.navLinks);
+    this.getData();
   }
 }

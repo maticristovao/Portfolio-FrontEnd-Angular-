@@ -11,10 +11,35 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class PersonalInfoService {
   private apiUrl = 'https://portfolio-service-forl.onrender.com';
-
   private refreshRequired = new Subject<void>();
+  public showLoader: boolean = false;
+  private loadingCounter: number = 0;
+  private subject = new Subject<any>();
+
+  startLoader() {
+    this.loadingCounter += 1;
+    this.showLoader = true;
+
+    if (this.loadingCounter >= 1) {
+      this.subject.next(this.showLoader);
+    }
+  }
+
+  onLoad(): Observable<any> {
+    return this.subject.asObservable();
+  }
+
+  hideLoader() {
+    this.loadingCounter -= 1;
+    if (this.loadingCounter <= 0){
+      this.showLoader = false;
+      this.subject.next(this.showLoader);
+    }
+  }
+
   get RefreshRequired() {
     return this.refreshRequired;
   }

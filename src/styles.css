@@ -43,6 +43,10 @@ body {
     background-color: var(--background-color, #1a1c1f);
     position: relative;
     overflow-anchor: none;
+    /* overflow: hidden; */
+}
+body.no-scroll{
+    overflow: hidden;
 }
 
 body:has(.light-theme) {

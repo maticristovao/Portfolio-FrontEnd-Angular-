@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FileInput } from 'ngx-material-file-input';
 import { Section } from 'src/assets/section';
@@ -33,10 +33,12 @@ export class PersonalInfoComponent extends Section implements OnInit {
   }
 
   getData(): void {
+    this.personalData.startLoader();
     this.personalData.getData(`${this.field}/1`).subscribe((user: UserData) => {
       this.personalInfo = user;
+      this.personalData.hideLoader();
     });
-    this.personalData.RefreshRequired.subscribe(() => this.getData());
+    // this.personalData.RefreshRequired.subscribe(() => this.getData());
   }
 }
 

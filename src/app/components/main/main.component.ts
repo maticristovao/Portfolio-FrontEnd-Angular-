@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 declare var bootstrap: any;
 @Component({
   selector: 'app-main',
@@ -6,6 +6,7 @@ declare var bootstrap: any;
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements AfterViewInit {
+  @ViewChild('rootContainer') rootContainer!: ElementRef;
   windowWidth: number = window.innerWidth;
   windowHeight: number = window.innerHeight;
 

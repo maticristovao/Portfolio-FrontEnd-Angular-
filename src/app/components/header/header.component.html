@@ -1,6 +1,6 @@
 <header id="header">
     <div class="container-fluid name-logo">
-        <div class="logo" elementObserver (visible)="visible = true" [wait]="250" [class.fade-in]="visible">
+        <div class="logo" elementObserver (visible)="visible = true" [wait]="750" [class.fade-in]="visible && !personalData.showLoader">
             <div>
                 <span>
                     {{windowWidth > 1025?removeAccents(name):removeAccents(name)[0]}}</span>{{windowWidth > 737? removeAccents(surname):removeAccents(surname)[0]}}

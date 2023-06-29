@@ -40,6 +40,8 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
   }
 
   override loadEditData(user: UserData) {
+    this.getProvincesByCountry(user.province.country.id);
+
     this.form.setValue({
       name: user.name,
       surname: user.surname,
@@ -50,21 +52,22 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
       country_id: user.province.country.id,
       photo: user.photo
     })
+    
+    this.Country_id?.valueChanges.subscribe(value => this.getProvincesByCountry(value));
   }
 
   getData(id?: number) {
     this.personalData.getData("country/all").subscribe(data => {
       this.countries = data;
     });
-    if (id) {
-      this.personalData.getData(`province/country/${id}`).subscribe(data => {
-        this.provinces = data;
-      });
-    } else {
-      this.personalData.getData("province/all").subscribe(data => {
-        this.provinces = data;
-      });
-    }
+    this.personalData.getData(`province/all`).subscribe(data => {
+      this.provinces = data;
+    });
+  }
+  getProvincesByCountry(id: number) {
+    this.personalData.getData(`province/country/${id}`).subscribe(data => {
+      this.provinces = data;
+    });
   }
 
   ngOnInit(): void {
@@ -78,7 +81,7 @@ export class AddPersonalInfoComponent extends AddItemComponent implements OnInit
       country_id: ['', [Validators.required]],
       photo: ['', [Validators.pattern(this.urlPattern)]]
     });
-    this.Country_id?.valueChanges.subscribe(value => this.getData(value))
+    this.getData();
   }
 
   override onSubmit(): void {
