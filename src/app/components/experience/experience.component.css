@@ -108,7 +108,7 @@ section {
 
 .description {
     overflow: hidden;
-    color: var(--oposite-color);
+    color: var(--opposite-color);
 }
 
 .type {

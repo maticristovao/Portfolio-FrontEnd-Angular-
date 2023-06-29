@@ -86,7 +86,7 @@
   }
 
   .info {
-    color: var(--oposite-color);
+    color: var(--opposite-color);
     background: var(--primary-color);
     height: 100%;
     text-align: right;
@@ -131,7 +131,7 @@
   }
 
   .icon {
-    background: var(--oposite-color);
+    background: var(--opposite-color);
     position: absolute;
     top: 15px;
     left: 10px;

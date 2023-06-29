@@ -96,8 +96,8 @@ fa-icon.check {
 }
 
 .editing .icon-wrapper:is(:hover, :focus) {
-  color: var(--oposite-color);
-  border-color: var(--oposite-color);
+  color: var(--opposite-color);
+  border-color: var(--opposite-color);
 }
 
 .editing .icon-wrapper.discard:is(:hover, :focus) {

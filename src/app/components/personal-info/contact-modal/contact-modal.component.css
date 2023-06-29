@@ -8,7 +8,7 @@
 
 .modal-content {
     background-color: var(--secondary-color);
-    color: var(--oposite-color);
+    color: var(--opposite-color);
     border-radius: 10px;
     padding: 10px;
 }
@@ -50,7 +50,7 @@ p.label span {
 
 .modal-body p a {
     text-decoration: none;
-    color: var(--oposite-color);
+    color: var(--opposite-color);
     transition: color linear .2s;
 }
 

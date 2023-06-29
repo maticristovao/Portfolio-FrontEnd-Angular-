@@ -47,9 +47,9 @@ div.card-icon fa-icon {
 }
 
 #login-btn:hover {
-    color: var(--oposite-color);
+    color: var(--opposite-color);
     background-color: var(--primary-color);
-    border-color: var(--oposite-color)
+    border-color: var(--opposite-color)
 }
 
 #login-btn:focus {
@@ -57,7 +57,7 @@ div.card-icon fa-icon {
 }
 
 #login-btn:active:focus {
-    color: var(--oposite-color) !important;
+    color: var(--opposite-color) !important;
     box-shadow: rgba(var(--datepicker-effect), 0.5) 0px 0px 0px 0.25rem;
 }
 
@@ -129,8 +129,9 @@ li.nav-item a.nav-link.active {
     font-weight: 600;
 }
 
-.navbar-brand {
-    color: var(--plain-color);
+.navbar-brand span{
+    color: var(--opposite-color);
+    margin-left: 1.2px;
 }
 
 nav>fa-icon {

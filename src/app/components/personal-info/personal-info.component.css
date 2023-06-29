@@ -68,7 +68,7 @@
 .other-info .info p span a {
     text-decoration: none;
     margin-left: 20px;
-    color: var(--oposite-color);
+    color: var(--opposite-color);
     transition: color ease-in-out .2s;
 }
 
@@ -86,7 +86,7 @@
     height: fit-content;
     display: flex;
     align-items: center;
-    color: var(--oposite-color);
+    color: var(--opposite-color);
     font-size: 30px;
     height: 10px;
     position: absolute;
